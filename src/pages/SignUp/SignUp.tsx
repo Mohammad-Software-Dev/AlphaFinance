@@ -5,6 +5,7 @@ import FeatureItem from "../../components/FeatureItem";
 import TextInput from "../../components/TextInput";
 import GetStartedButton from "../../components/GetStartedButton";
 import { useSignUpForm } from "./useSignUpForm";
+import { Button } from "../../components/Button";
 
 const SignUp: React.FC = () => {
   const {
@@ -40,12 +41,15 @@ const SignUp: React.FC = () => {
           description="We believe in exceptional service. We know sometimes you want to speak with an actual human."
         />
       </div>
-      <button
-        type="button"
-        className="mt-10 bg-[#202124] text-white rounded-[4px] px-4 py-2 font-inter font-medium text-[14px] hover:bg-[#323237] transition"
-      >
-        Try our free investor
-      </button>
+        <Button
+      type="button"
+      variant="primary"
+      size="sm"
+      width="auto"
+      className="mt-10"
+    >
+      Try our free investor
+    </Button>
     </div>
   );
 

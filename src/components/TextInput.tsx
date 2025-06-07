@@ -27,7 +27,7 @@ const TextInput: React.FC<TextInputProps> = ({
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        className={`text-input ${
+        className={`text-input px-2 ${
           error ? "border-b-2 border-red-500 focus:border-red-500" : ""
         }`}
       />

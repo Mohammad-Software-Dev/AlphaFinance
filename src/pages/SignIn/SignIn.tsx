@@ -39,7 +39,7 @@ const SignIn: React.FC = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               error={emailError}
-              className="w-3/4 px-2"
+              className="w-3/4 "
             />
             <TextInput
               id="password"
@@ -48,7 +48,7 @@ const SignIn: React.FC = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               error={passwordError}
-               className="w-3/4 px-2"
+               className="w-3/4 "
             />
             <LoginButton disabled={isSubmitting}>
               {isSubmitting ? "Logging in..." : "Login"}

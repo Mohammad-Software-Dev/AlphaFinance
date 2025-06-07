@@ -6,20 +6,19 @@ import { useNavigate } from "react-router-dom";
 const AccountVerification: React.FC = () => {
   const phoneNumber = "+44 324 684 279";
   const emailAddress = "davidpeters@gmail.com";
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleResendSms = () => console.log("Resend SMS");
   const handleResendEmail = () => console.log("Resend Email");
   const handleContact = () => console.log("Contact support");
   const handleNavigateNext = () => {
-        navigate("/investor-profile");
-    };
+    navigate("/legal-agreements");
+  };
   return (
     <div className="min-h-screen bg-white">
-    <ProgressHeader step={2} />
+      <ProgressHeader step={1} showSkip={false} />
 
       <div className="max-w-7xl mx-auto px-6 py-10">
-
         <div className="flex">
           <div className="hidden lg:block w-1/4">
             <StepSidebar currentStep="account" />
@@ -29,14 +28,14 @@ const navigate = useNavigate();
             <VerificationSection
               method="sms"
               destination={phoneNumber}
-               onSubmitCode={handleNavigateNext}
+              onSubmitCode={handleNavigateNext}
               onResend={handleResendSms}
               onContact={handleContact}
             />
             <VerificationSection
               method="email"
               destination={emailAddress}
-               onSubmitCode={handleNavigateNext}
+              onSubmitCode={handleNavigateNext}
               onResend={handleResendEmail}
               onContact={handleContact}
             />

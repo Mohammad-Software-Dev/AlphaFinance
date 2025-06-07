@@ -8,13 +8,15 @@ interface ProgressHeaderProps {
   totalSteps?: number;
   onSkip?: () => void;
   onBack?: () => void;
+  showSkip?: boolean;
 }
 
 const ProgressHeader: React.FC<ProgressHeaderProps> = ({
   step,
-  totalSteps = 10,
+  totalSteps = 5,
   onSkip,
   onBack,
+  showSkip = true,
 }) => {
   const navigate = useNavigate();
   const progressPercentage = Math.min(100, (step / totalSteps) * 100);
@@ -37,12 +39,14 @@ const ProgressHeader: React.FC<ProgressHeaderProps> = ({
         </div>
 
         <div className="flex justify-end items-center">
-          <button
-            onClick={onSkip || (() => navigate("/dashboard"))}
-            className="text-sm font-inter text-gray-700 hover:underline"
-          >
-            Skip
-          </button>
+          {showSkip && (
+            <button
+              onClick={onSkip || (() => navigate("/dashboard"))}
+              className="text-sm font-inter text-gray-700 hover:underline"
+            >
+              Skip
+            </button>
+          )}
         </div>
       </div>
 

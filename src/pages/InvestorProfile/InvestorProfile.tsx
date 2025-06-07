@@ -9,6 +9,7 @@ import Step5 from "./steps/Step5";
 import Step6 from "./steps/Step6";
 import Step7 from "./steps/Step7";
 import { useNavigate } from "react-router-dom";
+import { Button } from "../../components/Button";
 
 const TOTAL_STEPS = 7;
 
@@ -20,7 +21,7 @@ const InvestorProfile: React.FC = () => {
     if (stepIndex < TOTAL_STEPS) {
       setStepIndex((prev) => prev + 1);
     } else {
-     navigate("/legal-agreements");
+      navigate("/start-investing");
     }
   };
 
@@ -57,7 +58,7 @@ const InvestorProfile: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <ProgressHeader step={3} />
+      <ProgressHeader step={4} />
 
       <div className="max-w-7xl mx-auto px-6 py-10">
         <div className="flex">
@@ -71,22 +72,26 @@ const InvestorProfile: React.FC = () => {
             {renderStepContent()}
 
             <div className="flex justify-between w-full max-w-md mt-8">
-            {stepIndex > 1 ? (
-                <button
+              {stepIndex > 1 ? (
+                <Button
+                  variant="secondary"
+                  size="sm"
+                  className="px-4"
                   onClick={handleBack}
-                  className="border border-gray-300 rounded px-4 py-2 text-sm font-inter hover:bg-gray-100 transition"
                 >
                   Back
-                </button>
+                </Button>
               ) : (
                 <div className="w-[100px]" />
               )}
-              <button
+              <Button
+                variant="primary"
+                size="sm"
+                className="px-4"
                 onClick={handleContinue}
-                className="bg-black text-white rounded px-4 py-2 text-sm font-inter font-medium hover:opacity-90 transition"
               >
                 {stepIndex < TOTAL_STEPS ? "Continue" : "Finish"}
-              </button>
+              </Button>
             </div>
           </div>
         </div>

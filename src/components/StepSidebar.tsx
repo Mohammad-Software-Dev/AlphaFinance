@@ -2,14 +2,14 @@ import React from "react";
 import checkIcon from "../assets/icons/simple-check.png";
 
 interface StepSidebarProps {
-  currentStep: "account" | "profile" | "legal" | "identity" | "start";
+  currentStep: "account" | "legal" | "identity" | "profile" | "start";
 }
 
 const steps = [
   { key: "account", label: "Account Verification" },
-  { key: "profile", label: "Investor Profile" },
   { key: "legal", label: "Legal Agreement" },
   { key: "identity", label: "Identity Verification" },
+  { key: "profile", label: "Investor Profile" },
   { key: "start", label: "Start Investing" },
 ] as const;
 
@@ -26,18 +26,12 @@ const StepSidebar: React.FC<StepSidebarProps> = ({ currentStep }) => {
           let icon = null;
           if (isCompleted) {
             icon = (
-              <img
-                src={checkIcon}
-                alt="Completed"
-                className="w-4 h-4 mt-1"
-              />
+              <img src={checkIcon} alt="Completed" className="w-4 h-4 mt-1" />
             );
           } else if (isCurrent) {
-            icon = (
-              <span className="text-black text-lg leading-[1.1]">•</span>
-            );
+            icon = <span className="text-black text-lg leading-[1.1]">•</span>;
           } else {
-            icon = <span className="w-4" />; 
+            icon = <span className="w-4" />;
           }
 
           return (

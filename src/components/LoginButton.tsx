@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "./Button";  
 
 interface LoginButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
@@ -6,9 +7,14 @@ interface LoginButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>
 
 const LoginButton: React.FC<LoginButtonProps> = ({ children, ...rest }) => {
   return (
-    <button className="btn-login mt-2" {...rest}>
+    <Button
+      variant="primary"
+      size="md"
+      fullWidth
+      {...rest}
+    >
       {children}
-    </button>
+    </Button>
   );
 };
 
