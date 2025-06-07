@@ -1,4 +1,3 @@
-// src/components/VerificationSection.tsx
 import React, { useState } from "react";
 import Lottie from "lottie-react";
 import { motion } from "framer-motion";

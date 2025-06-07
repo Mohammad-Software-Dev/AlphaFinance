@@ -1,4 +1,3 @@
-// src/pages/AccountVerification/AccountVerification.tsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import StepSidebar from "../../components/StepSidebar";
@@ -47,7 +46,6 @@ const AccountVerification: React.FC = () => {
               />
             </div>
 
-            {/* Next button shown only when both verified */}
             {bothVerified && (
               <div className="flex justify-end lg:w-2/3 ">
                 <Button

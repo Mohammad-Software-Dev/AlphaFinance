@@ -52,6 +52,18 @@
 }
 
 @layer components {
+  .text-balck{
+      color: var(--color-black-russian);
+  }
+  .border-black {
+    border-color: var(--color-black-russian);
+}
+  .border-granite-gray {
+    border-color: var(--color-granite-gray);
+}
+  .text-granite-gray{
+    color:var(--color-granite-gray);
+  }
   .text-verified {
     color: var(--color-verified);
   }

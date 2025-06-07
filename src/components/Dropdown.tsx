@@ -23,7 +23,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         id={id}
         value={value}
         onChange={onChange}
-        className="w-full text-input bg-transparent pr-8 appearance-none"
+        className="w-full text-input bg-transparent pr-8 appearance-none px-2"
       >
         <option value="" disabled hidden>
           {placeholder}
@@ -43,7 +43,11 @@ const Dropdown: React.FC<DropdownProps> = ({
           stroke="currentColor"
           strokeWidth={2}
         >
-          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M19 9l-7 7-7-7"
+          />
         </svg>
       </div>
     </div>

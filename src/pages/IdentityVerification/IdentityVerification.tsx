@@ -76,18 +76,14 @@ const IdentityVerification: React.FC = () => {
           <div className="w-full lg:w-2/3 flex flex-col space-y-6 items-start">
             {renderStepContent()}
             <div className="flex justify-between w-full max-w-md mt-8">
-              {stepIndex > 1 ? (
-                <Button
-                  variant="secondary"
-                  size="sm"
-                  className="px-4"
-                  onClick={handleBack}
-                >
-                  Back
-                </Button>
-              ) : (
-                <div className="w-[100px]" />
-              )}
+              <Button
+                variant="secondary"
+                size="sm"
+                className="px-4"
+                onClick={handleBack}
+              >
+                Back
+              </Button>
 
               <Button
                 variant="primary"
