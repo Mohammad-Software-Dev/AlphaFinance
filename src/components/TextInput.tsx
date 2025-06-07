@@ -16,24 +16,20 @@ const TextInput: React.FC<TextInputProps> = ({
   type = "text",
   value,
   onChange,
-  error = "",
+  error,
   className = "",
 }) => {
   return (
-    <div className={`flex flex-col items-start  ${className}`}>
+    <div className={`flex flex-col items-start ${className}`}>
       <input
         id={id}
         type={type}
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        className={`text-input px-2 ${
-          error ? "border-b-2 border-red-500 focus:border-red-500" : ""
-        }`}
+        className={`text-input px-2 ${error ? "error" : ""}`}
       />
-      {error && (
-        <p className="mt-1 text-xs text-red-600 font-inter">{error}</p>
-      )}
+      {error && <p className="mt-1 text-xs text-error font-inter">{error}</p>}
     </div>
   );
 };

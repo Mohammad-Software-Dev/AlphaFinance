@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "./fonts.css";
 @import "./components/button.css";
+@import "./components/textInput.css";
 
 
 @theme {
@@ -11,14 +12,53 @@
   --color-black-russian: #202124;
   --color-dark-blue: #282C32;
   --color-granite-gray: #606165;
+  --color-white-smoke: #F0F0F0;
+  --color-error-red: #cc0000;
   --color-get-button-bg: #C9D7FD;
   --color-get-button-hover: #B4C4F8;
   --color-get-icon-bg: #1C1C1C;
 }
 
+@layer base {
+    html {
+    font-family: var(--font-inter);
+  }
+  p {
+    @apply text-base font-normal leading-relaxed text-gray-700;
+  }
+
+  h1 {
+    @apply text-4xl font-bold text-[var(--color-dark-blue)] mb-4;
+  }
+  h2 {
+    @apply text-3xl font-semibold text-[var(--color-dark-blue)] mb-3;
+  }
+  h3 {
+    @apply text-2xl font-semibold text-black mb-2;
+  }
+  h4 {
+    @apply text-xl font-medium text-black mb-2;
+  }
+  ul, ol {
+    @apply list-disc list-inside mb-4 text-base text-gray-700;
+  }
+  li {
+    @apply mb-1;
+  }
+  blockquote {
+    @apply border-l-4 border-gray-300 pl-4 italic text-gray-600 mb-4;
+  }
+}
+
 @layer components {
   .text-brand {
     color: var(--color-brand);
+  }
+  .bg-brand {
+    background-color:var(--color-brand);
+  }
+  .text-error{
+    color:var(--color-error-red);
   }
   .logo-text {
     font-family: var(--font-open-sans);
@@ -40,7 +80,7 @@
     color: var(--color-black-russian);
   }
 
-  .text-input {
+  /* .text-input {
     width: 100%;
     border: none;
     border-bottom: 1px solid var(--color-input-underline);
@@ -59,7 +99,7 @@
 
   .text-input:focus {
     border-bottom-color: var(--color-black-russian);
-  }
+  } */
 
   /* .btn-login {
     @apply flex items-center justify-center;

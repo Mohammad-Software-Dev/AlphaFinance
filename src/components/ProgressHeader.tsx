@@ -52,7 +52,7 @@ const ProgressHeader: React.FC<ProgressHeaderProps> = ({
 
       <div className="w-full h-[2px] bg-gray-200">
         <div
-          className="h-full bg-[#8496E7] transition-all duration-300"
+          className="h-full bg-brand transition-all duration-300"
           style={{ width: `${progressPercentage}%` }}
         />
       </div>

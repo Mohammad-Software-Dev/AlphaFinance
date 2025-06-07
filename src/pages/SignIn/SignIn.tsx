@@ -1,12 +1,12 @@
-import React from "react"
-import { Link } from "react-router-dom"
-import FormLayout from "../../components/FormLayout"
-import Logo from "../../components/Logo"
-import PageTitle from "../../components/PageTitle"
-import TextInput from "../../components/TextInput"
-import LoginButton from "../../components/LoginButton"
-import { useSignInForm } from "./useSignInForm"
-import signInSideImage from "../../assets/images/sign_in_side.png"
+import React from "react";
+import { Link } from "react-router-dom";
+import FormLayout from "../../components/FormLayout";
+import Logo from "../../components/Logo";
+import PageTitle from "../../components/PageTitle";
+import TextInput from "../../components/TextInput";
+import { useSignInForm } from "./useSignInForm";
+import signInSideImage from "../../assets/images/sign_in_side.png";
+import { Button } from "../../components/Button";
 
 const SignIn: React.FC = () => {
   const {
@@ -16,12 +16,14 @@ const SignIn: React.FC = () => {
     setPassword,
     emailError,
     passwordError,
-    isSubmitting,
     onSubmit,
-  } = useSignInForm()
+  } = useSignInForm();
 
   return (
-    <FormLayout leftImageSrc={signInSideImage} leftImageAlt="Sign In Illustration">
+    <FormLayout
+      leftImageSrc={signInSideImage}
+      leftImageAlt="Sign In Illustration"
+    >
       <div className="absolute top-6 left-6 lg:block hidden">
         <Logo />
       </div>
@@ -31,7 +33,10 @@ const SignIn: React.FC = () => {
           <p className="client-portal mt-1">Client Portal</p>
         </div>
         <div className="w-[623px] flex flex-col items-start space-y-4">
-          <form className="w-full flex flex-col items-start space-y-6" onSubmit={onSubmit}>
+          <form
+            className="w-full flex flex-col items-start space-y-6"
+            onSubmit={onSubmit}
+          >
             <TextInput
               id="email"
               placeholder="Email Address"
@@ -48,11 +53,11 @@ const SignIn: React.FC = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               error={passwordError}
-               className="w-3/4 "
+              className="w-3/4 "
             />
-            <LoginButton disabled={isSubmitting}>
-              {isSubmitting ? "Logging in..." : "Login"}
-            </LoginButton>
+            <Button variant="primary" size="md" fullWidth className="mt-4">
+              Login
+            </Button>
           </form>
         </div>
         <div className="flex flex-col items-center w-[623px] space-y-2">
@@ -61,14 +66,14 @@ const SignIn: React.FC = () => {
           </a>
           <p className="flex items-center space-x-1">
             <span className="not-client">Not a client yet?</span>
-          <Link to="/signup" className="signup-link">
+            <Link to="/signup" className="signup-link">
               Sign Up
-          </Link>
+            </Link>
           </p>
         </div>
       </div>
     </FormLayout>
-  )
-}
+  );
+};
 
-export default SignIn
+export default SignIn;

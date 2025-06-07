@@ -41,15 +41,15 @@ const SignUp: React.FC = () => {
           description="We believe in exceptional service. We know sometimes you want to speak with an actual human."
         />
       </div>
-        <Button
-      type="button"
-      variant="primary"
-      size="sm"
-      width="auto"
-      className="mt-10"
-    >
-      Try our free investor
-    </Button>
+      <Button
+        type="button"
+        variant="primary"
+        size="sm"
+        width="auto"
+        className="mt-10"
+      >
+        Try our free investor
+      </Button>
     </div>
   );
 
@@ -104,7 +104,10 @@ const SignUp: React.FC = () => {
           <GetStartedButton disabled={isSubmitting} loading={isSubmitting} />
           <span className="font-inter text-[14px] text-gray-600">
             Already have an account?{" "}
-            <a href="/signin" className="font-roboto text-[14px] text-[#8496E7] hover:underline">
+            <a
+              href="/signin"
+              className="font-roboto text-[14px] text-brand hover:underline"
+            >
               Log in
             </a>
           </span>
@@ -120,12 +123,15 @@ const SignUp: React.FC = () => {
         <a href="/privacy" className="underline">
           Privacy Policy
         </a>
-        . You also elect to receive updates, newsletters, and offers from Alphaseed.
+        . You also elect to receive updates, newsletters, and offers from
+        Alphaseed.
       </p>
     </div>
   );
 
-  return <TwoColumnLayout leftContent={leftContent} rightContent={rightContent} />;
+  return (
+    <TwoColumnLayout leftContent={leftContent} rightContent={rightContent} />
+  );
 };
 
 export default SignUp;
