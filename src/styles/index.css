@@ -14,6 +14,7 @@
   --color-granite-gray: #606165;
   --color-white-smoke: #F0F0F0;
   --color-error-red: #cc0000;
+  --color-verified: #0dbc4c;
   --color-get-button-bg: #C9D7FD;
   --color-get-button-hover: #B4C4F8;
   --color-get-icon-bg: #1C1C1C;
@@ -51,6 +52,9 @@
 }
 
 @layer components {
+  .text-verified {
+    color: var(--color-verified);
+  }
   .text-brand {
     color: var(--color-brand);
   }
