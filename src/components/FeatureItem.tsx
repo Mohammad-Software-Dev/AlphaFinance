@@ -1,5 +1,5 @@
 import React from "react";
-import  checkIcon  from "../assets/icons/check.png";
+import CheckIcon from "../assets/icons/check.svg?react";
 
 interface FeatureItemProps {
   title: string;
@@ -9,13 +9,7 @@ interface FeatureItemProps {
 const FeatureItem: React.FC<FeatureItemProps> = ({ title, description }) => {
   return (
     <div className="flex space-x-3">
-   <div className="flex-shrink-0">
-        <img
-          src={checkIcon}
-          alt=""
-          className="w-6 h-6"
-        />
-      </div>
+      <CheckIcon className="w-6 h-6 flex-shrink-0" />
       <div>
         <p className="font-inter font-semibold text-base text-[#282C32]">
           {title}

@@ -66,7 +66,7 @@ const IdentityVerification: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <ProgressHeader step={3} showSkip={false} />
+      <ProgressHeader step={3} onSkip={() => navigate("/investor-profile")} />
       <div className="max-w-7xl mx-auto px-6 py-10">
         <div className="flex">
           <div className="hidden lg:block w-1/4">

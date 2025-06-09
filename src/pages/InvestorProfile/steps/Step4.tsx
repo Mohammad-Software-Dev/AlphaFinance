@@ -1,12 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
-import infoIcon from "../../../assets/icons/info-icon.png";
+import InfoIcon from "../../../assets/icons/info-icon.svg?react";
 
 const timeHorizons = ["1–5 Years", "5–10 Years", "10–20 Years", "20+ Years"];
 
 const Step4: React.FC = () => {
   const [showInfo, setShowInfo] = useState(false);
   const popupRef = useRef<HTMLDivElement>(null);
-  const iconRef = useRef<HTMLImageElement>(null);
+  const iconRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -40,12 +40,11 @@ const Step4: React.FC = () => {
           <button className="w-full text-left border border-gray-300 rounded px-4 py-3 text-sm group-hover:bg-gray-100 transition">
             {timeHorizons[0]}
           </button>
-          <img
+          <InfoIcon
             ref={iconRef}
-            src={infoIcon}
-            alt="Info"
-            className="w-5 h-5 cursor-pointer absolute right-3 top-1/2 transform -translate-y-1/2"
             onClick={() => setShowInfo((prev) => !prev)}
+            className="w-5 h-5 cursor-pointer absolute right-3 top-1/2 transform -translate-y-1/2"
+            title="Info"
           />
           {showInfo && (
             <div
@@ -53,7 +52,7 @@ const Step4: React.FC = () => {
               className="absolute top-0 left-full ml-3 bg-[#F0F4F8] rounded-lg p-4 w-64 shadow"
             >
               <div className="flex justify-center items-center mb-4 space-x-2">
-                <img src={infoIcon} alt="Info" className="w-5 h-5" />
+                <InfoIcon className="w-5 h-5" title="Info" />
                 <span className="font-inter font-semibold text-base text-gray-800">
                   Why We Ask
                 </span>
@@ -65,7 +64,11 @@ const Step4: React.FC = () => {
                 </button>
               </div>
               <p className="font-open-sans text-sm text-gray-600">
-                Lorem ipsum dolor sit amet consectetur. Scelerisque volutpat ut elementum facilisis adipiscing purus. Nulla tortor urna integer arcu tortor vitae mattis adipiscing quis. Pretium dignissim sapien gravida ridiculus ultrices viverra volutpat. Ac aliquam eget pellentesque nullam vivamus non imperdiet.
+                Lorem ipsum dolor sit amet consectetur. Scelerisque volutpat ut
+                elementum facilisis adipiscing purus. Nulla tortor urna integer
+                arcu tortor vitae mattis adipiscing quis. Pretium dignissim
+                sapien gravida ridiculus ultrices viverra volutpat. Ac aliquam
+                eget pellentesque nullam vivamus non imperdiet.
               </p>
             </div>
           )}

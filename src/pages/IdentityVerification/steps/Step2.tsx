@@ -1,20 +1,14 @@
 import React, { useState, useRef, useEffect } from "react";
-import infoIcon from "../../../assets/icons/info-icon.png";
+import InfoIcon from "../../../assets/icons/info-icon.svg?react";
 import TextInput from "../../../components/TextInput";
 import Dropdown from "../../../components/Dropdown";
 
-const statesList = [
-  "Alabama",
-  "Alaska",
-  "Arizona",
-
-  "Wyoming",
-];
+const statesList = ["Alabama", "Alaska", "Arizona", "Wyoming"];
 
 const Step2: React.FC = () => {
   const [showInfo, setShowInfo] = useState(false);
   const popupRef = useRef<HTMLDivElement>(null);
-  const iconRef = useRef<HTMLImageElement>(null);
+  const iconRef = useRef<SVGSVGElement>(null);
 
   const [street, setStreet] = useState("");
   const [apartment, setApartment] = useState("");
@@ -62,11 +56,10 @@ const Step2: React.FC = () => {
             onMouseEnter={() => setShowInfo(true)}
             onMouseLeave={() => setShowInfo(false)}
           >
-            <img
+            <InfoIcon
               ref={iconRef}
-              src={infoIcon}
-              alt="Info"
               className="w-5 h-5 cursor-pointer"
+              title="Info"
             />
             {showInfo && (
               <div
@@ -81,34 +74,34 @@ const Step2: React.FC = () => {
         </div>
       </div>
       <div className="space-y-4 w-full max-w-md">
-      <TextInput
-        id="apartment"
-        placeholder=" Apartment, Suite or Building Number: (Optional)"
-        value={apartment}
-        onChange={(e) => setApartment(e.target.value)}
-      />
+        <TextInput
+          id="apartment"
+          placeholder=" Apartment, Suite or Building Number: (Optional)"
+          value={apartment}
+          onChange={(e) => setApartment(e.target.value)}
+        />
 
-      <TextInput
-        id="city"
-        placeholder="City"
-        value={city}
-        onChange={(e) => setCity(e.target.value)}
-      />
+        <TextInput
+          id="city"
+          placeholder="City"
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
+        />
 
-      <Dropdown
-        id="state"
-        placeholder="State"
-        options={statesList}
-        value={stateValue}
-        onChange={(e) => setStateValue(e.target.value)}
-      />
+        <Dropdown
+          id="state"
+          placeholder="State"
+          options={statesList}
+          value={stateValue}
+          onChange={(e) => setStateValue(e.target.value)}
+        />
 
-      <TextInput
-        id="zip"
-        placeholder="Zip Code"
-        value={zip}
-        onChange={(e) => setZip(e.target.value)}
-      />
+        <TextInput
+          id="zip"
+          placeholder="Zip Code"
+          value={zip}
+          onChange={(e) => setZip(e.target.value)}
+        />
       </div>
     </>
   );

@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import Lottie from "lottie-react";
 import { motion } from "framer-motion";
-
-import phoneIcon from "../assets/icons/phone.png";
-import mailIcon from "../assets/icons/mail.png";
+import PhoneIcon from "../assets/icons/phone.svg?react";
+import MailIcon from "../assets/icons/mail.svg?react";
 import TextInput from "./TextInput";
 import { Button } from "./Button";
 
@@ -39,20 +38,25 @@ const VerificationSection: React.FC<VerificationSectionProps> = ({
     onSubmitCode(code);
   };
 
-  const iconSrc = method === "sms" ? phoneIcon : mailIcon;
+  const iconSrc =
+    method === "sms" ? (
+      <PhoneIcon className="max-w-[90px]" />
+    ) : (
+      <MailIcon className="max-w-[90px]" />
+    );
+
   const placeholderText =
     method === "sms" ? "Type SMS code here" : "Type email code here";
 
   return (
     <div className="flex flex-col items-start space-y-4 w-full max-w-md">
       {/* Icon + Title */}
-      <div className="flex items-center justify-center">
-        <img src={iconSrc} alt={`${method} icon`} className="max-w-[90px]" />
-      </div>
-      <h3 className="font-inter font-semibold text-lg text-black">
+      <div className="flex items-center justify-center">{iconSrc}</div>
+
+      <h3 className="font-inter  text-lg text-black">
         Second step identity verification
       </h3>
-      <p className="font-open-sans text-sm text-gray-600">
+      <p className="font-open-sans text-sm text-black">
         Enter the {method === "sms" ? "SMS" : "Email"} verification code that we
         send to <br />
         <span className="font-inter font-semibold text-black">

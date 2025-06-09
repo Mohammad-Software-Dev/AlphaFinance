@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import backArrow from "../assets/icons/back-arrow.png";
+import BackArrowIcon from "../assets/icons/back-arrow.svg?react";
 import Logo from "./Logo";
 
 interface ProgressHeaderProps {
@@ -29,7 +29,7 @@ const ProgressHeader: React.FC<ProgressHeaderProps> = ({
             onClick={onBack || (() => navigate("/signin"))}
             className="flex items-center space-x-2 hover:underline"
           >
-            <img src={backArrow} alt="Back" className="w-4 h-4" />
+            <BackArrowIcon className="w-4 h-4" />
             <span className="text-sm font-inter text-gray-700">Log out</span>
           </button>
         </div>

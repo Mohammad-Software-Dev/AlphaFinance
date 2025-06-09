@@ -157,7 +157,7 @@ const LegalAgreements: React.FC = () => {
             <h2 className="font-inter font-semibold  text-black">
               Alphaseed Legal Agreements
             </h2>
-            <p className="font-open-sans text-sm text-text-granite-gray max-w-md">
+            <p className="font-open-sans text-sm text-black max-w-md">
               Lorem ipsum dolor sit amet consectetur. Scelerisque tempus congue
               egestas tristique arcu eu viverra.
             </p>
@@ -226,7 +226,7 @@ const LegalAgreements: React.FC = () => {
                 {agreementContent[open]}
               </div>
               {/* footer */}
-              <div className="px-6 py-4 border-t flex justify-end">
+              <div className="px-6 py-4 flex justify-end">
                 <Button
                   variant="primary"
                   size="sm"

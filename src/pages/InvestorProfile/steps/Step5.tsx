@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import infoIcon from "../../../assets/icons/info-icon.png";
+import InfoIcon from "../../../assets/icons/info-icon.svg?react";
 
 const riskOptions = ["Conservative", "Moderate", "Aggressive"];
 
@@ -42,11 +42,7 @@ const Step5: React.FC = () => {
               onMouseEnter={() => setShowInfo(true)}
               onMouseLeave={() => setShowInfo(false)}
             >
-              <img
-                src={infoIcon}
-                alt="Info"
-                className="w-5 h-5 cursor-pointer"
-              />
+              <InfoIcon className="w-5 h-5 cursor-pointer" title="Info" />
               {showInfo && (
                 <div
                   ref={popupRef}

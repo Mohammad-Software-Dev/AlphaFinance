@@ -1,10 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
-import infoIcon from "../../../assets/icons/info-icon.png";
+import InfoIcon from "../../../assets/icons/info-icon.svg?react";
 
 const Step7: React.FC = () => {
   const [showInfo, setShowInfo] = useState(false);
   const popupRef = useRef<HTMLDivElement>(null);
-  const iconRef = useRef<HTMLImageElement>(null);
+  const iconRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -45,11 +45,10 @@ const Step7: React.FC = () => {
             onMouseEnter={() => setShowInfo(true)}
             onMouseLeave={() => setShowInfo(false)}
           >
-            <img
+            <InfoIcon
               ref={iconRef}
-              src={infoIcon}
-              alt="Info"
               className="w-5 h-5 cursor-pointer"
+              title="Info"
             />
             {showInfo && (
               <div
@@ -63,7 +62,9 @@ const Step7: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="font-open-sans text-sm text-gray-400 mt-4">Employer Name</div>
+      <div className="font-open-sans text-sm text-gray-400 mt-4">
+        Employer Name
+      </div>
       <input
         type="text"
         placeholder="Employer Name"

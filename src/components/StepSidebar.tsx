@@ -1,5 +1,5 @@
 import React from "react";
-import checkIcon from "../assets/icons/simple-check.png";
+import CheckIcon from "../assets/icons/simple-check.svg?react";
 
 interface StepSidebarProps {
   currentStep: "account" | "legal" | "identity" | "profile" | "start";
@@ -25,9 +25,7 @@ const StepSidebar: React.FC<StepSidebarProps> = ({ currentStep }) => {
 
           let icon = null;
           if (isCompleted) {
-            icon = (
-              <img src={checkIcon} alt="Completed" className="w-4 h-4 mt-1" />
-            );
+            icon = <CheckIcon className="w-4 h-4 mt-1" />;
           } else if (isCurrent) {
             icon = <span className="text-black text-lg leading-[1.1]">•</span>;
           } else {

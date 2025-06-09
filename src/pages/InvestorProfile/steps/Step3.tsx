@@ -1,7 +1,7 @@
 import React from "react";
-import icon1 from "../../../assets/icons/icon_1.png";
-import icon2 from "../../../assets/icons/icon_2.png";
-import icon3 from "../../../assets/icons/icon_3.png";
+import Icon1 from "../../../assets/icons/icon_1.svg?react";
+import Icon2 from "../../../assets/icons/icon_2.svg?react";
+import Icon3 from "../../../assets/icons/icon_3.svg?react";
 
 const Step3: React.FC = () => {
   return (
@@ -12,17 +12,17 @@ const Step3: React.FC = () => {
 
       <div className="flex flex-col space-y-5 w-full max-w-md">
         <button className="flex items-center space-x-3 border border-gray-300 rounded px-4 py-3 text-left text-sm hover:bg-gray-100 transition">
-          <img src={icon1} alt="Build general wealth" className="w-[16px]" />
+          <Icon1 className="w-[16px]" title="Build general wealth" />
           <span>Build general wealth</span>
         </button>
 
         <button className="flex items-center space-x-3 border border-gray-300 rounded px-4 py-3 text-left text-sm hover:bg-gray-100 transition">
-          <img src={icon2} alt="Save for retirement" className="w-[16px]" />
+          <Icon2 className="w-[16px]" title="Save for retirement" />
           <span>Save for retirement</span>
         </button>
 
         <button className="flex items-center space-x-3 border border-gray-300 rounded px-4 py-3 text-left text-sm hover:bg-gray-100 transition">
-          <img src={icon3} alt="Grow your cash" className="w-[16px]" />
+          <Icon3 className="w-[16px]" title="Grow your cash" />
           <span>Grow your cash</span>
         </button>
       </div>
