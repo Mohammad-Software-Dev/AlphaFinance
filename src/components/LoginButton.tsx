@@ -1,18 +1,14 @@
 import React from "react";
-import { Button } from "./Button";  
+import { Button } from "./common/Button";
 
-interface LoginButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface LoginButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
 }
 
 const LoginButton: React.FC<LoginButtonProps> = ({ children, ...rest }) => {
   return (
-    <Button
-      variant="primary"
-      size="md"
-      fullWidth
-      {...rest}
-    >
+    <Button variant="primary" size="md" fullWidth {...rest}>
       {children}
     </Button>
   );

@@ -3,8 +3,8 @@ import Lottie from "lottie-react";
 import { motion } from "framer-motion";
 import PhoneIcon from "../assets/icons/phone.svg?react";
 import MailIcon from "../assets/icons/mail.svg?react";
-import TextInput from "./TextInput";
-import { Button } from "./Button";
+import TextInput from "./common/TextInput";
+import { Button } from "./common/Button";
 
 import checkCircle from "../assets/animations/check-circle_1.json";
 
@@ -53,9 +53,7 @@ const VerificationSection: React.FC<VerificationSectionProps> = ({
       {/* Icon + Title */}
       <div className="flex items-center justify-center">{iconSrc}</div>
 
-      <h3 className="font-inter  text-lg text-black">
-        Second step identity verification
-      </h3>
+      <h4>Second step identity verification</h4>
       <p className="font-open-sans text-sm text-black">
         Enter the {method === "sms" ? "SMS" : "Email"} verification code that we
         send to <br />

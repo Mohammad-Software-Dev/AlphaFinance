@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import InfoIcon from "../../../assets/icons/info-icon.svg?react";
-import TextInput from "../../../components/TextInput";
-import Dropdown from "../../../components/Dropdown";
+import TextInput from "../../../components/common/TextInput";
+import Dropdown from "../../../components/common/Dropdown";
 
 const statesList = ["Alabama", "Alaska", "Arizona", "Wyoming"];
 

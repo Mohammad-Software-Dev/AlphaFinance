@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import ProgressHeader from "../../components/ProgressHeader";
-import StepSidebar from "../../components/StepSidebar";
+import ProgressHeader from "../../components/SignUp/ProgressHeader";
+import StepSidebar from "../../components/SignUp/StepSidebar";
 import Step1 from "./steps/Step1";
 import Step2 from "./steps/Step2";
 import Step3 from "./steps/Step3";
@@ -11,7 +11,7 @@ import Step6 from "./steps/Step6";
 import Step7 from "./steps/Step7";
 import Step8 from "./steps/Step8";
 import Step9 from "./steps/Step9";
-import { Button } from "../../components/Button";
+import { Button } from "../../components/common/Button";
 
 const TOTAL_STEPS = 9;
 

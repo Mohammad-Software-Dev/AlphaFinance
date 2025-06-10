@@ -1,5 +1,5 @@
 import React from "react";
-import CheckIcon from "../assets/icons/simple-check.svg?react";
+import CheckIcon from "../../assets/icons/simple-check.svg?react";
 
 interface StepSidebarProps {
   currentStep: "account" | "legal" | "identity" | "profile" | "start";

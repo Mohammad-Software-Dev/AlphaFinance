@@ -1,10 +1,9 @@
-// src/pages/LegalAgreements/LegalAgreements.tsx
 import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import ProgressHeader from "../../components/ProgressHeader";
-import StepSidebar from "../../components/StepSidebar";
-import { Button } from "../../components/Button";
+import ProgressHeader from "../../components/SignUp/ProgressHeader";
+import StepSidebar from "../../components/SignUp/StepSidebar";
+import { Button } from "../../components/common/Button";
 
 const agreements = [
   "User Agreement",
@@ -20,13 +19,13 @@ const agreements = [
 const agreementContent: Record<string, React.ReactNode> = {
   "User Agreement": (
     <>
-      <h4 className="font-inter font-semibold text-lg">1. Introduction</h4>
+      <h4>1. Introduction</h4>
       <p>
         Welcome to AlphaSeed. By using our services, you agree to the following
         terms and conditions:
       </p>
 
-      <h4 className="font-inter font-semibold text-lg">2. Your Account</h4>
+      <h4>2. Your Account</h4>
       <ul className="list-disc list-inside space-y-2">
         <li>Eligibility: You must be at least 18 years old.</li>
         <li>
@@ -37,20 +36,20 @@ const agreementContent: Record<string, React.ReactNode> = {
         </li>
       </ul>
 
-      <h4 className="font-inter font-semibold text-lg">3. Fees & Charges</h4>
+      <h4>3. Fees & Charges</h4>
       <p>
         All fees associated with your account are described in our{" "}
         <strong>Fee Schedule</strong>. You agree to pay all applicable fees
         promptly.
       </p>
 
-      <h4 className="font-inter font-semibold text-lg">4. Privacy</h4>
+      <h4>4. Privacy</h4>
       <p>
         Your personal data is governed by our <strong>Privacy Policy</strong>,
         which explains how we collect, use, and store your information.
       </p>
 
-      <h4 className="font-inter font-semibold text-lg">5. Termination</h4>
+      <h4>5. Termination</h4>
       <ul className="list-decimal list-inside space-y-2">
         <li>Either party may terminate this agreement with 30 days’ notice.</li>
         <li>
@@ -58,7 +57,7 @@ const agreementContent: Record<string, React.ReactNode> = {
         </li>
       </ul>
 
-      <h4 className="font-inter font-semibold text-lg">6. Contact Us</h4>
+      <h4>6. Contact Us</h4>
       <p>
         Questions? Email{" "}
         <a
@@ -74,22 +73,20 @@ const agreementContent: Record<string, React.ReactNode> = {
 
   "Privacy Policy": (
     <>
-      <h4 className="font-inter font-semibold text-lg">1. Data Collection</h4>
+      <h4>1. Data Collection</h4>
       <p>
         We collect information you provide directly, and usage data when you
         interact with our services.
       </p>
 
-      <h4 className="font-inter font-semibold text-lg">
-        2. Use of Information
-      </h4>
+      <h4>2. Use of Information</h4>
       <ul className="list-disc list-inside space-y-2">
         <li>To provide and maintain our services.</li>
         <li>To communicate updates and offers.</li>
         <li>To improve user experience.</li>
       </ul>
 
-      <h4 className="font-inter font-semibold text-lg">3. Sharing</h4>
+      <h4>3. Sharing</h4>
       <p>
         We do not sell your personal data. We may share it with service
         providers under NDA.
@@ -213,7 +210,7 @@ const LegalAgreements: React.FC = () => {
             >
               {/* header */}
               <div className="sticky top-0 px-6 py-4 border-b bg-white flex justify-between items-center">
-                <h3 className="font-inter font-semibold text-lg">{open}</h3>
+                <h4>{open}</h4>
                 <button
                   onClick={() => setOpen(null)}
                   className="text-gray-500 hover:text-gray-800 text-xl"

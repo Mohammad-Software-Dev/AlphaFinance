@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import StepSidebar from "../../components/StepSidebar";
+import StepSidebar from "../../components/SignUp/StepSidebar";
 import VerificationSection from "../../components/VerificationSection";
-import ProgressHeader from "../../components/ProgressHeader";
-import { Button } from "../../components/Button";
+import ProgressHeader from "../../components/SignUp/ProgressHeader";
+import { Button } from "../../components/common/Button";
 
 const AccountVerification: React.FC = () => {
   const phoneNumber = "+44 324 684 279";

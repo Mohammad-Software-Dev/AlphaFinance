@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import FormLayout from "../../components/FormLayout";
 import Logo from "../../components/Logo";
 import PageTitle from "../../components/PageTitle";
-import TextInput from "../../components/TextInput";
+import TextInput from "../../components/common/TextInput";
 import { useSignInForm } from "./useSignInForm";
 import signInSideImage from "../../assets/images/sign_in_side.png";
-import { Button } from "../../components/Button";
+import { Button } from "../../components/common/Button";
 
 const SignIn: React.FC = () => {
   const {

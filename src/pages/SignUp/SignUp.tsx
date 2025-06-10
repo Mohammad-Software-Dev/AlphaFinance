@@ -2,10 +2,10 @@ import React from "react";
 import TwoColumnLayout from "../../components/TwoColumnLayout";
 import PageTitle from "../../components/PageTitle";
 import FeatureItem from "../../components/FeatureItem";
-import TextInput from "../../components/TextInput";
+import TextInput from "../../components/common/TextInput";
 import GetStartedButton from "../../components/GetStartedButton";
 import { useSignUpForm } from "./useSignUpForm";
-import { Button } from "../../components/Button";
+import { Button } from "../../components/common/Button";
 
 const SignUp: React.FC = () => {
   const {

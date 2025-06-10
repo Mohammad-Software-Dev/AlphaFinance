@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import BackArrowIcon from "../assets/icons/back-arrow.svg?react";
-import Logo from "./Logo";
+import BackArrowIcon from "../../assets/icons/back-arrow.svg?react";
+import Logo from "../Logo";
 
 interface ProgressHeaderProps {
   step: number;
