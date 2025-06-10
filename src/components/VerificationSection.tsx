@@ -50,7 +50,6 @@ const VerificationSection: React.FC<VerificationSectionProps> = ({
 
   return (
     <div className="flex flex-col items-start space-y-4 w-full max-w-md">
-      {/* Icon + Title */}
       <div className="flex items-center justify-center">{iconSrc}</div>
 
       <h4>Second step identity verification</h4>
@@ -65,7 +64,6 @@ const VerificationSection: React.FC<VerificationSectionProps> = ({
       <form onSubmit={handleSubmit} className="w-full space-y-6">
         {!verified ? (
           <>
-            {/* Input */}
             <TextInput
               id={`verification-${method}`}
               placeholder={placeholderText}
@@ -74,7 +72,6 @@ const VerificationSection: React.FC<VerificationSectionProps> = ({
               error={error}
             />
 
-            {/* Buttons */}
             <div className="flex justify-between items-start w-full">
               <Button
                 type="submit"

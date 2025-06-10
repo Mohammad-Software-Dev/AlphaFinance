@@ -3,6 +3,7 @@ import rightTopImage from "../../assets/images/right-top.png";
 import rightBottomImage from "../../assets/images/right-bottom.png";
 import ArrowIcon from "../../assets/icons/top-right-arrow.svg?react";
 import Tag from "../common/Tag";
+import { Link } from "react-router-dom";
 
 type Post = {
   author: string;
@@ -54,9 +55,7 @@ export default function RecentPosts() {
       <h3 className="text-gray-900">Recent blog posts</h3>
 
       <div className="grid grid-cols-2 gap-6">
-        {/* Left half: featured */}
         <article className="flex flex-col">
-          {/* image */}
           <div className="">
             <img
               src={featured.image}
@@ -65,7 +64,6 @@ export default function RecentPosts() {
             />
           </div>
 
-          {/* content */}
           <div className="py-6 flex flex-col space-y-2">
             <p className="font-medium text-[14px] text-brand">
               {featured.author} • {featured.date}
@@ -73,17 +71,17 @@ export default function RecentPosts() {
 
             <div className="flex items-center justify-between">
               <h3 className="text-gray-900">{featured.title}</h3>
-              <button
+              <Link
+                to="/blog-post"
                 aria-label="Read more"
                 className="p-1 rounded hover:bg-[var(--color-white-smoke)] transition"
               >
                 <ArrowIcon className="w-6 h-6 text-gray-600" />
-              </button>
+              </Link>
             </div>
 
             <p className="text-gray-500">{featured.excerpt}</p>
 
-            {/* categories (colored) first, then tags (gray-outline) */}
             <div className="flex flex-wrap gap-2">
               {featured.categories.map((cat, idx) => (
                 <Tag key={cat} colorIndex={idx}>
@@ -97,7 +95,6 @@ export default function RecentPosts() {
           </div>
         </article>
 
-        {/* Right half: two small posts stacked */}
         <div className="flex flex-col space-y-7">
           {smallPosts.map((post, postIdx) => (
             <article key={post.title} className="flex items-stretch">
@@ -118,10 +115,8 @@ export default function RecentPosts() {
                   {post.excerpt}
                 </p>
 
-                {/* same pattern: categories colored, tags outline */}
                 <div className="flex flex-wrap gap-2">
                   {post.categories.map((cat, idx) => (
-                    // offset index by e.g. postIdx*2 to vary the palette
                     <Tag key={cat} colorIndex={idx + postIdx * 2}>
                       {cat}
                     </Tag>

@@ -43,7 +43,6 @@ const STORIES: Story[] = [
 
 const Stories: React.FC = () => (
   <section className="flex flex-col h-full ">
-    {/* TOP = 40% */}
     <div className="min-h-[40%] w-full px-2 py-4 space-y-4  overflow-hidden flex flex-col items-center">
       <h2 className="text-4xl text-center w-3/4 font-semibold text-gray-900">
         Stories and interviews
@@ -53,7 +52,7 @@ const Stories: React.FC = () => (
         solutions, and updates.
       </p>
 
-      <form className="w-full">
+      <div className="w-full">
         <input
           type="email"
           placeholder="Enter your email"
@@ -62,7 +61,7 @@ const Stories: React.FC = () => (
         <Button variant="primary" size="md" fullWidth className="mt-4">
           Subscribe
         </Button>
-      </form>
+      </div>
       <div className="w-full">
         <p className="text-sm font-normal text-gray-500">
           We care about your data in our{" "}
@@ -81,7 +80,6 @@ const Stories: React.FC = () => (
       </span>
     </div>
 
-    {/* BOTTOM = 60% and scrollable */}
     <div className="flex-1 space-y-6 px-4 mt-4 overflow-y-auto w-full border-l-[1px] border-gray-300">
       {STORIES.map((story, idx) => (
         <article

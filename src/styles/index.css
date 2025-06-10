@@ -23,7 +23,7 @@
   --color-verified: #0dbc4c;
   --color-get-button-bg: #C9D7FD;
   --color-get-button-hover: #B4C4F8;
-  --color-get-icon-bg: #1C1C1C;
+  --color-black-2: #1C1C1C;
 }
 
 @layer base {
@@ -57,6 +57,9 @@
 }
 
 @layer components {
+  .text-black-2{
+    color: var(--color-black-2);
+  }
   .text-sonic-silver{
     color: var(--color-sonic-silver);
   }
@@ -91,6 +94,12 @@
   }
   .bg-color-light-white-smoke{
     background-color: var(--color-light-white-smoke);
+  }
+    .bg-color-white-smoke{
+    background-color: var(--color-white-smoke);
+  }
+  .border-color-white-smoke{
+    border-color: var(--color-white-smoke);
   }
   .bg-gray-98{
     background-color: var(--color-gray-98);

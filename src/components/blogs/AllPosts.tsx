@@ -8,6 +8,7 @@ import blog4 from "../../assets/images/blog_4.png";
 import blog5 from "../../assets/images/blog_5.png";
 import blog6 from "../../assets/images/blog_6.png";
 import Pagination from "../common/Pagination";
+import { Link } from "react-router-dom";
 interface Post {
   image: string;
   author: string;
@@ -92,11 +93,9 @@ export const AllPosts: React.FC = () => {
       <h2 className="text-2xl font-semibold text-[var(--color-dark-blue)]">
         All blog posts
       </h2>
-      {/* 3-column grid */}
       <div className="grid grid-cols-3 gap-6">
         {visiblePosts.map((post, idx) => (
           <article key={idx} className="flex flex-col space-y-3">
-            {/* Image */}
             <div className="h-48 w-full  overflow-hidden">
               <img
                 src={post.image}
@@ -105,25 +104,22 @@ export const AllPosts: React.FC = () => {
               />
             </div>
 
-            {/* Meta + read-more */}
             <p className=" mt-3 font-medium text-[14px] text-brand">
               {post.author} • {post.date}
             </p>
             <div className="flex items-start justify-between">
-              {/* Title */}
               <h3 className="text-gray-900 text-[23px]">{post.title}</h3>
-              <button
+              <Link
+                to="/blog-post"
                 aria-label="Read more"
                 className="p-1 rounded hover:bg-[var(--color-white-smoke)] transition"
               >
-                <ReadMoreIcon className="w-5 h-5 text-gray-600" />
-              </button>
+                <ReadMoreIcon className="w-6 h-6 text-gray-600" />
+              </Link>
             </div>
 
-            {/* Excerpt */}
             <p className="text-gray-500 line-clamp-2">{post.excerpt}</p>
 
-            {/* Tags */}
             <div className="mt-3 flex flex-wrap gap-2">
               {post.categories.map((cat, cIdx) => (
                 <Tag key={cat} colorIndex={idx + cIdx}>
@@ -137,7 +133,6 @@ export const AllPosts: React.FC = () => {
           </article>
         ))}
       </div>
-      {/* Pagination */}
       <Pagination
         currentPage={page}
         totalPages={totalPages}
