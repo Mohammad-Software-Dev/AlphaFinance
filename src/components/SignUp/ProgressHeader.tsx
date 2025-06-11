@@ -30,7 +30,9 @@ const ProgressHeader: React.FC<ProgressHeaderProps> = ({
             className="flex items-center space-x-2 hover:underline"
           >
             <BackArrowIcon className="w-4 h-4" />
-            <span className="text-sm font-inter text-gray-700">Log out</span>
+            <span className="hidden md:block text-sm font-inter text-gray-700">
+              Log out
+            </span>
           </button>
         </div>
 

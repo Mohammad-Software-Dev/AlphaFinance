@@ -53,13 +53,22 @@ const Step9: React.FC = () => {
               title="Info"
             />
             {showInfo && (
-              <div
-                ref={popupRef}
-                className="absolute left-full top-1/2 -translate-y-1/2 ml-2 px-4 py-2 bg-black text-white rounded-lg whitespace-nowrap shadow-lg z-10"
-              >
-                <div className="absolute left-[-6px] top-1/2 -translate-y-1/2 w-0 h-0 border-t-[6px] border-b-[6px] border-r-[6px] border-transparent border-r-black" />
-                Enter stock symbols separated by commas.
-              </div>
+              <>
+                <div
+                  ref={popupRef}
+                  className="hidden lg:block absolute left-full top-1/2 -translate-y-1/2 ml-2 px-4 py-2 bg-black text-white rounded-lg whitespace-nowrap shadow-lg z-10"
+                >
+                  <div className="absolute left-[-6px] top-1/2 -translate-y-1/2 w-0 h-0 border-t-[6px] border-b-[6px] border-r-[6px] border-transparent border-r-black" />
+                  Enter stock symbols separated by commas.
+                </div>
+                <div
+                  ref={popupRef}
+                  className="block lg:hidden absolute right-full top-1/2 -translate-y-1/2 mr-2 px-4 py-2 bg-black text-white rounded-lg whitespace-nowrap shadow-lg z-10"
+                >
+                  <div className="absolute right-[-6px] top-1/2 -translate-y-1/2 w-0 h-0 border-t-[6px] border-b-[6px] border-l-[6px] border-transparent border-l-black" />
+                  Enter stock symbols separated by commas.
+                </div>
+              </>
             )}
           </div>
         </div>

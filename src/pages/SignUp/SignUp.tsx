@@ -100,9 +100,9 @@ const SignUp: React.FC = () => {
           error={errors.phone}
         />
 
-        <div className="mt-4 flex items-center space-x-4">
+        <div className="mt-4 flex flex-col sm:flex-row items-center sm:space-x-4 space-y-2 sm:space-y-0">
           <GetStartedButton disabled={isSubmitting} loading={isSubmitting} />
-          <span className="font-inter text-[14px] text-gray-600">
+          <span className="font-inter text-[14px] text-gray-600 text-center sm:text-left">
             Already have an account?{" "}
             <a
               href="/signin"

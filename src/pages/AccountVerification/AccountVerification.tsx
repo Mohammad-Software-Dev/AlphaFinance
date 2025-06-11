@@ -21,10 +21,10 @@ const AccountVerification: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-6 py-10">
         <div className="flex">
-          <div className="hidden lg:block w-1/4">
+          <div className="hidden md:block md:w-2/4 lg:w-1/4">
             <StepSidebar currentStep="account" />
           </div>
-          <div className="hidden lg:block w-1/12" />
+          <div className="hidden md:block w-1/12" />
           <div className="w-full lg:w-2/3 ">
             <div className="space-y-12">
               {" "}

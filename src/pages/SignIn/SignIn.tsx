@@ -24,15 +24,22 @@ const SignIn: React.FC = () => {
       leftImageSrc={signInSideImage}
       leftImageAlt="Sign In Illustration"
     >
+      {/* Logo */}
       <div className="absolute top-6 left-6 lg:block hidden">
         <Logo />
       </div>
+      {/* Center logo on mobile */}
+      <div className=" lg:hidden w-full flex justify-center mb-6">
+        <Logo />
+      </div>
       <div className="flex flex-col items-center w-full space-y-6">
-        <div className="w-[623px] flex flex-col items-start space-y-0">
+        {/* Title & Subtitle */}
+        <div className="w-full max-w-[400px] md:max-w-[520px] lg:max-w-[623px] flex flex-col items-start space-y-0">
           <PageTitle>Welcome Back</PageTitle>
           <p className="client-portal mt-1">Client Portal</p>
         </div>
-        <div className="w-[623px] flex flex-col items-start space-y-4">
+        {/* Form */}
+        <div className="w-full max-w-[400px] md:max-w-[520px] lg:max-w-[623px] flex flex-col items-start space-y-4">
           <form
             className="w-full flex flex-col items-start space-y-6"
             onSubmit={onSubmit}
@@ -44,7 +51,7 @@ const SignIn: React.FC = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               error={emailError}
-              className="w-3/4 "
+              className="w-full"
             />
             <TextInput
               id="password"
@@ -53,14 +60,15 @@ const SignIn: React.FC = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               error={passwordError}
-              className="w-3/4 "
+              className="w-full"
             />
             <Button variant="primary" size="md" fullWidth className="mt-4">
               Login
             </Button>
           </form>
         </div>
-        <div className="flex flex-col items-center w-[623px] space-y-2">
+        {/* Footer */}
+        <div className="flex flex-col items-center w-full max-w-[400px] md:max-w-[520px] lg:max-w-[623px] space-y-2">
           <a href="#" className="forgot-password">
             Forgot password?
           </a>

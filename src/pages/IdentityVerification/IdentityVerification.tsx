@@ -69,10 +69,10 @@ const IdentityVerification: React.FC = () => {
       <ProgressHeader step={3} onSkip={() => navigate("/investor-profile")} />
       <div className="max-w-7xl mx-auto px-6 py-10">
         <div className="flex">
-          <div className="hidden lg:block w-1/4">
+          <div className="hidden md:block md:w-2/4 lg:w-1/4">
             <StepSidebar currentStep="identity" />
           </div>
-          <div className="hidden lg:block w-1/12" />
+          <div className="hidden md:block w-1/12" />
           <div className="w-full lg:w-2/3 flex flex-col space-y-6 items-start">
             {renderStepContent()}
             <div className="flex justify-between w-full max-w-md mt-8">

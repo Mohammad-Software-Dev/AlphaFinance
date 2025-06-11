@@ -47,30 +47,57 @@ const Step4: React.FC = () => {
             title="Info"
           />
           {showInfo && (
-            <div
-              ref={popupRef}
-              className="absolute top-0 left-full ml-3 bg-[#F0F4F8] rounded-lg p-4 w-64 shadow"
-            >
-              <div className="flex justify-center items-center mb-4 space-x-2">
-                <InfoIcon className="w-5 h-5" title="Info" />
-                <span className="font-inter font-semibold text-base text-gray-800">
-                  Why We Ask
-                </span>
-                <button
-                  onClick={() => setShowInfo(false)}
-                  className="text-gray-500 hover:text-gray-800 ml-auto"
-                >
-                  ✕
-                </button>
+            <>
+              <div
+                ref={popupRef}
+                className="hidden lg:block absolute top-0 left-full ml-3 bg-[#F0F4F8] rounded-lg p-4 w-64 shadow z-30"
+              >
+                <div className="flex justify-center items-center mb-4 space-x-2">
+                  <InfoIcon className="w-5 h-5" title="Info" />
+                  <span className="font-inter font-semibold text-base text-gray-800">
+                    Why We Ask
+                  </span>
+                  <button
+                    onClick={() => setShowInfo(false)}
+                    className="text-gray-500 hover:text-gray-800 ml-auto"
+                  >
+                    ✕
+                  </button>
+                </div>
+                <p className="font-open-sans text-sm text-gray-600">
+                  Lorem ipsum dolor sit amet consectetur. Scelerisque volutpat
+                  ut elementum facilisis adipiscing purus. Nulla tortor urna
+                  integer arcu tortor vitae mattis adipiscing quis. Pretium
+                  dignissim sapien gravida ridiculus ultrices viverra volutpat.
+                  Ac aliquam eget pellentesque nullam vivamus non imperdiet.
+                </p>
               </div>
-              <p className="font-open-sans text-sm text-gray-600">
-                Lorem ipsum dolor sit amet consectetur. Scelerisque volutpat ut
-                elementum facilisis adipiscing purus. Nulla tortor urna integer
-                arcu tortor vitae mattis adipiscing quis. Pretium dignissim
-                sapien gravida ridiculus ultrices viverra volutpat. Ac aliquam
-                eget pellentesque nullam vivamus non imperdiet.
-              </p>
-            </div>
+
+              <div
+                ref={popupRef}
+                className="block lg:hidden absolute top-0 right-full mr-3 translate-x-72 bg-[#F0F4F8] rounded-lg p-4 w-64 shadow z-30"
+              >
+                <div className="flex justify-center items-center mb-4 space-x-2">
+                  <InfoIcon className="w-5 h-5" title="Info" />
+                  <span className="font-inter font-semibold text-base text-gray-800">
+                    Why We Ask
+                  </span>
+                  <button
+                    onClick={() => setShowInfo(false)}
+                    className="text-gray-500 hover:text-gray-800 ml-auto"
+                  >
+                    ✕
+                  </button>
+                </div>
+                <p className="font-open-sans text-sm text-gray-600">
+                  Lorem ipsum dolor sit amet consectetur. Scelerisque volutpat
+                  ut elementum facilisis adipiscing purus. Nulla tortor urna
+                  integer arcu tortor vitae mattis adipiscing quis. Pretium
+                  dignissim sapien gravida ridiculus ultrices viverra volutpat.
+                  Ac aliquam eget pellentesque nullam vivamus non imperdiet.
+                </p>
+              </div>
+            </>
           )}
         </div>
 
