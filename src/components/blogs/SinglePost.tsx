@@ -16,7 +16,7 @@ export interface SinglePostProps {
 
 const SinglePost: React.FC<SinglePostProps> = ({ post }) => (
   <article className="space-y-4 mb-18">
-    <div className="w-full h-[400px] overflow-hidden rounded-lg">
+    <div className="w-full h-[400px] overflow-hidden ">
       <img
         src={post.image}
         alt={post.title}
@@ -53,7 +53,7 @@ const SinglePost: React.FC<SinglePostProps> = ({ post }) => (
       ))}
     </div>
 
-    <div className="w-full h-[400px] overflow-hidden rounded-lg">
+    <div className="w-full h-[400px] overflow-hidden ">
       <img
         src={post.image}
         alt={post.title}

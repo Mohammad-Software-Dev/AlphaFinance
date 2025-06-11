@@ -84,7 +84,7 @@ const Sidebar: React.FC<SidebarProps> = ({
         border border-light-silver
         rounded-[16px]
         w-[90px]
-        h-[800px]
+        md:h-[800px]
         flex flex-col justify-start
         relative overflow-visible  
       "
@@ -95,21 +95,23 @@ const Sidebar: React.FC<SidebarProps> = ({
       <button
         aria-label="Toggle sidebar"
         className="
-          absolute
-          top-[55px]       
-          right-[-12px]     
-          w-6 h-6        
-          bg-white
-          border border-light-silver
-          hover:bg-[var(--color-gray-98)]
-          transition-colors
-          rounded-lg
-          flex items-center justify-center
-        "
+    absolute
+    top-[55px]       
+    right-[-12px]     
+    w-6 h-6        
+    bg-white
+    border border-light-silver
+    hover:bg-[var(--color-gray-98)]
+    transition-colors
+    rounded-lg
+     items-center justify-center
+    hidden md:flex
+  "
       >
         <ArrowsIcon className="w-4 h-4" />
       </button>
-      <div className=" flex-1 py-6 flex flex-col items-center space-y-3">
+
+      <div className=" md:flex-1 py-6 flex flex-col items-center space-y-3">
         <span className="text-[10px] font-medium uppercase text-sonic-silver">
           Main
         </span>

@@ -42,8 +42,9 @@ const STORIES: Story[] = [
 ];
 
 const Stories: React.FC = () => (
-  <section className="flex flex-col h-full ">
-    <div className="min-h-[40%] w-full px-2 py-4 space-y-4  overflow-hidden flex flex-col items-center">
+  <section className="flex flex-col h-full">
+    {/* Subscribe Section (always visible) */}
+    <div className="min-h-[40%] w-full px-2 py-4 space-y-4 overflow-hidden flex flex-col items-center">
       <h2 className="text-4xl text-center w-3/4 font-semibold text-gray-900">
         Stories and interviews
       </h2>
@@ -51,7 +52,6 @@ const Stories: React.FC = () => (
         Subscribe to learn about new product features, the latest in technology,
         solutions, and updates.
       </p>
-
       <div className="w-full">
         <input
           type="email"
@@ -71,16 +71,18 @@ const Stories: React.FC = () => (
           .
         </p>
       </div>
-
       <hr className="border-gray-200" />
     </div>
-    <div className="px-2 h-fit w-fit">
+
+    {/* WORLD NEWS badge (hidden on mobile/tablet) */}
+    <div className="px-2 h-fit w-fit hidden md:block">
       <span className="text-[12px] font-[400] bg-brand px-[12px] py-[5px] text-white rounded-lg w-fit">
         WORLD NEWS
       </span>
     </div>
 
-    <div className="flex-1 space-y-6 px-4 mt-4 overflow-y-auto w-full border-l-[1px] border-gray-300">
+    {/* Stories List (hidden on mobile/tablet) */}
+    <div className="flex-1 space-y-6 px-4 mt-4 overflow-y-auto w-full border-l-[1px] border-gray-300 hidden md:block">
       {STORIES.map((story, idx) => (
         <article
           key={idx}
@@ -90,7 +92,6 @@ const Stories: React.FC = () => (
           <p className="text-xs font-normal text-gray-500 leading-relaxed">
             {story.excerpt}
           </p>
-
           <p className="text-xs text-gray-600">
             {story.author} &#8226; {story.role}
           </p>

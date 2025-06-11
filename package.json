@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host 0.0.0.0",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -17,7 +17,8 @@
     "lottie-react": "^2.4.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-router-dom": "^7.6.1"
+    "react-router-dom": "^7.6.1",
+    "swiper": "^11.2.8"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",

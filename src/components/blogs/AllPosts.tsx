@@ -9,6 +9,7 @@ import blog5 from "../../assets/images/blog_5.png";
 import blog6 from "../../assets/images/blog_6.png";
 import Pagination from "../common/Pagination";
 import { Link } from "react-router-dom";
+
 interface Post {
   image: string;
   author: string;
@@ -89,26 +90,28 @@ export const AllPosts: React.FC = () => {
   const visiblePosts = POSTS.slice(startIdx, startIdx + 6);
 
   return (
-    <section className="space-y-6">
-      <h2 className="text-2xl font-semibold text-[var(--color-dark-blue)]">
+    <section className="space-y-6 px-3 md:px-0">
+      <h2 className="text-2xl md:text-3xl font-semibold text-[var(--color-dark-blue)]">
         All blog posts
       </h2>
-      <div className="grid grid-cols-3 gap-6">
+      {/* Responsive grid: 1 col (mobile), 2 cols (md), 3 cols (lg) */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
         {visiblePosts.map((post, idx) => (
           <article key={idx} className="flex flex-col space-y-3">
-            <div className="h-48 w-full  overflow-hidden">
+            <div className="h-48 w-full overflow-hidden">
               <img
                 src={post.image}
                 alt={post.title}
                 className="w-full h-full object-cover"
               />
             </div>
-
-            <p className=" mt-3 font-medium text-[14px] text-brand">
+            <p className="mt-3 font-medium text-[14px] text-brand">
               {post.author} • {post.date}
             </p>
             <div className="flex items-start justify-between">
-              <h3 className="text-gray-900 text-[23px]">{post.title}</h3>
+              <h3 className="text-gray-900 text-lg md:text-[23px] font-semibold">
+                {post.title}
+              </h3>
               <Link
                 to="/blog-post"
                 aria-label="Read more"
@@ -117,9 +120,7 @@ export const AllPosts: React.FC = () => {
                 <ReadMoreIcon className="w-6 h-6 text-gray-600" />
               </Link>
             </div>
-
             <p className="text-gray-500 line-clamp-2">{post.excerpt}</p>
-
             <div className="mt-3 flex flex-wrap gap-2">
               {post.categories.map((cat, cIdx) => (
                 <Tag key={cat} colorIndex={idx + cIdx}>

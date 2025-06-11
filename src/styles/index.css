@@ -2,7 +2,8 @@
 @import "./fonts.css";
 @import "./components/button.css";
 @import "./components/textInput.css";
-
+@import 'swiper/css';
+@import 'swiper/css/effect-cards';
 
 @theme {
   --font-inter:    "Inter",      sans-serif;
