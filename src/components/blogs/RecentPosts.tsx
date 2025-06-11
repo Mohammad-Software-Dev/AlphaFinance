@@ -57,13 +57,13 @@ const allPosts = [featured, ...smallPosts];
 
 export default function RecentPosts() {
   return (
-    <section className="space-y-3 pl-3 md:pl-0">
-      <h3 className="text-gray-900 text-xl md:text-2xl font-semibold">
+    <section className="space-y-3 pl-3 lg:pl-0">
+      <h3 className="text-gray-900 text-xl lg:text-2xl font-semibold">
         Recent blog posts
       </h3>
 
       {/* Desktop/Tablet Layout (md and up) */}
-      <div className="hidden md:grid grid-cols-2 gap-6">
+      <div className="hidden lg:grid grid-cols-2 gap-6">
         {/* Featured Post */}
         <article className="flex flex-col">
           <div>
@@ -136,7 +136,7 @@ export default function RecentPosts() {
       </div>
 
       {/* Mobile Swiper Layout */}
-      <div className="block md:hidden">
+      <div className="block lg:hidden">
         <Swiper
           slidesPerView={1.1}
           // spaceBetween={14}

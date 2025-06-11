@@ -75,14 +75,14 @@ const Stories: React.FC = () => (
     </div>
 
     {/* WORLD NEWS badge (hidden on mobile/tablet) */}
-    <div className="px-2 h-fit w-fit hidden md:block">
+    <div className="px-2 h-fit w-fit hidden lg:block">
       <span className="text-[12px] font-[400] bg-brand px-[12px] py-[5px] text-white rounded-lg w-fit">
         WORLD NEWS
       </span>
     </div>
 
     {/* Stories List (hidden on mobile/tablet) */}
-    <div className="flex-1 space-y-6 px-4 mt-4 overflow-y-auto w-full border-l-[1px] border-gray-300 hidden md:block">
+    <div className="flex-1 space-y-6 px-4 mt-4 overflow-y-auto w-full border-l-[1px] border-gray-300 hidden lg:block">
       {STORIES.map((story, idx) => (
         <article
           key={idx}

@@ -153,7 +153,7 @@ const BlogPostPage: React.FC = () => {
       <ul className="mt-4 space-y-6">
         {RECOMMENDED_FEED.map((item, i) => (
           <li key={i} className="flex items-start gap-4">
-            <div className="min-w-1/3 w-20 sm:w-24 md:w-full">
+            <div className="min-w-1/3 w-20 sm:w-24 lg:w-full">
               <img
                 src={item.image}
                 alt={item.title}
@@ -177,7 +177,7 @@ const BlogPostPage: React.FC = () => {
   return (
     <>
       <button
-        className="fixed bottom-6 right-6 z-60 md:hidden  bg-white border border-light-silver text-black p-3 rounded-full shadow-lg flex items-center justify-center"
+        className="fixed bottom-6 right-6 z-60 lg:hidden  bg-white border border-light-silver text-black p-3 rounded-full shadow-lg flex items-center justify-center"
         onClick={() => setFiltersOpen((open) => !open)}
         aria-label={filtersOpen ? "Close filters" : "Open filters"}
       >
@@ -206,28 +206,28 @@ const BlogPostPage: React.FC = () => {
         </AnimatePresence>
       </button>
       <BlogsLayout>
-        <div className="flex flex-col md:flex-row gap-y-8 md:gap-x-8 w-full px-3 md:px-0">
+        <div className="flex flex-col lg:flex-row gap-y-8 lg:gap-x-8 w-full px-3 lg:px-0">
           <>
             {filtersOpen && (
               <div
-                className="fixed inset-0 z-50 md:hidden bg-black/30"
+                className="fixed inset-0 z-50 lg:hidden bg-black/30"
                 onClick={() => setFiltersOpen(false)}
                 aria-label="Close filters"
               />
             )}
             <aside
               className={`
-                w-3/5 max-w-[420px] md:w-4/12 lg:w-3/11
-                space-y-8 order-2 md:order-1
+                w-3/5 max-w-[420px] lg:w-4/12 lg:w-3/11
+                space-y-8 order-2 lg:order-1
                 fixed top-0 left-0 z-50 h-full bg-white
                 rounded-tr-2xl rounded-br-2xl
                 shadow-2xl border-r border-gray-100
                 transition-transform duration-300
                 ${filtersOpen ? "translate-x-0" : "-translate-x-full"}
-                md:static md:translate-x-0 md:h-auto md:bg-transparent md:shadow-none md:rounded-none md:border-none
+                lg:static lg:translate-x-0 lg:h-auto lg:bg-transparent lg:shadow-none lg:rounded-none lg:border-none
               `}
             >
-              <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 md:hidden">
+              <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 lg:hidden">
                 <h3 className="text-lg font-semibold text-gray-900">Filters</h3>
                 <button
                   className="p-2 rounded-full hover:bg-gray-100 focus:outline-none"
@@ -249,7 +249,7 @@ const BlogPostPage: React.FC = () => {
                 </button>
               </div>
 
-              <div className="px-6 pt-3 pb-6 md:px-0 md:pt-0 md:pb-0 space-y-7 overflow-y-auto h-[calc(100vh-64px)] md:h-auto">
+              <div className="px-6 pt-3 pb-6 lg:px-0 lg:pt-0 lg:pb-0 space-y-7 overflow-y-auto h-[calc(100vh-64px)] lg:h-auto">
                 <section className="space-y-2">
                   <h5 className="text-xs font-semibold text-gray-900">
                     Filter By
@@ -275,16 +275,16 @@ const BlogPostPage: React.FC = () => {
                     ))}
                   </div>
                 </section>
-                <div className="hidden space-y-6 md:block">
+                <div className="hidden space-y-6 lg:block">
                   {recommendedTopicsSection}
                   {tabsFeedSection}
                 </div>
               </div>
             </aside>
           </>
-          <div className="w-full md:flex-1 order-1 md:order-2">
+          <div className="w-full lg:flex-1 order-1 lg:order-2">
             <SinglePost post={post} />
-            <div className="block md:hidden space-y-6 mt-6">
+            <div className="block lg:hidden space-y-6 mt-6">
               {recommendedTopicsSection}
               {tabsFeedSection}
             </div>

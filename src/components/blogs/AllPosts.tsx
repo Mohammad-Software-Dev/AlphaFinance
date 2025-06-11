@@ -90,12 +90,12 @@ export const AllPosts: React.FC = () => {
   const visiblePosts = POSTS.slice(startIdx, startIdx + 6);
 
   return (
-    <section className="space-y-6 px-3 md:px-0">
-      <h2 className="text-2xl md:text-3xl font-semibold text-[var(--color-dark-blue)]">
+    <section className="space-y-6 px-3 lg:px-0">
+      <h2 className="text-2xl lg:text-3xl font-semibold text-[var(--color-dark-blue)]">
         All blog posts
       </h2>
       {/* Responsive grid: 1 col (mobile), 2 cols (md), 3 cols (lg) */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
         {visiblePosts.map((post, idx) => (
           <article key={idx} className="flex flex-col space-y-3">
             <div className="h-48 w-full overflow-hidden">
@@ -109,7 +109,7 @@ export const AllPosts: React.FC = () => {
               {post.author} • {post.date}
             </p>
             <div className="flex items-start justify-between">
-              <h3 className="text-gray-900 text-lg md:text-[23px] font-semibold">
+              <h3 className="text-gray-900 text-lg lg:text-[23px] font-semibold">
                 {post.title}
               </h3>
               <Link

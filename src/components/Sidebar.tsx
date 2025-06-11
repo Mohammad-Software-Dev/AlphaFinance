@@ -84,7 +84,7 @@ const Sidebar: React.FC<SidebarProps> = ({
         border border-light-silver
         rounded-[16px]
         w-[90px]
-        md:h-[800px]
+        lg:h-[800px]
         flex flex-col justify-start
         relative overflow-visible  
       "
@@ -105,13 +105,13 @@ const Sidebar: React.FC<SidebarProps> = ({
     transition-colors
     rounded-lg
      items-center justify-center
-    hidden md:flex
+    hidden lg:flex
   "
       >
         <ArrowsIcon className="w-4 h-4" />
       </button>
 
-      <div className=" md:flex-1 py-6 flex flex-col items-center space-y-3">
+      <div className=" lg:flex-1 py-6 flex flex-col items-center space-y-3">
         <span className="text-[10px] font-medium uppercase text-sonic-silver">
           Main
         </span>
