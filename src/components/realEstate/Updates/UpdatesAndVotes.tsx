@@ -212,7 +212,10 @@ const UpdatesAndVotes: React.FC = () => {
 
         {/* Updates List */}
         {updates.map((u, i) => (
-          <div key={i} className=" py-4 mb-2 ">
+          <div
+            key={i}
+            className=" py-4 mb-2 border-b-[1px] border-light-silver lg:border-0"
+          >
             <div className="flex items-center gap-3 mb-3">
               <img
                 src={u.user.avatar}
@@ -224,7 +227,9 @@ const UpdatesAndVotes: React.FC = () => {
                 <span className="text-dark-silver text-sm">{u.user.tag}</span>
               </div>
             </div>
-            <div className="text-gray-800 mb-2 text-[15px]">{u.text}</div>
+            <div className=" my-3 text-sm md:text-base leading-relaxed ">
+              {u.text}
+            </div>
             {u.image && (
               <img
                 src={u.image}
@@ -232,7 +237,7 @@ const UpdatesAndVotes: React.FC = () => {
                 className="w-full rounded-xl mt-1 mb-2 object-cover max-h-[320px]"
               />
             )}
-            <div className="flex gap-2 items-center text-xs mt-1">
+            <div className="flex gap-2 items-center text-xs mt-3">
               <button className="flex items-center gap-1 bg-alabaster p-2 cursor-pointer">
                 <EditPenIcon className="w-5 h-5" />
               </button>
