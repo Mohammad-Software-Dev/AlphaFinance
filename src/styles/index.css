@@ -5,59 +5,117 @@
 @import 'swiper/css';
 @import 'swiper/css/effect-cards';
 
+
+
+
 @theme {
-  --font-inter:    "Inter",      sans-serif;
+  --font-inter: "Inter", sans-serif;
   --font-roboto:   "Roboto",     sans-serif;
   --font-open-sans:"Open Sans",  sans-serif;
+  /* Color tokens */
   --color-brand: #8496E7;
-  --color-black-russian: #202124;
-  --color-dark-blue: #282C32;
-  --color-granite-gray: #606165;
-  --color-gray-98: #FAFAFA;
-  --color-gray-79:#C9C9C9;
-  --color-platinum-gray:#797979;
-  --color-light-silver: #D9D9D9;
-  --color-sonic-silver: #757575;
-  --color-white-smoke: #F0F0F0;
-  --color-light-white-smoke: #F6F6F6;
+  --color-brand-light:#C9D7FD;
   --color-error-red: #cc0000;
-  --color-verified: #0dbc4c;
-  --color-get-button-bg: #C9D7FD;
-  --color-get-button-hover: #B4C4F8;
-  --color-black-2: #1C1C1C;
+  --color-verified-green: #0dbc4c;
+  --color-light-silver: #D9D9D9;
+  --color-dark-silver:#9EA2A9;
+  --color-alabaster:#FAFAFA;
+  --color-ghost-white:#F5F7FF;
+  --color-teal:#4F9B90;
+  --color-dark-orange:#D87558;
+  --color-light-orange:#E8A76D;
+  --color-dim-gray:#696969;
+  --color-sand:#E2C576;
+  --color-profile-blue:#CBEAF1;
+  --color-profile-purple:#E5E1FB;
+  --color-profile-pink:#F7D0D0;
+  --color-profile-light-blue:#E3EEF9;
+
+
+
+  /* Fluid typography breakpoints */
+  --min-screen: 360px;
+  --max-screen: 1920px;
 }
 
 @layer base {
-    html {
+  html {
     font-family: var(--font-inter);
+    font-size: 16px; /* Base scale: 1rem = 16px */
   }
-  p {
-    @apply text-base font-normal leading-relaxed ;
+
+  /* Fluid typography with min/max comments */
+
+  body {
+    /* min:16px (1rem) • max:19.2px (1.2rem) */
+    font-size: clamp(1rem, calc(1rem + 0.5vw), 1.2rem);
+    /* line-height fluid between ~1.5–1.75 */
+    line-height: clamp(1.5, calc(1.5 + 0.25vw), 1.75);
+    margin: 0;
+    padding: 0;
   }
 
   h1 {
-    @apply text-4xl font-bold text-[var(--color-dark-blue)] ;
+    /* min:32px (2rem) • max:64px (4rem) */
+    font-size: clamp(2rem, calc(5vw + 1rem), 4rem);
+    line-height: 1.2;
   }
   h2 {
-    @apply text-3xl font-semibold text-[var(--color-dark-blue)];
+    /* min:24px (1.5rem) • max:48px (3rem) */
+    font-size: clamp(1.5rem, calc(4vw + 0.75rem), 3rem);
+    line-height: 1.25;
   }
   h3 {
-    @apply text-2xl font-semibold text-black ;
-
+    /* min:20px (1.25rem) • max:40px (2.5rem) */
+    font-size: clamp(1.25rem, calc(3vw + 0.5rem), 2.5rem);
+    line-height: 1.3;
   }
   h4 {
-    @apply font-semibold text-lg text-black;
+    /* min:18px (1.125rem) • max:32px (2rem) */
+    font-size: clamp(1.125rem, calc(2.5vw + 0.25rem), 2rem);
+    line-height: 1.35;
   }
-  ul, ol {
-    @apply list-disc list-inside  text-base text-gray-700;
+  h5 {
+    /* min:16px (1rem) • max:24px (1.5rem) */
+    font-size: clamp(1rem, calc(2vw + 0.125rem), 1.5rem);
+    line-height: 1.4;
+  }
+  h6 {
+    /* min:12px (0.75rem) • max:20px (1.25rem) */
+    font-size: clamp(0.75rem, calc(1.5vw + 0.1rem), 1.25rem);
+    line-height: 1.4;
   }
 
-  blockquote {
-    @apply border-l-4 border-gray-300 pl-4 italic text-gray-600 ;
+  p, span, td, th {
+    /* min:12px (0.75rem) • max:20px (1.25rem) */
+    font-size: clamp(0.75rem, calc(0.75rem + 0.5vw),1.25rem);
+    line-height: clamp(1.5, calc(1.5 + 0.25vw), 1.75);
+  }
+
+  small {
+    /* min:12px (0.75rem) • max:18px (1.125rem) */
+    font-size: clamp(0.75rem,  calc(1.5vw + 0.1rem), 1.125rem);
+    line-height: 1.4;
+  }
+
+  /* Table resets */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  th, td {
+    padding: 0.5rem;
+    text-align: left;
   }
 }
 
+/*
+
+
 @layer components {
+  .text-light-teal{
+    color:var(--color-light-teal);
+  }
   .text-black-2{
     color: var(--color-black-2);
   }
@@ -82,6 +140,9 @@
   .text-brand {
     color: var(--color-brand);
   }
+    .bg-ghost-white {
+    background-color:var(--color-ghost-white);
+  }
   .bg-brand {
     background-color:var(--color-brand);
   }
@@ -95,6 +156,9 @@
   }
   .bg-color-light-white-smoke{
     background-color: var(--color-light-white-smoke);
+  }
+    .border-color-light-white-smoke{
+    border-color: var(--color-light-white-smoke);
   }
     .bg-color-white-smoke{
     background-color: var(--color-white-smoke);
@@ -111,7 +175,7 @@
   .page-title {
     font-family: var(--font-inter);
     font-weight: 800;
-    font-size: 50px;
+ 
     color: var(--color-dark-blue);
   }
 
@@ -159,3 +223,16 @@
   }
 
 }
+
+
+
+*/
+.scrollbar-hide {
+  scrollbar-width: none;           /* Firefox */
+  -ms-overflow-style: none;        /* IE 10+ */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;                   /* Chrome/Safari/Webkit */
+}
+
+

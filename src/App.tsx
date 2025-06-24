@@ -6,8 +6,9 @@ import InvestorProfile from "./pages/InvestorProfile/InvestorProfile";
 import LegalAgreements from "./pages/LegalAgreements/LegalAgreements";
 import AccountVerification from "./pages/AccountVerification/AccountVerification";
 import IdentityVerification from "./pages/IdentityVerification/IdentityVerification";
-import BlogPostPage from "./pages/BlogsPage/BlogPostPage";
-import BlogsPage from "./pages/BlogsPage/BlogsPage";
+import BlogPostPage from "./pages/BlogPage/BlogPostPage";
+import BlogPage from "./pages/BlogPage/BlogPage";
+import RealEstatePage from "./pages/RealEstate/RealEstatePage";
 const App: React.FC = () => {
   return (
     <Routes>
@@ -18,8 +19,9 @@ const App: React.FC = () => {
       <Route path="/investor-profile" element={<InvestorProfile />} />
       <Route path="/legal-agreements" element={<LegalAgreements />} />
       <Route path="/identity-verification" element={<IdentityVerification />} />
-      <Route path="/blogs" element={<BlogsPage />} />
+      <Route path="/blog" element={<BlogPage />} />
       <Route path="/blog-post" element={<BlogPostPage />} />
+      <Route path="/real-estate/:assetId" element={<RealEstatePage />} />
     </Routes>
   );
 };

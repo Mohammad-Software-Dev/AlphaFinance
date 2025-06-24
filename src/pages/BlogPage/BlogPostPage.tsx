@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import BlogsLayout from "../../components/blogs/BlogsLayout";
-import SinglePost from "../../components/blogs/SinglePost";
+import BlogLayout from "../../components/blog/BlogLayout";
+import SinglePost from "../../components/blog/SinglePost";
 import BulletRightArrowIcon from "../../assets/icons/bullet-arrow-right.svg?react";
 import FilterIcon from "../../assets/icons/filter.svg?react";
 
@@ -205,7 +205,7 @@ const BlogPostPage: React.FC = () => {
           )}
         </AnimatePresence>
       </button>
-      <BlogsLayout>
+      <BlogLayout>
         <div className="flex flex-col lg:flex-row gap-y-8 lg:gap-x-8 w-full px-3 lg:px-0">
           <>
             {filtersOpen && (
@@ -290,7 +290,7 @@ const BlogPostPage: React.FC = () => {
             </div>
           </div>
         </div>
-      </BlogsLayout>
+      </BlogLayout>
     </>
   );
 };

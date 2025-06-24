@@ -52,7 +52,7 @@ const Stories: React.FC = () => (
         Subscribe to learn about new product features, the latest in technology,
         solutions, and updates.
       </p>
-      <div className="w-full">
+      <div className="w-3/4 lg:w-full flex flex-col justify-center">
         <input
           type="email"
           placeholder="Enter your email"

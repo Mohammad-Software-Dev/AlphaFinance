@@ -5,7 +5,7 @@ interface PageTitleProps {
 }
 
 const PageTitle: React.FC<PageTitleProps> = ({ children }) => {
-  return <h2 className="page-title">{children}</h2>;
+  return <h2 className="page-title ">{children}</h2>;
 };
 
 export default PageTitle;

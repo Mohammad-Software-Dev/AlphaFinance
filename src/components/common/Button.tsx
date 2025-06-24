@@ -3,7 +3,8 @@ import type { CSSProperties } from "react";
 type Variant = "primary" | "secondary" | "link";
 type Size = "sm" | "md" | "lg";
 
-export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: Variant;
   size?: Size;
   fullWidth?: boolean;
@@ -18,8 +19,8 @@ const variantClasses: Record<Variant, string> = {
     inline-flex items-center justify-center
     font-inter font-medium
     rounded border
-    bg-[var(--color-black-russian)] text-white
-    border-[var(--color-black-russian)]
+    bg-black text-white
+    border-black
     h-[35px]
     hover:opacity-90 transition
   `,
@@ -27,7 +28,7 @@ const variantClasses: Record<Variant, string> = {
     inline-flex items-center justify-center
     font-inter font-medium
     rounded border
-    bg-white text-[var(--color-black-russian)]
+    bg-white text-black
     border-[#F0F0F0]
     h-[35px]
     hover:bg-gray-100 transition
@@ -72,7 +73,7 @@ export const Button: React.FC<ButtonProps> = ({
     textSizeClasses[size],
     variant !== "link" ? paddingClasses[size] : "",
     variant === "link" && underline ? "underline" : "",
-    variant !== "link" && fullWidth ? "w-full" : "",
+    variant !== "link" && fullWidth ? "115px lg:w-full" : "",
     className,
   ]
     .filter(Boolean)
@@ -88,17 +89,13 @@ export const Button: React.FC<ButtonProps> = ({
 
   const combinedStyle: CSSProperties = {
     ...defaultStyle,
-    ...(width  ? { width }  : {}),
+    ...(width ? { width } : {}),
     ...(height ? { height } : {}),
     ...style,
   };
 
   return (
-    <button
-      className={classes}
-      style={combinedStyle}
-      {...props}
-    >
+    <button className={classes} style={combinedStyle} {...props}>
       {children}
     </button>
   );

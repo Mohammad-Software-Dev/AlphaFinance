@@ -7,7 +7,7 @@ interface LogoProps {
 const Logo: React.FC<LogoProps> = ({ small = false }) => {
   return (
     <h1
-      className="logo-text"
+      className="logo-text my-10 lg:my-0"
       style={{
         fontSize: small ? "30px" : "55px",
       }}

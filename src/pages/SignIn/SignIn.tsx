@@ -25,7 +25,7 @@ const SignIn: React.FC = () => {
       leftImageAlt="Sign In Illustration"
     >
       {/* Logo */}
-      <div className="absolute top-6 left-6 lg:block hidden">
+      <div className="absolute  top-6 left-6 lg:block hidden">
         <Logo />
       </div>
       {/* Center logo on mobile */}

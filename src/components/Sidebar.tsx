@@ -81,7 +81,7 @@ const Sidebar: React.FC<SidebarProps> = ({
     <nav
       className="
         bg-white
-        border border-light-silver
+        border-[1px] border-light-silver
         rounded-[16px]
         w-[90px]
         lg:h-[800px]
@@ -89,7 +89,7 @@ const Sidebar: React.FC<SidebarProps> = ({
         relative overflow-visible  
       "
     >
-      <div className="bg-gray-98 border-b border-light-silver p-6 flex justify-center rounded-t-[16px]">
+      <div className="bg-alabaster border-b-[1px] border-light-silver p-6 flex justify-center rounded-t-[16px]">
         <HomeIcon className="w-[20px] h-[20px]" />
       </div>
       <button
@@ -101,7 +101,7 @@ const Sidebar: React.FC<SidebarProps> = ({
     w-6 h-6        
     bg-white
     border border-light-silver
-    hover:bg-[var(--color-gray-98)]
+    hover:bg-[var(--color-alabaster)]
     transition-colors
     rounded-lg
      items-center justify-center
@@ -171,7 +171,7 @@ const Sidebar: React.FC<SidebarProps> = ({
         })}
       </div>
 
-      <div className="bg-gray-98 border-t border-light-silver p-6 flex justify-center rounded-b-[16px]">
+      <div className="bg-alabaster border-t-[1px] border-light-silver p-6 flex justify-center rounded-b-[16px]">
         <IOSSwitch checked={enabled} onChange={handleSwitch} />
       </div>
     </nav>
