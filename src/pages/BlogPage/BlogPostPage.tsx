@@ -104,7 +104,7 @@ const BlogPostPage: React.FC = () => {
 
   const recommendedTopicsSection = (
     <section className="space-y-2">
-      <h5 className="text-sm font-medium text-gray-600">Recommended Topic</h5>
+      <h5 className="text-sm font-medium text-dim-gray">Recommended Topic</h5>
       <div className="flex flex-wrap gap-2">
         {RECOMMENDED_TOPICS.map((topic) => (
           <span
@@ -118,7 +118,7 @@ const BlogPostPage: React.FC = () => {
               ${
                 activeTopic === topic
                   ? " border-black text-gray-900 font-semibold"
-                  : "  border-color-white-smoke text-gray-600"
+                  : "  border-color-white-smoke text-dim-gray"
               }
             `}
           >
@@ -141,7 +141,7 @@ const BlogPostPage: React.FC = () => {
               ${
                 activeTab === t
                   ? "text-gray-900 border-b-2 border-[var(--color-brand)]"
-                  : "text-gray-600"
+                  : "text-dim-gray"
               }
             `}
           >
@@ -164,7 +164,7 @@ const BlogPostPage: React.FC = () => {
               <h6 className="text-sm font-normal text-gray-900 leading-snug">
                 {item.title}
               </h6>
-              <p className="mt-1 text-xs text-gray-600 line-clamp-2">
+              <p className="mt-1 text-xs text-dim-gray line-clamp-2">
                 {item.excerpt}
               </p>
             </div>
@@ -235,7 +235,7 @@ const BlogPostPage: React.FC = () => {
                   aria-label="Close filters"
                 >
                   <svg
-                    className="w-6 h-6 text-gray-700"
+                    className="w-6 h-6 text-dim-gray"
                     fill="none"
                     viewBox="0 0 24 24"
                   >
@@ -265,7 +265,7 @@ const BlogPostPage: React.FC = () => {
                               ${
                                 activeFilter === f
                                   ? "font-bold text-gray-900"
-                                  : "text-gray-700 hover:text-gray-900"
+                                  : "text-dim-gray hover:text-gray-900"
                               }
                             `}
                       >

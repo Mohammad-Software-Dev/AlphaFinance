@@ -117,10 +117,10 @@ export const AllPosts: React.FC = () => {
                 aria-label="Read more"
                 className="p-1 rounded hover:bg-[var(--color-white-smoke)] transition"
               >
-                <ReadMoreIcon className="w-6 h-6 text-gray-600" />
+                <ReadMoreIcon className="w-6 h-6 text-dim-gray" />
               </Link>
             </div>
-            <p className="text-gray-500 line-clamp-2">{post.excerpt}</p>
+            <p className="text-dark-silver line-clamp-2">{post.excerpt}</p>
             <div className="mt-3 flex flex-wrap gap-2">
               {post.categories.map((cat, cIdx) => (
                 <Tag key={cat} colorIndex={idx + cIdx}>

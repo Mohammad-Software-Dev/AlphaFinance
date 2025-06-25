@@ -128,7 +128,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                 ${
                   isActive
                     ? "bg-[var(--color-white-smoke)]"
-                    : "text-gray-600 hover:bg-[var(--color-white-smoke)]"
+                    : "text-dim-gray hover:bg-[var(--color-white-smoke)]"
                 }
               `}
             >
@@ -157,7 +157,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                 ${
                   isActive
                     ? "bg-[var(--color-white-smoke)]"
-                    : "text-gray-600 hover:bg-[var(--color-white-smoke)]"
+                    : "text-dim-gray hover:bg-[var(--color-white-smoke)]"
                 }
               `}
             >

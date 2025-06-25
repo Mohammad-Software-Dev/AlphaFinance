@@ -23,28 +23,28 @@ const ProgressHeader: React.FC<ProgressHeaderProps> = ({
 
   return (
     <div className="w-full">
-      <div className="w-full px-8 py-2 grid grid-cols-3 items-center">
-        <div className="flex justify-start items-center space-x-2">
+      <div className="w-full px-8 py-2 grid grid-cols-3 items-center ">
+        <div className="flex justify-start items-center space-x-2 ">
           <button
             onClick={onBack || (() => navigate("/signin"))}
             className="flex items-center space-x-2 hover:underline"
           >
             <BackArrowIcon className="w-4 h-4" />
-            <span className="hidden md:block text-sm font-inter text-gray-700">
+            <span className="hidden md:block text-sm font-inter text-dim-gray ">
               Log out
             </span>
           </button>
         </div>
 
         <div className="flex justify-center items-center">
-          <Logo small />
+          <Logo small={true} />
         </div>
 
         <div className="flex justify-end items-center">
           {showSkip && (
             <button
               onClick={onSkip || (() => navigate("/dashboard"))}
-              className="text-sm font-inter text-gray-700 hover:underline"
+              className="text-sm font-inter text-dim-gray hover:underline"
             >
               Skip
             </button>

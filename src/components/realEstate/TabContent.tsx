@@ -67,7 +67,7 @@ const TabContent: React.FC<Props> = ({ tab }) => {
   return (
     <div ref={topRef} className="flex items-start gap-12 mt-8">
       <div className="flex-1 min-h-[400px] flex items-center justify-center">
-        <span className="text-gray-500">
+        <span className="text-dark-silver">
           Content for "{tab}" tab coming soon...
         </span>
       </div>

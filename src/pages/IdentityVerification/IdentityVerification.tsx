@@ -57,7 +57,7 @@ const IdentityVerification: React.FC = () => {
         return <Step9 />;
       default:
         return (
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-dark-silver">
             Placeholder for step {stepIndex}. Implement remaining screens here.
           </p>
         );

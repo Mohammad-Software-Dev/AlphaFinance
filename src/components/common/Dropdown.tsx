@@ -37,7 +37,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       <div className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-4 w-4 text-gray-500"
+          className="h-4 w-4 text-dark-silver"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"

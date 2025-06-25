@@ -76,7 +76,7 @@ const VerificationSection: React.FC<VerificationSectionProps> = ({
               value={code}
               onChange={(e) => setCode(e.target.value)}
               error={error}
-              className="w-full"
+              className="w-full "
             />
 
             {/* Responsive action row */}
@@ -89,8 +89,8 @@ const VerificationSection: React.FC<VerificationSectionProps> = ({
               >
                 Submit
               </Button>
-              <div className="flex flex-col items-end text-sm font-inter text-gray-600 w-full sm:w-auto">
-                <span>Don’t get the code?</span>
+              <div className="flex flex-col items-end text-sm font-inter text-dim-gray w-full sm:w-auto">
+                <span className="text-sm">Did’t get the code?</span>
                 <div className="space-x-2">
                   <Button
                     type="button"

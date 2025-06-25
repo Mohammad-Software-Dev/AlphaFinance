@@ -59,12 +59,12 @@ const Step4: React.FC = () => {
                   </span>
                   <button
                     onClick={() => setShowInfo(false)}
-                    className="text-gray-500 hover:text-gray-800 ml-auto"
+                    className="text-dark-silver hover:text-gray-800 ml-auto"
                   >
                     ✕
                   </button>
                 </div>
-                <p className="font-open-sans text-sm text-gray-600">
+                <p className="font-open-sans text-sm text-dim-gray">
                   Lorem ipsum dolor sit amet consectetur. Scelerisque volutpat
                   ut elementum facilisis adipiscing purus. Nulla tortor urna
                   integer arcu tortor vitae mattis adipiscing quis. Pretium
@@ -84,12 +84,12 @@ const Step4: React.FC = () => {
                   </span>
                   <button
                     onClick={() => setShowInfo(false)}
-                    className="text-gray-500 hover:text-gray-800 ml-auto"
+                    className="text-dark-silver hover:text-gray-800 ml-auto"
                   >
                     ✕
                   </button>
                 </div>
-                <p className="font-open-sans text-sm text-gray-600">
+                <p className="font-open-sans text-sm text-dim-gray">
                   Lorem ipsum dolor sit amet consectetur. Scelerisque volutpat
                   ut elementum facilisis adipiscing purus. Nulla tortor urna
                   integer arcu tortor vitae mattis adipiscing quis. Pretium

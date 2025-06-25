@@ -48,7 +48,7 @@ const Stories: React.FC = () => (
       <h2 className="text-4xl text-center w-3/4 font-semibold text-gray-900">
         Stories and interviews
       </h2>
-      <p className="text-lg font-normal w-11/12 text-gray-500 text-center">
+      <p className="text-lg font-normal w-11/12 text-dark-silver text-center">
         Subscribe to learn about new product features, the latest in technology,
         solutions, and updates.
       </p>
@@ -63,7 +63,7 @@ const Stories: React.FC = () => (
         </Button>
       </div>
       <div className="w-full">
-        <p className="text-sm font-normal text-gray-500">
+        <p className="text-sm font-normal text-dark-silver">
           We care about your data in our{" "}
           <a href="/privacy-policy" className="underline">
             privacy policy
@@ -89,10 +89,10 @@ const Stories: React.FC = () => (
           className="space-y-2 pb-3 border-b-[1px] border-gray-300"
         >
           <h3 className="text-base font-normal text-gray-900">{story.title}</h3>
-          <p className="text-xs font-normal text-gray-500 leading-relaxed">
+          <p className="text-xs font-normal text-dark-silver leading-relaxed">
             {story.excerpt}
           </p>
-          <p className="text-xs text-gray-600">
+          <p className="text-xs text-dim-gray">
             {story.author} &#8226; {story.role}
           </p>
           <div className="flex flex-wrap gap-2">
