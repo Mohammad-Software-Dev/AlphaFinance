@@ -6,6 +6,7 @@ import ImageIcon from "../../../assets/icons/image_attachement.svg?react";
 import SendButtonIcon from "../../../assets/icons/send_button.svg?react";
 import PhoneIcon from "../../../assets/icons/chat_phone.svg?react";
 import MailIcon from "../../../assets/icons/chat_mail.svg?react";
+import VerticalDivider from "../../common/VerticalDivider";
 
 const contacts = [
   {
@@ -197,7 +198,7 @@ const ReachUs: React.FC = () => {
     }
   }, []);
   return (
-    <div className="flex flex-col lg:flex-row w-full h-full gap-3">
+    <div className="flex flex-col lg:flex-row w-full h-full ">
       <aside className="w-full flex  flex-col gap-5 bg-ghost-white h-fit py-3 px-5 md:py-4 md:px-6 rounded-lg lg:w-1/4 ">
         {contacts.map((c, i) => (
           <div
@@ -226,17 +227,14 @@ const ReachUs: React.FC = () => {
           </div>
         ))}
       </aside>
-
-      {/* Chat section */}
-      <main className="flex-1 flex flex-col bg-[#F8F9FB]  h-[80vh]">
-        {/* Chat area */}
-        <div className="flex flex-col px-8 py-6 flex-1 min-h-0 overflow-y-auto">
-          {/* Chat header */}
+      <VerticalDivider className="hidden border-light-silver lg:block mx-6 h-auto self-stretch min-h-[600px]" />
+      <main className="flex-1 flex flex-col   h-[80vh]">
+        <div className="flex flex-col  flex-1 min-h-0 overflow-y-auto">
           <div className="flex items-center mb-8">
             <img
               src={User1}
               alt="David Peters"
-              className="w-11 h-11 rounded-full object-cover border"
+              className="w-11 h-11 rounded-full object-cover bg-profile-blue"
             />
             <div className="ml-3">
               <div className="font-semibold text-[#2C4273] text-base leading-tight">
