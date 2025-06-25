@@ -4,7 +4,7 @@ import PropertyInfoTab from "./tabs/PropertyInfoTab";
 import FinancialTab from "./tabs/FinancialTab";
 import RealEstateTab from "./tabs/RealEstateTab";
 import UpdatesTab from "./tabs/UpdatesTab";
-import ReachUs from "./tabs/ReachUs";
+import ReachUs from "./tabs/ReachUsTab";
 
 interface Props {
   tab: string;
