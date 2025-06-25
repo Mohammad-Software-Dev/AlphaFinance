@@ -94,7 +94,7 @@ const UpdatesAndVotes: React.FC = () => {
   }
 
   return (
-    <div className="flex flex-col w-full h-full overflow-y-auto scrollbar-thin scrollbar-thumb-rounded scrollbar-track-transparent">
+    <div className="flex flex-col w-full h-full lg:overflow-y-auto lg:scrollbar-thin lg:scrollbar-thumb-rounded lg:scrollbar-track-transparent">
       <div className="pb-5 border-b-[1px] border-light-silver pr-3">
         <div className="flex items-center justify-between">
           <h4 className="font-normal text-black mb-3">Vote</h4>
@@ -186,7 +186,7 @@ const UpdatesAndVotes: React.FC = () => {
           <button
             onClick={handleSend}
             disabled={!newPost.trim() && !uploads.img && !uploads.file}
-            className="w-fit px-4 h-full flex items-center justify-center bg-brand rounded-r-lg "
+            className="w-fit px-4 py-3 md:py-0 h-full flex items-center justify-center bg-brand rounded-r-lg "
           >
             <SendButtonIcon className="w-5 h-5" />
           </button>
