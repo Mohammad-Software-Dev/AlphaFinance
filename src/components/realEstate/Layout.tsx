@@ -23,11 +23,8 @@ const Layout: React.FC<Props> = ({ assetId }) => {
   return (
     <GeneralLayout>
       <div className="flex-1 flex flex-col">
-        {/* Sticky Wrapper */}
         <div className="relative">
-          {/* Spacer for top margin/padding */}
           <div className="" aria-hidden="true" />
-          {/* Sticky content */}
           <div className="fixed top-0 pt-6 md:pt-10 z-30 bg-white w-full">
             <h4 className="font-bold mb-3 lg:mb-6 border-b-[4px] border-brand w-fit">
               Real Estate
@@ -38,11 +35,9 @@ const Layout: React.FC<Props> = ({ assetId }) => {
               tab={tab}
               setTab={setTab}
             />
-            {/* Optional: a divider under tabs */}
             <div className="w-full " />
           </div>
         </div>
-        {/* Tab content */}
         <div className="mt-18 md:mt-28">
           <TabContent tab={tab} assetId={assetId} />
         </div>

@@ -1,10 +1,10 @@
 import React, { useRef, useState, useEffect } from "react";
-import PaperclipIcon from "../../assets/icons/attachement.svg?react";
-import ImageIcon from "../../assets/icons/image_attachement.svg?react";
-import SendButtonIcon from "../../assets/icons/send_message_button.svg?react";
+
 import ChatDaySeparator from "../common/ChatDaySeparator";
 import User1 from "../../assets/images/male.png";
 import User2 from "../../assets/images/female.png";
+import ChatHeader from "./ChatHeader";
+import ChatInput from "./ChatInput";
 
 const messages = [
   // Today
@@ -161,30 +161,16 @@ const Interface: React.FC<InterfaceProps> = ({ contactIndex, onBack }) => {
 
   return (
     <main className="flex-1 flex flex-col   h-[80vh]">
-      <div className="flex flex-col  flex-1 min-h-0 overflow-y-auto">
-        <div className="flex items-center border-b-[1px] pb-1 border-light-silver">
-          <div className="flex flex-row items-center justify-center ">
-            <button
-              onClick={onBack}
-              className="lg:hidden text-brand text-lg mr-3"
-            >
-              ❮
-            </button>
-            <img
-              src={User1}
-              alt="David Peters"
-              className="w-12 h-12 rounded-full object-cover bg-profile-blue"
-            />
-          </div>
+      <div className="fixed top-25 md:static bg-white w-full">
+        <ChatHeader
+          onBack={onBack}
+          userImage={User1}
+          userName="David Peters"
+          userPosition="Senior Developer"
+        />
+      </div>
 
-          <div className="ml-3">
-            <div className="text-brand text-sm md:text-base lg:text-lg font-semibold">
-              David Peters
-            </div>
-            <div className="text-xs">Senior Developer</div>
-          </div>
-        </div>
-
+      <div className="flex flex-col flex-1 min-h-0 overflow-y-auto">
         <div
           ref={chatListRef}
           className="flex flex-col gap-3 flex-1 min-h-0 overflow-y-auto lg:pr-4"
@@ -233,26 +219,12 @@ const Interface: React.FC<InterfaceProps> = ({ contactIndex, onBack }) => {
           )}
         </div>
       </div>
-
-      {/* Input bar */}
-      <div className="flex items-center mt-2 px-4 lg:pl-8 lg:pr-4 lg:mx-4 py-4 bg-ghost-white rounded-lg  gap-3">
-        <button>
-          <PaperclipIcon className="w-5 h-5 " />
-        </button>
-        <button>
-          <ImageIcon className="w-5 h-5 " />
-        </button>
-        <input
-          ref={inputRef}
-          type="text"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          placeholder="Type message"
-          className="flex-1 bg-transparent outline-none text-sm lg:px-2 "
+      <div className="fixed  bottom-1 md:static">
+        <ChatInput
+          inputRef={inputRef}
+          message={message}
+          setMessage={setMessage}
         />
-        <button className="w-6 h-6 flex items-center justify-end ">
-          <SendButtonIcon className="w-6 h-6 " />
-        </button>
       </div>
     </main>
   );

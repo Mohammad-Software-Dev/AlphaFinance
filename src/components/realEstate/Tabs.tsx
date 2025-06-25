@@ -15,6 +15,7 @@ interface Props {
 const Tabs: React.FC<Props> = ({ tabList, assetId, tab, setTab }) => (
   <nav
     className="
+    relative
       flex
       border-b-[1px] border-light-silver w-full
       overflow-x-auto
