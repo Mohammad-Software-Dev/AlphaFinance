@@ -1,4 +1,3 @@
-import React from "react";
 import PetsIcon from "../../../assets/icons/pets.svg?react";
 import ParkingIcon from "../../../assets/icons/parking_2.svg?react";
 import OutdoorIcon from "../../../assets/icons/outdoor.svg?react";
