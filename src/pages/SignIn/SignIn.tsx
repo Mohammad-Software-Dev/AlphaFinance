@@ -32,7 +32,9 @@ const SignIn: React.FC = () => {
       </div>
       <div className="flex flex-col items-center w-full space-y-6">
         <div className="w-full max-w-[400px] md:max-w-[520px] lg:max-w-[623px] flex flex-col items-start space-y-0">
-          <PageTitle>Welcome Back</PageTitle>
+          <PageTitle classNames="text-[32px] md:text-[48px] lg:text-[55px]">
+            Welcome Back
+          </PageTitle>
           <p className="client-portal mt-1">Client Portal</p>
         </div>
         <div className="w-full max-w-[400px] md:max-w-[520px] lg:max-w-[623px] flex flex-col items-start space-y-4">
@@ -47,7 +49,7 @@ const SignIn: React.FC = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               error={emailError}
-              className="w-full text-input"
+              className="w-full"
             />
             <TextInput
               id="password"
@@ -56,20 +58,28 @@ const SignIn: React.FC = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               error={passwordError}
-              className="w-full text-input"
+              className="w-full"
             />
-            <Button variant="primary" size="md" fullWidth className="mt-4">
+            <Button
+              variant="primary"
+              size="md"
+              fullWidth
+              className="mt-4 w-full text-sm"
+            >
               Login
             </Button>
           </form>
         </div>
-        <div className="flex flex-col items-center w-full max-w-[400px] md:max-w-[520px] lg:max-w-[623px] space-y-2">
-          <a href="#" className="forgot-password">
+        <div className="flex flex-col items-center space-y-2">
+          <a href="#" className="forgot-password text-sm">
             Forgot password?
           </a>
           <p className="flex items-center space-x-1">
-            <span className="not-client">Not a client yet?</span>
-            <Link to="/signup" className="signup-link">
+            <span className="not-client text-sm">Not a client yet?</span>
+            <Link
+              to="/signup"
+              className="font-roboto text-brand text-sm hover:underline"
+            >
               Sign Up
             </Link>
           </p>

@@ -19,7 +19,7 @@ const TAGS: Record<
   tenant: {
     label: "TENANT",
     icon: <TenantIcon className="w-4 h-4" />,
-    classes: "border-[1px] border-light-silver text-gray-700",
+    classes: "border-[1px] border-light-silver text-dim-gray",
   },
   facility: {
     label: "FACILITY MANAGEMENT",

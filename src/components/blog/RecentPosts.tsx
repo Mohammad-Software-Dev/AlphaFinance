@@ -84,10 +84,10 @@ export default function RecentPosts() {
                 aria-label="Read more"
                 className="p-1 rounded hover:bg-[var(--color-white-smoke)] transition"
               >
-                <ArrowIcon className="w-6 h-6 text-gray-600" />
+                <ArrowIcon className="w-6 h-6 text-dim-gray" />
               </Link>
             </div>
-            <p className="text-gray-500">{featured.excerpt}</p>
+            <p className="text-dark-silver">{featured.excerpt}</p>
             <div className="flex flex-wrap gap-2">
               {featured.categories.map((cat, idx) => (
                 <Tag key={cat} colorIndex={idx}>
@@ -116,7 +116,7 @@ export default function RecentPosts() {
                   {post.author} • {post.date}
                 </p>
                 <h4 className="text-gray-900">{post.title}</h4>
-                <p className="text-gray-500 overflow-hidden line-clamp-3">
+                <p className="text-dark-silver overflow-hidden line-clamp-3">
                   {post.excerpt}
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -168,10 +168,10 @@ export default function RecentPosts() {
                       aria-label="Read more"
                       className="p-1 rounded hover:bg-[var(--color-white-smoke)] transition"
                     >
-                      <ArrowIcon className="w-6 h-6 text-gray-600" />
+                      <ArrowIcon className="w-6 h-6 text-dim-gray" />
                     </Link>
                   </div>
-                  <p className="text-gray-500">{post.excerpt}</p>
+                  <p className="text-dark-silver">{post.excerpt}</p>
                   <div className="flex flex-wrap gap-2">
                     {post.categories.map((cat, cIdx) => (
                       <Tag key={cat} colorIndex={cIdx}>

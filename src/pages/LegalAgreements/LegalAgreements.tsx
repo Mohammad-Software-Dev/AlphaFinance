@@ -213,13 +213,13 @@ const LegalAgreements: React.FC = () => {
                 <h4>{open}</h4>
                 <button
                   onClick={() => setOpen(null)}
-                  className="text-gray-500 hover:text-gray-800 text-xl"
+                  className="text-dark-silver hover:text-gray-800 text-xl"
                 >
                   &times;
                 </button>
               </div>
               {/* content */}
-              <div className="px-6 py-4 overflow-y-auto text-sm font-open-sans text-gray-700 space-y-6 flex-1">
+              <div className="px-6 py-4 overflow-y-auto text-sm font-open-sans text-dim-gray space-y-6 flex-1">
                 {agreementContent[open]}
               </div>
               {/* footer */}

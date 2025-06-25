@@ -203,7 +203,7 @@ const UpdatesAndVotes: React.FC = () => {
               />
             )}
             {uploads.file && (
-              <div className="bg-gray-100 px-2 py-1 rounded text-xs text-gray-600">
+              <div className="bg-gray-100 px-2 py-1 rounded text-xs text-dim-gray">
                 {uploads.file}
               </div>
             )}

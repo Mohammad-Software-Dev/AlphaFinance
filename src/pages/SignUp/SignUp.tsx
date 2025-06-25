@@ -26,7 +26,9 @@ const SignUp: React.FC = () => {
 
   const leftContent = (
     <div>
-      <PageTitle>An editor that helps you write clean codes.</PageTitle>
+      <PageTitle classNames="lg:text-[58px]">
+        An editor that helps you write clean codes.
+      </PageTitle>
       <div className="mt-8 space-y-6 max-w-md">
         <FeatureItem
           title="Manage Your Cash Like Institutions Do"
@@ -55,8 +57,8 @@ const SignUp: React.FC = () => {
 
   const rightContent = (
     <div>
-      <PageTitle>Let’s Get Started</PageTitle>
-      <p className="font-open-sans text-[14px] text-gray-500 mt-1">
+      <PageTitle classNames="lg:text-[50px]">Let’s Get Started</PageTitle>
+      <p className="font-open-sans text-dark-silver mt-1">
         You can explore the app once you create an account.
       </p>
 
@@ -102,11 +104,11 @@ const SignUp: React.FC = () => {
 
         <div className="mt-4 flex flex-col sm:flex-row items-center sm:space-x-4 space-y-2 sm:space-y-0">
           <GetStartedButton disabled={isSubmitting} loading={isSubmitting} />
-          <span className="font-inter text-[14px] text-gray-600 text-center sm:text-left">
-            Already have an account?{" "}
+          <span className="font-inter text-sm text-dim-gray text-center sm:text-left">
+            Already have an account?
             <a
               href="/signin"
-              className="font-roboto text-[14px] text-brand hover:underline"
+              className="font-roboto text-sm text-brand hover:underline px-2"
             >
               Log in
             </a>
@@ -114,7 +116,7 @@ const SignUp: React.FC = () => {
         </div>
       </form>
 
-      <p className="mt-8 font-open-sans text-[12px] text-gray-500">
+      <p className="mt-8 font-open-sans text-sm text-dark-silver">
         By providing your information and clicking Get Started, you agree to our{" "}
         <a href="/terms" className="underline">
           Terms of Use

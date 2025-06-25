@@ -14,7 +14,7 @@ const FeatureItem: React.FC<FeatureItemProps> = ({ title, description }) => {
         <p className="font-inter font-semibold text-base text-[#282C32]">
           {title}
         </p>
-        <p className="font-open-sans font-normal text-sm text-gray-600 mt-1">
+        <p className="font-open-sans font-normal text-sm text-dim-gray mt-1">
           {description}
         </p>
       </div>

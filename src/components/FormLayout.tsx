@@ -14,11 +14,7 @@ const FormLayout: React.FC<FormLayoutProps> = ({
   return (
     <div className="flex flex-col lg:flex-row min-h-screen">
       <div className="hidden lg:flex flex-1 bg-gray-50 items-center justify-center overflow-hidden">
-        <img
-          src={leftImageSrc}
-          alt={leftImageAlt}
-          className="side-image"
-        />
+        <img src={leftImageSrc} alt={leftImageAlt} className="h-full" />
       </div>
 
       <div className="flex flex-1 bg-white items-center justify-center px-4 sm:px-6 lg:px-8">
