@@ -1,0 +1,87 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import FormLayout from "../../components/FormLayout";
+import Logo from "../../components/Logo";
+import PageTitle from "../../components/PageTitle";
+import TextInput from "../../components/common/TextInput";
+import { useSignInForm } from "./useSignInForm";
+import signInSideImage from "../../assets/images/sign_in_side.png";
+import { Button } from "../../components/common/Button";
+
+const SignIn: React.FC = () => {
+  const {
+    email,
+    setEmail,
+    password,
+    setPassword,
+    emailError,
+    passwordError,
+    onSubmit,
+  } = useSignInForm();
+
+  return (
+    <FormLayout
+      leftImageSrc={signInSideImage}
+      leftImageAlt="Sign In Illustration"
+    >
+      {/* Logo */}
+      <div className="absolute  top-6 left-6 lg:block hidden">
+        <Logo />
+      </div>
+      {/* Center logo on mobile */}
+      <div className=" lg:hidden w-full flex justify-center mb-6">
+        <Logo />
+      </div>
+      <div className="flex flex-col items-center w-full space-y-6">
+        {/* Title & Subtitle */}
+        <div className="w-full max-w-[400px] md:max-w-[520px] lg:max-w-[623px] flex flex-col items-start space-y-0">
+          <PageTitle>Welcome Back</PageTitle>
+          <p className="client-portal mt-1">Client Portal</p>
+        </div>
+        {/* Form */}
+        <div className="w-full max-w-[400px] md:max-w-[520px] lg:max-w-[623px] flex flex-col items-start space-y-4">
+          <form
+            className="w-full flex flex-col items-start space-y-6"
+            onSubmit={onSubmit}
+          >
+            <TextInput
+              id="email"
+              placeholder="Email Address"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              error={emailError}
+              className="w-full"
+            />
+            <TextInput
+              id="password"
+              placeholder="Password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              error={passwordError}
+              className="w-full"
+            />
+            <Button variant="primary" size="md" fullWidth className="mt-4">
+              Login
+            </Button>
+          </form>
+        </div>
+        {/* Footer */}
+        <div className="flex flex-col items-center w-full max-w-[400px] md:max-w-[520px] lg:max-w-[623px] space-y-2">
+          <a href="#" className="forgot-password">
+            Forgot password?
+          </a>
+          <p className="flex items-center space-x-1">
+            <span className="not-client">Not a client yet?</span>
+            <Link to="/signup" className="signup-link">
+              Sign Up
+            </Link>
+          </p>
+        </div>
+      </div>
+    </FormLayout>
+  );
+};
+
+export default SignIn;
