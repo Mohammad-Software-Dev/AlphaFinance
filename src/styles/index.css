@@ -34,8 +34,8 @@
 
 
   /* Fluid typography breakpoints */
-  --min-screen: 360px;
-  --max-screen: 1920px;
+  /* --min-screen: 360px;
+  --max-screen: 1920px; */
 }
 
 @layer base {
@@ -48,8 +48,8 @@
   }
   /* Fluid typography with min/max comments */
   body {
-    min-width: var(--min-screen);
-    max-width: var(--max-screen);
+    /* min-width: var(--min-screen);
+    max-width: var(--max-screen); */
     /* min:16px (1rem) • max:19.2px (1.2rem) */
     font-size: clamp(1rem, calc(1rem + 0.5vw), 1.2rem);
     /* line-height fluid between ~1.5–1.75 */
