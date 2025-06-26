@@ -15,7 +15,7 @@ const iconCellClass =
 const RealEstateLeftSection: React.FC = () => (
   <div>
     {/* Image */}
-    <div className="relative w-full h-[30vh] md:h-[38vh] lg:h-[46.3vh] max-h-[500px]  rounded-[10px] overflow-hidden">
+    <div className="relative aspect-[9/5] w-full h-auto  rounded-[10px] overflow-hidden">
       <img
         src={sampleProperty}
         alt="Property"
