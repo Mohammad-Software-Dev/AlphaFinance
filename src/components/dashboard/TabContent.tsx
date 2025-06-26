@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from "react";
-import Profile from "./Profile";
+import Profile from "./tabs/Profile";
+import Transactions from "./tabs/Transactions";
 
 interface Props {
   tab: string;
@@ -24,6 +25,13 @@ const TabContent: React.FC<Props> = ({ tab }) => {
     return (
       <div ref={topRef}>
         <Profile />
+      </div>
+    );
+  }
+  if (tab === "transactions") {
+    return (
+      <div ref={topRef}>
+        <Transactions />
       </div>
     );
   }

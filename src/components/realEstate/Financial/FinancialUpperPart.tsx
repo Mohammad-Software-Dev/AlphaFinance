@@ -1,9 +1,9 @@
 import React from "react";
 import Expenses from "./Expenses.tsx";
-import Invoices from "./Invoices.tsx";
+import Invoices from "../../common/Invoices.tsx";
 import DividendsCard from "./DividendsCard.tsx";
 import FinancialStatsRow from "./FinancialStatsRow.tsx.tsx";
-import Transactions from "./Transaction.tsx";
+import Transactions from "../../common/Transaction.tsx";
 import HorizontalDivider from "../../common/HorizontalDivider.tsx";
 
 const FinancialUpperPart: React.FC = () => {

@@ -1,5 +1,5 @@
-import RealEstateCard from "./RealEstateCard";
-import Pagination from "../../components/common/Pagination";
+import RealEstateCard from "../RealEstateCard";
+import Pagination from "../../common/Pagination";
 import { useState } from "react";
 
 const properties = Array.from({ length: 8 }).map(() => ({

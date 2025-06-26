@@ -7,11 +7,12 @@ interface Tab {
 
 interface Props {
   tabList: Tab[];
+  assetId?: string | null;
   tab: string;
   setTab: (tab: string) => void;
 }
 
-const Tabs: React.FC<Props> = ({ tabList, tab, setTab }) => (
+const Tabs: React.FC<Props> = ({ tabList, assetId, tab, setTab }) => (
   <nav
     className="
     relative
@@ -24,7 +25,7 @@ const Tabs: React.FC<Props> = ({ tabList, tab, setTab }) => (
       "
     style={{ WebkitOverflowScrolling: "touch" }}
   >
-    {tabList.map((item) => (
+    {tabList.map((item, idx) => (
       <button
         key={item.value}
         className={`
@@ -39,7 +40,7 @@ const Tabs: React.FC<Props> = ({ tabList, tab, setTab }) => (
         onClick={() => setTab(item.value)}
         style={{ minWidth: "max-content" }}
       >
-        {item.label}
+        {idx === 0 ? assetId ?? item.label : item.label}
       </button>
     ))}
   </nav>

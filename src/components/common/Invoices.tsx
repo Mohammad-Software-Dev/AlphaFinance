@@ -1,5 +1,5 @@
 import React from "react";
-import DownloadIcon from "../../../assets/icons/download.svg?react";
+import DownloadIcon from "../../assets/icons/download.svg?react";
 
 const invoices = [
   { id: "#MS-415646", date: "23 Jan 2024", amount: "$1200" },
