@@ -33,7 +33,7 @@ const RealEstateCard: React.FC<RealEstateCardProps> = ({
         <img
           src={image}
           alt={title}
-          className="w-full max-h-[220px] h-auto object-cover "
+          className="w-full aspect-video h-auto object-cover "
         />
         <div className="absolute w-1/2 right-0 inset-y-0  h-full bg-gradient-to-l from-brand/50 to-transparent pointer-events-none" />
 
