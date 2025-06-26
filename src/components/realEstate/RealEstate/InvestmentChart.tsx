@@ -99,12 +99,7 @@ const InvestmentChart: React.FC = () => {
 
   return (
     <div>
-      <ReactApexChart
-        height={250}
-        options={options}
-        series={series}
-        type="line"
-      />
+      <ReactApexChart options={options} series={series} type="line" />
     </div>
   );
 };

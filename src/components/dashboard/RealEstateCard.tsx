@@ -28,7 +28,7 @@ const RealEstateCard: React.FC<RealEstateCardProps> = ({
   image = sampleProperty,
 }) => {
   return (
-    <div className=" flex flex-col  gap-3 md:gap-6 overflow-hidden">
+    <div className=" flex flex-col max-w-[350px] gap-3 md:gap-6 overflow-hidden">
       <div className="relative">
         <img
           src={image}

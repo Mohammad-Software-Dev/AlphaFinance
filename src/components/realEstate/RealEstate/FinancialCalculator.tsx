@@ -87,11 +87,11 @@ const FinancialCalculator: React.FC = () => {
       {/* Charts */}
       <div className="w-full mt-8 mb-4">
         {/* Charts in a row */}
-        <div className="flex md:flex-row flex-col justify-center md:justify-between items-center">
-          <div className="md:w-8/12 w-full">
+        <div className="flex md:flex-row flex-col justify-center md:justify-between items-center gap-10 md:gap-0">
+          <div className="w-full md:w-2/3 aspect-[520/190] ">
             <InvestmentChart />
           </div>
-          <div className="md:w-4/12 w-3/4">
+          <div className="w-full md:w-1/3 aspect-square  ">
             <PortfolioPieChart />
           </div>
         </div>
