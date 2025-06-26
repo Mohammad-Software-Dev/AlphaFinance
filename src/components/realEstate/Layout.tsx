@@ -19,7 +19,8 @@ const TAB_LIST = [
 
 const Layout: React.FC<Props> = ({ assetId }) => {
   const [tab, setTab] = useState("asset");
-
+  const selectedLabel =
+    TAB_LIST.find((t) => t.value === tab)?.label || `${assetId}`;
   return (
     <GeneralLayout>
       <div className="flex-1 flex flex-col">
@@ -27,7 +28,7 @@ const Layout: React.FC<Props> = ({ assetId }) => {
           <div className="" aria-hidden="true" />
           <div className="fixed top-0 pt-6 md:pt-10 z-30 bg-white w-full">
             <h4 className="font-bold mb-3 lg:mb-6 border-b-[4px] border-brand w-fit">
-              Real Estate
+              {selectedLabel}
             </h4>
             <Tabs
               tabList={TAB_LIST}

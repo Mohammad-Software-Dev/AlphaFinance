@@ -9,6 +9,8 @@ import IdentityVerification from "./pages/IdentityVerification/IdentityVerificat
 import BlogPostPage from "./pages/BlogPage/BlogPostPage";
 import BlogPage from "./pages/BlogPage/BlogPage";
 import RealEstatePage from "./pages/RealEstate/RealEstatePage";
+import DashboardPage from "./pages/Dashboard/DashboardPage";
+
 const App: React.FC = () => {
   return (
     <Routes>
@@ -22,6 +24,7 @@ const App: React.FC = () => {
       <Route path="/blog" element={<BlogPage />} />
       <Route path="/blog-post" element={<BlogPostPage />} />
       <Route path="/real-estate/:assetId" element={<RealEstatePage />} />
+      <Route path="/dashboard" element={<DashboardPage />} />
     </Routes>
   );
 };
