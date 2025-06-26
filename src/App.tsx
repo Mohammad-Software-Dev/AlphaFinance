@@ -10,6 +10,7 @@ import BlogPostPage from "./pages/BlogPage/BlogPostPage";
 import BlogPage from "./pages/BlogPage/BlogPage";
 import RealEstatePage from "./pages/RealEstate/RealEstatePage";
 import DashboardPage from "./pages/Dashboard/DashboardPage";
+import NotBuiltYet from "./pages/NotBuiltYet";
 
 const App: React.FC = () => {
   return (
@@ -25,6 +26,7 @@ const App: React.FC = () => {
       <Route path="/blog-post" element={<BlogPostPage />} />
       <Route path="/real-estate/:assetId" element={<RealEstatePage />} />
       <Route path="/dashboard" element={<DashboardPage />} />
+      <Route path="*" element={<NotBuiltYet />} />
     </Routes>
   );
 };
