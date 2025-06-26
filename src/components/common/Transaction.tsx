@@ -1,6 +1,6 @@
 import React from "react";
-import ArrowUpIcon from "../../../assets/icons/arrow-up.svg?react";
-import ArrowDownIcon from "../../../assets/icons/arrow-down.svg?react";
+import ArrowUpIcon from "../../assets/icons/arrow-up.svg?react";
+import ArrowDownIcon from "../../assets/icons/arrow-down.svg?react";
 
 type Transaction = {
   id: number;
@@ -9,7 +9,9 @@ type Transaction = {
   amount: number;
   type: "credit" | "debit";
 };
-
+type TransactionsProps = {
+  showSummary?: boolean;
+};
 const transactions: Transaction[] = [
   {
     id: 1,
@@ -96,8 +98,30 @@ const transactions: Transaction[] = [
     type: "credit",
   },
 ];
-const Transactions: React.FC = () => (
+const Transactions: React.FC<TransactionsProps> = ({ showSummary = false }) => (
   <>
+    {showSummary && (
+      <div className="flex justify-between items-start mb-4">
+        <div className="w-fit">
+          <div className="text-base font-normal text-teal">
+            Dividends
+            <br />
+            Belong Interactive
+          </div>
+          <div className="text-2xl font-bold text-teal mt-1">+$2000</div>
+        </div>
+        <div className="w-fit">
+          <div className="text-base font-normal text-dark-orange">
+            Total Assets Value
+            <br />
+            Freelance Payment
+          </div>
+          <div className="text-2xl font-bold text-dark-orange mt-1">
+            $455.00
+          </div>
+        </div>
+      </div>
+    )}
     <div className="flex items-center justify-between mt-4 md:py-0">
       <h4 className="font-normal text-black mb-3">Transactions</h4>
       <button className="font-normal text-xs md:text-base hover:underline flex items-center gap-1">

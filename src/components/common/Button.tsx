@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import { Link } from "react-router-dom";
 
 type Variant = "primary" | "secondary" | "link";
 type Size = "sm" | "md" | "lg";
@@ -12,6 +13,8 @@ export interface ButtonProps
   height?: string;
   underline?: boolean;
   linkWeight?: 400 | 600;
+  to?: string;
+  target?: string;
 }
 
 const variantClasses: Record<Variant, string> = {
@@ -66,6 +69,8 @@ export const Button: React.FC<ButtonProps> = ({
   className = "",
   style,
   children,
+  to,
+  target,
   ...props
 }) => {
   const classes = [
@@ -93,6 +98,20 @@ export const Button: React.FC<ButtonProps> = ({
     ...(height ? { height } : {}),
     ...style,
   };
+
+  if (to) {
+    return (
+      <Link
+        to={to}
+        target={target}
+        className={classes}
+        style={combinedStyle}
+        tabIndex={0}
+      >
+        {children}
+      </Link>
+    );
+  }
 
   return (
     <button className={classes} style={combinedStyle} {...props}>

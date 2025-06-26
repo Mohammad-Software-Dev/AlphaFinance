@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Switch from "@mui/material/Switch";
 import type { SwitchProps } from "@mui/material/Switch";
 import { styled } from "@mui/material/styles";
+import { Link, useLocation } from "react-router-dom";
 import ArrowsIcon from "../assets/icons/arrows.svg?react";
 import HomeIcon from "../assets/icons/home.svg?react";
 import UserIcon from "../assets/icons/user.svg?react";
@@ -49,16 +50,16 @@ const IOSSwitch = styled((props: SwitchProps) => (
 }));
 
 const mainIcons = [
-  { label: "Home", Icon: HomeIcon },
-  { label: "Users", Icon: UserIcon },
-  { label: "Articles", Icon: ArticleIcon },
-  { label: "Calendar", Icon: CalendarIcon },
-  { label: "Statistics", Icon: StatisticsIcon },
+  { label: "Home", Icon: HomeIcon, to: "/dashboard" },
+  { label: "Users", Icon: UserIcon, to: "/users" },
+  { label: "Articles", Icon: ArticleIcon, to: "/articles" },
+  { label: "Calendar", Icon: CalendarIcon, to: "/calendar" },
+  { label: "Statistics", Icon: StatisticsIcon, to: "/statistics" },
 ] as const;
 
 const settingsIcons = [
-  { label: "Notifications", Icon: BellIcon },
-  { label: "Settings", Icon: SettingsIcon },
+  { label: "Notifications", Icon: BellIcon, to: "/notifications" },
+  { label: "Settings", Icon: SettingsIcon, to: "/settings" },
 ] as const;
 
 const Sidebar: React.FC<SidebarProps> = ({
@@ -75,7 +76,8 @@ const Sidebar: React.FC<SidebarProps> = ({
   };
 
   const [activeIcon, setActiveIcon] = useState<string>("Users");
-  const handleIconClick = (label: string) => setActiveIcon(label);
+
+  const location = useLocation();
 
   return (
     <nav
@@ -89,24 +91,35 @@ const Sidebar: React.FC<SidebarProps> = ({
         relative overflow-visible  
       "
     >
-      <div className="bg-alabaster border-b-[1px] border-light-silver p-6 flex justify-center rounded-t-[16px]">
-        <HomeIcon className="w-[20px] h-[20px]" />
-      </div>
+      <Link
+        to="/dashboard"
+        className="bg-alabaster border-b-[1px] border-light-silver p-6 flex justify-center rounded-t-[16px]"
+        aria-label="Home"
+        onClick={() => setActiveIcon("Home")}
+      >
+        <HomeIcon
+          className={`w-[20px] h-[20px] ${
+            location.pathname === "/dashboard"
+              ? "text-[var(--color-brand)]"
+              : ""
+          }`}
+        />
+      </Link>
       <button
         aria-label="Toggle sidebar"
         className="
-    absolute
-    top-[55px]       
-    right-[-12px]     
-    w-6 h-6        
-    bg-white
-    border border-light-silver
-    hover:bg-[var(--color-alabaster)]
-    transition-colors
-    rounded-lg
-     items-center justify-center
-    hidden lg:flex
-  "
+          absolute
+          top-[55px]       
+          right-[-12px]     
+          w-6 h-6        
+          bg-white
+          border border-light-silver
+          hover:bg-[var(--color-alabaster)]
+          transition-colors
+          rounded-lg
+          items-center justify-center
+          hidden lg:flex
+        "
       >
         <ArrowsIcon className="w-4 h-4" />
       </button>
@@ -116,28 +129,21 @@ const Sidebar: React.FC<SidebarProps> = ({
           Main
         </span>
 
-        {mainIcons.map(({ label, Icon }) => {
-          const isActive = activeIcon === label;
+        {mainIcons.map(({ label, Icon, to }) => {
+          const isActive = location.pathname === to;
           return (
-            <button
+            <Link
               key={label}
+              to={to}
               aria-label={label}
-              onClick={() => handleIconClick(label)}
               className={`
-                p-3 rounded-lg 
-                ${
-                  isActive
-                    ? "bg-[var(--color-white-smoke)]"
-                    : "text-dim-gray hover:bg-[var(--color-white-smoke)]"
-                }
+                p-3 rounded-lg flex
+                ${isActive ? "bg-light-silver/50" : "hover:bg-light-silver/50"}
               `}
+              onClick={() => setActiveIcon(label)}
             >
-              <Icon
-                className={`w-[20px] h-[20px] ${
-                  isActive ? "text-[var(--color-brand)]" : ""
-                }`}
-              />
-            </button>
+              <Icon className="w-[20px] h-[20px]" />
+            </Link>
           );
         })}
 
@@ -145,28 +151,21 @@ const Sidebar: React.FC<SidebarProps> = ({
           Settings
         </span>
 
-        {settingsIcons.map(({ label, Icon }) => {
+        {settingsIcons.map(({ label, Icon, to }) => {
           const isActive = activeIcon === label;
           return (
-            <button
+            <Link
               key={label}
+              to={to}
               aria-label={label}
-              onClick={() => handleIconClick(label)}
+              onClick={() => setActiveIcon(label)}
               className={`
-                p-3 rounded-lg 
-                ${
-                  isActive
-                    ? "bg-[var(--color-white-smoke)]"
-                    : "text-dim-gray hover:bg-[var(--color-white-smoke)]"
-                }
+                p-3 rounded-lg flex
+                ${isActive ? "bg-light-silver/50" : "hover:bg-light-silver/50"}
               `}
             >
-              <Icon
-                className={`w-[20px] h-[20px] ${
-                  isActive ? "text-[var(--color-brand)]" : ""
-                }`}
-              />
-            </button>
+              <Icon className="w-[20px] h-[20px]" />
+            </Link>
           );
         })}
       </div>

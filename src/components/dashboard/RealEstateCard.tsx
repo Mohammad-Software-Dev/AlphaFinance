@@ -56,15 +56,15 @@ const RealEstateCard: React.FC<RealEstateCardProps> = ({
           {title}
         </div>
         <div className="flex gap-2 mb-2">
-          <div className="flex-1 bg-ghost-white rounded-xl py-2 flex flex-col items-center">
+          <div className="flex-1 bg-ghost-white rounded-lg py-2 flex flex-col items-center">
             <span className="text-xs md:text-sm ">Token ROI</span>
             <span className="font-bold text-base md:text-lg">{roi}</span>
           </div>
-          <div className="flex-1 bg-ghost-white rounded-xl py-2 flex flex-col items-center">
+          <div className="flex-1 bg-ghost-white rounded-lg py-2 flex flex-col items-center">
             <span className="text-xs md:text-sm ">Token Price</span>
             <span className="font-bold text-base md:text-lg">{price}</span>
           </div>
-          <div className="flex-1 bg-ghost-white rounded-xl py-2 flex flex-col items-center">
+          <div className="flex-1 bg-ghost-white rounded-lg py-2 flex flex-col items-center">
             <span className="text-xs md:text-sm ">Investors</span>
             <span className="font-bold text-base md:text-lg">{investors}</span>
           </div>
@@ -87,6 +87,7 @@ const RealEstateCard: React.FC<RealEstateCardProps> = ({
         </div>
       </div>
       <Button
+        to={`/real-estate/${code}`}
         variant="primary"
         size="md"
         fullWidth

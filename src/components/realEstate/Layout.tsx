@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import GeneralLayout from "../layouts/GeneralLayout";
-import Tabs from "./Tabs";
+import Tabs from "../common/Tabs";
 import TabContent from "./TabContent";
 
 interface Props {

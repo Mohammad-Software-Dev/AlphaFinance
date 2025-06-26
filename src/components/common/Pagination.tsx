@@ -24,17 +24,19 @@ const Pagination: React.FC<PaginationProps> = ({
 
   return (
     <nav
-      className={`flex items-center justify-between py-4 border-t border-gray-200 ${className}`}
+      className={`flex items-center justify-between py-4 border-t border-light-silver ${className}`}
       aria-label="Pagination"
     >
       {/* Previous */}
       <button
         onClick={() => onPageChange(Math.max(1, currentPage - 1))}
         disabled={currentPage === 1}
-        className="flex items-center gap-1 text-dim-gray hover:text-gray-900 disabled:opacity-50"
+        className="flex items-center gap-1 text-dim-gray hover:text-black disabled:opacity-50"
       >
-        <LeftArrowIcon className="w-4 h-4" />
-        <span className="hidden sm:inline">Previous</span>
+        <LeftArrowIcon className=" h-full" />
+        <span className="text-xs md:text-sm font-medium hidden sm:inline">
+          Previous
+        </span>
       </button>
 
       {/* Page numbers - show only on md and up */}
@@ -42,7 +44,7 @@ const Pagination: React.FC<PaginationProps> = ({
         {pages.map((item, idx) =>
           item === "…" ? (
             <li key={`dots-${idx}`}>
-              <span className="text-gray-400">…</span>
+              <span className="text-light-silver">…</span>
             </li>
           ) : (
             <li key={item}>
@@ -50,8 +52,8 @@ const Pagination: React.FC<PaginationProps> = ({
                 onClick={() => onPageChange(item as number)}
                 className={
                   item === currentPage
-                    ? "w-8 h-8 flex items-center justify-center rounded bg-indigo-100 text-brand"
-                    : "w-8 h-8 flex items-center justify-center rounded text-dim-gray hover:bg-indigo-100"
+                    ? "w-8 h-8 text-xs md:text-sm  flex items-center justify-center rounded bg-brand-light/50 text-brand"
+                    : "w-8 h-8 text-xs md:text-sm  flex items-center justify-center rounded text-dim-gray hover:bg-light-silver"
                 }
               >
                 {item}
@@ -70,10 +72,12 @@ const Pagination: React.FC<PaginationProps> = ({
       <button
         onClick={() => onPageChange(Math.min(totalPages, currentPage + 1))}
         disabled={currentPage === totalPages}
-        className="flex items-center gap-1 text-dim-gray hover:text-gray-900 disabled:opacity-50"
+        className="flex items-center gap-1 text-dim-gray hover:text-black disabled:opacity-50"
       >
-        <span className="hidden sm:inline">Next</span>
-        <RightArrowIcon className="w-4 h-4" />
+        <span className="text-xs md:text-sm font-medium hidden sm:inline">
+          Next
+        </span>
+        <RightArrowIcon className=" h-full" />
       </button>
     </nav>
   );

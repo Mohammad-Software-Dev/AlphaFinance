@@ -1,7 +1,7 @@
 import { useState } from "react";
 import GeneralLayout from "../../components/layouts/GeneralLayout";
 import TabContent from "./TabContent";
-import Tabs from "./Tabs";
+import Tabs from "../common/Tabs";
 
 const TAB_LIST = [
   { label: "Profile", value: "profile" },
