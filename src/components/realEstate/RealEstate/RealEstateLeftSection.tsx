@@ -15,17 +15,17 @@ const iconCellClass =
 const RealEstateLeftSection: React.FC = () => (
   <div>
     {/* Image */}
-    <div className="relative aspect-[9/5] w-full h-auto  rounded-[10px] overflow-hidden">
+    <div className="relative aspect-[9/5] w-full h-auto   overflow-hidden">
       <img
         src={sampleProperty}
         alt="Property"
         className="w-full h-full object-cover"
       />
       <div className="absolute top-4 left-4 flex gap-3">
-        <button className="px-2 py-1 bg-white rounded-[8px] md:text-sm text-xs font-semibold shadow">
+        <button className="px-2 py-1 bg-white/30  md:text-sm text-xs font-semibold shadow">
           DXB
         </button>
-        <button className="px-2 py-1 bg-white rounded-[8px] md:text-sm  text-xs font-semibold shadow">
+        <button className="px-2 py-1 bg-white/30  md:text-sm  text-xs font-semibold shadow">
           COMING SOON
         </button>
       </div>

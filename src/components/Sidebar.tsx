@@ -5,12 +5,13 @@ import { styled } from "@mui/material/styles";
 import { Link, useLocation } from "react-router-dom";
 import ArrowsIcon from "../assets/icons/arrows.svg?react";
 import HomeIcon from "../assets/icons/home.svg?react";
-import UserIcon from "../assets/icons/user.svg?react";
+import ProfileIcon from "../assets/icons/user.svg?react";
 import ArticleIcon from "../assets/icons/article.svg?react";
 import CalendarIcon from "../assets/icons/calendar.svg?react";
 import StatisticsIcon from "../assets/icons/statistics.svg?react";
 import BellIcon from "../assets/icons/bell.svg?react";
 import SettingsIcon from "../assets/icons/settings.svg?react";
+import BuildingsIcon from "../assets/icons/buildings.svg?react";
 
 interface SidebarProps {
   onToggleDarkMode?: (enabled: boolean) => void;
@@ -20,15 +21,15 @@ interface SidebarProps {
 const IOSSwitch = styled((props: SwitchProps) => (
   <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
 ))(() => ({
-  width: 44,
-  height: 28,
+  width: 30,
+  height: 18,
   padding: 0,
   "& .MuiSwitch-switchBase": {
     padding: 2,
     margin: 0,
     transitionDuration: "300ms",
     "&.Mui-checked": {
-      transform: "translateX(16px)",
+      transform: "translateX(12px)",
       "& + .MuiSwitch-track": {
         backgroundColor: "var(--color-brand)",
         opacity: 1,
@@ -38,12 +39,12 @@ const IOSSwitch = styled((props: SwitchProps) => (
   },
   "& .MuiSwitch-thumb": {
     boxSizing: "border-box",
-    width: 24,
-    height: 24,
+    width: 14,
+    height: 14,
     backgroundColor: "#fff",
   },
   "& .MuiSwitch-track": {
-    borderRadius: 30 / 2,
+    borderRadius: 20,
     backgroundColor: "var(--color-light-silver)",
     opacity: 1,
   },
@@ -51,7 +52,12 @@ const IOSSwitch = styled((props: SwitchProps) => (
 
 const mainIcons = [
   { label: "Home", Icon: HomeIcon, to: "/dashboard" },
-  { label: "Users", Icon: UserIcon, to: "/users" },
+  { label: "Profile", Icon: ProfileIcon, to: "/profile" },
+  {
+    label: "Real Estate Assets",
+    Icon: BuildingsIcon,
+    to: "/real-estate-assets",
+  },
   { label: "Articles", Icon: ArticleIcon, to: "/articles" },
   { label: "Calendar", Icon: CalendarIcon, to: "/calendar" },
   { label: "Statistics", Icon: StatisticsIcon, to: "/statistics" },
@@ -75,8 +81,6 @@ const Sidebar: React.FC<SidebarProps> = ({
     onToggleDarkMode(checked);
   };
 
-  const [activeIcon, setActiveIcon] = useState<string>("Users");
-
   const location = useLocation();
 
   return (
@@ -84,18 +88,17 @@ const Sidebar: React.FC<SidebarProps> = ({
       className="
         bg-white
         border-[1px] border-light-silver
-        rounded-[16px]
-        w-[90px]
-        lg:h-[800px]
+        w-fit
         flex flex-col justify-start
         relative overflow-visible  
+        lg:min-h-[calc(100vh-94px)] lg:max-h-[calc(100vh-94px)] 
       "
     >
       <Link
         to="/dashboard"
-        className="bg-alabaster border-b-[1px] border-light-silver p-6 flex justify-center rounded-t-[16px]"
+        className="bg-alabaster border-b-[1px] border-light-silver p-3 flex justify-center "
         aria-label="Home"
-        onClick={() => setActiveIcon("Home")}
+        aria-current={location.pathname === "/dashboard" ? "page" : undefined}
       >
         <HomeIcon
           className={`w-[20px] h-[20px] ${
@@ -124,8 +127,8 @@ const Sidebar: React.FC<SidebarProps> = ({
         <ArrowsIcon className="w-4 h-4" />
       </button>
 
-      <div className=" lg:flex-1 py-6 flex flex-col items-center space-y-3">
-        <span className="text-[10px] font-medium uppercase text-sonic-silver">
+      <div className=" lg:flex-1 py-3 flex flex-col items-center space-y-3">
+        <span className="text-[8px] font-medium uppercase text-dim-gray px-2">
           Main
         </span>
 
@@ -137,30 +140,30 @@ const Sidebar: React.FC<SidebarProps> = ({
               to={to}
               aria-label={label}
               className={`
-                p-3 rounded-lg flex
+                p-2 rounded-lg flex
                 ${isActive ? "bg-light-silver/50" : "hover:bg-light-silver/50"}
               `}
-              onClick={() => setActiveIcon(label)}
+              aria-current={isActive ? "page" : undefined}
             >
               <Icon className="w-[20px] h-[20px]" />
             </Link>
           );
         })}
 
-        <span className="text-[10px] font-medium uppercase text-sonic-silver mt-6">
+        <span className="text-[8px] px-2 font-medium uppercase text-dim-gray mt-6">
           Settings
         </span>
 
         {settingsIcons.map(({ label, Icon, to }) => {
-          const isActive = activeIcon === label;
+          const isActive = location.pathname === to;
           return (
             <Link
               key={label}
               to={to}
               aria-label={label}
-              onClick={() => setActiveIcon(label)}
+              aria-current={isActive ? "page" : undefined}
               className={`
-                p-3 rounded-lg flex
+                p-2 rounded-lg flex
                 ${isActive ? "bg-light-silver/50" : "hover:bg-light-silver/50"}
               `}
             >
@@ -170,7 +173,7 @@ const Sidebar: React.FC<SidebarProps> = ({
         })}
       </div>
 
-      <div className="bg-alabaster border-t-[1px] border-light-silver p-6 flex justify-center rounded-b-[16px]">
+      <div className="bg-alabaster border-t-[1px] border-light-silver p-2 flex justify-center ">
         <IOSSwitch checked={enabled} onChange={handleSwitch} />
       </div>
     </nav>

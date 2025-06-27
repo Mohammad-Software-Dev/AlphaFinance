@@ -61,6 +61,7 @@ const SignIn: React.FC = () => {
               className="w-full"
             />
             <Button
+              to="/dashboard"
               variant="primary"
               size="md"
               fullWidth

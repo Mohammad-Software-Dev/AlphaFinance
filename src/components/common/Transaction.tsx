@@ -142,9 +142,9 @@ const Transactions: React.FC<TransactionsProps> = ({ showSummary = false }) => (
               }`}
             >
               {tx.type === "credit" ? (
-                <ArrowUpIcon className="h-5 w-5 text-teal" />
+                <ArrowUpIcon className="h-5 w-5 " />
               ) : (
-                <ArrowDownIcon className="h-5 w-5 text-dark-orange" />
+                <ArrowDownIcon className="h-5 w-5 " />
               )}
             </span>
             <div className="flex flex-col">

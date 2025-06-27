@@ -17,11 +17,11 @@ const Tabs: React.FC<Props> = ({ tabList, assetId, tab, setTab }) => (
     className="
     relative
       flex
-      border-b-[1px] border-light-silver w-full
+      border-b-[1px] border-light-silver 
       overflow-x-auto
       whitespace-nowrap
       scrollbar-hide
-      sm:justify-between sm:w-5/6
+      justify-between w-full
       "
     style={{ WebkitOverflowScrolling: "touch" }}
   >
@@ -29,7 +29,8 @@ const Tabs: React.FC<Props> = ({ tabList, assetId, tab, setTab }) => (
       <button
         key={item.value}
         className={`
-          mr-8 py-1 lg:px-0 lg:py-0
+          ${idx === tabList.length - 1 ? "" : "mr-8 md:mr-0"}
+           py-1 lg:px-0 lg:py-0
           text-sm md:text-base font-base border-b-[2px]
           ${
             tab === item.value
