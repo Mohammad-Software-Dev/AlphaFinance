@@ -1,11 +1,21 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import Layout from "../../components/realEstate/Layout";
+import TabsLayout from "../../components/layouts/TabsLayout";
+
+const TAB_LIST = [
+  { label: "", value: "asset" },
+  { label: "Property Info", value: "info" },
+  { label: "Financial", value: "financial" },
+  { label: "Investment calculator", value: "calculator" },
+  { label: "Update", value: "update" },
+  { label: "Documents", value: "documents" },
+  { label: "Reach Us", value: "reach" },
+];
 
 const RealEstatePage: React.FC = () => {
   const { assetId } = useParams<{ assetId: string }>();
 
-  return <Layout assetId={assetId || ""} />;
+  return <TabsLayout tabList={TAB_LIST} assetId={assetId || ""} />;
 };
 
 export default RealEstatePage;

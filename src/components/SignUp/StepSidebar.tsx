@@ -2,14 +2,19 @@ import React from "react";
 import CheckIcon from "../../assets/icons/simple-check.svg?react";
 
 interface StepSidebarProps {
-  currentStep: "account" | "legal" | "identity" | "profile" | "start";
+  currentStep:
+    | "account"
+    | "legal"
+    | "identity"
+    | "real-estate-assets"
+    | "start";
 }
 
 const steps = [
   { key: "account", label: "Account Verification" },
   { key: "legal", label: "Legal Agreement" },
   { key: "identity", label: "Identity Verification" },
-  { key: "profile", label: "Investor Profile" },
+  { key: "real-estate-assets", label: "Investor Profile" },
   { key: "start", label: "Start Investing" },
 ] as const;
 

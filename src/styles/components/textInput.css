@@ -2,7 +2,7 @@
   .text-input {
     @apply w-full bg-transparent font-inter font-normal text-[14px] outline-none;
     border: none;
-    border-bottom: 1px solid var(--color-white-smoke);
+    border-bottom: 1px solid var(--color-light-silver);
     padding: 8px 0; 
   }
 

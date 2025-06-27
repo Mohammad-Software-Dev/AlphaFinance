@@ -1,27 +1,25 @@
 import React, { useRef, useEffect } from "react";
 
-import PropertyInfoTab from "./tabs/PropertyInfoTab";
-import FinancialTab from "./tabs/FinancialTab";
-import RealEstateTab from "./tabs/RealEstateTab";
-import UpdatesTab from "./tabs/UpdatesTab";
-import ReachUs from "./tabs/ReachUsTab";
+import PropertyInfoTab from "../realEstate/tabs/PropertyInfoTab";
+import FinancialTab from "../realEstate/tabs/FinancialTab";
+import RealEstateTab from "../realEstate/tabs/RealEstateTab";
+import UpdatesTab from "../realEstate/tabs/UpdatesTab";
+import ReachUs from "../realEstate/tabs/ReachUsTab";
+
+import Transactions from "../profile/tabs/Transactions";
+import Profile from "../profile/tabs/Profile";
 
 interface Props {
   tab: string;
-  assetId: string;
+  assetId?: string;
 }
-
-const STICKY_HEADER_HEIGHT = 160;
 
 const TabContent: React.FC<Props> = ({ tab }) => {
   const topRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (topRef.current) {
-      const y =
-        topRef.current.getBoundingClientRect().top +
-        window.scrollY -
-        STICKY_HEADER_HEIGHT;
+      const y = window.scrollY;
       window.scrollTo({ top: y, behavior: "smooth" });
     }
   }, [tab]);
@@ -63,7 +61,20 @@ const TabContent: React.FC<Props> = ({ tab }) => {
       </div>
     );
   }
-
+  if (tab === "profile") {
+    return (
+      <div ref={topRef}>
+        <Profile />
+      </div>
+    );
+  }
+  if (tab === "transactions") {
+    return (
+      <div ref={topRef}>
+        <Transactions />
+      </div>
+    );
+  }
   return (
     <div ref={topRef} className="flex items-start gap-12 mt-8">
       <div className="flex-1 min-h-[400px] flex items-center justify-center">

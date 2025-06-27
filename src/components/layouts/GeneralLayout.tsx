@@ -5,17 +5,18 @@ import AnimatedBurgerIcon from "../common/AnimatedBurgerIcon";
 interface GeneralLayoutProps {
   children?: React.ReactNode;
   rightAside?: React.ReactNode;
+  title?: string;
 }
 
 const GeneralLayout: React.FC<GeneralLayoutProps> = ({
   children,
   rightAside,
+  title,
 }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="min-h-screen pt-[47px] flex flex-col lg:flex-row relative bg-white   px-4 md:px-6">
-      {/* Mobile burger button */}
+    <div className="min-h-screen pt-[47px] flex flex-col lg:flex-row relative bg-white  px-4 md:px-6">
       <button
         className="fixed top-5 right-5 z-50 hidden bg-white border border-light-silver rounded-lg p-2"
         onClick={() => setSidebarOpen(!sidebarOpen)}
@@ -24,7 +25,6 @@ const GeneralLayout: React.FC<GeneralLayoutProps> = ({
         <AnimatedBurgerIcon open={sidebarOpen} />
       </button>
 
-      {/* Sidebar overlay for mobile */}
       {sidebarOpen && (
         <div
           className="fixed inset-0 z-40 lg:hidden"
@@ -33,7 +33,6 @@ const GeneralLayout: React.FC<GeneralLayoutProps> = ({
         />
       )}
 
-      {/* Sidebar  */}
       <div
         className={`
           fixed top-8 left-1 z-50 h-fit w-fit bg-transparent transition-transform duration-200
@@ -71,7 +70,22 @@ const GeneralLayout: React.FC<GeneralLayoutProps> = ({
           overflow-x-hidden
         `}
       >
-        {children}
+        {title && (
+          <div className="flex-1 flex flex-col">
+            <div className="relative">
+              <div className="" aria-hidden="true" />
+              <div className="fixed md:sticky top-0 pt-6 md:pt-0 z-30 bg-white w-[92vw] md:w-full">
+                <h4 className="font-bold mb-3 lg:mb-6 border-b-[4px] border-brand w-fit">
+                  {title}
+                </h4>
+                <div className="w-full " />
+              </div>
+            </div>
+            <div className="">{children}</div>
+          </div>
+        )}
+
+        {!title && <div> {children} </div>}
       </main>
     </div>
   );

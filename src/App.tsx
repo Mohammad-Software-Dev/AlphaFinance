@@ -9,8 +9,9 @@ import IdentityVerification from "./pages/IdentityVerification/IdentityVerificat
 import BlogPostPage from "./pages/BlogPage/BlogPostPage";
 import BlogPage from "./pages/BlogPage/BlogPage";
 import RealEstatePage from "./pages/RealEstate/RealEstatePage";
-import DashboardPage from "./pages/Dashboard/DashboardPage";
+import RealEstateAssets from "./pages/RealEstateAssets/RealEstateAssetsPage";
 import NotBuiltYet from "./pages/NotBuiltYet";
+import Profile from "./pages/Profile/ProfilePage";
 
 const App: React.FC = () => {
   return (
@@ -25,7 +26,8 @@ const App: React.FC = () => {
       <Route path="/blog" element={<BlogPage />} />
       <Route path="/blog-post" element={<BlogPostPage />} />
       <Route path="/real-estate/:assetId" element={<RealEstatePage />} />
-      <Route path="/dashboard" element={<DashboardPage />} />
+      <Route path="/real-estate-assets" element={<RealEstateAssets />} />
+      <Route path="/profile" element={<Profile />} />
       <Route path="*" element={<NotBuiltYet />} />
     </Routes>
   );

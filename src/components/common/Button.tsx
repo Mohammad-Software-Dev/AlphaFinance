@@ -21,7 +21,7 @@ const variantClasses: Record<Variant, string> = {
   primary: `
     inline-flex items-center justify-center
     font-inter font-medium
-    rounded border
+     border
     bg-black text-white
     border-black
     h-[35px]
@@ -30,7 +30,7 @@ const variantClasses: Record<Variant, string> = {
   secondary: `
     inline-flex items-center justify-center
     font-inter font-medium
-    rounded border
+     border
     bg-white text-black
     border-[#F0F0F0]
     h-[35px]

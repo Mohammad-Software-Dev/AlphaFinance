@@ -63,7 +63,7 @@ const InvestorProfile: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 py-10">
         <div className="flex">
           <div className="hidden md:block md:w-2/4 lg:w-1/4">
-            <StepSidebar currentStep="profile" />
+            <StepSidebar currentStep="real-estate-assets" />
           </div>
 
           <div className="hidden md:block w-1/12" />

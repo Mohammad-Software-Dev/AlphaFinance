@@ -1,5 +1,5 @@
 import sampleProperty from "../../assets/images/sample-property.jpg";
-import { Button } from "../../components/common/Button";
+import { Button } from "../common/Button";
 
 interface RealEstateCardProps {
   code: string;
@@ -28,7 +28,7 @@ const RealEstateCard: React.FC<RealEstateCardProps> = ({
   image = sampleProperty,
 }) => {
   return (
-    <div className=" flex flex-col max-w-[350px] gap-3 md:gap-6 overflow-hidden">
+    <div className="flex flex-col h-full w-full gap-3 md:gap-6 overflow-hidden">
       <div className="relative">
         <img
           src={image}
@@ -38,11 +38,9 @@ const RealEstateCard: React.FC<RealEstateCardProps> = ({
         <div className="absolute w-1/2 right-0 inset-y-0  h-full bg-gradient-to-l from-brand/50 to-transparent pointer-events-none" />
 
         <div className="absolute top-3 left-3 flex gap-2">
-          <button className="px-2 py-1 bg-white rounded-[8px] text-xs  ">
-            {status}
-          </button>
+          <button className="px-2 py-1 bg-white/30  text-xs  ">{status}</button>
           {comingSoon && (
-            <button className="px-2 py-1 bg-white rounded-[8px]  text-xs ">
+            <button className="px-2 py-1 bg-white/30   text-xs ">
               COMING SOON
             </button>
           )}
@@ -56,15 +54,15 @@ const RealEstateCard: React.FC<RealEstateCardProps> = ({
           {title}
         </div>
         <div className="flex gap-2 mb-2">
-          <div className="flex-1 bg-ghost-white rounded-lg py-2 flex flex-col items-center">
+          <div className="flex-1 bg-ghost-white  py-2 flex flex-col items-center">
             <span className="text-xs md:text-sm ">Token ROI</span>
             <span className="font-bold text-base md:text-lg">{roi}</span>
           </div>
-          <div className="flex-1 bg-ghost-white rounded-lg py-2 flex flex-col items-center">
+          <div className="flex-1 bg-ghost-white  py-2 flex flex-col items-center">
             <span className="text-xs md:text-sm ">Token Price</span>
             <span className="font-bold text-base md:text-lg">{price}</span>
           </div>
-          <div className="flex-1 bg-ghost-white rounded-lg py-2 flex flex-col items-center">
+          <div className="flex-1 bg-ghost-white  py-2 flex flex-col items-center">
             <span className="text-xs md:text-sm ">Investors</span>
             <span className="font-bold text-base md:text-lg">{investors}</span>
           </div>
