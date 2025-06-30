@@ -25,7 +25,7 @@ const ProfileInformation: React.FC = () => (
         </div>
       </div>
     </div>
-    <div className="mb-3 space-y-1 text-base flex flex-col border-b-[1px] border-light-silver pb-4">
+    <div className="mb-3 space-y-1 text-base flex flex-col pb-4">
       <span className="font-norma text-xs md:text-sm ">
         <span className="font-medium text-xs md:text-sm ">Bio: </span>Lorem
         ipsum dolor sit amet consectetur.

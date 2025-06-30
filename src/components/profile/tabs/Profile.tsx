@@ -1,25 +1,71 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ProfileInformation from "../ProfileInformation";
 import PlatformSettings from "../PlatformSettings";
 import LogOverview from "../LogOverview";
 import Projects from "../Projects";
+import LogIcon from "../../../assets/icons/logs.svg?react";
 
 const Profile: React.FC = () => {
+  const [logOpen, setLogOpen] = useState(false);
+
+  useEffect(() => {
+    if (logOpen) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    };
+  }, [logOpen]);
+
   return (
-    <div className="w-full  grid grid-cols-1 lg:grid-cols-3 gap-8">
-      {/* Left: Profile Information & Projects */}
-      <div className="col-span-1 flex flex-col gap-8">
-        <ProfileInformation />
-        <Projects />
+    <div className="flex flex-col md:flex-row gap-8 w-full relative">
+      <div className="fixed right-2 bottom-2 z-20 md:hidden">
+        <button
+          onClick={() => setLogOpen(true)}
+          className="bg-brand rounded-full p-4 shadow hover:bg-brand-dark transition"
+        >
+          <LogIcon className="w-7 h-7 " />
+        </button>
       </div>
-      {/* Center: Platform Settings */}
-      <div className="col-span-1 flex flex-col">
-        <PlatformSettings />
+
+      <div className="w-full md:w-2/3">
+        <div className="flex flex-wrap md:border-b-[1px] border-light-silver mb-4 md:mb-6">
+          <div className="w-1/2 min-w-fit border-b-[1px] border-light-silver md:border-0 mb-4 md:mb-6">
+            <ProfileInformation />
+          </div>
+          <div className="w-1/2 min-w-fit border-b-[1px] border-light-silver md:border-0 mb-4 md:mb-6">
+            <PlatformSettings />
+          </div>
+        </div>
+        <div className="w-full">
+          <Projects />
+        </div>
       </div>
-      {/* Right: Log Overview */}
-      <div className="col-span-1 flex flex-col">
-        <LogOverview />
+      <div className="hidden md:flex w-full md:w-1/3 mt-6 md:mt-0">
+        <div className="col-span-1 flex flex-col h-full">
+          <LogOverview />
+        </div>
       </div>
+      {/* LogOverview: mobile modal */}
+      {logOpen && (
+        <div className="fixed inset-0 bg-black/30 z-30 flex items-center justify-center md:hidden">
+          <div
+            className="bg-white w-[98vw] max-w-lg h-[90vh] rounded-2xl shadow-xl relative p-4 flex flex-col overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="absolute right-3 top-3 text-gray-500 hover:text-brand text-2xl font-bold"
+              onClick={() => setLogOpen(false)}
+              aria-label="Close LogOverview"
+            >
+              ×
+            </button>
+            <LogOverview />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

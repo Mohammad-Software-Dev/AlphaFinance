@@ -9,9 +9,14 @@ interface ProjectCardProps {
   status?: string;
   comingSoon?: boolean;
   image?: string;
-  members?: string[]; // array of user avatar URLs
+  members?: string[];
 }
-
+const bgClasses = [
+  "bg-profile-blue",
+  "bg-profile-pink",
+  "bg-profile-purple",
+  "bg-profile-light-blue",
+];
 const ProjectCard: React.FC<ProjectCardProps> = ({
   code = "DXBDIFC007",
   title = "Lorem ipsum dolor sit amet consectetur.",
@@ -22,7 +27,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   members = [],
 }) => {
   return (
-    <div className="flex flex-col h-full w-full bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100">
+    <div className="flex flex-col h-full w-full  overflow-hidden ">
       <div className="relative">
         <img
           src={image}
@@ -40,7 +45,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           )}
         </div>
       </div>
-      <div className="flex-1 flex flex-col px-3 py-2">
+      <div className="flex-1 flex flex-col py-2">
         <div className="flex items-center gap-2 font-bold text-sm tracking-tight">
           {code}
           {/* Members avatars */}
@@ -50,11 +55,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 key={m + idx}
                 src={m}
                 alt="Member"
-                className="w-6 h-6 rounded-full border-2 border-white shadow"
+                className={`w-6 h-6 rounded-full border-2 border-white ${
+                  bgClasses[idx % bgClasses.length]
+                }`}
               />
             ))}
             {members.length > 3 && (
-              <span className="w-6 h-6 flex items-center justify-center rounded-full bg-gray-200 border-2 border-white text-xs text-gray-600">
+              <span className="w-6 h-6 flex items-center justify-center rounded-full bg-light-silver  text-xs ">
                 +{members.length - 3}
               </span>
             )}
@@ -63,16 +70,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         <div className="text-dim-gray text-sm mb-3 line-clamp-2">
           {description}
         </div>
-        <Button
-          to={`/project/${code}`}
-          variant="primary"
-          size="md"
-          fullWidth
-          className="text-xs font-medium bg-black text-white"
-        >
-          View Project
-        </Button>
       </div>
+      <Button
+        to={`/project/${code}`}
+        variant="primary"
+        size="md"
+        fullWidth
+        className="text-xs font-medium bg-black text-white"
+      >
+        View Project
+      </Button>
     </div>
   );
 };
