@@ -28,15 +28,15 @@ const RealEstateAssetsPage: React.FC = () => {
     <GeneralLayout title="Real Estate Assets">
       <div
         className="
-          grid gap-6
-          grid-cols-1
-          sm:grid-cols-2
-          md:grid-cols-3
-          lg:grid-cols-4
-          [@media(min-width:1920px)]:grid-cols-4
-          [@media(min-width:2560px)]:grid-cols-5
-          [@media(min-width:3840px)]:grid-cols-6
-          "
+        grid gap-y-8 gap-x-4
+        grid-cols-1
+        sm:grid-cols-2
+        md:grid-cols-3
+        lg:grid-cols-4
+        [@media(min-width:1920px)]:grid-cols-4
+        [@media(min-width:2560px)]:grid-cols-5
+        [@media(min-width:3840px)]:grid-cols-6
+      "
       >
         {properties.map((property, idx) => (
           <RealEstateCard key={idx} {...property} />

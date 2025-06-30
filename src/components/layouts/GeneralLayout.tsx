@@ -16,7 +16,7 @@ const GeneralLayout: React.FC<GeneralLayoutProps> = ({
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="min-h-screen pt-[47px] flex flex-col lg:flex-row relative bg-white  px-4 md:px-6">
+    <div className="min-h-screen pt-[47px] flex flex-col lg:flex-row relative bg-white  px-4 md:px-6 ">
       <button
         className="fixed top-5 right-5 z-50 hidden bg-white border border-light-silver rounded-lg p-2"
         onClick={() => setSidebarOpen(!sidebarOpen)}

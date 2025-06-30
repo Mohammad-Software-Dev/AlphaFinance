@@ -113,7 +113,7 @@ const Timeline: React.FC = () => (
             {/* Timeline content */}
             <div
               className={`
-                            flex-1 pl-8 pr-1 py-3
+                            flex-1 pl-6 md:pl-8 pr-1 py-3
                             ${
                               event.marked ? "border-l-[3px]" : "border-l-[2px]"
                             }
