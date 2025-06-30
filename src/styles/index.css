@@ -32,7 +32,7 @@
   --color-profile-light-blue:#E3EEF9;
 
 
-
+  --breakpoint-lg: 73.8125rem;
   /* Fluid typography breakpoints */
   /* --min-screen: 360px;
   --max-screen: 1920px; */
