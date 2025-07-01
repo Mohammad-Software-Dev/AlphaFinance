@@ -9,12 +9,15 @@ import { Button } from "../../common/Button";
 import DownloadIcon from "../../../assets/icons/download_text.svg?react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCards } from "swiper/modules";
-import masterCard from "../../../assets/images/cards/master.jpg";
-import visaCard from "../../../assets/images/cards/visa.jpg";
-import amexCard from "../../../assets/images/cards/amex.png";
-import discCard from "../../../assets/images/cards/disc.png";
+import MasterCardLogo from "../../../assets/icons/master_card_logo.svg?react";
+import VisaCardLogo from "../../../assets/icons/visa_card_logo.svg?react";
 
-const cardImages = [masterCard, visaCard, amexCard, discCard];
+import CreditCard from "../CreditCard";
+
+const cardImages = [
+  <MasterCardLogo className="w-14 h-14" />,
+  <VisaCardLogo className="w-14 h-14" />,
+];
 
 const TransactionPage: React.FC = () => {
   return (
@@ -42,7 +45,7 @@ const TransactionPage: React.FC = () => {
 
         {/* Credit Card & Payment Methods */}
         <div className="flex  flex-col lg:flex-row w-full   gap-8 items-stretch mb-8">
-          <div className="md:w-1/2 px-6 py-2 max-w-xs md:max-w-sm lg:max-w-md">
+          <div className=" px-6 py-2  md:w-sm lg:w-md">
             <Swiper
               effect="cards"
               modules={[EffectCards]}
@@ -51,13 +54,14 @@ const TransactionPage: React.FC = () => {
               pagination={{ clickable: true }}
               navigation
             >
-              {cardImages.map((img, idx) => (
+              {cardImages.map((logo, idx) => (
                 <SwiperSlide className="rounded-xl" key={idx}>
-                  <img
+                  {/* <img
                     src={img}
                     alt={`Card ${idx + 1}`}
                     className="w-full object-cover "
-                  />
+                  /> */}
+                  <CreditCard logo={logo} />
                 </SwiperSlide>
               ))}
             </Swiper>
