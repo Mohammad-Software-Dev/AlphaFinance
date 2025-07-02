@@ -49,7 +49,7 @@ const Projects: React.FC = () => (
           members={proj.members}
         />
       ))}
-      <div className="flex flex-col items-center justify-center h-full bg-ghost-white  cursor-pointer transition hover:bg-light-silver">
+      <div className="flex flex-col items-center justify-center h-full  cursor-pointer transition">
         <Plus className="w-14 h-14" />
 
         <span className="text-dim-gray mt-2">New tab</span>
@@ -72,7 +72,7 @@ const Projects: React.FC = () => (
           </SwiperSlide>
         ))}
         <SwiperSlide>
-          <div className="flex flex-col items-center justify-center h-full bg-ghost-white cursor-pointer transition hover:bg-light-silver min-h-[300px]">
+          <div className="flex flex-col items-center justify-center h-full cursor-pointer transition min-h-[300px]">
             <Plus className="w-14 h-14" />
             <span className="text-dim-gray mt-2">New tab</span>
           </div>

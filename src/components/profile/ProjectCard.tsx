@@ -27,7 +27,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   members = [],
 }) => {
   return (
-    <div className="flex flex-col h-full w-full  overflow-hidden ">
+    <div className="flex flex-col h-full w-full  overflow-hidden transition-transform duration-200 hover:-translate-y-1">
       <div className="relative">
         <img
           src={image}
@@ -49,19 +49,19 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         <div className="flex items-center gap-2 font-bold text-sm tracking-tight">
           {code}
           {/* Members avatars */}
-          <div className="flex -space-x-2">
+          <div className="flex -space-x-2 ">
             {members.slice(0, 3).map((m, idx) => (
               <img
                 key={m + idx}
                 src={m}
                 alt="Member"
-                className={`w-6 h-6 rounded-full border-2 border-white ${
+                className={`w-6 h-6 rounded-full border-2 border-white  transition-transform duration-200 hover:-translate-y-1 ${
                   bgClasses[idx % bgClasses.length]
                 }`}
               />
             ))}
             {members.length > 3 && (
-              <span className="w-6 h-6 flex items-center justify-center rounded-full bg-light-silver  text-xs ">
+              <span className="w-6 h-6 flex items-center justify-center rounded-full bg-light-silver  text-xs transition-transform duration-200 hover:-translate-y-1">
                 +{members.length - 3}
               </span>
             )}

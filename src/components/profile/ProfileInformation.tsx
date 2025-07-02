@@ -20,34 +20,36 @@ const ProfileInformation: React.FC = () => (
           <h4 className=" text-black flex items-center gap-2">David Peters</h4>
           <EditIcon className="w-5 h-5 cursor-pointer" />
         </div>
-        <div className="text-xs md:text-sm font-normal">
+        <div className="text-sm md:text-base font-normal">
           United Arab Emirates,Dubai
         </div>
       </div>
     </div>
     <div className="mb-3 space-y-1 text-base flex flex-col pb-4">
-      <span className="font-norma text-xs md:text-sm ">
-        <span className="font-medium text-xs md:text-sm ">Bio: </span>Lorem
+      <p className="font-normal text-sm md:text-base ">
+        <span className="font-medium text-sm md:text-base ">Bio: </span>Lorem
         ipsum dolor sit amet consectetur.
-      </span>
-      <span className="font-norma text-xs md:text-sm ">
-        <span className="font-medium text-xs md:text-sm ">Name: </span>Aron
+      </p>
+      <p className="font-normal text-sm md:text-base ">
+        <span className="font-medium text-sm md:text-base ">Name: </span>Aron
         White
-      </span>
-      <span className="font-norma text-xs md:text-sm ">
-        <span className="font-medium text-xs md:text-sm ">Phone: </span>
+      </p>
+      <p className="font-normal text-sm md:text-base ">
+        <span className="font-medium text-sm md:text-base ">Phone: </span>
         (44)123-456-78
-      </span>
-      <span className="font-norma text-xs md:text-sm ">
-        <span className="font-medium text-xs md:text-sm ">Email Address: </span>
+      </p>
+      <p className="font-normal text-sm md:text-base ">
+        <span className="font-medium text-sm md:text-base ">
+          Email Address:{" "}
+        </span>
         arroragaur@gmail.com
-      </span>
-      <span className="font-norma text-xs md:text-sm ">
-        <span className="font-medium text-xs md:text-sm ">Location: </span>
+      </p>
+      <p className="font-normal text-sm md:text-base ">
+        <span className="font-medium text-sm md:text-base ">Location: </span>
         United Arab Emirates,Dubai
-      </span>
+      </p>
       <div className="flex items-center gap-2">
-        <span className="font-medium text-xs md:text-sm ">Social:</span>
+        <span className="font-medium text-sm md:text-base ">Social:</span>
         <a href="#" className="hover:opacity-70">
           <FacebookIcon className="w-5 h-5" />
         </a>
