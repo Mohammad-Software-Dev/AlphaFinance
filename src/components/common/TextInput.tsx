@@ -8,6 +8,8 @@ interface TextInputProps {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   error?: string;
   className?: string;
+  label?: string;
+  name?: string;
 }
 
 const TextInput: React.FC<TextInputProps> = ({
@@ -18,16 +20,25 @@ const TextInput: React.FC<TextInputProps> = ({
   onChange,
   error,
   className = "",
+  label = null,
+  name = "",
 }) => {
   return (
-    <div className={`flex flex-col items-start ${className}`}>
+    <div className={`py-2 flex flex-col items-start ${className}`}>
+      {label && (
+        <label className="block text-dim-gray text-sm md:text-base mb-1 py-1">
+          {label}
+        </label>
+      )}
       <input
+        name={name}
         id={id}
         type={type}
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        className={`text-input px-2 ${error ? "error" : ""}`}
+        className={`w-full border-b-[1px] border-light-silver placeholder:text-dark-silver text-sm md:text-base px-2  focus:outline-none 
+          focus:border-black  ${error ? "error" : ""}`}
       />
       {error && <p className="mt-1 text-xs text-error font-inter">{error}</p>}
     </div>

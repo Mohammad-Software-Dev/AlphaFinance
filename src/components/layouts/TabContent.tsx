@@ -8,6 +8,7 @@ import ReachUs from "../realEstate/tabs/ReachUsTab";
 
 import Transactions from "../profile/tabs/Transactions";
 import Profile from "../profile/tabs/Profile";
+import Settings from "../profile/tabs/Settings";
 
 interface Props {
   tab: string;
@@ -75,6 +76,14 @@ const TabContent: React.FC<Props> = ({ tab }) => {
       </div>
     );
   }
+  if (tab === "settings") {
+    return (
+      <div ref={topRef}>
+        <Settings />
+      </div>
+    );
+  }
+
   return (
     <div ref={topRef} className="flex items-start gap-12 mt-8">
       <div className="flex-1 min-h-[400px] flex items-center justify-center">

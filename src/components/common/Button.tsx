@@ -24,7 +24,7 @@ const variantClasses: Record<Variant, string> = {
      border
     bg-black text-white
     border-black
-    h-[35px]
+    h-[30px] md:h-[35px]
     hover:opacity-90 transition
   `,
   secondary: `
@@ -32,8 +32,8 @@ const variantClasses: Record<Variant, string> = {
     font-inter font-medium
      border
     bg-white text-black
-    border-[#F0F0F0]
-    h-[35px]
+    border-light-silver
+    h-[30px] md:h-[35px]
     hover:bg-gray-100 transition
   `,
   link: `

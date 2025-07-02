@@ -41,6 +41,7 @@
 @layer base {
   html {
     font-family: var(--font-inter);
+    font-weight: 400;
     font-size: 16px; /* Base scale: 1rem = 16px */
   }
   .w-full{

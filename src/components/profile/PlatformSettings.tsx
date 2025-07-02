@@ -35,18 +35,73 @@ const IOSSwitch = styled((props: SwitchProps) => (
   },
 }));
 
-const PlatformSettings: React.FC = () => {
-  const [settings, setSettings] = useState({
-    follows: true,
-    answers: false,
-    mentions: true,
-    launches: false,
-    updates: false,
-    newsletter: true,
-  });
+type SettingKey =
+  | "follows"
+  | "answers"
+  | "mentions"
+  | "launches"
+  | "updates"
+  | "newsletter";
 
-  const toggle = (key: keyof typeof settings) =>
+const accountSettings: {
+  key: SettingKey;
+  label: string;
+}[] = [
+  { key: "follows", label: "Email me when someone follows me" },
+  { key: "answers", label: "Email me when someone answers on my post" },
+  { key: "mentions", label: "Email me when someone mentions me" },
+];
+
+const appSettings: {
+  key: SettingKey;
+  label: string;
+}[] = [
+  { key: "launches", label: "New launches and projects" },
+  { key: "updates", label: "Monthly product updates" },
+  { key: "newsletter", label: "Subscribe to newsletter" },
+];
+
+const initialSettings: Record<SettingKey, boolean> = {
+  follows: true,
+  answers: false,
+  mentions: true,
+  launches: false,
+  updates: false,
+  newsletter: true,
+};
+
+const PlatformSettings: React.FC = () => {
+  const [settings, setSettings] = useState(initialSettings);
+
+  const toggle = (key: SettingKey) =>
     setSettings((prev) => ({ ...prev, [key]: !prev[key] }));
+
+  const renderSwitchRow = (key: SettingKey, label: string) => {
+    const switchId = `setting-${key}`;
+    return (
+      <label
+        key={key}
+        htmlFor={switchId}
+        className="flex items-center gap-3 cursor-pointer select-none"
+      >
+        <IOSSwitch
+          id={switchId}
+          checked={settings[key]}
+          onChange={() => toggle(key)}
+          slotProps={{ input: { "aria-label": label } }}
+        />
+        <span
+          className={
+            settings[key]
+              ? "text-black text-xs md:text-sm"
+              : "text-dark-silver text-xs md:text-sm"
+          }
+        >
+          {label}
+        </span>
+      </label>
+    );
+  };
 
   return (
     <section>
@@ -54,99 +109,11 @@ const PlatformSettings: React.FC = () => {
       <div className="mb-4">
         <div className="mb-2 text-xs font-bold uppercase ">Account</div>
         <div className="flex flex-col gap-4 mb-6">
-          <div className="flex items-center gap-3">
-            <IOSSwitch
-              checked={settings.follows}
-              onChange={() => toggle("follows")}
-            />
-            <span
-              className={
-                settings.follows
-                  ? "text-black text-xs md:text-sm"
-                  : "text-dark-silver text-xs md:text-sm"
-              }
-            >
-              Email me when someone follows me
-            </span>
-          </div>
-          <div className="flex items-center gap-3">
-            <IOSSwitch
-              checked={settings.answers}
-              onChange={() => toggle("answers")}
-            />
-            <span
-              className={
-                settings.answers
-                  ? "text-black text-xs md:text-sm"
-                  : "text-dark-silver text-xs md:text-sm"
-              }
-            >
-              Email me when someone answers on my post
-            </span>
-          </div>
-          <div className="flex items-center gap-3">
-            <IOSSwitch
-              checked={settings.mentions}
-              onChange={() => toggle("mentions")}
-            />
-            <span
-              className={
-                settings.mentions
-                  ? "text-black text-xs md:text-sm"
-                  : "text-dark-silver text-xs md:text-sm"
-              }
-            >
-              Email me when someone mentions me
-            </span>
-          </div>
+          {accountSettings.map(({ key, label }) => renderSwitchRow(key, label))}
         </div>
         <div className="mb-2 text-xs font-bold uppercase ">Application</div>
         <div className="flex flex-col gap-4">
-          <div className="flex items-center gap-3">
-            <IOSSwitch
-              checked={settings.launches}
-              onChange={() => toggle("launches")}
-            />
-            <span
-              className={
-                settings.launches
-                  ? "text-black text-xs md:text-sm"
-                  : "text-dark-silver text-xs md:text-sm"
-              }
-            >
-              New launches and projects
-            </span>
-          </div>
-          <div className="flex items-center gap-3">
-            <IOSSwitch
-              checked={settings.updates}
-              onChange={() => toggle("updates")}
-            />
-            <span
-              className={
-                settings.updates
-                  ? "text-black text-xs md:text-sm"
-                  : "text-dark-silver text-xs md:text-sm"
-              }
-            >
-              Monthly product updates
-            </span>
-          </div>
-          <div className="flex items-center gap-3">
-            <IOSSwitch
-              checked={settings.newsletter}
-              onChange={() => toggle("newsletter")}
-            />
-            <span
-              className={
-                settings.newsletter
-                  ? "text-black text-xs md:text-sm"
-                  : "text-dark-silver text-xs md:text-sm"
-              }
-            >
-              Subscribe to newsletter
-            </span>
-          </div>
+          {appSettings.map(({ key, label }) => renderSwitchRow(key, label))}
         </div>
       </div>
     </section>

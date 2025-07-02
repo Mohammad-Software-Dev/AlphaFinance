@@ -1,18 +1,5 @@
 @layer components {
-  .text-input {
-    @apply w-full bg-transparent font-inter font-normal text-[14px] outline-none;
-    border: none;
-    border-bottom: 1px solid var(--color-light-silver);
-    padding: 8px 0; 
-  }
 
-  .text-input::placeholder {
-    color: #A0A0A0;
-  }
-
-  .text-input:focus {
-    border-bottom-color: var(--color-black-russian);
-  }
   
   .text-input.error {
     border-bottom-width: 2px;

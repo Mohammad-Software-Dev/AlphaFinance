@@ -7,6 +7,8 @@ interface DropdownProps {
   onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   placeholder?: string;
   className?: string;
+  label?: string;
+  name?: string;
 }
 
 const Dropdown: React.FC<DropdownProps> = ({
@@ -16,14 +18,22 @@ const Dropdown: React.FC<DropdownProps> = ({
   onChange,
   placeholder = "Select",
   className = "",
+  name = "",
+  label = null,
 }) => {
   return (
-    <div className={`relative flex flex-col items-start  ${className}`}>
+    <div className={`py-2 relative flex flex-col items-start  ${className}`}>
+      {label && (
+        <label className="block text-dim-gray text-sm md:text-base mb-1 py-1">
+          {label}
+        </label>
+      )}
       <select
         id={id}
+        name={name}
         value={value}
         onChange={onChange}
-        className="w-full text-input bg-transparent pr-8 appearance-none px-2"
+        className="w-full   border-b-[1px] border-light-silver placeholder:text-dark-silver text-sm md:text-base bg-transparent pr-8 appearance-none px-2"
       >
         <option value="" disabled hidden>
           {placeholder}
