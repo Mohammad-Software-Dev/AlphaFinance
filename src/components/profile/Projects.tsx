@@ -40,8 +40,9 @@ const Projects: React.FC = () => (
   [@media(min-width:2560px)]:grid-cols-5
   [@media(min-width:3840px)]:grid-cols-6  my-2 md:my-3 items-stretch [grid-auto-rows:1fr] "
     >
-      {projects.map((proj) => (
+      {projects.map((proj, idx) => (
         <ProjectCard
+          key={idx}
           code={proj.code}
           title={proj.title}
           description={proj.description}

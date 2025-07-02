@@ -35,7 +35,7 @@ const logs = [
 
 const LogOverview: React.FC = () => (
   <section>
-    <h4 className="mb-4 md:mb-6">Log Overview</h4>
+    <h4 className="mb-4  md:mb-6">Log Overview</h4>
     <div className="w-full flex flex-col">
       {logs.map((log) => (
         <div key={log.date + log.time} className="flex w-full relative ">
@@ -45,7 +45,7 @@ const LogOverview: React.FC = () => (
           </div>
           <div
             className={`
-                  flex-1 pl-6 md:pl-8 pr-1 py-3
+                  flex-1 pl-6 md:pl-8 pr-1 py-3 text-sm md:text-base
                   ${log.marked ? "border-l-[3px]" : "border-l-[2px]"}
               `}
             style={{
