@@ -28,7 +28,7 @@ const RealEstateCard: React.FC<RealEstateCardProps> = ({
   image = sampleProperty,
 }) => {
   return (
-    <div className="flex flex-col h-full w-full gap-3 md:gap-3  bg-white overflow-hidden transition-all hover:shadow-lg min-w-[220px]">
+    <div className="flex flex-col h-full w-full gap-3 md:gap-3  bg-white overflow-hidden transition-transform duration-200 hover:-translate-y-1 min-w-[220px]">
       {/* Image */}
       <div className="relative w-full">
         <img
@@ -54,7 +54,7 @@ const RealEstateCard: React.FC<RealEstateCardProps> = ({
         <div className="font-bold text-sm md:text-base tracking-tight truncate">
           {code}
         </div>
-        <div className="text-dim-gray font-light text-base md:text-xl mb-3 line-clamp-2">
+        <div className="text-dim-gray font-light text-base md:text-lg mb-3 line-clamp-2">
           {title}
         </div>
         <div className="flex gap-2 mb-2">
