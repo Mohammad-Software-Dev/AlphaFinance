@@ -51,7 +51,7 @@ const RealEstateCard: React.FC<RealEstateCardProps> = ({
       </div>
       {/* Info */}
       <div className="flex-1 flex flex-col">
-        <div className="font-bold text-sm md:text-base tracking-tight truncate">
+        <div className="font-medium text-sm md:text-base tracking-tight truncate">
           {code}
         </div>
         <div className="text-dim-gray font-light text-base md:text-lg mb-3 line-clamp-2">
