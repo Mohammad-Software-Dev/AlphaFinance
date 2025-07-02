@@ -1,6 +1,6 @@
 import React from "react";
 import sampleProperty from "../../assets/images/sample-property.jpg";
-import { Button } from "../common/Button";
+// import { Button } from "../common/Button";
 
 interface ProjectCardProps {
   code: string;
@@ -71,7 +71,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           {description}
         </div>
       </div>
-      <Button
+      {/* <Button
         to={`/project/${code}`}
         variant="primary"
         size="md"
@@ -79,7 +79,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         className="text-xs font-medium bg-black text-white"
       >
         View Project
-      </Button>
+      </Button> */}
     </div>
   );
 };

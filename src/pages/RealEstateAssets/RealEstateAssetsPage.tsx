@@ -28,7 +28,7 @@ const RealEstateAssetsPage: React.FC = () => {
     <GeneralLayout title="Real Estate Assets">
       <div
         className="
-        grid gap-y-8 gap-x-4
+        grid gap-y-14 gap-x-4
         grid-cols-1
         sm:grid-cols-2
         md:grid-cols-3

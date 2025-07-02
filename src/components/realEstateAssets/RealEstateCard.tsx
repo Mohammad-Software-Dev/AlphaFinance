@@ -1,5 +1,4 @@
 import sampleProperty from "../../assets/images/sample-property.jpg";
-import { Button } from "../common/Button";
 
 interface RealEstateCardProps {
   code: string;
@@ -107,7 +106,7 @@ const RealEstateCard: React.FC<RealEstateCardProps> = ({
           </span>
         </div>
       </div>
-      <Button
+      {/* <Button
         to={`/real-estate/${code}`}
         variant="primary"
         size="md"
@@ -115,7 +114,7 @@ const RealEstateCard: React.FC<RealEstateCardProps> = ({
         className="text-xs md:text-sm"
       >
         View Offering
-      </Button>
+      </Button> */}
     </div>
   );
 };
