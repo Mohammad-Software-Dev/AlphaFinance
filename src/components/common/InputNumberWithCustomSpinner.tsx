@@ -18,12 +18,12 @@ const InputNumberWithCustomSpinner: React.FC<Props> = ({
   className = "",
 }) => {
   return (
-    <div className={`flex items-center  h-[35px] ${className}`}>
+    <div className={`flex  items-stretch h-fit ${className}`}>
       {/* Input */}
       <input
         type="number"
         className="
-          w-full h-full px-3 text-lg border border-black
+          w-full  flex px-3 text-lg border border-black
           rounded-l-[8px] border-r-0 outline-none focus:ring-0
           appearance-none
         "
@@ -37,21 +37,21 @@ const InputNumberWithCustomSpinner: React.FC<Props> = ({
       <div className="flex flex-col h-full">
         <button
           type="button"
-          className="w-10 h-1/2 p-0 bg-black rounded-tr-[8px] flex items-center justify-center"
+          className="w-10 p-0 rounded-tr-[8px] flex items-center justify-center"
           tabIndex={-1}
           onClick={() =>
             onChange(max !== undefined ? Math.min(max, value + 1) : value + 1)
           }
         >
-          <ArrowUp className="w-6 h-5" />
+          <ArrowUp className="w-10 h-5" />
         </button>
         <button
           type="button"
-          className="w-10 h-1/2 p-0 bg-black rounded-br-[8px] flex items-center justify-center"
+          className="w-10  p-0 rounded-br-[8px] flex items-center justify-center"
           tabIndex={-1}
           onClick={() => onChange(Math.max(min, value - 1))}
         >
-          <ArrowDown className="w-6 h-5" />
+          <ArrowDown className="w-10 h-5" />
         </button>
       </div>
     </div>

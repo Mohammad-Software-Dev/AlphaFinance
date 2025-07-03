@@ -12,6 +12,7 @@ import RealEstatePage from "./pages/RealEstate/RealEstatePage";
 import RealEstateAssets from "./pages/RealEstateAssets/RealEstateAssetsPage";
 import NotBuiltYet from "./pages/NotBuiltYet";
 import Profile from "./pages/Profile/ProfilePage";
+import Dashboard from "./pages/Dashboard/Dashboard";
 
 const App: React.FC = () => {
   return (
@@ -28,6 +29,7 @@ const App: React.FC = () => {
       <Route path="/real-estate/:assetId" element={<RealEstatePage />} />
       <Route path="/real-estate-assets" element={<RealEstateAssets />} />
       <Route path="/profile" element={<Profile />} />
+      <Route path="/dashboard" element={<Dashboard />} />
       <Route path="*" element={<NotBuiltYet />} />
     </Routes>
   );

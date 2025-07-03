@@ -31,7 +31,7 @@ const Tabs: React.FC<Props> = ({ tabList, assetId, tab, setTab }) => (
         className={`
           ${idx === tabList.length - 1 ? "" : "mr-8 md:mr-0"}
            py-1 lg:px-0 lg:py-0
-          text-sm md:text-base font-base border-b-[2px]
+          text-lg md:text-2xl font-base border-b-[2px]
           ${
             tab === item.value
               ? "border-brand text-brand font-semibold"

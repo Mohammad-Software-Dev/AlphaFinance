@@ -16,8 +16,8 @@ interface Props {
 
 const TabsLayout: React.FC<Props> = ({ assetId, tabList, defaultTab }) => {
   const [tab, setTab] = useState(defaultTab ?? tabList[0]?.value ?? "profile");
-  const selectedLabel =
-    tabList.find((t) => t.value === tab)?.label || (assetId ?? "");
+  // const selectedLabel =
+  //   tabList.find((t) => t.value === tab)?.label || (assetId ?? "");
 
   return (
     <GeneralLayout>
@@ -25,9 +25,9 @@ const TabsLayout: React.FC<Props> = ({ assetId, tabList, defaultTab }) => {
         <div className="relative">
           <div className="" aria-hidden="true" />
           <div className="fixed md:sticky top-0 pt-6 md:pt-0 z-30 bg-white w-[92vw] md:w-full">
-            <h4 className="font-bold mb-3 lg:mb-6 border-b-[4px] border-brand w-fit">
+            {/* <h4 className="font-bold mb-3 lg:mb-6 border-b-[4px] border-brand w-fit">
               {selectedLabel}
-            </h4>
+            </h4> */}
             <Tabs
               tabList={tabList}
               assetId={assetId}
