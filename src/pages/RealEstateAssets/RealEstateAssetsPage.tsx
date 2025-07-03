@@ -2,13 +2,7 @@ import GeneralLayout from "../../components/layouts/GeneralLayout";
 import RealEstateCard from "../../components/realEstateAssets/RealEstateCard";
 import Pagination from "../../components/common/Pagination";
 import { useState } from "react";
-// const TAB_LIST = [
-//   { label: "Real Estate Assets", value: "real-estate-assets" },
-//   { label: "Transactions", value: "transactions" },
-//   { label: "Identification", value: "identification" },
-//   { label: "Settings", value: "settings" },
-//   { label: "Security", value: "security" },
-// ];
+
 const properties = Array.from({ length: 8 }).map(() => ({
   code: "DXBDIFC007",
   title: "Lorem ipsum dolor sit amet consectetur.",
