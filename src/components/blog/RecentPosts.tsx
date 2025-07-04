@@ -65,79 +65,77 @@ export default function RecentPosts() {
       {/* Desktop/Tablet Layout (md and up) */}
       <div className="hidden lg:grid grid-cols-2 gap-6 ">
         {/* Featured Post */}
-        <article className="flex flex-col transition-transform duration-200 hover:-translate-y-1">
-          <div>
-            <img
-              src={featured.image}
-              alt=""
-              className="w-full h-full object-cover rounded-sm"
-            />
-          </div>
-          <div className="py-6 flex flex-col space-y-2">
-            <p className="font-semibold test-xs lg:text-sm text-brand">
-              {featured.author} • {featured.date}
-            </p>
-            <div className="flex items-center justify-between">
-              <h5 className="font-semibold">{featured.title}</h5>
-              <Link
-                to="/blog-post"
-                aria-label="Read more"
-                className="p-1 rounded hover:bg-[var(--color-white-smoke)] transition"
-              >
-                <ArrowIcon className="w-6 h-6 text-dim-gray" />
-              </Link>
+        <Link to="/blog-post" aria-label="Read more">
+          <article className="flex flex-col transition-transform duration-200 hover:-translate-y-1">
+            <div>
+              <img
+                src={featured.image}
+                alt=""
+                className="w-full h-full object-cover rounded-sm"
+              />
             </div>
-            <p className="test-sm lg:text-base text-dark-silver mb-4">
-              {featured.excerpt}
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {featured.categories.map((cat, idx) => (
-                <Tag key={cat} colorIndex={idx}>
-                  {cat}
-                </Tag>
-              ))}
-              {featured.tags.map((tag) => (
-                <Tag key={tag}>{tag}</Tag>
-              ))}
-            </div>
-          </div>
-        </article>
+            <div className="py-6 flex flex-col space-y-2">
+              <p className="font-semibold test-xs lg:text-sm text-brand">
+                {featured.author} • {featured.date}
+              </p>
+              <div className="flex items-center justify-between">
+                <h5 className="font-semibold">{featured.title}</h5>
 
+                <ArrowIcon className="w-6 h-6 text-dim-gray" />
+              </div>
+              <p className="test-sm lg:text-base text-dark-silver mb-4">
+                {featured.excerpt}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {featured.categories.map((cat, idx) => (
+                  <Tag key={cat} colorIndex={idx}>
+                    {cat}
+                  </Tag>
+                ))}
+                {featured.tags.map((tag) => (
+                  <Tag key={tag}>{tag}</Tag>
+                ))}
+              </div>
+            </div>
+          </article>
+        </Link>
         <div className="flex flex-col space-y-6">
           {smallPosts.map((post, postIdx) => (
-            <article
-              key={post.title}
-              className="flex items-stretch transition-transform duration-200 hover:-translate-y-1"
-            >
-              <div className="max-w-1/2 min-w-1/2">
-                <img
-                  src={post.image}
-                  alt=""
-                  className="w-full h-full object-cover rounded-sm"
-                />
-              </div>
-              <div className="flex flex-col flex-1 justify-between px-5 space-y-2">
-                <p className="font-semibold test-xs lg:text-sm text-brand">
-                  {post.author} • {post.date}
-                </p>
-                <h4 className="font-semibold text-base lg:text-lg">
-                  {post.title}
-                </h4>
-                <p className="text-sm lg:text-base text-dark-silver overflow-hidden line-clamp-3 ">
-                  {post.excerpt}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {post.categories.map((cat, idx) => (
-                    <Tag key={cat} colorIndex={idx + postIdx * 2}>
-                      {cat}
-                    </Tag>
-                  ))}
-                  {post.tags.map((tag) => (
-                    <Tag key={tag}>{tag}</Tag>
-                  ))}
+            <Link to="/blog-post" aria-label="Read more">
+              <article
+                key={post.title}
+                className="flex items-stretch transition-transform duration-200 hover:-translate-y-1"
+              >
+                <div className="max-w-1/2 min-w-1/2">
+                  <img
+                    src={post.image}
+                    alt=""
+                    className="w-full h-full object-cover rounded-sm"
+                  />
                 </div>
-              </div>
-            </article>
+                <div className="flex flex-col flex-1 justify-between px-5 space-y-2">
+                  <p className="font-semibold test-xs lg:text-sm text-brand">
+                    {post.author} • {post.date}
+                  </p>
+                  <h4 className="font-semibold text-base lg:text-lg">
+                    {post.title}
+                  </h4>
+                  <p className="text-sm lg:text-base text-dark-silver overflow-hidden line-clamp-3 ">
+                    {post.excerpt}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {post.categories.map((cat, idx) => (
+                      <Tag key={cat} colorIndex={idx + postIdx * 2}>
+                        {cat}
+                      </Tag>
+                    ))}
+                    {post.tags.map((tag) => (
+                      <Tag key={tag}>{tag}</Tag>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            </Link>
           ))}
         </div>
       </div>

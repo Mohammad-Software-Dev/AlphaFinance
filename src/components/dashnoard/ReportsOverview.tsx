@@ -67,13 +67,13 @@ const chartConfigs = [
 const ReportsOverview: React.FC = () => (
   <div className="w-full ">
     {/* Top Title */}
-    <h4 className="font-medium md:font-normal mb-6">Reports overview</h4>
+    <h4 className="font-medium md:font-normal ">Reports overview</h4>
 
     {/* Filters Row */}
-    <div className="flex flex-wrap  h-fit  gap-0 items-center mb-4 ">
+    <div className="flex flex-wrap  h-fit  gap-0 items-center mb-4 py-1">
       <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 items-center w-full md:w-fit mb-6 md:mb-0">
         <div>
-          <select className="border-[1px] border-light-silver shadow-sm px-2 py-1 rounded text-sm">
+          <select className="border-b-[1px] border-light-silver  px-2 py-1 rounded text-sm">
             <option>Last 12 months</option>
             <option>Last 6 months</option>
             <option>Last 3 months</option>
@@ -81,23 +81,23 @@ const ReportsOverview: React.FC = () => (
           <input
             type="text"
             value="1 Aug 2020-7 Jul"
-            className="border-[1px] border-light-silver shadow-sm px-2 py-1 rounded text-sm w-48"
+            className="border-b-[1px] border-light-silver  px-2 py-1  text-sm w-48"
             readOnly
           />
         </div>
         <span className="mx-2 text-dim-gray text-sm">compared to</span>
 
-        <select className="border-[1px] border-light-silver shadow-sm px-2 py-1 rounded text-sm">
+        <select className="border-b-[1px] border-light-silver  px-2 py-1  text-sm">
           <option>Previous period</option>
           <option>Same period last year</option>
         </select>
       </div>
       <div className="md:ml-auto flex gap-2">
-        <select className="border-[1px] border-light-silver shadow-sm px-2 py-1 rounded text-sm">
+        <select className="border-b-[1px] border-light-silver  px-2 py-1 rounded text-sm">
           <option>Monthly</option>
           <option>Weekly</option>
         </select>
-        <button className="border-[1px] border-light-silver shadow-sm px-3 py-1 rounded flex items-center gap-1 text-sm">
+        <button className="border-b-[1px] border-light-silver  px-3 py-1 rounded flex items-center gap-1 text-sm">
           <span className="text-sm" role="img" aria-label="edit">
             ⚙️
           </span>
@@ -133,9 +133,9 @@ const ReportsOverview: React.FC = () => (
     </div>
 
     {/* Chart Row */}
-    <div className="hidden lg:flex flex-row justify-between">
+    <div className="hidden 2xl:flex flex-row justify-between">
       {chartConfigs.map((stat) => (
-        <div className="flex-1 bg-white rounded-lg" key={stat.key}>
+        <div className="flex-1" key={stat.key}>
           <div className="mb-1">
             <h4 className="font-medium md:font-normal">{stat.title}</h4>
           </div>
@@ -149,7 +149,7 @@ const ReportsOverview: React.FC = () => (
         </div>
       ))}
     </div>
-    <div className="block lg:hidden w-full">
+    <div className="block 2xl:hidden w-full">
       <Swiper
         slidesPerView={1.15}
         spaceBetween={16}
@@ -157,7 +157,7 @@ const ReportsOverview: React.FC = () => (
       >
         {chartConfigs.map((stat) => (
           <SwiperSlide key={stat.key}>
-            <div className="bg-white rounded-lg px-2">
+            <div className="px-2">
               <div className="mb-1">
                 <h4 className="font-medium">{stat.title}</h4>
               </div>

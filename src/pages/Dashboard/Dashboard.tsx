@@ -11,18 +11,18 @@ import HotAssets from "../../components/dashnoard/HotAssets";
 
 const Dashboard: React.FC = () => {
   return (
-    <GeneralLayout title="Dashboard">
+    <GeneralLayout>
       <section className="flex flex-col mb-6">
-        <div className="flex">
+        <div className="flex flex-col lg:flex-row ">
           <div className="w-full lg:w-2/3">
             <StatCardsRow />
             <HorizontalDivider className="block border-light-silver  md:my-4  self-stretch" />
-            <div className="flex md:flex-row  flex-col">
-              <div className="w-full md:w-1/3">
+            <div className="flex lg:flex-row  flex-col">
+              <div className="w-full lg:w-1/3">
                 <Instructions />
               </div>
               <VerticalDivider className="hidden border-light-silver md:block mx-4 h-auto self-stretch " />
-              <div className="w-full md:w-2/3">
+              <div className="w-full lg:w-2/3">
                 <PortfolioCards />
               </div>
             </div>

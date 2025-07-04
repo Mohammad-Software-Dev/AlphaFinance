@@ -24,8 +24,8 @@ const StatCard: React.FC<StatCardProps> = ({
   secondLabel,
 }) => (
   <div className="relative pt-[14px] transition-transform duration-200 hover:-translate-y-2 w-full">
-    <div className="relative flex flex-row overflow-clip justify-between bg-ghost-white rounded-2xl min-w-[200px] min-h-[70px] md:min-h-[83px] lg:min-h-[90px]">
-      <div className="self-stretch w-2 bg-brand" />
+    <div className="relative flex flex-row overflow-clip justify-between bg-ghost-white rounded-sm min-w-[200px] min-h-[70px] md:min-h-[83px] lg:min-h-[90px]">
+      <div className="self-stretch w-1 bg-brand" />
       <div className="flex flex-col flex-1 pl-2 pr-3 py-3 ">
         <div className="flex flex-col justify-between ">
           <h2 className="text-sm md:text-base lg:text-lg">{title}</h2>
@@ -43,7 +43,7 @@ const StatCard: React.FC<StatCardProps> = ({
     </div>
 
     <div
-      className={`absolute top-0 right-3 px-2 py-1 text-xs md:text-sm font-semibold rounded-full ${percentBg[percentColor]}`}
+      className={`absolute top-0 right-3 px-2 py-1 text-xs md:text-sm font-semibold rounded-sm ${percentBg[percentColor]}`}
     >
       {percent}
     </div>

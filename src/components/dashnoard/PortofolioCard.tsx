@@ -27,9 +27,9 @@ const PortfolioCard: React.FC<PortfolioProps> = ({
   description,
 }) => (
   <>
-    <div className="relative flex flex-col rounded-2xl  px-6 py-2 mb-2  transition-transform duration-200 hover:-translate-y-2 overflow-hidden">
+    <div className="relative flex flex-col rounded-sm  px-6 py-2 my-2 mb-2  transition-transform duration-200 hover:-translate-y-2 overflow-hidden">
       {/* Left colored border */}
-      <div className="absolute left-0 top-0 h-full w-2 bg-brand rounded-bl-2xl rounded-tl-2xl" />
+      <div className="absolute left-0 top-0 h-full w-1 bg-brand" />
       {/* Top stats */}
       <div className="flex justify-between mb-3 md:mb-5">
         <div>

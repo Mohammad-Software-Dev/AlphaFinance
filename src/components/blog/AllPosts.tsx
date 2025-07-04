@@ -7,8 +7,8 @@ import blog3 from "../../assets/images/blog_3.png";
 import blog4 from "../../assets/images/blog_4.png";
 import blog5 from "../../assets/images/blog_5.png";
 import blog6 from "../../assets/images/blog_6.png";
-import Pagination from "../common/Pagination";
 import { Link } from "react-router-dom";
+import { Button } from "../common/Button";
 
 interface Post {
   image: string;
@@ -84,10 +84,11 @@ const POSTS: Post[] = [
 ];
 
 export const AllPosts: React.FC = () => {
-  const [page, setPage] = useState(1);
-  const totalPages = 10;
-  const startIdx = (page - 1) * 6;
-  const visiblePosts = POSTS.slice(startIdx, startIdx + 6);
+  const [allPosts, setAllPosts] = useState<Post[]>(POSTS);
+
+  const handleLoadMore = () => {
+    setAllPosts((prev) => [...prev, ...POSTS]);
+  };
 
   return (
     <section className="space-y-6 ">
@@ -96,53 +97,49 @@ export const AllPosts: React.FC = () => {
       </h2>
       {/* Responsive grid: 1 col (mobile), 2 cols (md), 3 cols (lg) */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
-        {visiblePosts.map((post, idx) => (
-          <article
-            key={idx}
-            className="flex flex-col space-y-3 transition-transform duration-200 hover:-translate-y-1"
-          >
-            <div className="h-48 w-full overflow-hidden">
-              <img
-                src={post.image}
-                alt={post.title}
-                className="w-full h-full object-cover rounded-sm"
-              />
-            </div>
-            <p className="font-semibold text-sm text-brand mt-3">
-              {post.author} • {post.date}
-            </p>
-            <div className="flex items-start justify-between">
-              <h5 className="font-semibold">{post.title}</h5>
-              <Link
-                to="/blog-post"
-                aria-label="Read more"
-                className="p-1 rounded hover:bg-[var(--color-white-smoke)] transition"
-              >
+        {allPosts.map((post, idx) => (
+          <Link to="/blog-post" aria-label="Read more">
+            <article
+              key={`${post.title}-${idx}`}
+              className="flex flex-col space-y-3 transition-transform duration-200 hover:-translate-y-1"
+            >
+              <div className="h-48 w-full overflow-hidden">
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  className="w-full h-full object-cover rounded-sm"
+                />
+              </div>
+              <p className="font-semibold text-sm text-brand mt-3">
+                {post.author} • {post.date}
+              </p>
+              <div className="flex items-start justify-between">
+                <h5 className="font-semibold">{post.title}</h5>
+
                 <ReadMoreIcon className="w-6 h-6 text-dim-gray" />
-              </Link>
-            </div>
-            <p className="test-sm lg:text-base text-dark-silver mb-4">
-              {post.excerpt}
-            </p>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {post.categories.map((cat, cIdx) => (
-                <Tag key={cat} colorIndex={idx + cIdx}>
-                  {cat}
-                </Tag>
-              ))}
-              {post.tags.map((tag, tIdx) => (
-                <Tag key={tIdx}>{tag}</Tag>
-              ))}
-            </div>
-          </article>
+              </div>
+              <p className="test-sm lg:text-base text-dark-silver mb-4">
+                {post.excerpt}
+              </p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {post.categories.map((cat, cIdx) => (
+                  <Tag key={cat} colorIndex={idx + cIdx}>
+                    {cat}
+                  </Tag>
+                ))}
+                {post.tags.map((tag, tIdx) => (
+                  <Tag key={tIdx}>{tag}</Tag>
+                ))}
+              </div>
+            </article>
+          </Link>
         ))}
       </div>
-      <Pagination
-        currentPage={page}
-        totalPages={totalPages}
-        onPageChange={setPage}
-        className="my-16"
-      />
+      <div className="flex justify-start my-8">
+        <Button variant="link" onClick={handleLoadMore}>
+          Show more...
+        </Button>
+      </div>
     </section>
   );
 };

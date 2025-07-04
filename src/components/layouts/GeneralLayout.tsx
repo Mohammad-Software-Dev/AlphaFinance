@@ -59,7 +59,7 @@ const GeneralLayout: React.FC<GeneralLayoutProps> = ({ children, title }) => {
       {/* Main content */}
       <main
         className={`
-          max-w-custom
+        
           order-2 lg:order-2
           w-full
           lg:px-[2vw]

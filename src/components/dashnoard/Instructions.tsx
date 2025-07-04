@@ -20,14 +20,12 @@ const tasks = [
 ];
 
 const Instructions: React.FC = () => (
-  <section>
+  <section className="py-4 md:pt-0 hidden md:block">
     {/* Header */}
-    <div className="py-4 md:pt-0">
-      <h4 className="font-medium md:font-normal">Instructions</h4>
-    </div>
+    <h4 className="font-medium md:font-normal">Instructions</h4>
     {/* Main instruction */}
     <div className="py-1">
-      <p className="text-xs md:text-sm mb-1 text-dim-gray">Get Started</p>
+      <p className="text-xs md:text-sm  text-dim-gray">Get Started</p>
       <p className="text-sm md:text-base lg:text-xl  py-1">
         Make your first deposit
       </p>
@@ -36,7 +34,7 @@ const Instructions: React.FC = () => (
       </div>
     </div>
     {/* Task list */}
-    <div className="py-4 space-y-3">
+    <div className="py-1 space-y-3">
       {tasks.map((task, idx) =>
         task.done ? (
           <div key={idx} className="flex items-center gap-1  text-dim-gray">
