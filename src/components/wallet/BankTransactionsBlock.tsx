@@ -1,3 +1,4 @@
+import { Button } from "../common/Button";
 import HorizontalDivider from "../common/HorizontalDivider";
 
 const transactions = [
@@ -59,6 +60,12 @@ const BankTransactionsBlock: React.FC = () => (
       {transactions.map((tx) => (
         <TransactionRow key={tx.id + tx.time} {...tx} />
       ))}
+      <div className="flex justify-end mt-2 gap-3">
+        <Button variant="secondary" disabled>
+          Cancel
+        </Button>
+        <Button variant="primary">Save</Button>
+      </div>
     </div>
   </div>
 );
