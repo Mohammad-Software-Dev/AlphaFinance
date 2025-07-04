@@ -2,19 +2,44 @@ import React from "react";
 import CopyIcon from "../../assets/icons/copy.svg?react"; // Or use your own
 import { Button } from "../common/Button";
 import HorizontalDivider from "../common/HorizontalDivider";
+import InvestmentLottieIcon from "../../components/lottie/InvestmentLottieIcon";
+import CoinsLottieIcon from "../../components/lottie/CoinsLottieIcon";
+import CoinBtcLottieIcon from "../../components/lottie/CoinBtcLottieIcon";
+import CoinEthLottie from "../../components/lottie/CoinEthLottie";
+import CoinFlateLottieIcon from "../../components/lottie/CoinFlateLottieIcon";
 // Placeholder icons (replace with your own SVG/React icons)
 const icons = {
-  withdraw: <span className="text-white text-xl">🥤</span>,
-  sellBlue: <span className="text-white text-xl">🥤</span>,
-  sellBlack: <span className="text-black text-xl">🥤</span>,
-  car: <span className="text-white text-xl">🚗</span>,
-  briefcase: <span className="text-white text-xl">💼</span>,
+  withdraw: (
+    <span className="text-white text-xl">
+      <InvestmentLottieIcon />
+    </span>
+  ),
+  sellBlue: (
+    <span className="text-white text-xl">
+      <CoinsLottieIcon />
+    </span>
+  ),
+  sellBlack: (
+    <span className="text-black text-xl">
+      <CoinBtcLottieIcon />
+    </span>
+  ),
+  car: (
+    <span className="text-white text-xl">
+      <CoinEthLottie />
+    </span>
+  ),
+  briefcase: (
+    <span className="text-white text-xl">
+      <CoinFlateLottieIcon />
+    </span>
+  ),
 };
 
 const overviewData = [
   {
     icon: icons.withdraw,
-    iconBg: "bg-[#E9947A]",
+    iconBg: "bg-light-orange/30",
     title: "Available to Withdrew",
     transactions: 2,
     amount: "+ 2,86 €",
@@ -22,47 +47,47 @@ const overviewData = [
   },
   {
     icon: icons.sellBlue,
-    iconBg: "bg-[#A8B5FF]",
+    iconBg: "bg-brand/30",
     title: "Available to Sell",
     transactions: 35,
     amount: "- 1,471 €",
     amountColor: "text-black",
-    barColor: "bg-[#A8B5FF]",
+    barColor: "bg-brand",
     percent: 23,
-    percentColor: "text-[#A8B5FF]",
+    percentColor: "text-brand",
   },
   {
     icon: icons.sellBlack,
-    iconBg: "bg-black",
+    iconBg: "bg-sand/30",
     title: "Available to Sell",
     transactions: 35,
     amount: "- 1,471 €",
-    amountColor: "text-black",
-    barColor: "bg-black",
+    amountColor: "text-sand",
+    barColor: "bg-sand",
     percent: 23,
-    percentColor: "text-black",
+    percentColor: "text-sand",
   },
   {
     icon: icons.car,
-    iconBg: "bg-[#58A097]",
+    iconBg: "bg-teal/30",
     title: "Available to Lorem",
     transactions: 6,
     amount: "- 161 €",
     amountColor: "text-black",
-    barColor: "bg-[#58A097]",
+    barColor: "bg-teal",
     percent: 57,
-    percentColor: "text-[#58A097]",
+    percentColor: "text-teal",
   },
   {
     icon: icons.briefcase,
-    iconBg: "bg-[#D1A6F7]",
+    iconBg: "bg-dark-orange/30",
     title: "Available to Lorem",
     transactions: 12,
     amount: "- 3,436 €",
     amountColor: "text-black",
-    barColor: "bg-[#D1A6F7]",
+    barColor: "bg-dark-orange",
     percent: 61,
-    percentColor: "text-[#D1A6F7]",
+    percentColor: "text-dark-orange",
   },
 ];
 
@@ -94,7 +119,7 @@ const TotalBalance: React.FC = () => (
         >
           <div className="flex gap-3 items-center">
             <div
-              className={`w-9 h-9 rounded-full flex items-center justify-center ${item.iconBg} flex-shrink-0 mt-1`}
+              className={`w-9 h-9 rounded-full flex items-center justify-center ${item.iconBg}  flex-shrink-0 mt-1`}
             >
               {item.icon}
             </div>
@@ -106,7 +131,7 @@ const TotalBalance: React.FC = () => (
               {item.percent !== undefined && (
                 <div className="flex items-center gap-2 mt-1">
                   <div
-                    className={`h-1.5 rounded bg-opacity-40 ${item.barColor} w-20`}
+                    className={`h-1.5 rounded bg-opacity-0 ${item.barColor} w-20`}
                   >
                     <div
                       className={`h-1.5 rounded ${item.barColor}`}

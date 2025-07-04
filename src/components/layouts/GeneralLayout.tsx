@@ -36,6 +36,7 @@ const GeneralLayout: React.FC<GeneralLayoutProps> = ({ children, title }) => {
           lg:translate-x-0  lg:h-auto
           pl-0  lg:left-0
           lg:sticky lg:top-[47px] lg:self-start
+          
         `}
       >
         <Sidebar />

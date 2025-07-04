@@ -33,11 +33,11 @@ const WithdrewBlock: React.FC = () => (
         placeholder="20 minutes"
         className="pointer-events-none"
       />
-      <div className="flex justify-end mt-2 gap-3">
+      <div className="flex justify-end mt-6 gap-3">
         <Button variant="secondary" disabled>
           Cancel
         </Button>
-        <Button variant="primary">Save</Button>
+        <Button variant="primary">Withdraw</Button>
       </div>
     </div>
   </div>
