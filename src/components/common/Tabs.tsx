@@ -15,35 +15,42 @@ interface Props {
 const Tabs: React.FC<Props> = ({ tabList, assetId, tab, setTab }) => (
   <nav
     className="
-    relative
-      flex
+      relative
       border-b-[1px] border-light-silver 
       overflow-x-auto
       whitespace-nowrap
       scrollbar-hide
-      justify-between w-full
-      "
+      w-full
+    "
     style={{ WebkitOverflowScrolling: "touch" }}
+    aria-label="Tabs"
   >
-    {tabList.map((item, idx) => (
-      <button
-        key={item.value}
-        className={`
-          ${idx === tabList.length - 1 ? "" : "mr-8 md:mr-0"}
-           py-1 lg:px-0 lg:py-0
-          text-lg md:text-2xl font-base border-b-[2px]
-          ${
-            tab === item.value
-              ? "border-brand text-brand font-semibold"
-              : "border-transparent text-black hover:text-brand"
-          }
-        `}
-        onClick={() => setTab(item.value)}
-        style={{ minWidth: "max-content" }}
-      >
-        {idx === 0 ? assetId ?? item.label : item.label}
-      </button>
-    ))}
+    <ul className="flex justify-between w-full">
+      {tabList.map((item, idx) => (
+        <li
+          key={item.value}
+          className={idx === tabList.length - 1 ? "" : "mr-8 md:mr-0"}
+        >
+          <button
+            className={`
+              py-1 lg:px-0 lg:py-0
+              text-lg font-bold border-b-[2px]
+              ${
+                tab === item.value
+                  ? "border-brand text-brand "
+                  : "border-transparent text-black hover:text-brand"
+              }
+            `}
+            aria-current={tab === item.value ? "page" : undefined}
+            onClick={() => setTab(item.value)}
+            style={{ minWidth: "max-content" }}
+            type="button"
+          >
+            {idx === 0 ? assetId ?? item.label : item.label}
+          </button>
+        </li>
+      ))}
+    </ul>
   </nav>
 );
 

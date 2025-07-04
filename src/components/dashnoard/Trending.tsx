@@ -103,7 +103,7 @@ const Trending: React.FC = () => (
     <div className="w-full hidden lg:block">
       <Swiper
         direction="vertical"
-        slidesPerView={4.7}
+        slidesPerView={4.6}
         spaceBetween={24}
         style={{ height: "890px" }}
         className="rounded"
