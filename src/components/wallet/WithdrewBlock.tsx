@@ -1,6 +1,7 @@
 import TextInput from "../common/TextInput";
 import PersonIcon from "../../assets/icons/person.svg?react";
 import TransactionsIcon from "../../assets/icons/transaction.svg?react";
+import { Button } from "../common/Button";
 
 const WithdrewBlock: React.FC = () => (
   <div className="flex-1 ">
@@ -32,6 +33,12 @@ const WithdrewBlock: React.FC = () => (
         placeholder="20 minutes"
         className="pointer-events-none"
       />
+      <div className="flex justify-end mt-2 gap-3">
+        <Button variant="secondary" disabled>
+          Cancel
+        </Button>
+        <Button variant="primary">Save</Button>
+      </div>
     </div>
   </div>
 );

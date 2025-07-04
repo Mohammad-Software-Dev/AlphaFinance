@@ -19,6 +19,8 @@ export interface ButtonProps
 
 const variantClasses: Record<Variant, string> = {
   primary: `
+  text-sm
+    md:text-base
     rounded-sm 
     inline-flex items-center justify-center
     font-inter font-medium
@@ -29,6 +31,8 @@ const variantClasses: Record<Variant, string> = {
     hover:opacity-90 transition
   `,
   secondary: `
+    text-sm
+    md:text-base
     rounded-sm
     inline-flex items-center justify-center
     font-inter font-medium
@@ -39,6 +43,8 @@ const variantClasses: Record<Variant, string> = {
     hover:bg-gray-100 transition
   `,
   link: `
+    text-sm
+    md:text-base
     inline-flex items-center justify-center
     font-inter text-[var(--color-brand)]
     bg-transparent border-0 p-0
@@ -51,13 +57,6 @@ const paddingClasses: Record<Size, string> = {
   sm: "px-3",
   md: "px-4",
   lg: "px-5",
-};
-
-// text-size for all variants
-const textSizeClasses: Record<Size, string> = {
-  sm: "text-sm",
-  md: "text-base",
-  lg: "text-lg",
 };
 
 export const Button: React.FC<ButtonProps> = ({
@@ -77,7 +76,6 @@ export const Button: React.FC<ButtonProps> = ({
 }) => {
   const classes = [
     variantClasses[variant].trim(),
-    textSizeClasses[size],
     variant !== "link" ? paddingClasses[size] : "",
     variant === "link" && underline ? "underline" : "",
     variant !== "link" && fullWidth ? "115px lg:w-full" : "",

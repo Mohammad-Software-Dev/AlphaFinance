@@ -11,6 +11,8 @@ import Profile from "../profile/tabs/Profile";
 import Settings from "../profile/tabs/Settings";
 import Ballance from "../wallet/tabs/Ballance";
 import Portfolio from "../wallet/tabs/Portfolio";
+import Transfer from "../wallet/tabs/Transfer";
+import Bank from "../wallet/tabs/Bank";
 
 interface Props {
   tab: string;
@@ -96,6 +98,20 @@ const TabContent: React.FC<Props> = ({ tab }) => {
     return (
       <div ref={topRef}>
         <Portfolio />
+      </div>
+    );
+  }
+  if (tab === "transfer") {
+    return (
+      <div ref={topRef}>
+        <Transfer />
+      </div>
+    );
+  }
+  if (tab === "bank") {
+    return (
+      <div ref={topRef}>
+        <Bank />
       </div>
     );
   }
