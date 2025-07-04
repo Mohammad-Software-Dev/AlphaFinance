@@ -1,5 +1,6 @@
 import React, { Suspense } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
+import Loader from "../components/Loader";
 
 // Lazy load pages
 const SignIn = React.lazy(() => import("./pages/SignIn/SignIn"));
@@ -30,7 +31,7 @@ const Dashboard = React.lazy(() => import("./pages/Dashboard/Dashboard"));
 
 const App: React.FC = () => {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<Loader />}>
       <Routes>
         <Route path="/" element={<Navigate to="/signin" replace />} />
         <Route path="/signin" element={<SignIn />} />

@@ -18,7 +18,7 @@ const chartConfigs = [
     change: "+9%",
     changeColor: "text-verified-green",
     renderChart: () => (
-      <Suspense fallback={<div style={{ height: 180 }}>Loading…</div>}>
+      <Suspense fallback={<Loader />}>
         <StatChart
           color="brand"
           data={priceData}
@@ -37,7 +37,7 @@ const chartConfigs = [
     change: "+9%",
     changeColor: "text-verified-green",
     renderChart: () => (
-      <Suspense fallback={<div style={{ height: 180 }}>Loading…</div>}>
+      <Suspense fallback={<Loader />}>
         <StatChart
           color="black"
           data={netIncomeData}
@@ -56,7 +56,7 @@ const chartConfigs = [
     change: "+4%",
     changeColor: "text-verified-green",
     renderChart: () => (
-      <Suspense fallback={<div style={{ height: 180 }}>Loading…</div>}>
+      <Suspense fallback={<Loader />}>
         <DividendsChart />
       </Suspense>
     ),

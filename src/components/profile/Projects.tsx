@@ -50,8 +50,7 @@ const Projects: React.FC = () => (
         />
       ))}
       <div className="flex flex-col items-center justify-center h-full  cursor-pointer transition">
-        <Plus className="w-14 h-14" />
-
+        <Plus className="w-20 h-20" />
         <span className="text-dim-gray mt-2">New tab</span>
       </div>
     </div>
