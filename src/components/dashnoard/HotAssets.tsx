@@ -1,5 +1,5 @@
 import React from "react";
-import RealEstateCard from "../realEstateAssets/RealEstateCard";
+import RealEstateCard from "../common/RealEstateCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 const properties = Array.from({ length: 8 }).map(() => ({
