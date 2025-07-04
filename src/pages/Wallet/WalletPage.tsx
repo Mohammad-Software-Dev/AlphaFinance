@@ -6,7 +6,6 @@ const TAB_LIST = [
   { label: "Portfolio", value: "wallet_portfolio" },
   { label: "Transfer", value: "transfer" },
   { label: "Bank", value: "bank" },
-  { label: "Settings", value: "wallet_settings" },
 ];
 
 const WalletPage: React.FC = () => {
