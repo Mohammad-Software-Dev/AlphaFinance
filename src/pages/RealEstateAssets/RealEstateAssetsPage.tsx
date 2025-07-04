@@ -19,7 +19,7 @@ const RealEstateAssetsPage: React.FC = () => {
   const [page, setPage] = useState(1);
   const totalPages = 3;
   return (
-    <GeneralLayout title="Real Estate Assets">
+    <GeneralLayout>
       <div
         className="
         grid gap-y-14 gap-x-4
