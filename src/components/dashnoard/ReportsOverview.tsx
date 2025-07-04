@@ -6,6 +6,7 @@ const DividendsChart = React.lazy(
 const StatChart = React.lazy(() => import("../realEstate/Financial/StatChart"));
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import Loader from "../../../components/Loader";
 
 const priceData = [62, 74, 93, 108, 120, 110, 97, 101, 105, 112, 120, 132];
 const netIncomeData = [124, 98, 67, 77, 102, 109, 101, 105, 91, 87, 75, 67];
