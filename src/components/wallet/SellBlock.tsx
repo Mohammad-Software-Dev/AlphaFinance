@@ -38,11 +38,11 @@ const SellBlock: React.FC = () => (
         type="text"
         label="Zip Code"
       />
-      <div className="flex justify-end mt-2 gap-3">
+      <div className="flex justify-end mt-6 gap-3">
         <Button variant="secondary" disabled>
           Cancel
         </Button>
-        <Button variant="primary">Save</Button>
+        <Button variant="primary">Sell</Button>
       </div>
     </div>
   </div>

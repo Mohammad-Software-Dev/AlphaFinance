@@ -3,16 +3,20 @@ import Switch from "@mui/material/Switch";
 import type { SwitchProps } from "@mui/material/Switch";
 import { styled } from "@mui/material/styles";
 import { Link, useLocation } from "react-router-dom";
-import ArrowsIcon from "../assets/icons/arrows.svg?react";
-import HomeIcon from "../assets/icons/home.svg?react";
-import ProfileIcon from "../assets/icons/user.svg?react";
-import ArticleIcon from "../assets/icons/article.svg?react";
-import CalendarIcon from "../assets/icons/calendar.svg?react";
-import StatisticsIcon from "../assets/icons/statistics.svg?react";
+// import ArrowsIcon from "../assets/icons/arrows.svg?react";
+// import HomeIcon from "../assets/icons/home.svg?react";
+// import ProfileIcon from "../assets/icons/user.svg?react";
+// import ArticleIcon from "../assets/icons/article.svg?react";
+// import CalendarIcon from "../assets/icons/calendar.svg?react";
+// import StatisticsIcon from "../assets/icons/statistics.svg?react";
 import BellIcon from "../assets/icons/bell.svg?react";
 import SettingsIcon from "../assets/icons/settings.svg?react";
-import BuildingsIcon from "../assets/icons/buildings.svg?react";
-
+// import BuildingsIcon from "../assets/icons/buildings.svg?react";
+import HomeLottieIcon from "../components/lottie/HomeLottieIcon";
+import DashboardLottieIcon from "../components/lottie/DashboardLottieIcon";
+import BlogLottieIcon from "../components/lottie/BlogLottieIcon";
+import ProfileLottieIcon from "../components/lottie/ProfileLottieIcon";
+import WalletLottieIcon from "../components/lottie/WalletLottieIcon";
 interface SidebarProps {
   onToggleDarkMode?: (enabled: boolean) => void;
   toggleEnabled?: boolean;
@@ -51,16 +55,18 @@ const IOSSwitch = styled((props: SwitchProps) => (
 }));
 
 const mainIcons = [
-  { label: "Home", Icon: HomeIcon, to: "/dashboard" },
-  { label: "Profile", Icon: ProfileIcon, to: "/profile" },
+  { label: "Home", Icon: DashboardLottieIcon, to: "/dashboard" },
   {
     label: "Real Estate Assets",
-    Icon: BuildingsIcon,
+    Icon: HomeLottieIcon,
     to: "/real-estate-assets",
   },
-  { label: "Blog", Icon: ArticleIcon, to: "/blog" },
-  { label: "Calendar", Icon: CalendarIcon, to: "/calendar" },
-  { label: "Wallet", Icon: StatisticsIcon, to: "/wallet" },
+  { label: "Wallet", Icon: WalletLottieIcon, to: "/wallet" },
+  { label: "Blog", Icon: BlogLottieIcon, to: "/blog" },
+
+  { label: "Profile", Icon: ProfileLottieIcon, to: "/profile" },
+
+  // { label: "Calendar", Icon: CalendarIcon, to: "/calendar" },
 ] as const;
 
 const settingsIcons = [
@@ -93,40 +99,19 @@ const Sidebar: React.FC<SidebarProps> = ({
         relative overflow-visible  
         h-screen
         min-h-fit max-h-[700px] 
+        rounded-sm
+
       "
     >
       <Link
         to="/dashboard"
-        className="bg-alabaster border-b-[1px] border-light-silver p-3 flex justify-center "
+        className="text-brand text-bold bg-alabaster border-b-[1px] border-light-silver rounded-t-sm p-3 flex justify-center "
         aria-label="Home"
         aria-current={location.pathname === "/dashboard" ? "page" : undefined}
       >
-        <HomeIcon
-          className={`w-[20px] h-[20px] ${
-            location.pathname === "/dashboard"
-              ? "text-[var(--color-brand)]"
-              : ""
-          }`}
-        />
+        AS
+        {/* <HomeLottieIcon active={location.pathname === "/dashboard"} /> */}
       </Link>
-      <button
-        aria-label="Toggle sidebar"
-        className="
-          absolute
-          top-[55px]       
-          right-[-12px]     
-          w-6 h-6        
-          bg-white
-          border border-light-silver
-          hover:bg-[var(--color-alabaster)]
-          transition-colors
-          rounded-lg
-          items-center justify-center
-          hidden lg:flex
-        "
-      >
-        <ArrowsIcon className="w-4 h-4" />
-      </button>
 
       <div className=" lg:flex-1 py-3 flex flex-col items-center space-y-3">
         <span className="text-[8px] font-medium uppercase text-dim-gray px-2">
@@ -141,12 +126,13 @@ const Sidebar: React.FC<SidebarProps> = ({
               to={to}
               aria-label={label}
               className={`
-                p-2 rounded-lg flex
+                  
+                p-2 rounded-sm flex
                 ${isActive ? "bg-light-silver/50" : "hover:bg-light-silver/50"}
               `}
               aria-current={isActive ? "page" : undefined}
             >
-              <Icon className="w-[20px] h-[20px]" />
+              <Icon />
             </Link>
           );
         })}
@@ -164,7 +150,8 @@ const Sidebar: React.FC<SidebarProps> = ({
               aria-label={label}
               aria-current={isActive ? "page" : undefined}
               className={`
-                p-2 rounded-lg flex
+              
+                p-2 rounded-sm flex
                 ${isActive ? "bg-light-silver/50" : "hover:bg-light-silver/50"}
               `}
             >
@@ -174,7 +161,7 @@ const Sidebar: React.FC<SidebarProps> = ({
         })}
       </div>
 
-      <div className="bg-alabaster border-t-[1px] border-light-silver p-2 flex justify-center ">
+      <div className="bg-alabaster border-t-[1px] border-light-silver p-2 flex justify-center rounded-b-sm">
         <IOSSwitch checked={enabled} onChange={handleSwitch} />
       </div>
     </nav>
