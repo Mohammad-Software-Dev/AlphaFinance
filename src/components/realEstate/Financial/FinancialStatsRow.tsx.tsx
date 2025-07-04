@@ -1,7 +1,6 @@
-// src/components/financial/FinancialStatsRow.tsx
-import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import StatChart from "./StatChart";
+import React, { Suspense } from "react";
+const StatChart = React.lazy(() => import("./StatChart"));
 
 const statConfigs = [
   {
@@ -64,7 +63,11 @@ const FinancialStatsRow: React.FC = () => (
               </span>
             </div>
           </header>
-          <StatChart {...stat.chartProps} />
+          <Suspense
+            fallback={<div style={{ height: 180 }}>Loading chart…</div>}
+          >
+            <StatChart {...stat.chartProps} />
+          </Suspense>
         </section>
       ))}
     </div>
@@ -88,7 +91,11 @@ const FinancialStatsRow: React.FC = () => (
                   </span>
                 </div>
               </header>
-              <StatChart height={250} {...stat.chartProps} />
+              <Suspense
+                fallback={<div style={{ height: 180 }}>Loading chart…</div>}
+              >
+                <StatChart height={250} {...stat.chartProps} />
+              </Suspense>
             </section>
           </SwiperSlide>
         ))}

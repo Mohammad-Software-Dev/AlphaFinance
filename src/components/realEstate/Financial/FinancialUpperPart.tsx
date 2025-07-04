@@ -1,5 +1,6 @@
-import React from "react";
-import Expenses from "./Expenses.tsx";
+import React, { Suspense } from "react";
+
+const Expenses = React.lazy(() => import("./Expenses"));
 import Invoices from "../../common/Invoices.tsx";
 import DividendsCard from "./DividendsCard.tsx";
 import FinancialStatsRow from "./FinancialStatsRow.tsx.tsx";
@@ -21,7 +22,13 @@ const FinancialUpperPart: React.FC = () => {
             <div className="flex flex-col md:flex-row flex-1 gap-5">
               {/* Expenses (left) */}
               <div className="w-full md:w-2/5 flex items-start justify-center">
-                <Expenses />
+                <Suspense
+                  fallback={
+                    <div style={{ height: 320 }}>Loading expenses…</div>
+                  }
+                >
+                  <Expenses />
+                </Suspense>
               </div>
               {/* Invoices (right) */}
               <HorizontalDivider className="block border-light-silver md:hidden  my-3  self-stretch" />

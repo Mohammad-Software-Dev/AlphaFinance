@@ -1,4 +1,6 @@
-import DividendsChart from "./DividendsChart"; // Import your ApexCharts chart
+import React, { Suspense } from "react";
+
+const DividendsChart = React.lazy(() => import("./DividendsChart"));
 
 const DividendsCard = ({
   title = "Dividends",
@@ -15,8 +17,9 @@ const DividendsCard = ({
         </span>
       </div>
     </header>
-
-    <DividendsChart />
+    <Suspense fallback={<div style={{ height: 180 }}>Loading chart…</div>}>
+      <DividendsChart />
+    </Suspense>
   </div>
 );
 
