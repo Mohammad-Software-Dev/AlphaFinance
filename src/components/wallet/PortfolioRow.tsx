@@ -68,11 +68,11 @@ const portfolioData = [
     description: "Lorem ipsum dolor sit amet consectetur.",
   },
 ];
-const PortfolioCards: React.FC = () => (
+const PortfolioRow: React.FC = () => (
   <>
     <section className="py-4 md:pt-0 hidden md:block">
       <h4 className="font-medium md:font-normal ">Portfolio</h4>
-      <Swiper slidesPerView={2.3} spaceBetween={18} watchSlidesProgress={true}>
+      <Swiper slidesPerView={4.3} spaceBetween={18} watchSlidesProgress={true}>
         {portfolioData.map((item, idx) => (
           <SwiperSlide key={idx}>
             <PortfolioCard {...item} />
@@ -93,4 +93,4 @@ const PortfolioCards: React.FC = () => (
   </>
 );
 
-export default PortfolioCards;
+export default PortfolioRow;

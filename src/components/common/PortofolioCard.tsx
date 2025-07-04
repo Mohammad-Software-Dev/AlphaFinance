@@ -34,13 +34,13 @@ const PortfolioCard: React.FC<PortfolioProps> = ({
       <div className="flex justify-between mb-3 md:mb-5">
         <div>
           <p className="text-brand">Tokens</p>
-          <p className="text-base  lg:text-2xl text-brand font-semibold md:font-bold leading-none">
+          <p className="text-base   text-brand font-semibold md:font-bold leading-none">
             2000
           </p>
         </div>
         <div>
           <p className="text-teal">Dividends</p>
-          <p className="text-base  lg:text-2xl text-teal font-semibold md:font-bold leading-none">
+          <p className="text-base   text-teal font-semibold md:font-bold leading-none">
             +${dividends}
           </p>
         </div>
@@ -48,16 +48,14 @@ const PortfolioCard: React.FC<PortfolioProps> = ({
       {/* Bottom stats */}
       <div className="flex justify-between mb-4">
         <div>
-          <p className="text-base  lg:text-2xl text-dark-orange ">
-            Tokens Value
-          </p>
-          <p className="text-base  lg:text-2xl text-dark-orange font-semibold md:font-bold leading-none">
+          <p className="text-base   text-dark-orange ">Tokens Value</p>
+          <p className="text-base   text-dark-orange font-semibold md:font-bold leading-none">
             ${tokensValue.toFixed(2)}
           </p>
         </div>
         <div>
-          <div className="text-base  lg:text-2xl text-sand ">ROI</div>
-          <div className="text-base  lg:text-2xl text-sand font-semibold md:font-bold leading-none">
+          <div className="text-base   text-sand ">ROI</div>
+          <div className="text-base   text-sand font-semibold md:font-bold leading-none">
             {roi}%
           </div>
         </div>

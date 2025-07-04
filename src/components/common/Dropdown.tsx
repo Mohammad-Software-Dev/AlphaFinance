@@ -34,7 +34,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         value={value}
         onChange={onChange}
         className="w-full focus:outline-none 
-          focus:border-black  border-b-[1px] border-light-silver placeholder:text-dark-silver text-sm md:text-base bg-transparent pr-8 appearance-none px-2 "
+          focus:border-black text-dark-silver border-b-[1px] border-light-silver placeholder:text-dark-silver text-sm md:text-base bg-transparent pr-8 appearance-none px-2 "
       >
         <option value="" disabled hidden>
           {placeholder}

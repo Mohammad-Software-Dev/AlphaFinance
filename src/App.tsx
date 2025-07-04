@@ -28,7 +28,7 @@ const RealEstateAssets = React.lazy(
 const NotBuiltYet = React.lazy(() => import("./pages/NotBuiltYet"));
 const Profile = React.lazy(() => import("./pages/Profile/ProfilePage"));
 const Dashboard = React.lazy(() => import("./pages/Dashboard/Dashboard"));
-
+const WalletPage = React.lazy(() => import("./pages/Wallet/WalletPage"));
 const App: React.FC = () => {
   return (
     <Suspense fallback={<Loader />}>
@@ -49,6 +49,7 @@ const App: React.FC = () => {
         <Route path="/real-estate-assets" element={<RealEstateAssets />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/wallet" element={<WalletPage />} />
         <Route path="*" element={<NotBuiltYet />} />
       </Routes>
     </Suspense>

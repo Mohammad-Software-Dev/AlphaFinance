@@ -9,6 +9,7 @@ import ReachUs from "../realEstate/tabs/ReachUsTab";
 import Transactions from "../profile/tabs/Transactions";
 import Profile from "../profile/tabs/Profile";
 import Settings from "../profile/tabs/Settings";
+import Ballance from "../wallet/tabs/Ballance";
 
 interface Props {
   tab: string;
@@ -80,6 +81,13 @@ const TabContent: React.FC<Props> = ({ tab }) => {
     return (
       <div ref={topRef}>
         <Settings />
+      </div>
+    );
+  }
+  if (tab === "ballance") {
+    return (
+      <div ref={topRef}>
+        <Ballance />
       </div>
     );
   }

@@ -60,7 +60,7 @@ const mainIcons = [
   },
   { label: "Blog", Icon: ArticleIcon, to: "/blog" },
   { label: "Calendar", Icon: CalendarIcon, to: "/calendar" },
-  { label: "Statistics", Icon: StatisticsIcon, to: "/statistics" },
+  { label: "Wallet", Icon: StatisticsIcon, to: "/wallet" },
 ] as const;
 
 const settingsIcons = [
