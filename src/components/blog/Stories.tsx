@@ -1,6 +1,7 @@
 import React from "react";
 import Tag from "../common/Tag";
 import { Button } from "../common/Button";
+import TextInput from "../common/TextInput";
 
 interface Story {
   title: string;
@@ -45,20 +46,22 @@ const Stories: React.FC = () => (
   <section className="flex flex-col h-full">
     {/* Subscribe Section (always visible) */}
     <div className="min-h-[40%] w-full px-2 py-4 space-y-4 overflow-hidden flex flex-col items-center">
-      <h2 className="text-4xl text-center w-3/4 font-semibold text-gray-900">
+      <h4 className=" md:text-2xl lg:text-4xl text-center w-3/4 font-semibold ">
         Stories and interviews
-      </h2>
-      <p className="text-lg font-normal w-11/12 text-dark-silver text-center">
+      </h4>
+      <p className="text-sm md:text-base lg:text-lg font-normal w-11/12 text-dark-silver text-center">
         Subscribe to learn about new product features, the latest in technology,
         solutions, and updates.
       </p>
       <div className="w-3/4 lg:w-full flex flex-col justify-center">
-        <input
-          type="email"
-          placeholder="Enter your email"
-          className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[var(--color-brand)] placeholder-gray-500"
-        />
-        <Button variant="primary" size="md" fullWidth className="mt-4">
+        <TextInput id="email" placeholder="Enter Your Email" type="text" />
+
+        <Button
+          variant="primary"
+          size="md"
+          fullWidth
+          className="mt-4 text-xs md:text-sm"
+        >
           Subscribe
         </Button>
       </div>
@@ -82,17 +85,17 @@ const Stories: React.FC = () => (
     </div>
 
     {/* Stories List (hidden on mobile/tablet) */}
-    <div className="flex-1 space-y-6 px-4 mt-4 overflow-y-auto w-full border-l-[1px] border-gray-300 hidden lg:block">
+    <div className="flex-1 space-y-6 px-4 mt-4 overflow-y-auto w-full border-l-[1px] border-light-silver hidden lg:block">
       {STORIES.map((story, idx) => (
         <article
           key={idx}
-          className="space-y-2 pb-3 border-b-[1px] border-gray-300"
+          className="space-y-2 pb-3 border-b-[1px] border-light-silver"
         >
-          <h3 className="text-base font-normal text-gray-900">{story.title}</h3>
-          <p className="text-xs font-normal text-dark-silver leading-relaxed">
+          <h3 className="text-base font-normal mb-3">{story.title}</h3>
+          <p className="text-sm font-normal text-dim-gray leading-relaxed">
             {story.excerpt}
           </p>
-          <p className="text-xs text-dim-gray">
+          <p className="text-sm text-dim-gray my-3">
             {story.author} &#8226; {story.role}
           </p>
           <div className="flex flex-wrap gap-2">

@@ -58,7 +58,7 @@ const mainIcons = [
     Icon: BuildingsIcon,
     to: "/real-estate-assets",
   },
-  { label: "Articles", Icon: ArticleIcon, to: "/articles" },
+  { label: "Blog", Icon: ArticleIcon, to: "/blog" },
   { label: "Calendar", Icon: CalendarIcon, to: "/calendar" },
   { label: "Statistics", Icon: StatisticsIcon, to: "/statistics" },
 ] as const;
@@ -91,7 +91,8 @@ const Sidebar: React.FC<SidebarProps> = ({
         w-fit
         flex flex-col justify-start
         relative overflow-visible  
-        lg:min-h-[calc(100vh-94px)] lg:max-h-[calc(100vh-94px)] 
+        h-screen
+        min-h-fit max-h-[700px] 
       "
     >
       <Link

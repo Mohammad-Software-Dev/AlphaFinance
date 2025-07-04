@@ -19,6 +19,7 @@ export interface ButtonProps
 
 const variantClasses: Record<Variant, string> = {
   primary: `
+    rounded-sm 
     inline-flex items-center justify-center
     font-inter font-medium
      border
@@ -28,6 +29,7 @@ const variantClasses: Record<Variant, string> = {
     hover:opacity-90 transition
   `,
   secondary: `
+    rounded-sm
     inline-flex items-center justify-center
     font-inter font-medium
      border

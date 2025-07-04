@@ -39,13 +39,24 @@ const stats = [
 const StatCardsRow: React.FC = () => (
   <>
     {/* Desktop & Tablet: Flex Row */}
-    <div className="hidden md:flex gap-6 w-full py-2">
+    <div className="hidden lg:flex gap-6 w-full py-2">
       {stats.map((s) => (
         <StatCard key={s.title} {...s} />
       ))}
     </div>
 
-    {/* Mobile: Swiper */}
+    <div className="hidden md:block lg:hidden py-4 w-full">
+      <Swiper slidesPerView={2.7} spaceBetween={18} watchSlidesProgress={true}>
+        {stats.map((s) => (
+          <SwiperSlide key={s.title}>
+            <div className="pr-1">
+              <StatCard {...s} />
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+
     <div className="block md:hidden py-6 w-full">
       <Swiper
         slidesPerView={1.15}

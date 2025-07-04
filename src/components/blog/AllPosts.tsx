@@ -90,28 +90,29 @@ export const AllPosts: React.FC = () => {
   const visiblePosts = POSTS.slice(startIdx, startIdx + 6);
 
   return (
-    <section className="space-y-6 px-3 lg:px-0">
+    <section className="space-y-6 ">
       <h2 className="text-2xl lg:text-3xl font-semibold text-[var(--color-dark-blue)]">
         All blog posts
       </h2>
       {/* Responsive grid: 1 col (mobile), 2 cols (md), 3 cols (lg) */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
         {visiblePosts.map((post, idx) => (
-          <article key={idx} className="flex flex-col space-y-3">
+          <article
+            key={idx}
+            className="flex flex-col space-y-3 transition-transform duration-200 hover:-translate-y-1"
+          >
             <div className="h-48 w-full overflow-hidden">
               <img
                 src={post.image}
                 alt={post.title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover rounded-sm"
               />
             </div>
-            <p className="mt-3 font-medium text-[14px] text-brand">
+            <p className="font-semibold text-sm text-brand mt-3">
               {post.author} • {post.date}
             </p>
             <div className="flex items-start justify-between">
-              <h3 className="text-gray-900 text-lg lg:text-[23px] font-semibold">
-                {post.title}
-              </h3>
+              <h5 className="font-semibold">{post.title}</h5>
               <Link
                 to="/blog-post"
                 aria-label="Read more"
@@ -120,7 +121,9 @@ export const AllPosts: React.FC = () => {
                 <ReadMoreIcon className="w-6 h-6 text-dim-gray" />
               </Link>
             </div>
-            <p className="text-dark-silver line-clamp-2">{post.excerpt}</p>
+            <p className="test-sm lg:text-base text-dark-silver mb-4">
+              {post.excerpt}
+            </p>
             <div className="mt-3 flex flex-wrap gap-2">
               {post.categories.map((cat, cIdx) => (
                 <Tag key={cat} colorIndex={idx + cIdx}>

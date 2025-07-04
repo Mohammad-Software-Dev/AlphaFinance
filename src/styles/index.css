@@ -31,7 +31,7 @@
   --color-profile-pink:#F7D0D0;
   --color-profile-light-blue:#E3EEF9;
 
-
+/* --breakpoint-lg: 85.376rem; */
   --breakpoint-lg: 73.8125rem;
   /* Fluid typography breakpoints */
   /* --min-screen: 360px;
@@ -123,3 +123,47 @@
 }
 
 
+
+
+.max-w-custom {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;      /* fallback */
+}
+
+@media (min-width: 640px) {
+  .max-w-custom {
+    max-width: 640px;
+  }
+}
+@media (min-width: 768px) {
+  .max-w-custom {
+    max-width: 768px;
+  }
+}
+@media (min-width: 1024px) {
+  .max-w-custom {
+    max-width: 1024px;
+  }
+}
+@media (min-width: 1280px) {
+  .max-w-custom {
+    max-width: 1280px;
+  }
+}
+@media (min-width: 1536px) {
+  .max-w-custom {
+    max-width: 1536px;
+  }
+}
+/* Extend beyond Tailwind's 2xl */
+@media (min-width: 1920px) {
+  .max-w-custom {
+    max-width: 1920px;
+  }
+}
+@media (min-width: 2560px) {
+  .max-w-custom {
+    max-width: 2200px;  /* or whatever value you want */
+  }
+}

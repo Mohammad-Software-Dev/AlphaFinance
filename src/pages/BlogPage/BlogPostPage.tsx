@@ -152,8 +152,11 @@ const BlogPostPage: React.FC = () => {
 
       <ul className="mt-4 space-y-6">
         {RECOMMENDED_FEED.map((item, i) => (
-          <li key={i} className="flex items-start gap-4">
-            <div className="min-w-1/3 w-20 sm:w-24 lg:w-full">
+          <li
+            key={i}
+            className="flex items-start gap-4 transition-transform duration-200 hover:-translate-y-1"
+          >
+            <div className="min-w-1/3 w-20 sm:w-24 lg:w-full ">
               <img
                 src={item.image}
                 alt={item.title}

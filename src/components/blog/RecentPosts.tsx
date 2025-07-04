@@ -57,28 +57,28 @@ const allPosts = [featured, ...smallPosts];
 
 export default function RecentPosts() {
   return (
-    <section className="space-y-3 pl-3 lg:pl-0">
+    <section className="space-y-3 ">
       <h3 className="text-gray-900 text-xl lg:text-2xl font-semibold">
         Recent blog posts
       </h3>
 
       {/* Desktop/Tablet Layout (md and up) */}
-      <div className="hidden lg:grid grid-cols-2 gap-6">
+      <div className="hidden lg:grid grid-cols-2 gap-6 ">
         {/* Featured Post */}
-        <article className="flex flex-col">
+        <article className="flex flex-col transition-transform duration-200 hover:-translate-y-1">
           <div>
             <img
               src={featured.image}
               alt=""
-              className="w-full h-full object-cover "
+              className="w-full h-full object-cover rounded-sm"
             />
           </div>
           <div className="py-6 flex flex-col space-y-2">
-            <p className="font-medium text-[14px] text-brand">
+            <p className="font-semibold test-xs lg:text-sm text-brand">
               {featured.author} • {featured.date}
             </p>
             <div className="flex items-center justify-between">
-              <h3 className="text-gray-900">{featured.title}</h3>
+              <h5 className="font-semibold">{featured.title}</h5>
               <Link
                 to="/blog-post"
                 aria-label="Read more"
@@ -87,7 +87,9 @@ export default function RecentPosts() {
                 <ArrowIcon className="w-6 h-6 text-dim-gray" />
               </Link>
             </div>
-            <p className="text-dark-silver">{featured.excerpt}</p>
+            <p className="test-sm lg:text-base text-dark-silver mb-4">
+              {featured.excerpt}
+            </p>
             <div className="flex flex-wrap gap-2">
               {featured.categories.map((cat, idx) => (
                 <Tag key={cat} colorIndex={idx}>
@@ -101,22 +103,27 @@ export default function RecentPosts() {
           </div>
         </article>
 
-        <div className="flex flex-col space-y-7">
+        <div className="flex flex-col space-y-6">
           {smallPosts.map((post, postIdx) => (
-            <article key={post.title} className="flex items-stretch">
+            <article
+              key={post.title}
+              className="flex items-stretch transition-transform duration-200 hover:-translate-y-1"
+            >
               <div className="max-w-1/2 min-w-1/2">
                 <img
                   src={post.image}
                   alt=""
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover rounded-sm"
                 />
               </div>
               <div className="flex flex-col flex-1 justify-between px-5 space-y-2">
-                <p className="font-medium text-[14px] text-brand">
+                <p className="font-semibold test-xs lg:text-sm text-brand">
                   {post.author} • {post.date}
                 </p>
-                <h4 className="text-gray-900">{post.title}</h4>
-                <p className="text-dark-silver overflow-hidden line-clamp-3">
+                <h4 className="font-semibold text-base lg:text-lg">
+                  {post.title}
+                </h4>
+                <p className="text-sm lg:text-base text-dark-silver overflow-hidden line-clamp-3 ">
                   {post.excerpt}
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -136,7 +143,7 @@ export default function RecentPosts() {
       </div>
 
       {/* Mobile Swiper Layout */}
-      <div className="block lg:hidden">
+      <div className="block lg:hidden mb-4">
         <Swiper
           slidesPerView={1.1}
           // spaceBetween={14}
@@ -153,9 +160,9 @@ export default function RecentPosts() {
                 <img
                   src={post.image}
                   alt=""
-                  className="w-full h-52 object-cover"
+                  className="w-full h-52 object-cover rounded-sm"
                 />
-                <div className="p-4 flex flex-col space-y-2">
+                <div className="my-4 flex flex-col space-y-2">
                   <p className="font-medium text-[14px] text-brand">
                     {post.author} • {post.date}
                   </p>

@@ -20,12 +20,12 @@ const SinglePost: React.FC<SinglePostProps> = ({ post }) => (
       <img
         src={post.image}
         alt={post.title}
-        className="w-full h-full object-cover"
+        className="w-full h-full object-cover rounded-sm"
       />
     </div>
 
     <div className="flex items-center flex-wrap gap-2">
-      <p className="font-medium text-[14px] text-brand">
+      <p className="font-semibold test-xs lg:text-sm text-brand">
         {post.author} • {post.date}
       </p>
       {post.categories.map((cat, i) => (
@@ -38,18 +38,22 @@ const SinglePost: React.FC<SinglePostProps> = ({ post }) => (
       ))}
     </div>
 
-    <h4 className=" text-gray-900">{post.title}</h4>
+    <h5 className="font-semibold text-lg">{post.title}</h5>
 
     <div className="space-y-0 text-base text-black-2 leading-relaxed">
       {post.content.map((para, i) => (
-        <p key={i}>{para}</p>
+        <p className="text-base" key={i}>
+          {para}
+        </p>
       ))}
     </div>
 
-    <h4 className=" text-gray-900">{post.citation}</h4>
+    <h5 className="font-semibold text-lg">{post.citation}</h5>
     <div className="space-y-0 text-base text-black-2 leading-relaxed">
       {post.content.map((para, i) => (
-        <p key={i}>{para}</p>
+        <p className="text-base" key={i}>
+          {para}
+        </p>
       ))}
     </div>
 
@@ -62,7 +66,9 @@ const SinglePost: React.FC<SinglePostProps> = ({ post }) => (
     </div>
     <div className="space-y-0 text-base text-black-2 leading-relaxed">
       {post.content.map((para, i) => (
-        <p key={i}>{para}</p>
+        <p className="text-base" key={i}>
+          {para}
+        </p>
       ))}
     </div>
   </article>
