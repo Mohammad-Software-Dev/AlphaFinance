@@ -1,6 +1,8 @@
-import React from "react";
-import InvestmentChart from "./InvestmentChart";
-import PortfolioPieChart from "./PortfolioPieChart";
+import React, { Suspense } from "react";
+
+const InvestmentChart = React.lazy(() => import("./InvestmentChart"));
+const PortfolioPieChart = React.lazy(() => import("./PortfolioPieChart"));
+
 import Edit from "../../../assets/icons/edit.svg?react";
 import Switch from "@mui/material/Switch";
 import Legend from "./Legend";
@@ -89,10 +91,18 @@ const FinancialCalculator: React.FC = () => {
         {/* Charts in a row */}
         <div className="flex md:flex-row flex-col justify-center md:justify-between items-center gap-10 md:gap-0">
           <div className="w-full md:w-2/3 ">
-            <InvestmentChart />
+            <Suspense
+              fallback={<div style={{ height: 320 }}>Loading chart…</div>}
+            >
+              <InvestmentChart />
+            </Suspense>
           </div>
           <div className="w-full md:w-1/3 aspect-square  ">
-            <PortfolioPieChart />
+            <Suspense
+              fallback={<div style={{ height: 320 }}>Loading chart…</div>}
+            >
+              <PortfolioPieChart />
+            </Suspense>
           </div>
         </div>
         {/* Legend below, centered and full width */}

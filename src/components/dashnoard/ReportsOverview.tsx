@@ -1,6 +1,10 @@
-import React from "react";
-import DividendsChart from "../realEstate/Financial/DividendsChart";
-import StatChart from "../realEstate/Financial/StatChart";
+import React, { Suspense } from "react";
+
+const DividendsChart = React.lazy(
+  () => import("../realEstate/Financial/DividendsChart")
+);
+const StatChart = React.lazy(() => import("../realEstate/Financial/StatChart"));
+
 import { Swiper, SwiperSlide } from "swiper/react";
 
 const priceData = [62, 74, 93, 108, 120, 110, 97, 101, 105, 112, 120, 132];
@@ -14,14 +18,16 @@ const chartConfigs = [
     change: "+9%",
     changeColor: "text-verified-green",
     renderChart: () => (
-      <StatChart
-        color="brand"
-        data={priceData}
-        min={60}
-        max={140}
-        tickAmount={4}
-        height={180}
-      />
+      <Suspense fallback={<div style={{ height: 180 }}>Loading…</div>}>
+        <StatChart
+          color="brand"
+          data={priceData}
+          min={60}
+          max={140}
+          tickAmount={4}
+          height={180}
+        />
+      </Suspense>
     ),
   },
   {
@@ -31,14 +37,16 @@ const chartConfigs = [
     change: "+9%",
     changeColor: "text-verified-green",
     renderChart: () => (
-      <StatChart
-        color="black"
-        data={netIncomeData}
-        min={60}
-        max={140}
-        tickAmount={4}
-        height={180}
-      />
+      <Suspense fallback={<div style={{ height: 180 }}>Loading…</div>}>
+        <StatChart
+          color="black"
+          data={netIncomeData}
+          min={60}
+          max={140}
+          tickAmount={4}
+          height={180}
+        />
+      </Suspense>
     ),
   },
   {
@@ -47,7 +55,11 @@ const chartConfigs = [
     value: "125,927",
     change: "+4%",
     changeColor: "text-verified-green",
-    renderChart: () => <DividendsChart />,
+    renderChart: () => (
+      <Suspense fallback={<div style={{ height: 180 }}>Loading…</div>}>
+        <DividendsChart />
+      </Suspense>
+    ),
   },
 ] as const;
 
