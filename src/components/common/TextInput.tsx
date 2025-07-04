@@ -10,6 +10,7 @@ interface TextInputProps {
   className?: string;
   label?: string;
   name?: string;
+  rightIcon?: React.ReactNode;
 }
 
 const TextInput: React.FC<TextInputProps> = ({
@@ -22,24 +23,39 @@ const TextInput: React.FC<TextInputProps> = ({
   className = "",
   label = null,
   name = "",
+  rightIcon,
 }) => {
   return (
     <div className={`py-2 flex flex-col items-start ${className}`}>
       {label && (
-        <label className="block text-dim-gray text-sm md:text-base mb-1 py-1">
+        <label
+          htmlFor={id}
+          className="block text-dim-gray text-sm md:text-base mb-1 py-1"
+        >
           {label}
         </label>
       )}
-      <input
-        name={name}
-        id={id}
-        type={type}
-        placeholder={placeholder}
-        value={value}
-        onChange={onChange}
-        className={`w-full border-b-[1px] border-light-silver placeholder:text-dark-silver text-sm md:text-base px-2  focus:outline-none 
-          focus:border-black  ${error ? "error" : ""}`}
-      />
+      <div className="relative w-full">
+        <input
+          name={name}
+          id={id}
+          type={type}
+          placeholder={placeholder}
+          value={value}
+          onChange={onChange}
+          className={`
+            w-full border-b-[1px] border-light-silver placeholder:text-dark-silver text-sm md:text-base px-2
+            focus:outline-none focus:border-black
+            ${rightIcon ? "pr-10" : ""}
+            ${error ? "error" : ""}
+          `}
+        />
+        {rightIcon && (
+          <span className="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none">
+            {rightIcon}
+          </span>
+        )}
+      </div>
       {error && <p className="mt-1 text-xs text-error font-inter">{error}</p>}
     </div>
   );
