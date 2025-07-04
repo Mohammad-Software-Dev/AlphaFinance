@@ -23,12 +23,14 @@ const Instructions: React.FC = () => (
   <section>
     {/* Header */}
     <div className="py-4 md:pt-0">
-      <h4 className="font-normal">Instructions</h4>
+      <h4 className="font-medium md:font-normal">Instructions</h4>
     </div>
     {/* Main instruction */}
     <div className="py-1">
       <p className="text-xs md:text-sm mb-1 text-dim-gray">Get Started</p>
-      <p className="text-base md:text-xl  py-1">Make your first deposit</p>
+      <p className="text-sm md:text-base lg:text-xl  py-1">
+        Make your first deposit
+      </p>
       <div className="text-xs md:text-sm text-dim-gray">
         Earn yield on your cash with Cash.
       </div>

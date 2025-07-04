@@ -8,15 +8,11 @@ interface GeneralLayoutProps {
   title?: string;
 }
 
-const GeneralLayout: React.FC<GeneralLayoutProps> = ({
-  children,
-  rightAside,
-  title,
-}) => {
+const GeneralLayout: React.FC<GeneralLayoutProps> = ({ children, title }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="min-h-screen pt-[47px] flex flex-col lg:flex-row relative bg-white  px-4 md:px-6 ">
+    <div className="min-h-screen  pt-[47px] flex flex-col lg:flex-row relative bg-white  px-4 md:px-6 ">
       <button
         className="fixed top-5 right-5 z-50 hidden bg-white border border-light-silver rounded-lg p-2"
         onClick={() => setSidebarOpen(!sidebarOpen)}
@@ -45,7 +41,7 @@ const GeneralLayout: React.FC<GeneralLayoutProps> = ({
         <Sidebar />
       </div>
 
-      {rightAside && (
+      {/* {rightAside && (
         <aside
           className="
             order-1 lg:order-3
@@ -58,11 +54,12 @@ const GeneralLayout: React.FC<GeneralLayoutProps> = ({
         >
           {rightAside}
         </aside>
-      )}
+      )} */}
 
       {/* Main content */}
       <main
         className={`
+          max-w-custom
           order-2 lg:order-2
           w-full
           lg:px-[2vw]
