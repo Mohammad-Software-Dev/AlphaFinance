@@ -6,7 +6,7 @@ import Investors from "./Investors";
 
 const FinancialLowerPart: React.FC = () => {
   return (
-    <div className="flex flex-col lg:flex-row w-full min-h-fit">
+    <div className=" flex flex-col lg:flex-row w-full min-h-fit">
       <HorizontalDivider className="block border-light-silver md:hidden  my-8  self-stretch" />
       <section className="flex flex-col w-full lg:w-[42%] ">
         <TokenTransactions />

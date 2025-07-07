@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Tag from "../common/Tag";
 import rightTopImage from "../../assets/images/right-top.png";
 import rightBottomImage from "../../assets/images/right-bottom.png";
+import { Link } from "react-router-dom";
 
 type Post = {
   author: string;
@@ -110,36 +111,38 @@ const Trending: React.FC = () => (
       >
         {smallPosts.map((post, postIdx) => (
           <SwiperSlide key={post.title}>
-            <article className="flex items-stretch max-h-[175px]">
-              <div className="max-w-1/2">
-                <img
-                  src={post.image}
-                  alt=""
-                  className="h-full w-full object-cover rounded-sm"
-                />
-              </div>
-              <div className="flex flex-col flex-1 justify-between pl-5 space-y-2 ">
-                <p className="font-semibold text-xs lg:text-sm text-brand">
-                  {post.author} • {post.date}
-                </p>
-                <h4 className="font-semibold text-base lg:text-lg">
-                  {post.title}
-                </h4>
-                <p className="text-sm lg:text-base text-dark-silver overflow-hidden line-clamp-3 ">
-                  {post.excerpt}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {post.categories.map((cat, idx) => (
-                    <Tag key={cat} colorIndex={idx + postIdx * 2}>
-                      {cat}
-                    </Tag>
-                  ))}
-                  {post.tags.map((tag) => (
-                    <Tag key={tag}>{tag}</Tag>
-                  ))}
+            <Link to="/blog-post" className="block group focus:outline-none">
+              <article className="flex items-stretch max-h-[175px]">
+                <div className="max-w-1/2">
+                  <img
+                    src={post.image}
+                    alt=""
+                    className="h-full w-full object-cover rounded-sm"
+                  />
                 </div>
-              </div>
-            </article>
+                <div className="flex flex-col flex-1 justify-between pl-5 space-y-2 ">
+                  <p className="font-semibold text-xs lg:text-sm text-brand">
+                    {post.author} • {post.date}
+                  </p>
+                  <h4 className="font-semibold text-base lg:text-lg">
+                    {post.title}
+                  </h4>
+                  <p className="text-sm lg:text-base text-dark-silver overflow-hidden line-clamp-3 ">
+                    {post.excerpt}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {post.categories.map((cat, idx) => (
+                      <Tag key={cat} colorIndex={idx + postIdx * 2}>
+                        {cat}
+                      </Tag>
+                    ))}
+                    {post.tags.map((tag) => (
+                      <Tag key={tag}>{tag}</Tag>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            </Link>
           </SwiperSlide>
         ))}
       </Swiper>

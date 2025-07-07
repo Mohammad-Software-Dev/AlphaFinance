@@ -6,6 +6,7 @@ import SecurityEditPanel from "./Settings/SecurityEditPanel";
 import PasswordEditPanel from "./Settings/PasswordEditPanel";
 import SessionsEditPanel from "./Settings/SessionsEditPanel";
 import TwoFactorEditPanel from "./Settings/TwoFactorEditPanel";
+import PlatformEditPanel from "./Settings/PlatformEditPanel";
 
 interface SettingsDetailPanelProps {
   sectionKey: string | null;
@@ -35,6 +36,9 @@ const SettingsDetailPanel: React.FC<SettingsDetailPanelProps> = ({
   }
   if (sectionKey === "sessions") {
     return <SessionsEditPanel />;
+  }
+  if (sectionKey === "platform") {
+    return <PlatformEditPanel />;
   }
 
   return <></>;
