@@ -43,12 +43,13 @@ const Invoices: React.FC = () => (
           {invoices.map((row, i) => (
             <tr
               key={i}
-              className="border-t border-light-silver  transition-all duration-200 transform
+              className="group border-t border-light-silver  transition-all duration-200 transform
               hover:scale-[1.025]
+          
               hover:bg-[linear-gradient(90deg,var(--color-brand-hover)_0%,transparent_50%,transparent_100%)]"
             >
               {/* Table Values: 14px mobile, 15px tablet, 16px desktop */}
-              <td className="py-2 pr-2 font-normal text-sm md:text-base">
+              <td className="py-2 pr-2 font-normal text-sm md:text-base     hover:rounded-l-sm">
                 {row.id}
               </td>
               <td className="py-2 pr-2 font-normal text-sm md:text-base">

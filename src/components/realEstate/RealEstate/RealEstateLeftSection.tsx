@@ -78,19 +78,19 @@ const RealEstateLeftSection: React.FC = () => (
         {/* Third row */}
         <div className={rowClass}>
           <div className={iconCellClass}>
-            <BedIcon className="w-4 h-4" />
+            <BedIcon className="w-6 h-6" />
             <p>3 Studio‑2 Beds</p>
           </div>
           <div className={iconCellClass}>
-            <BathIcon className="w-4 h-4" />
+            <BathIcon className="w-6 h-6" />
             <p>1‑2 Baths</p>
           </div>
           <div className={iconCellClass}>
-            <AreaIcon className="w-4 h-4" />
+            <AreaIcon className="w-6 h-6" />
             <p>557‑907 sqft</p>
           </div>
           <div className={iconCellClass}>
-            <ParkingIcon className="w-4 h-4" />
+            <ParkingIcon className="w-6 h-6" />
             <p>Parking</p>
           </div>
         </div>
