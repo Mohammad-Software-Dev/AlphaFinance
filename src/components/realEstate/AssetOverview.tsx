@@ -61,7 +61,7 @@ export default function AssetOverview() {
         {/* Input */}
         <div className="w-2/6">
           <InputNumberWithCustomSpinner
-            className="w-fit md:w-3/5"
+            className="w-fit md:w-3/5 h-fit"
             value={tokenAmount}
             onChange={setTokenAmount}
           />

@@ -137,6 +137,7 @@ const Transactions: React.FC<TransactionsProps> = ({ showSummary = false }) => (
               px-4 flex items-center justify-between py-3
               transition-all duration-200 transform
               hover:scale-[1.025]
+              hover:rounded-l-sm
               hover:bg-[linear-gradient(90deg,var(--color-brand-hover)_0%,transparent_50%,transparent_100%)]
               cursor-pointer
             "

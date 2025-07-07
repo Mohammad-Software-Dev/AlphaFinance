@@ -144,12 +144,13 @@ const Investors: React.FC = () => {
               <tr
                 key={i}
                 className="
-              transition-all duration-200 transform
-              hover:scale-[1.025]
-              hover:bg-[linear-gradient(90deg,var(--color-brand-hover)_0%,transparent_50%,transparent_100%)]"
+                  group transition-all duration-200 transform
+                  hover:scale-[1.025]
+                  hover:bg-[linear-gradient(90deg,var(--color-brand-hover)_0%,transparent_50%,transparent_100%)]
+                "
               >
                 {/* Investor ID */}
-                <td className="py-3 pl-4">
+                <td className="py-3 pl-4 group-hover:rounded-l-sm">
                   <div className="flex items-center gap-3">
                     <img
                       src={inv.avatar}

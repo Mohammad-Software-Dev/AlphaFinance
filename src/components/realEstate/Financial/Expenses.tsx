@@ -94,7 +94,7 @@ const Expenses: React.FC = () => {
             className="flex gap-2 justify-between items-center border-b-[1px] border-light-silver py-1"
           >
             <span
-              className="inline-block w-6 h-6 rounded-[8px]"
+              className="inline-block w-6 h-6 rounded-sm"
               style={{ backgroundColor: resolvedColors[idx] }}
             />
             <span className="text-sm md:text-base flex-1">{item.label}</span>

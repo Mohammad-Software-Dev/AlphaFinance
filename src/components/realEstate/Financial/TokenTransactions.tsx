@@ -115,11 +115,11 @@ const TokenTransactions: React.FC = () => {
           {data.map((row, i) => (
             <tr
               key={i}
-              className=" transition-all duration-200 transform
+              className="group transition-all duration-200 transform
               hover:scale-[1.025]
               hover:bg-[linear-gradient(90deg,var(--color-brand-hover)_0%,transparent_50%,transparent_100%)]"
             >
-              <td className="py-3 font-normal text-sm md:text-base border-b-[1px] border-light-silver md:border-0">
+              <td className="py-3 font-normal text-sm md:text-base border-b-[1px] border-light-silver md:border-0 group-hover:rounded-l-sm">
                 <div className="flex items-center gap-2 md:gap-4">
                   {row.icon}
                   <span className="font-semibold text-sm md:text-base">
