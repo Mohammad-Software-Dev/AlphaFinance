@@ -13,6 +13,7 @@ import Ballance from "../wallet/tabs/Ballance";
 import Portfolio from "../wallet/tabs/Portfolio";
 import Transfer from "../wallet/tabs/Transfer";
 import Bank from "../wallet/tabs/Bank";
+import CalculatorTab from "../realEstate/tabs/CalculatorTab";
 
 interface Props {
   tab: string;
@@ -49,6 +50,13 @@ const TabContent: React.FC<Props> = ({ tab }) => {
     return (
       <div ref={topRef}>
         <FinancialTab />
+      </div>
+    );
+  }
+  if (tab === "calculator") {
+    return (
+      <div ref={topRef}>
+        <CalculatorTab />
       </div>
     );
   }

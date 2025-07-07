@@ -28,11 +28,11 @@ const TransactionPage: React.FC = () => {
           <div className="flex items-center gap-4 md:w-1/2">
             <img
               src={userImage}
-              alt="David Peters"
+              alt="Mohammad Ahmad"
               className="w-16 h-16 rounded-full object-cover "
             />
             <div>
-              <h4 className="text-black">David Peters</h4>
+              <h4 className="text-black">Mohammad Ahmad</h4>
               <div className="text-sm font-normal">
                 Account Manager &nbsp; England, London UK
               </div>

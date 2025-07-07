@@ -9,7 +9,7 @@ import ChatInput from "./ChatInput";
 const messages = [
   // Today
   {
-    sender: "David Peters",
+    sender: "Mohammad Ahmad",
     senderRole: "Senior Developer",
     avatar: User1,
     self: false,
@@ -18,7 +18,7 @@ const messages = [
     day: "today",
   },
   {
-    sender: "David Peters",
+    sender: "Mohammad Ahmad",
     senderRole: "Senior Developer",
     avatar: User1,
     self: false,
@@ -49,7 +49,7 @@ const messages = [
   },
   // Yesterday
   {
-    sender: "David Peters",
+    sender: "Mohammad Ahmad",
     senderRole: "Senior Developer",
     avatar: User1,
     self: false,
@@ -58,7 +58,7 @@ const messages = [
     day: "yesterday",
   },
   {
-    sender: "David Peters",
+    sender: "Mohammad Ahmad",
     senderRole: "Senior Developer",
     avatar: User1,
     self: false,
@@ -76,7 +76,7 @@ const messages = [
   },
   // Today
   {
-    sender: "David Peters",
+    sender: "Mohammad Ahmad",
     senderRole: "Senior Developer",
     avatar: User1,
     self: false,
@@ -85,7 +85,7 @@ const messages = [
     day: "today",
   },
   {
-    sender: "David Peters",
+    sender: "Mohammad Ahmad",
     senderRole: "Senior Developer",
     avatar: User1,
     self: false,
@@ -116,7 +116,7 @@ const messages = [
   },
   // Yesterday
   {
-    sender: "David Peters",
+    sender: "Mohammad Ahmad",
     senderRole: "Senior Developer",
     avatar: User1,
     self: false,
@@ -125,7 +125,7 @@ const messages = [
     day: "yesterday",
   },
   {
-    sender: "David Peters",
+    sender: "Mohammad Ahmad",
     senderRole: "Senior Developer",
     avatar: User1,
     self: false,
@@ -165,7 +165,7 @@ const Interface: React.FC<InterfaceProps> = ({ contactIndex, onBack }) => {
         <ChatHeader
           onBack={onBack}
           userImage={User1}
-          userName="David Peters"
+          userName="Mohammad Ahmad"
           userPosition="Senior Developer"
         />
       </div>
