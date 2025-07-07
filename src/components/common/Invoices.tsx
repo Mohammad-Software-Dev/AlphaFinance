@@ -16,11 +16,11 @@ const invoices = [
 ];
 
 const Invoices: React.FC = () => (
-  <div className="w-full md:px-4">
+  <div className="w-full ">
     <h4 className="font-normal text-black mb-3">Invoices</h4>
     <div className="overflow-x-auto py-3">
       <table
-        className="min-w-full border-separate"
+        className="min-w-full border-separate px-4"
         style={{ borderSpacing: 0 }}
       >
         <thead>
@@ -43,7 +43,9 @@ const Invoices: React.FC = () => (
           {invoices.map((row, i) => (
             <tr
               key={i}
-              className="border-t border-light-silver hover:bg-light-silver transition"
+              className="border-t border-light-silver  transition-all duration-200 transform
+              hover:scale-[1.025]
+              hover:bg-[linear-gradient(90deg,var(--color-brand-hover)_0%,transparent_50%,transparent_100%)]"
             >
               {/* Table Values: 14px mobile, 15px tablet, 16px desktop */}
               <td className="py-2 pr-2 font-normal text-sm md:text-base">
@@ -57,7 +59,7 @@ const Invoices: React.FC = () => (
               </td>
               <td className="py-2 flex items-center justify-center">
                 <button className="w-5 h-5 flex items-center justify-center rounded-md transition">
-                  <DownloadIcon className="w-4 h-4 text-white" />
+                  <DownloadIcon />
                 </button>
               </td>
             </tr>

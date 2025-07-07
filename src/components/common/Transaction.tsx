@@ -129,11 +129,17 @@ const Transactions: React.FC<TransactionsProps> = ({ showSummary = false }) => (
       </button>
     </div>
 
-    <ul className="divide-y divide-gray-200">
+    <ul className=" divide-y divide-gray-200">
       {transactions.map((tx, i) => (
         <li
           key={tx.id + "-" + i}
-          className="flex items-center justify-between py-3"
+          className="
+              px-4 flex items-center justify-between py-3
+              transition-all duration-200 transform
+              hover:scale-[1.025]
+              hover:bg-[linear-gradient(90deg,var(--color-brand-hover)_0%,transparent_50%,transparent_100%)]
+              cursor-pointer
+            "
         >
           <div className="flex items-center gap-3 md:gap-4 lg:gap-5">
             <span

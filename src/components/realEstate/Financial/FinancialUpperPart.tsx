@@ -6,12 +6,13 @@ import DividendsCard from "./DividendsCard.tsx";
 import FinancialStatsRow from "./FinancialStatsRow.tsx.tsx";
 import Transactions from "../../common/Transaction.tsx";
 import HorizontalDivider from "../../common/HorizontalDivider.tsx";
+import VerticalDivider from "../../common/VerticalDivider.tsx";
 
 const FinancialUpperPart: React.FC = () => {
   return (
     <div className="flex flex-col lg:flex-row w-full min-h-fit">
       {/* Main Left Section */}
-      <section className="flex flex-col w-full lg:w-3/4 border-b-[1px] lg:border-b-0 lg:border-r-[1px] border-light-silver">
+      <section className="flex flex-col w-full lg:w-3/4">
         {/* Top Stats Row */}
         <FinancialStatsRow />
 
@@ -46,9 +47,10 @@ const FinancialUpperPart: React.FC = () => {
           </div>
         </div>
       </section>
-
+      <VerticalDivider className="hidden border-light-silver lg:block mx-6 h-auto self-stretch min-h-[600px]" />
+      <HorizontalDivider className="block border-light-silver md:hidden  my-8  self-stretch" />
       {/* Right Section (Transactions) */}
-      <section className="w-full lg:w-1/4 flex flex-col  sm:px-6 md:px-8 border-t-[1px] lg:border-t-0 lg:border-l-[1px] border-light-silver">
+      <section className="w-full lg:w-1/4 flex flex-col  ">
         <Transactions />
       </section>
     </div>

@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import ProfileInformation from "../ProfileInformation";
-import PlatformSettings from "../PlatformSettings";
+
 import LogOverview from "../LogOverview";
 import Projects from "../Projects";
 import LogIcon from "../../../assets/icons/logs.svg?react";
+import VerticalDivider from "../../common/VerticalDivider";
+import HorizontalDivider from "../../common/HorizontalDivider";
 
 const Profile: React.FC = () => {
   const [logOpen, setLogOpen] = useState(false);
@@ -20,7 +22,7 @@ const Profile: React.FC = () => {
   }, [logOpen]);
 
   return (
-    <div className="flex flex-col md:flex-row gap-8 w-full relative">
+    <div className="flex flex-col md:flex-row  w-full relative">
       <div className="fixed right-2 bottom-2 z-20 md:hidden">
         <button
           onClick={() => setLogOpen(true)}
@@ -35,18 +37,15 @@ const Profile: React.FC = () => {
           <div className="w-1/2 min-w-fit border-b-[1px] border-light-silver md:border-0 mb-4 md:mb-6">
             <ProfileInformation />
           </div>
-          <div className="w-1/2 min-w-fit border-b-[1px] border-light-silver md:border-0 mb-4 md:mb-6">
-            <PlatformSettings />
-          </div>
         </div>
         <div className="w-full">
           <Projects />
         </div>
       </div>
-      <div className="hidden md:flex w-full md:w-1/3 mt-6 md:mt-0">
-        <div className="col-span-1 flex flex-col h-full">
-          <LogOverview />
-        </div>
+      <VerticalDivider className="hidden border-light-silver lg:block mx-6 h-auto self-stretch min-h-[600px]" />
+      <HorizontalDivider className="block border-light-silver md:hidden self-stretch" />
+      <div className="hidden md:block w-full md:w-1/3 mt-6 md:mt-0">
+        <LogOverview />
       </div>
       {/* LogOverview: mobile modal */}
       {logOpen && (

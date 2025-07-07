@@ -105,7 +105,7 @@ const NotificationsEditPanel: React.FC = () => {
       </h4>
 
       {/* HEADER */}
-      <div className="hidden md:flex px-2 pb-2">
+      <div className="hidden md:flex pr-2 pb-2">
         <div className="flex-1 text-left font-medium text-base pl-0">
           Activity
         </div>

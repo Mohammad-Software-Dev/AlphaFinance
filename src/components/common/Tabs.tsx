@@ -34,7 +34,7 @@ const Tabs: React.FC<Props> = ({ tabList, assetId, tab, setTab }) => (
           <button
             className={`
               py-1 lg:px-0 lg:py-0
-              text-lg font-bold border-b-[2px]
+              text-sm md:text-lg font-bold border-b-[2px]
               ${
                 tab === item.value
                   ? "border-brand text-brand "

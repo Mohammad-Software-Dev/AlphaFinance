@@ -11,44 +11,43 @@ const sections: Section[] = [
   {
     key: "basic-info",
     title: "Basic Info",
-    description:
-      "Choose how you receive notifications. These notification settings apply to the things you're watching.",
+    description: "Update your personal details and profile information.",
   },
   {
     key: "notifications",
     title: "Notifications",
-    description:
-      "Choose how you receive notifications. These notification settings apply to the things you're watching.",
+    description: "Manage how and when you receive alerts and updates.",
+  },
+  {
+    key: "platform",
+    title: "Platform",
+    description: "Customize your platform experience and preferences.",
   },
   {
     key: "delete-account",
     title: "Delete Account",
-    description:
-      "Choose how you receive notifications. These notification settings apply to the things you're watching.",
+    description: "Permanently delete your account and all associated data.",
   },
   {
     key: "security",
     title: "Security",
-    description:
-      "Choose how you receive notifications. These notification settings apply to the things you're watching.",
+    description: "Review and adjust your account security settings.",
   },
   {
     key: "password",
     title: "Password",
-    description:
-      "Choose how you receive notifications. These notification settings apply to the things you're watching.",
+    description: "Change your password to keep your account secure.",
   },
   {
     key: "2fa",
     title: "2FA",
     description:
-      "Choose how you receive notifications. These notification settings apply to the things you're watching.",
+      "Enable or manage two-factor authentication for extra protection.",
   },
   {
     key: "sessions",
     title: "Sessions",
-    description:
-      "Choose how you receive notifications. These notification settings apply to the things you're watching.",
+    description: "View and manage your active device sessions.",
   },
 ];
 
@@ -65,7 +64,7 @@ const SettingsSectionsList: React.FC<SettingsSectionsListProps> = ({
     {sections.map((section) => (
       <div
         key={section.key}
-        className="flex flex-col md:flex-row md:items-center justify-between border-b-[1px] border-light-silver last:border-b-0 pb-5 last:pb-0 gap-5"
+        className="flex flex-col md:flex-row md:items-center justify-between border-b-[1px] border-light-silver last:border-b-0 pb-5  gap-5"
       >
         <div>
           <div className=" text-sm md:text-base">{section.title}</div>

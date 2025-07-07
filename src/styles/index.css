@@ -15,6 +15,7 @@
   /* Color tokens */
   --color-brand: #8496E7;
   --color-brand-light:#C9D7FD;
+  --color-brand-hover: #8496E735;
   --color-error-red: #cc0000;
   --color-verified-green: #0dbc4c;
   --color-light-silver: #D9D9D9;

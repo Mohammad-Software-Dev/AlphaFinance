@@ -7,6 +7,7 @@ import CourtIcon from "../../../assets/icons/court.svg?react";
 import BankCheckIcon from "../../../assets/icons/banl_check.svg?react";
 import LawyerIcon from "../../../assets/icons/lawyer.svg?react";
 import Modal from "../../common/Modal";
+import OperationModalContent from "../OperationModalContent";
 
 type TimelineEvent = {
   date: string;
@@ -21,37 +22,37 @@ const TAGS: Record<
 > = {
   property: {
     label: "PROPERTY MANAGEMENT",
-    icon: <PropertyIcon className="w-4 h-4" />,
+    icon: <PropertyIcon />,
     classes: "border-[1px] border-light-silver text-sand",
   },
   tenant: {
     label: "TENANT",
-    icon: <TenantIcon className="w-4 h-4" />,
+    icon: <TenantIcon />,
     classes: "border-[1px] border-light-silver text-dim-gray",
   },
   facility: {
     label: "FACILITY MANAGEMENT",
-    icon: <FacilityIcon className="w-4 h-4" />,
+    icon: <FacilityIcon />,
     classes: "border-[1px] border-light-silver  text-teal-700",
   },
   charges: {
     label: "SERVICES CHARGES",
-    icon: <ChargesIcon className="w-4 h-4" />,
+    icon: <ChargesIcon />,
     classes: "border-[1px] border-light-silver  text-dark-orange",
   },
   check: {
     label: "BANK CHECK",
-    icon: <BankCheckIcon className="w-4 h-4" />,
+    icon: <BankCheckIcon />,
     classes: "border-[1px] border-light-silver  ",
   },
   lawyer: {
     label: "LAWYER",
-    icon: <LawyerIcon className="w-4 h-4" />,
+    icon: <LawyerIcon />,
     classes: "border-[1px] border-light-silver ",
   },
   court: {
     label: "COURT",
-    icon: <CourtIcon className="w-4 h-4" />,
+    icon: <CourtIcon />,
     classes: "border-[1px] border-light-silver  ",
   },
   alphaseed: {
@@ -121,7 +122,7 @@ const Timeline: React.FC = () => {
                     flex-1 pl-6 md:pl-8  py-3 border-l-[2px] border-light-silver
                     transition-all duration-200
                     hover:border-l-[3px] hover:border-black
-                    hover:bg-gradient-to-r hover:from-[var(--color-brand-bg,#EEF0FA)] hover:to-transparent
+                   hover:bg-[linear-gradient(90deg,var(--color-brand-hover)_0%,transparent_50%,transparent_100%)]
                     group cursor-pointer
                   "
                 onClick={() => setSelectedEvent(event)}
@@ -144,7 +145,7 @@ const Timeline: React.FC = () => {
                         TAGS[key] && (
                           <span
                             key={key}
-                            className={`inline-flex items-center px-3 gap-2 py-1 rounded-md font-medium text-[10px] md:text-xs border ${TAGS[key].classes}`}
+                            className={`inline-flex  items-center px-3 gap-2 py-1 rounded-md font-medium text-[10px] md:text-xs border ${TAGS[key].classes}`}
                             style={{ letterSpacing: 0.2 }}
                           >
                             {TAGS[key].icon}
@@ -160,18 +161,7 @@ const Timeline: React.FC = () => {
         </div>
         <Modal open={!!selectedEvent} onClose={() => setSelectedEvent(null)}>
           {selectedEvent && (
-            <div className="min-h-[200px] flex flex-col items-center justify-center">
-              <span className="text-xl font-semibold mb-2">Event Details</span>
-              <p className="text-base text-gray-600">
-                Title: <b>{selectedEvent.title}</b>
-              </p>
-              <p className="text-base text-gray-600">
-                Date: {selectedEvent.date}
-              </p>
-              <p className="text-base text-gray-600">
-                Description: {selectedEvent.desc}
-              </p>
-            </div>
+            <OperationModalContent event={selectedEvent} TAGS={TAGS} />
           )}
         </Modal>
       </div>
