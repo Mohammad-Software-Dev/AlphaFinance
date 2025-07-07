@@ -9,43 +9,12 @@ import CreditCard from "../../profile/CreditCard";
 import InfoIcon from "../../../assets/icons/info-icon.svg?react";
 import Lottie from "lottie-react";
 import checkCircle from "../../../assets/animations/check-circle_1.json";
+import Modal from "../../common/Modal";
 
 const cardImages = [
   <MasterCardLogo className="w-14 h-14" />,
   <VisaCardLogo className="w-14 h-14" />,
 ];
-
-const SuccessModal: React.FC<{ amount: string; onClose: () => void }> = ({
-  amount,
-  onClose,
-}) => (
-  <div className="fixed inset-0 bg-black/30 flex items-center justify-center z-50">
-    <div className="bg-white rounded-sm p-8 flex flex-col items-center max-w-lg w-full mx-2">
-      <div className="">
-        <Lottie
-          animationData={checkCircle}
-          autoplay
-          loop={false}
-          style={{ width: 150, height: 150 }}
-        />
-      </div>
-      <h4 className=" text-center mb-2">
-        Congratulations!!
-        <br /> You successfully transferred
-        <br />${amount}
-      </h4>
-      <p className="text-dark-silver text-base md:text-lg text-center mb-6">
-        For additional information
-        <br />
-        please contact our customer support
-      </p>
-      <Button width="w-1/2" onClick={onClose}>
-        Back to Wallet
-        <span className="ml-2">→</span>
-      </Button>
-    </div>
-  </div>
-);
 
 const Bank: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
@@ -109,9 +78,32 @@ const Bank: React.FC = () => {
           </Button>
         </div>
       </div>
-      {showModal && (
-        <SuccessModal amount="200.00" onClose={() => setShowModal(false)} />
-      )}
+      <Modal open={showModal} onClose={() => setShowModal(false)}>
+        <div className="flex flex-col items-center max-w-lg w-full mx-2 p-8">
+          <div>
+            <Lottie
+              animationData={checkCircle}
+              autoplay
+              loop={false}
+              style={{ width: 150, height: 150 }}
+            />
+          </div>
+          <h4 className="text-center mb-2">
+            Congratulations!!
+            <br /> You successfully transferred
+            <br />${"200.00"}
+          </h4>
+          <p className="text-dark-silver text-base md:text-lg text-center mb-6">
+            For additional information
+            <br />
+            please contact our customer support
+          </p>
+          <Button width="w-1/2" onClick={() => setShowModal(false)}>
+            Back to Wallet
+            <span className="ml-2">→</span>
+          </Button>
+        </div>
+      </Modal>
     </div>
   );
 };

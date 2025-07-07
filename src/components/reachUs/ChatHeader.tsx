@@ -19,7 +19,7 @@ const ChatHeader: React.FC<ChatHeaderProps> = ({
         </button>
         <img
           src={userImage}
-          alt="David Peters"
+          alt="Mohammad Ahmad"
           className="w-12 h-12 rounded-full object-cover bg-profile-blue"
         />
       </div>

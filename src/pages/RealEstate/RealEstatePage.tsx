@@ -6,7 +6,7 @@ const TAB_LIST = [
   { label: "", value: "asset" },
   { label: "Property Info", value: "info" },
   { label: "Financial", value: "financial" },
-  { label: "Investment calculator", value: "calculator" },
+  { label: "Calculator", value: "calculator" },
   { label: "Update", value: "update" },
   { label: "Documents", value: "documents" },
   { label: "Reach Us", value: "reach" },

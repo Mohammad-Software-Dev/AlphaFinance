@@ -7,7 +7,7 @@ const contacts = [
   {
     avatar: User1,
     bg_color: "bg-profile-blue",
-    name: "Mr.David Peters",
+    name: "Mr.Mohammad Ahmad",
     title: "Account Manager",
     info: (
       <>

@@ -10,7 +10,7 @@ interface CreditCardProps {
 
 const CreditCard: React.FC<CreditCardProps> = ({
   logo,
-  name = "David Peters",
+  name = "Mohammad Ahmad",
   number = "xxxx - xxxx - xxxx - xxxx",
   expires = "11/24",
   label = "Credit",

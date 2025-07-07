@@ -12,12 +12,14 @@ const ProfileInformation: React.FC = () => (
     <div className="flex items-center gap-4 mb-4">
       <img
         src={userImage}
-        alt="David Peters"
+        alt="Mohammad Ahmad"
         className="md:w-16 md:h-16 w-12 h-12 rounded-full object-cover "
       />
       <div>
         <div className="flex justify-between gap-6 items-center">
-          <h4 className=" text-black flex items-center gap-2">David Peters</h4>
+          <h4 className=" text-black flex items-center gap-2">
+            Mohammad Ahmad
+          </h4>
           <EditIcon className="w-5 h-5 cursor-pointer" />
         </div>
         <div className="text-sm md:text-base font-normal">

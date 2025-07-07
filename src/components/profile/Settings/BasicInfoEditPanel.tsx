@@ -17,8 +17,8 @@ interface BasicInfoData {
 }
 
 const initialData: BasicInfoData = {
-  firstName: "David Peters",
-  lastName: "David Peters",
+  firstName: "Mohammad Ahmad",
+  lastName: "Mohammad Ahmad",
   gender: "Male",
   birthDate: "",
   email: "arroragaur@gmail.com",
