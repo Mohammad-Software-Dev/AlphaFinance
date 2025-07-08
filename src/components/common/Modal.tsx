@@ -86,7 +86,7 @@ const Modal: React.FC<ModalProps> = ({
           <div className="absolute inset-0 bg-black/30" aria-hidden="true" />
           <motion.div
             ref={modalRef}
-            className={`relative bg-white rounded-sm  max-w-6xl w-fit p-6 ${className}`}
+            className={`relative bg-white rounded-sm  max-w-8xl w-fit p-6 ${className}`}
             variants={defaultVariants}
             initial="hidden"
             animate="visible"
