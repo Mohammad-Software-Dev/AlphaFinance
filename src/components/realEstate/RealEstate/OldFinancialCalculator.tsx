@@ -7,7 +7,7 @@ import Edit from "../../../assets/icons/edit.svg?react";
 import Switch from "@mui/material/Switch";
 import Legend from "./Legend";
 
-const FinancialCalculator: React.FC = () => {
+const OldFinancialCalculator: React.FC = () => {
   const [enabled, setEnabled] = React.useState(true);
   return (
     <div className="">
@@ -112,4 +112,4 @@ const FinancialCalculator: React.FC = () => {
   );
 };
 
-export default FinancialCalculator;
+export default OldFinancialCalculator;

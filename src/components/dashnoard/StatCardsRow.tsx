@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 const stats = [
   {
-    title: "Asset Value",
+    title: "Total Asset Value",
     value: "53.000",
     label: "Total",
     percent: "+53%",

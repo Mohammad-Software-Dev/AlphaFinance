@@ -8,7 +8,11 @@ const dividends = [40, 90, 330, 250, 510, 400, 350, 520, 590];
 const contributions = [60, 120, 180, 240, 300, 360, 420, 480, 540];
 const tokenValueGrowth = [100, 160, 120, 320, 360, 470, 420, 410, 560];
 
-const InvestmentChart: React.FC = () => {
+type InvestmentChartProps = {
+  height?: number | string;
+};
+
+const InvestmentChart: React.FC<InvestmentChartProps> = ({ height = 320 }) => {
   // Resolve theme colors with useMemo
   const colors = useMemo(
     () => ({
@@ -99,7 +103,12 @@ const InvestmentChart: React.FC = () => {
 
   return (
     <div>
-      <ReactApexChart options={options} series={series} type="line" />
+      <ReactApexChart
+        height={height}
+        options={options}
+        series={series}
+        type="line"
+      />
     </div>
   );
 };

@@ -21,7 +21,13 @@ const getCssVar = (name: string): string => {
   return value;
 };
 
-const PortfolioPieChart: React.FC = () => {
+type PortfolioPieChartProps = {
+  height?: number | string;
+};
+
+const PortfolioPieChart: React.FC<PortfolioPieChartProps> = ({
+  height = 320,
+}) => {
   const pieColors = useMemo(
     () => pieColorVars.map((name) => getCssVar(name)),
     []
@@ -38,7 +44,12 @@ const PortfolioPieChart: React.FC = () => {
 
   return (
     <div className="">
-      <ReactApexChart options={options} series={pieData} type="pie" />
+      <ReactApexChart
+        height={height}
+        options={options}
+        series={pieData}
+        type="pie"
+      />
     </div>
   );
 };

@@ -1,8 +1,8 @@
 import React from "react";
 import AssetOverview from "../AssetOverview";
-import HorizontalDivider from "../../common/HorizontalDivider";
 import StatCard from "../../dashnoard/StatCard";
 import { Swiper, SwiperSlide } from "swiper/react";
+import HorizontalDivider from "../../common/HorizontalDivider";
 const stats = [
   {
     title: "Asset Value",
@@ -12,7 +12,7 @@ const stats = [
     percentColor: "teal",
   },
   {
-    title: "Total Dividends",
+    title: "Asset Dividends",
     value: "53.000",
     label: "Last",
     percent: "+53%",
@@ -38,8 +38,6 @@ const stats = [
 ] as const;
 const RealEstateRightSection: React.FC = () => (
   <div className="flex flex-col gap-8 ">
-    <AssetOverview />
-    <HorizontalDivider className=" border-light-silver   my-2  self-stretch" />
     <div className="hidden md:grid grid-cols-2 gap-6">
       {stats.map((s) => (
         <StatCard key={s.title} {...s} />
@@ -59,6 +57,10 @@ const RealEstateRightSection: React.FC = () => (
           </SwiperSlide>
         ))}
       </Swiper>
+    </div>
+    <div>
+      <HorizontalDivider className=" border-light-silver my-2  self-stretch" />
+      <AssetOverview />
     </div>
   </div>
 );

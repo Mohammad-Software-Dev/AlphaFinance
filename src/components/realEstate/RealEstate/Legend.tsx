@@ -39,16 +39,16 @@ const getCssVar = (name: string): string => {
 
 const Legend: React.FC = () => {
   return (
-    <div className="flex md:flex-row flex-col justify-between md:gap-4 w-full">
+    <div className="flex md:flex-row flex-col justify-between  md:gap-8 w-8/9">
       {/* First Column */}
-      <div>
+      <div className="w-full">
         {LEGEND.slice(0, 2).map((item) => (
           <div
             key={item.label}
-            className="flex justify-between items-center py-2 border-b-[1px] border-light-silver "
+            className="  flex justify-between items-center pt-4 pb-2 border-b-[1px] border-light-silver "
           >
             <span
-              className="inline-block w-6 h-6 rounded-lg mr-2 flex-shrink-0"
+              className="inline-block w-6 h-6 rounded-sm mr-2 flex-shrink-0"
               style={{
                 backgroundColor: getCssVar(item.colorVar),
               }}
@@ -56,7 +56,7 @@ const Legend: React.FC = () => {
             <span className="font-semibold text-sm md:text-base  mr-auto">
               {item.label}
             </span>
-            <span className="flex items-center ">
+            <span className="flex items-center w-1/2 justify-between">
               <span className="text-xs md:text-sm  mx-2 text-dim-gray">
                 {item.percent}
               </span>
@@ -68,14 +68,14 @@ const Legend: React.FC = () => {
         ))}
       </div>
       {/* Second Column */}
-      <div>
+      <div className="w-full">
         {LEGEND.slice(2).map((item) => (
           <div
             key={item.label}
-            className="flex justify-between items-center py-2 border-b-[1px] border-light-silver "
+            className="flex justify-between items-center pt-4 pb-2 border-b-[1px] border-light-silver "
           >
             <span
-              className="inline-block w-6 h-6 rounded-lg mr-2 flex-shrink-0"
+              className="inline-block w-6 h-6 rounded-sm mr-2 flex-shrink-0"
               style={{
                 backgroundColor: getCssVar(item.colorVar),
               }}
@@ -83,7 +83,7 @@ const Legend: React.FC = () => {
             <span className="font-semibold text-sm md:text-base  mr-auto">
               {item.label}
             </span>
-            <span className="flex items-center ">
+            <span className="flex items-center w-1/2 justify-between">
               <span className="text-xs md:text-sm mx-2 text-dim-gray">
                 {item.percent}
               </span>
