@@ -1,13 +1,29 @@
 import React from "react";
-import FinancialCalculator from "../RealEstate/FinancialCalculator";
+import VerticalDivider from "../../common/VerticalDivider";
+import FinancialCalculatorSection from "../RealEstate/FinancialCalculatorSection";
+// import OldFinancialCalculator from "../RealEstate/OldFinancialCalculator";
+import ExpensesSection from "../RealEstate/ExpensesSection";
+// import FinancialCalculator from "../RealEstate/FinancialCalculator";
 
 const CalculatorTab: React.FC = () => {
   return (
-    <div className="flex flex-col  w-full min-h-screen">
-      <section className="w-full md:w-1/2">
-        <FinancialCalculator />
-      </section>
-    </div>
+    <>
+      <div className="flex flex-col lg:flex-row">
+        <section className="w-full lg:w-1/2">
+          <FinancialCalculatorSection />
+        </section>
+        <VerticalDivider className="hidden border-light-silver lg:block mx-6 h-auto self-stretch min-h-[600px]" />
+        <section className="w-full lg:w-1/2">
+          <ExpensesSection />
+        </section>
+      </div>
+
+      {/* <div className="flex flex-col  w-full min-h-screen">
+        <section className="w-full md:w-1/2">
+          <OldFinancialCalculator />
+        </section>
+      </div> */}
+    </>
   );
 };
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "../common/Button";
 import InputNumberWithCustomSpinner from "../common/InputNumberWithCustomSpinner"; // adjust path as needed
+import HorizontalDivider from "../common/HorizontalDivider";
 
 const TOTAL_TOKENS = 300_000;
 const AVAILABLE_TOKENS = 79_200;
@@ -17,47 +18,55 @@ export default function AssetOverview() {
   return (
     <div className="">
       {/* --- First Row --- */}
-      <div className="md:px-6 flex justify-between pb-2">
-        <div className="w-2/6">
+      <div className="md:px-6 flex justify-between py-2 mt-3 space-y-3">
+        <div className="w-1/5 space-y-2 flex flex-col items-start">
           <p>Net yield</p>
-
           <p>{NET_YIELD}</p>
         </div>
-        <div className="w-2/6">
+        <div className="w-1/5 space-y-2 flex flex-col items-center">
           <p>Gross Yield</p>
-
           <p>{GROSS_YIELD}</p>
         </div>
-        <div className="w-2/6">
-          <p className=" text-teal">Token ROI</p>
-
-          <span className="font-bold  text-teal">{TOKEN_ROI}%</span>
+        <div className="w-1/5 space-y-2 flex flex-col items-end">
+          <p className="text-teal">Token ROI</p>
+          <p className="font-bold  text-teal">{TOKEN_ROI}%</p>
         </div>
       </div>
-      <div className="border-b border-gray-200" />
-
+      <HorizontalDivider className=" border-light-silver my-2  self-stretch" />
       {/* --- Second Row --- */}
-      <div className="md:px-6 flex justify-between  py-2">
-        <div className="w-2/6">
+      <div className="md:px-6 flex justify-between  py-2 mt-3 space-y-3 ">
+        <div className="w-1/5 space-y-2 flex flex-col items-start">
           <p>Investors</p>
 
           <p>{INVESTORS}</p>
         </div>
-        <div className="w-2/6">
+        <div className="w-1/5 space-y-2 flex flex-col items-center">
           <p>Lorem ipsum</p>
 
           <p>{LOREM}</p>
         </div>
-        <div className="w-2/6">
-          <p className="  text-dark-orange">Token Price</p>
+        <div className="w-1/5 space-y-2 flex flex-col items-end">
+          <p className="text-dark-orange">Token Price</p>
 
-          <span className="font-bold text-dark-orange">{TOKEN_PRICE} AED</span>
+          <p className="font-bold text-dark-orange">{TOKEN_PRICE} AED</p>
         </div>
       </div>
-      <div className="border-b-[1px] border-light-silver" />
+      <HorizontalDivider className=" border-light-silver my-2  self-stretch" />
+      {/* --- Progress Bar --- */}
+      <div className="mx-6 h-2 rounded-full bg-ghost-white my-3 md:my-6 relative overflow-hidden">
+        <div
+          className="h-2 rounded-full bg-black transition-all"
+          style={{ width: `${percentSold}%` }}
+        />
+      </div>
 
+      {/* --- Tokens Row --- */}
+      <div className="md:px-6 flex justify-between text-base  mt-6">
+        <span>Total tokens {TOTAL_TOKENS.toLocaleString()}</span>
+        <span>Available tokens {AVAILABLE_TOKENS.toLocaleString()}</span>
+      </div>
       {/* --- Third Row (Input, Price, Button) --- */}
-      <div className="md:px-6 flex md:flex-row flex-col items-center space-y-5 md:space-y-0 justify-between py-3">
+      <div className="md:px-6 flex md:flex-row flex-col items-center space-y-5 md:space-y-0 justify-between py-5 ">
         {/* Input */}
         <div className="w-2/6">
           <InputNumberWithCustomSpinner
@@ -74,25 +83,11 @@ export default function AssetOverview() {
           </h5>
         </div>
         {/* Button */}
-        <div className="flex justify-start w-2/6 ">
+        <div className="flex justify-end w-2/6 ">
           <Button variant="primary" type="button">
             Invest
           </Button>
         </div>
-      </div>
-
-      {/* --- Progress Bar --- */}
-      <div className="mx-6 h-2 rounded-full bg-ghost-white my-3 relative overflow-hidden">
-        <div
-          className="h-2 rounded-full bg-black transition-all"
-          style={{ width: `${percentSold}%` }}
-        />
-      </div>
-
-      {/* --- Tokens Row --- */}
-      <div className="md:px-6 flex justify-between text-base  mt-6">
-        <span>Total tokens {TOTAL_TOKENS.toLocaleString()}</span>
-        <span>Available tokens {AVAILABLE_TOKENS.toLocaleString()}</span>
       </div>
     </div>
   );
