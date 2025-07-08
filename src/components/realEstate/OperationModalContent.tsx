@@ -1,5 +1,7 @@
 import React from "react";
 import { VerticalStepper } from "./VerticalStepper";
+import VerticalDivider from "../common/VerticalDivider";
+import HorizontalDivider from "../common/HorizontalDivider";
 
 const steps = [
   { label: "Submitted", date: "2024‑07‑01" },
@@ -34,22 +36,22 @@ const OperationModalContent: React.FC<OperationModalProps> = ({
   event,
   TAGS,
 }) => (
-  <div className="w-full max-w-3xl mx-auto">
+  <div className="w-full  mx-auto">
     {/* Header */}
-    <div className="flex justify-between items-center mb-4">
+    <div className="flex justify-between items-center mb-4 ">
       <h2 className="text-2xl font-bold text-black">{event.title}</h2>
       <span className="text-sm text-gray-400 pe-16">{event.date}</span>
     </div>
 
-    <div className="flex gap-8 min-h-[400px]">
+    <div className="flex flex-col md:flex-row min-h-[400px] ">
       {/* Left Section */}
-      <div className="flex flex-col flex-1 min-w-0">
+      <div className="flex flex-col flex-1 min-w-0 ">
         {/* Participants */}
-        <div className="mb-3">
+        <div className="flex items-center gap-3 mb-3">
           <span className="text-sm font-semibold text-dim-gray">
-            Participants
+            Participants:
           </span>
-          <div className="flex flex-wrap gap-2 mt-2">
+          <div className="flex flex-wrap gap-2  ">
             {mockParticipants.map((p) => (
               <span
                 key={p}
@@ -63,9 +65,9 @@ const OperationModalContent: React.FC<OperationModalProps> = ({
         </div>
 
         {/* Tags */}
-        <div className="mb-3">
-          <span className="text-sm font-semibold text-dim-gray">Tags</span>
-          <div className="flex flex-wrap gap-2 mt-2">
+        <div className="flex items-center gap-3 mb-3">
+          <span className="text-sm font-semibold text-dim-gray">Tags:</span>
+          <div className="flex flex-wrap gap-2 ">
             {event.tags.map(
               (key) =>
                 TAGS[key] && (
@@ -81,13 +83,13 @@ const OperationModalContent: React.FC<OperationModalProps> = ({
             )}
           </div>
         </div>
-
+        <HorizontalDivider className=" border-light-silver self-stretch my-2" />
         {/* Description - fill available space */}
         <div className="mb-3 flex-1 overflow-auto">
           <span className="block text-sm font-semibold text-dim-gray mb-1">
             Description
           </span>
-          <div className="text-base">{event.desc}</div>
+          <p className="text-base">{event.desc}</p>
         </div>
 
         {/* Documents (always at bottom) */}
@@ -107,9 +109,9 @@ const OperationModalContent: React.FC<OperationModalProps> = ({
           </div>
         </div>
       </div>
-
+      <VerticalDivider className="hidden border-light-silver lg:block mx-3 h-auto self-stretch " />
       {/* Right Section: Stepper */}
-      <div className="flex flex-col justify-start w-[260px]">
+      <div className="flex flex-col justify-start w-fit ">
         <VerticalStepper steps={steps} activeStep={2} />
       </div>
     </div>

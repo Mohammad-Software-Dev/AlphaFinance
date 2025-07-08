@@ -16,7 +16,7 @@ export const VerticalStepper: React.FC<Props> = ({ steps, activeStep }) => (
           <div className="flex flex-col items-center mr-4">
             <div
               className={`w-6 h-6 flex items-center justify-center rounded-full text-white text-sm ${
-                completed || active ? "bg-brand" : "bg-gray-400"
+                completed || active ? "bg-brand" : "bg-light-silver"
               }`}
             >
               {completed ? <TiTick /> : idx + 1}
@@ -25,16 +25,22 @@ export const VerticalStepper: React.FC<Props> = ({ steps, activeStep }) => (
             {!isLast && (
               <div
                 className={`w-px flex-auto min-h-[48px] ${
-                  completed || active ? "bg-brand" : "bg-gray-300"
+                  completed || active ? "bg-brand" : "bg-light-silver"
                 }`}
               />
             )}
           </div>
 
           <div className="flex-1">
-            <div className="font-medium text-gray-800">{step.label}</div>
+            <div
+              className={`font-medium  text-base ${
+                completed || active ? "text-brand" : "text-dim-gray"
+              }`}
+            >
+              {step.label}
+            </div>
             {completed && (
-              <div className="text-xs text-brand mt-1">
+              <div className="text-xs text-dim-gray mt-1">
                 Completed on {step.date}
               </div>
             )}
