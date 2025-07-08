@@ -1,6 +1,7 @@
 import React from "react";
 import { VerticalStepper } from "./VerticalStepper";
 import VerticalDivider from "../common/VerticalDivider";
+import { Button } from "../common/Button";
 
 const steps = [
   { label: "Submitted", date: "2024‑07‑01" },
@@ -25,9 +26,9 @@ type OperationModalProps = {
 };
 
 const mockDocuments = [
-  { name: "Contract.pdf" },
-  { name: "Invoice.pdf" },
-  { name: "ID.png" },
+  { name: "Contract.pdf", fileUrl: "/previews/invoice1.pdf" },
+  { name: "Invoice.pdf", fileUrl: "/previews/invoice3.png" },
+  { name: "ID.png", fileUrl: "/previews/invoice2.jpg" },
 ];
 
 const mockParticipants = ["John Doe", "Jane Smith", "Legal Team"];
@@ -42,9 +43,16 @@ const OperationModalContent: React.FC<OperationModalProps> = ({
         <span className="text-2xl font-bold text-black">{event.title}</span>
         <span className="text-sm text-gray-400 mt-0.5">{event.date}</span>
       </div>
-      <span className="ml-2 px-3 py-1 rounded-sm text-sm font-semibold bg-green-50 text-verified-green border-[1px] border-verified-green">
-        {event.paymentStatus || "Paid"}
-      </span>
+      <div
+        className=" w-1/9 justify-start items-center flex
+        rounded-sm
+        bg-[linear-gradient(90deg,var(--color-brand-hover)_0%,transparent_100%,transparent_100%)]
+      border-l-[1px]"
+      >
+        <span className="ml-2 px-3 text-base">
+          {event.paymentStatus || "Paid"}
+        </span>
+      </div>
     </div>
     <div className="flex flex-1 overflow-hidden">
       <div className="flex-1 flex flex-col overflow-y-auto px-6 py-5 space-y-4">
@@ -66,7 +74,7 @@ const OperationModalContent: React.FC<OperationModalProps> = ({
             </div>
           </div>
           <div className="flex flex-wrap items-center gap-4">
-            <span className="text-sm font-semibold text-dim-gray">Tags:</span>
+            <span className="text-sm font-semibold text-dim-gray">Topics:</span>
             <div className="flex flex-wrap gap-2">
               {event.tags.map(
                 (key) =>
@@ -97,16 +105,19 @@ const OperationModalContent: React.FC<OperationModalProps> = ({
         <VerticalStepper steps={steps} activeStep={2} />
       </div>
     </div>
-    <div className="sticky bottom-0 z-20 bg-white border-t-[1px] border-light-silver px-6 py-3 flex flex-wrap gap-2 items-center">
+    <div className="sticky bottom-0 z-20 bg-white border-t-[1px] border-light-silver px-6 py-3 flex flex-wrap gap-4 items-center">
       {mockDocuments.map((doc) => (
-        <button
-          key={doc.name}
-          className="px-3 py-1 rounded border border-light-silver text-xs font-medium text-gray-700 bg-white hover:bg-brand/10 transition"
-          type="button"
-          tabIndex={-1}
+        <Button
+          variant="link"
+          underline
+          className="md:text-sm"
+          onClick={(e) => {
+            e.stopPropagation();
+            window.open(doc.fileUrl, "_blank");
+          }}
         >
           {doc.name}
-        </button>
+        </Button>
       ))}
     </div>
   </div>
