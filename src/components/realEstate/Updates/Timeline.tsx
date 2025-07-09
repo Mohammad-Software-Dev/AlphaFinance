@@ -23,42 +23,42 @@ const TAGS: Record<
   property: {
     label: "PROPERTY MANAGEMENT",
     icon: <PropertyIcon />,
-    classes: "border-[1px] border-light-silver text-sand",
+    classes: " text-sand",
   },
   tenant: {
     label: "TENANT",
     icon: <TenantIcon />,
-    classes: "border-[1px] border-light-silver text-dim-gray",
+    classes: " text-dim-gray",
   },
   facility: {
     label: "FACILITY MANAGEMENT",
     icon: <FacilityIcon />,
-    classes: "border-[1px] border-light-silver  text-teal-700",
+    classes: "  text-teal-700",
   },
   charges: {
     label: "SERVICES CHARGES",
     icon: <ChargesIcon />,
-    classes: "border-[1px] border-light-silver  text-dark-orange",
+    classes: "  text-dark-orange",
   },
   check: {
     label: "BANK CHECK",
     icon: <BankCheckIcon />,
-    classes: "border-[1px] border-light-silver  ",
+    classes: "  ",
   },
   lawyer: {
     label: "LAWYER",
     icon: <LawyerIcon />,
-    classes: "border-[1px] border-light-silver ",
+    classes: " ",
   },
   court: {
     label: "COURT",
     icon: <CourtIcon />,
-    classes: "border-[1px] border-light-silver  ",
+    classes: "  ",
   },
   alphaseed: {
     label: "ALPHASEED FEES",
     icon: "",
-    classes: "border-[1px]  border-light-silver text-brand",
+    classes: " text-brand",
   },
 };
 
@@ -145,7 +145,7 @@ const Timeline: React.FC = () => {
                         TAGS[key] && (
                           <span
                             key={key}
-                            className={`inline-flex  items-center px-3 gap-2 py-1 rounded-md font-medium text-[10px] md:text-xs border ${TAGS[key].classes}`}
+                            className={`inline-flex  items-center px-3 gap-2 py-1 rounded-md font-medium text-[10px] md:text-xs border-[1px] border-light-silver bg-white ${TAGS[key].classes}`}
                             style={{ letterSpacing: 0.2 }}
                           >
                             {TAGS[key].icon}

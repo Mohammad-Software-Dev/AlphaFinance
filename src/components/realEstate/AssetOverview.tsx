@@ -19,15 +19,15 @@ export default function AssetOverview() {
     <div className="">
       {/* --- First Row --- */}
       <div className="md:px-6 flex justify-between py-2 mt-3 space-y-3">
-        <div className="w-1/5 space-y-2 flex flex-col items-start">
+        <div className="w-1/3 lg:w-1/5 space-y-2 flex flex-col items-start">
           <p>Net yield</p>
           <p>{NET_YIELD}</p>
         </div>
-        <div className="w-1/5 space-y-2 flex flex-col items-center">
+        <div className="w-1/3 lg:w-1/5 space-y-2 flex flex-col items-center">
           <p>Gross Yield</p>
           <p>{GROSS_YIELD}</p>
         </div>
-        <div className="w-1/5 space-y-2 flex flex-col items-end">
+        <div className="w-1/3 lg:w-1/5 space-y-2 flex flex-col items-end">
           <p className="text-teal">Token ROI</p>
           <p className="font-bold  text-teal">{TOKEN_ROI}%</p>
         </div>
@@ -35,17 +35,17 @@ export default function AssetOverview() {
       <HorizontalDivider className=" border-light-silver my-2  self-stretch" />
       {/* --- Second Row --- */}
       <div className="md:px-6 flex justify-between  py-2 mt-3 space-y-3 ">
-        <div className="w-1/5 space-y-2 flex flex-col items-start">
+        <div className="w-1/3 lg:w-1/5 space-y-2 flex flex-col items-start">
           <p>Investors</p>
 
           <p>{INVESTORS}</p>
         </div>
-        <div className="w-1/5 space-y-2 flex flex-col items-center">
+        <div className="w-1/3 lg:w-1/5 space-y-2 flex flex-col items-center">
           <p>Lorem ipsum</p>
 
           <p>{LOREM}</p>
         </div>
-        <div className="w-1/5 space-y-2 flex flex-col items-end">
+        <div className="w-1/3 lg:w-1/5 space-y-2 flex flex-col items-end">
           <p className="text-dark-orange">Token Price</p>
 
           <p className="font-bold text-dark-orange">{TOKEN_PRICE} AED</p>

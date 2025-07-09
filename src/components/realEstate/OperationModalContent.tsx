@@ -56,7 +56,7 @@ const OperationModalContent: React.FC<OperationModalProps> = ({
     </div>
     <div className="flex flex-1 overflow-hidden">
       <div className="flex-1 flex flex-col overflow-y-auto px-6 py-5 space-y-4">
-        <div className="bg-gray-50  p-4 flex flex-col gap-4">
+        <div className="bg-ghost-white rounded-sm p-4 flex flex-col gap-4">
           <div className="flex flex-wrap items-center gap-4">
             <span className="text-sm font-semibold text-dim-gray">
               Participants:
@@ -65,7 +65,7 @@ const OperationModalContent: React.FC<OperationModalProps> = ({
               {mockParticipants.map((p) => (
                 <span
                   key={p}
-                  className="inline-flex items-center px-3 gap-2 py-1 rounded-md font-medium text-xs border border-light-silver bg-white text-brand"
+                  className="inline-flex items-center px-3 gap-2 py-1 rounded-sm font-medium text-xs border-[1px] border-light-silver bg-white text-brand"
                   style={{ letterSpacing: 0.2 }}
                 >
                   {p}
@@ -81,7 +81,7 @@ const OperationModalContent: React.FC<OperationModalProps> = ({
                   TAGS[key] && (
                     <span
                       key={key}
-                      className={`inline-flex items-center px-3 gap-2 py-1 rounded-md font-medium text-xs border ${TAGS[key].classes}`}
+                      className={`inline-flex items-center px-3 gap-2 py-1 rounded-sm font-medium text-xs bg-white border-[1px] border-light-silver ${TAGS[key].classes}`}
                       style={{ letterSpacing: 0.2 }}
                     >
                       {TAGS[key].icon}
@@ -110,7 +110,7 @@ const OperationModalContent: React.FC<OperationModalProps> = ({
         <Button
           variant="link"
           underline
-          className="md:text-sm"
+          className="md:text-sm cursor-pointer"
           onClick={(e) => {
             e.stopPropagation();
             window.open(doc.fileUrl, "_blank");

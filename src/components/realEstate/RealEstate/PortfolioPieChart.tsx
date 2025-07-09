@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import ReactApexChart from "react-apexcharts";
 
 const pieData = [32, 15, 20, 13];
@@ -33,21 +33,41 @@ const PortfolioPieChart: React.FC<PortfolioPieChartProps> = ({
     []
   );
 
-  const options: ApexCharts.ApexOptions = {
-    chart: { type: "pie", toolbar: { show: false } },
-    labels: pieLabels,
-    legend: { show: false },
-    stroke: { width: 3 },
-    colors: pieColors,
-    dataLabels: { enabled: false },
-  };
+  // useState for options and series
+  const [state, setState] = useState<{
+    options: ApexCharts.ApexOptions;
+    series: number[];
+  }>({
+    options: {
+      chart: { type: "pie", toolbar: { show: false } },
+      labels: pieLabels,
+      legend: { show: false },
+      stroke: { width: 3 },
+      colors: pieColors,
+      dataLabels: { enabled: false },
+    },
+    series: pieData,
+  });
+
+  // If you want to react to changes in pieColors, update options
+  useEffect(() => {
+    setState((prev) => ({
+      ...prev,
+      options: {
+        ...prev.options,
+        colors: pieColors,
+      },
+    }));
+  }, [pieColors]);
+
+  // Example: if you want to change series data dynamically, you can do so here
 
   return (
-    <div className="">
+    <div>
       <ReactApexChart
         height={height}
-        options={options}
-        series={pieData}
+        options={state.options}
+        series={state.series}
         type="pie"
       />
     </div>

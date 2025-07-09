@@ -94,7 +94,7 @@ const Modal: React.FC<ModalProps> = ({
             style={{ zIndex: 1 }}
           >
             <button
-              className="absolute right-3 top-3 text-gray-400 hover:text-brand text-2xl font-bold"
+              className="absolute right-3 top-3 text-dark-silver hover:text-brand text-2xl font-bold"
               onClick={onClose}
               aria-label="Close"
             >
