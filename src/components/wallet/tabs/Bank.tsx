@@ -12,8 +12,8 @@ import checkCircle from "../../../assets/animations/check-circle_1.json";
 import Modal from "../../common/Modal";
 
 const cardImages = [
-  <MasterCardLogo className="w-14 h-14" />,
-  <VisaCardLogo className="w-14 h-14" />,
+  { logo: <MasterCardLogo className="w-14 h-14" />, label: "Master Card" },
+  { logo: <VisaCardLogo className="w-14 h-14" />, label: "Visa Card" },
 ];
 
 const Bank: React.FC = () => {
@@ -36,9 +36,9 @@ const Bank: React.FC = () => {
               pagination={{ clickable: true }}
               navigation
             >
-              {cardImages.map((logo, idx) => (
+              {cardImages.map((card, idx) => (
                 <SwiperSlide key={idx}>
-                  <CreditCard logo={logo} />
+                  <CreditCard logo={card.logo} label={card.label} />
                 </SwiperSlide>
               ))}
             </Swiper>

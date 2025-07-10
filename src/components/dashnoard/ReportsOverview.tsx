@@ -1,5 +1,4 @@
 import React, { Suspense } from "react";
-
 const DividendsChart = React.lazy(
   () => import("../realEstate/Financial/DividendsChart")
 );
@@ -7,6 +6,7 @@ const StatChart = React.lazy(() => import("../realEstate/Financial/StatChart"));
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import Loader from "../../../components/Loader";
+import DateInput from "../common/DateInput";
 
 const priceData = [62, 74, 93, 108, 120, 110, 97, 101, 105, 112, 120, 132];
 const netIncomeData = [124, 98, 67, 77, 102, 109, 101, 105, 91, 87, 75, 67];
@@ -64,116 +64,119 @@ const chartConfigs = [
   },
 ] as const;
 
-const ReportsOverview: React.FC = () => (
-  <div className="w-full ">
-    {/* Top Title */}
-    <h4 className="font-medium md:font-normal ">Reports overview</h4>
+const ReportsOverview: React.FC = () => {
+  const [selectedDate, setSelectedDate] = React.useState<Date | null>(
+    new Date()
+  );
 
-    {/* Filters Row */}
-    <div className="flex flex-wrap  h-fit  gap-0 items-center mb-4 py-1">
-      <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 items-center w-full md:w-fit mb-6 md:mb-0">
-        <div>
-          <select className="border-b-[1px] border-light-silver  px-2 py-1 rounded text-sm">
-            <option>Last 12 months</option>
-            <option>Last 6 months</option>
-            <option>Last 3 months</option>
+  // Optional: formatted string
+
+  return (
+    <div className="w-full ">
+      {/* Top Title */}
+      <h4 className="font-medium md:font-normal ">Reports overview</h4>
+
+      {/* Filters Row */}
+      <div className="flex flex-wrap  h-fit  gap-0 items-center mb-4 py-1">
+        <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 items-center w-full md:w-fit mb-6 md:mb-0">
+          <div className="flex gap-2">
+            <select className="border-b-[1px] border-light-silver  px-2 py-1 rounded text-sm  focus:outline-none ">
+              <option>Last 12 months</option>
+              <option>Last 6 months</option>
+              <option>Last 3 months</option>
+            </select>
+            <DateInput value={selectedDate} onChange={setSelectedDate} />
+          </div>
+          <span className="mx-2 text-dim-gray text-sm">compared to</span>
+
+          <select className="border-b-[1px] border-light-silver  px-2 py-1  text-sm  focus:outline-none ">
+            <option>Previous period</option>
+            <option>Same period last year</option>
           </select>
-          <input
-            type="text"
-            value="1 Aug 2020-7 Jul"
-            className="border-b-[1px] border-light-silver  px-2 py-1  text-sm w-48"
-            readOnly
-          />
         </div>
-        <span className="mx-2 text-dim-gray text-sm">compared to</span>
-
-        <select className="border-b-[1px] border-light-silver  px-2 py-1  text-sm">
-          <option>Previous period</option>
-          <option>Same period last year</option>
-        </select>
-      </div>
-      <div className="md:ml-auto flex gap-2">
-        <select className="border-b-[1px] border-light-silver  px-2 py-1 rounded text-sm">
-          <option>Monthly</option>
-          <option>Weekly</option>
-        </select>
-        <button className="border-b-[1px] border-light-silver  px-3 py-1 rounded flex items-center gap-1 text-sm">
-          <span className="text-sm" role="img" aria-label="edit">
-            ⚙️
-          </span>
-          Edit charts
-        </button>
-      </div>
-    </div>
-
-    {/* Summary Row */}
-    <div className="flex flex-wrap gap-10 pb-3 mb-4 text-lg border-b-[1px] border-light-silver">
-      <div className="flex flex-col space-y-2 justify-between">
-        <span className="text-dim-gray text-sm">Gross volume</span>
-        <span className="font-semibold text-xl">€1,452.25</span>
-      </div>
-      <div className="flex flex-col space-y-2 justify-between">
-        <span className="text-dim-gray text-sm">Yesterday</span>
-        <span className="text-dim-gray  font-semibold text-base">
-          €1,253.61
-        </span>
-      </div>
-      <div className="flex flex-col space-y-2 justify-between">
-        <span className="text-dim-gray text-sm">Yesterday</span>
-        <span className="text-dim-gray  font-semibold text-base">
-          €1,253.61
-        </span>
-      </div>
-      <div className="flex flex-col space-y-2 justify-between">
-        <span className="text-dim-gray text-sm">Yesterday</span>
-        <span className="text-dim-gray  font-semibold text-base">
-          €1,253.61
-        </span>
-      </div>
-    </div>
-
-    {/* Chart Row */}
-    <div className="hidden 2xl:flex flex-row justify-between">
-      {chartConfigs.map((stat) => (
-        <div className="flex-1" key={stat.key}>
-          <div className="mb-1">
-            <h4 className="font-medium md:font-normal">{stat.title}</h4>
-          </div>
-          <div className="flex items-center gap-2 mb-2">
-            <span className="text-base text-dim-gray">{stat.value}</span>
-            <span className={`${stat.changeColor} font-bold text-base`}>
-              {stat.change}
+        <div className="md:ml-auto flex gap-2">
+          <select className="border-b-[1px] border-light-silver  px-2 py-1 rounded text-sm  focus:outline-none ">
+            <option>Monthly</option>
+            <option>Weekly</option>
+          </select>
+          <button className="border-b-[1px] border-light-silver  px-3 py-1 rounded flex items-center gap-1 text-sm">
+            <span className="text-sm" role="img" aria-label="edit">
+              ⚙️
             </span>
-          </div>
-          {stat.renderChart()}
+            Edit charts
+          </button>
         </div>
-      ))}
-    </div>
-    <div className="block 2xl:hidden w-full">
-      <Swiper
-        slidesPerView={1.15}
-        spaceBetween={16}
-        style={{ paddingRight: "8px" }}
-      >
+      </div>
+
+      {/* Summary Row */}
+      <div className="flex flex-wrap gap-10 pb-3 mb-4 text-lg border-b-[1px] border-light-silver">
+        <div className="flex flex-col space-y-2 justify-between">
+          <span className="text-dim-gray text-sm">Gross volume</span>
+          <span className="font-semibold text-xl">€1,452.25</span>
+        </div>
+        <div className="flex flex-col space-y-2 justify-between">
+          <span className="text-dim-gray text-sm">Yesterday</span>
+          <span className="text-dim-gray  font-semibold text-base">
+            €1,253.61
+          </span>
+        </div>
+        <div className="flex flex-col space-y-2 justify-between">
+          <span className="text-dim-gray text-sm">Yesterday</span>
+          <span className="text-dim-gray  font-semibold text-base">
+            €1,253.61
+          </span>
+        </div>
+        <div className="flex flex-col space-y-2 justify-between">
+          <span className="text-dim-gray text-sm">Yesterday</span>
+          <span className="text-dim-gray  font-semibold text-base">
+            €1,253.61
+          </span>
+        </div>
+      </div>
+
+      {/* Chart Row */}
+      <div className="hidden 2xl:flex flex-row justify-between">
         {chartConfigs.map((stat) => (
-          <SwiperSlide key={stat.key}>
-            <div className="px-2">
-              <div className="mb-1">
-                <h4 className="font-medium">{stat.title}</h4>
-              </div>
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-base text-dim-gray">{stat.value}</span>
-                <span className={`${stat.changeColor} font-bold text-base`}>
-                  {stat.change}
-                </span>
-              </div>
-              {stat.renderChart()}
+          <div className="flex-1" key={stat.key}>
+            <div className="mb-1">
+              <h4 className="font-medium md:font-normal">{stat.title}</h4>
             </div>
-          </SwiperSlide>
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-base text-dim-gray">{stat.value}</span>
+              <span className={`${stat.changeColor} font-bold text-base`}>
+                {stat.change}
+              </span>
+            </div>
+            {stat.renderChart()}
+          </div>
         ))}
-      </Swiper>
+      </div>
+      <div className="block 2xl:hidden w-full">
+        <Swiper
+          slidesPerView={1.15}
+          spaceBetween={16}
+          style={{ paddingRight: "8px" }}
+        >
+          {chartConfigs.map((stat) => (
+            <SwiperSlide key={stat.key}>
+              <div className="px-2">
+                <div className="mb-1">
+                  <h4 className="font-medium">{stat.title}</h4>
+                </div>
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-base text-dim-gray">{stat.value}</span>
+                  <span className={`${stat.changeColor} font-bold text-base`}>
+                    {stat.change}
+                  </span>
+                </div>
+                {stat.renderChart()}
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default ReportsOverview;

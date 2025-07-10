@@ -39,7 +39,7 @@ const getCssVar = (name: string): string => {
 
 const Legend: React.FC = () => {
   return (
-    <div className="flex md:flex-row flex-col justify-between  md:gap-8 w-8/9">
+    <div className="flex md:flex-row flex-col justify-between  md:gap-8 ">
       {/* First Column */}
       <div className="w-full">
         {LEGEND.slice(0, 2).map((item) => (
