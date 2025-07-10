@@ -60,7 +60,7 @@ const RealEstateRightSection: React.FC = () => (
     </div>
     <div>
       <HorizontalDivider className=" border-light-silver my-2  self-stretch" />
-      <AssetOverview />
+      <AssetOverview investClassName="md:mt-35" />
     </div>
   </div>
 );

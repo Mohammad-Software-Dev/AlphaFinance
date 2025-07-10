@@ -110,7 +110,7 @@ const Trending: React.FC = () => (
         className="rounded"
       >
         {smallPosts.map((post, postIdx) => (
-          <SwiperSlide key={post.title}>
+          <SwiperSlide key={postIdx}>
             <Link to="/blog-post" className="block group focus:outline-none">
               <article className="flex items-stretch max-h-[175px]">
                 <div className="max-w-1/2">
@@ -155,7 +155,7 @@ const Trending: React.FC = () => (
         className="rounded"
       >
         {smallPosts.map((post, postIdx) => (
-          <SwiperSlide key={post.title} className="max-w-[80vw]">
+          <SwiperSlide key={postIdx} className="max-w-[80vw]">
             <article className="hidden sm:flex items-stretch max-h-[175px]">
               <div className="max-w-1/2">
                 <img

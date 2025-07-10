@@ -6,7 +6,7 @@ import { Button } from "../common/Button";
 const WithdrewBlock: React.FC = () => (
   <div className="flex-1 ">
     <h4 className="font-medium md:font-normal">Withdrew</h4>
-    <div className="space-y-1">
+    <div className="space-y-0">
       <TextInput
         id="withdrew-amount"
         label="Amount"

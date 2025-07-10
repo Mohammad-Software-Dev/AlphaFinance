@@ -16,7 +16,7 @@ const Ballance: React.FC = () => (
     <HorizontalDivider className="block border-light-silver md:hidden  my-8  self-stretch" />
     <div className="w-full lg:w-3/4 md:mt-8 lg:mt-0">
       <TransactionsRow />
-      <HorizontalDivider className=" border-light-silver my-8  self-stretch" />
+      <HorizontalDivider className=" border-light-silver my-4  self-stretch" />
       <ChartsRow />
       <HorizontalDivider className=" border-light-silver  mb-4  self-stretch" />
       <PortfolioRow />

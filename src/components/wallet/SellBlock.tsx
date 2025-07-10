@@ -7,7 +7,7 @@ import { Button } from "../common/Button";
 const SellBlock: React.FC = () => (
   <div className="flex-1 ">
     <h4 className="font-medium md:font-normal">Sell (Send)</h4>
-    <div className="space-y-1">
+    <div className="space-y-0">
       <TextInput
         id="amount"
         placeholder="Enter amount..."
