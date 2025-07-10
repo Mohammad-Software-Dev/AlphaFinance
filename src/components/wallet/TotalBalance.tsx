@@ -92,14 +92,14 @@ const overviewData = [
 ];
 
 const TotalBalance: React.FC = () => (
-  <div className="flex-1 pb-4">
-    <h4 className="font-medium md:font-normal pb-4">
-      Total Balance (
-      <span className="text-base md:text-lg lg:text-xl">04ticnsb8cxq…</span>)
-    </h4>
+  <div className="flex-1 mb-4 space-y-4">
+    <div className="mb-4">
+      <h4 className="font-medium md:font-normal mb-1">Total Balance</h4>
+      <p className="text-base md:text-lg lg:text-xl">(04ticnsb8cxq…)</p>
+    </div>
 
     {/* Token left card */}
-    <div className="bg-black rounded-sm text-center p-5 mx-8 text-white mb-4">
+    <div className="bg-black rounded-sm text-center p-5 mx-8 text-white my-8">
       <div className="flex items-center justify-center gap-1 mb-2">
         <p className="font-semibold  text-base md:text-lg">Token left</p>
       </div>
@@ -108,10 +108,11 @@ const TotalBalance: React.FC = () => (
     </div>
 
     {/* Overview on balance */}
-    <p className="text-base md:text-lg  pb-2 mt-6 border-b-[1px] border-light-silver">
-      Overview on your balance
-    </p>
+
     <div className=" divide-y-[1px] divide-light-silver ">
+      <p className="text-base md:text-lg  pb-2 mt-6 border-b-[1px] border-light-silver">
+        Overview on your balance
+      </p>
       {overviewData.map((item, idx) => (
         <div
           key={item.title + idx}

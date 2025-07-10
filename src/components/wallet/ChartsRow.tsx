@@ -67,7 +67,7 @@ const chartConfigs = [
 const ChartsRow: React.FC = () => (
   <div className="w-full ">
     {/* Summary Row */}
-    <div className="flex flex-wrap gap-10 pb-3 mb-4 text-lg border-b-[1px] border-light-silver">
+    {/* <div className="flex flex-wrap gap-10 pb-3 mb-4 text-lg border-b-[1px] border-light-silver">
       <div className="flex flex-col space-y-2 justify-between">
         <span className="text-dim-gray text-sm">Gross volume</span>
         <span className="font-semibold text-xl">€1,452.25</span>
@@ -90,7 +90,7 @@ const ChartsRow: React.FC = () => (
           €1,253.61
         </span>
       </div>
-    </div>
+    </div> */}
 
     {/* Chart Row */}
     <div className="hidden 2xl:flex flex-row justify-between">

@@ -56,7 +56,7 @@ const TransactionRow: React.FC<{
 const BankTransactionsBlock: React.FC = () => (
   <div className="flex-1">
     <h4 className="font-medium md:font-normal">Bank Transactions</h4>
-    <div className="space-y-5 py-2">
+    <div className="space-y-4 py-2">
       {transactions.map((tx) => (
         <TransactionRow key={tx.id + tx.time} {...tx} />
       ))}
