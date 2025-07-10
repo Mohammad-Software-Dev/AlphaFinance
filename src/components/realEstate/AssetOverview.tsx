@@ -3,6 +3,10 @@ import { Button } from "../common/Button";
 import InputNumberWithCustomSpinner from "../common/InputNumberWithCustomSpinner"; // adjust path as needed
 import HorizontalDivider from "../common/HorizontalDivider";
 
+type AssetOverviewProps = {
+  investClassName?: string;
+};
+
 const TOTAL_TOKENS = 300_000;
 const AVAILABLE_TOKENS = 79_200;
 const TOKEN_PRICE = 8;
@@ -10,7 +14,9 @@ const TOKEN_ROI = 11.6;
 const [INVESTORS, LOREM] = [790, "0000"];
 const [NET_YIELD, GROSS_YIELD] = ["297,000 AED", "420,000 AED"];
 
-export default function AssetOverview() {
+export default function AssetOverview({
+  investClassName = "",
+}: AssetOverviewProps) {
   const [tokenAmount, setTokenAmount] = React.useState(100);
   const tokenValue = 1520;
   const percentSold = ((TOTAL_TOKENS - AVAILABLE_TOKENS) / TOTAL_TOKENS) * 100;
@@ -59,14 +65,17 @@ export default function AssetOverview() {
           style={{ width: `${percentSold}%` }}
         />
       </div>
-
       {/* --- Tokens Row --- */}
       <div className="md:px-6 flex justify-between text-base  mt-6">
         <span>Total tokens {TOTAL_TOKENS.toLocaleString()}</span>
         <span>Available tokens {AVAILABLE_TOKENS.toLocaleString()}</span>
       </div>
       {/* --- Third Row (Input, Price, Button) --- */}
-      <div className="md:px-6 flex md:flex-row flex-col items-center space-y-5 md:space-y-0 justify-between py-5 ">
+      <div
+        className={`bg-ghost-white md:px-6 flex md:flex-row flex-col items-center space-y-5 md:space-y-0 justify-between py-5
+        ${investClassName}
+        `}
+      >
         {/* Input */}
         <div className="w-2/6">
           <InputNumberWithCustomSpinner
