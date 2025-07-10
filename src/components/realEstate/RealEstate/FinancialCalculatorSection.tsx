@@ -2,12 +2,12 @@ import { Suspense } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import InvestmentChart from "./InvestmentChart";
-import SemiRadialInput from "./SemiRadialInput";
+import SemiRadialInput from "./SemiCircularSlider";
 
 const radialInputs = [
-  { value: 1520, min: 1000, max: 10000, label: "1520" },
-  { value: 4520, min: 1000, max: 10000, label: "520" },
-  { value: 6520, min: 1000, max: 10000, label: "20" },
+  { value: 1520, min: 1000, max: 10000, label: "Token", withEdit: true },
+  { value: 4520, min: 1000, max: 10000, label: "Token", withEdit: true },
+  { value: 6520, min: 1000, max: 10000, label: "Token", withEdit: true },
 ];
 
 const FinancialCalculatorSection: React.FC = () => (
@@ -37,7 +37,7 @@ const FinancialCalculatorSection: React.FC = () => (
       >
         {radialInputs.map((props, idx) => (
           <SwiperSlide key={idx}>
-            <SemiRadialInput {...props} />
+            <SemiRadialInput key={idx} {...props} />
           </SwiperSlide>
         ))}
       </Swiper>
