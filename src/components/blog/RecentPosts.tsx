@@ -152,8 +152,8 @@ export default function RecentPosts() {
           spaceBetween={16}
           // slidesPerView={1}
         >
-          {allPosts.map((post) => (
-            <SwiperSlide key={post.title}>
+          {allPosts.map((post, postIdx) => (
+            <SwiperSlide key={postIdx}>
               <article className="bg-white   flex flex-col">
                 <img
                   src={post.image}

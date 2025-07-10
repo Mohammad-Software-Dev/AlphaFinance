@@ -77,17 +77,16 @@ const ReportsOverview: React.FC = () => {
       <h4 className="font-medium md:font-normal ">Reports overview</h4>
 
       {/* Filters Row */}
-      <div className="flex flex-wrap  h-fit  gap-0 items-center mb-4 py-1">
-        <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 items-center w-full md:w-fit mb-6 md:mb-0">
-          <div className="flex gap-2">
-            <select className="border-b-[1px] border-light-silver  px-2 py-1 rounded text-sm  focus:outline-none ">
-              <option>Last 12 months</option>
-              <option>Last 6 months</option>
-              <option>Last 3 months</option>
-            </select>
-            <DateInput value={selectedDate} onChange={setSelectedDate} />
-          </div>
-          <span className="mx-2 text-dim-gray text-sm">compared to</span>
+      <div className="flex flex-wrap  h-fit  gap-4 items-center mb-4 py-1">
+        <div className="flex flex-col md:flex-row space-y-4 md:space-y-0  gap-6 items-center w-full md:w-fit mb-6 md:mb-0">
+          <select className=" border-b-[1px] border-light-silver  px-2 py-1 rounded text-sm  focus:outline-none ">
+            <option>Last 12 months</option>
+            <option>Last 6 months</option>
+            <option>Last 3 months</option>
+          </select>
+
+          <DateInput value={selectedDate} onChange={setSelectedDate} />
+          <span className=" text-dim-gray text-sm w-1/4">compared to</span>
 
           <select className="border-b-[1px] border-light-silver  px-2 py-1  text-sm  focus:outline-none ">
             <option>Previous period</option>
