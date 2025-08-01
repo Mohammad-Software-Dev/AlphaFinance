@@ -2,12 +2,15 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 export function useSignInForm() {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
+  const navigate = useNavigate()
+
+  const [email, setEmail] = useState("info@alphaseed.ae")
+  const [password, setPassword] = useState("1234Abcd")
+
   const [emailError, setEmailError] = useState("")
   const [passwordError, setPasswordError] = useState("")
+  const [generalError, setGeneralError] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const navigate = useNavigate()
 
   function validate(): boolean {
     let valid = true
@@ -17,20 +20,31 @@ export function useSignInForm() {
     } else {
       setEmailError("")
     }
+
     if (password.length < 6) {
       setPasswordError("Password must be at least 6 characters.")
       valid = false
     } else {
       setPasswordError("")
     }
+
     return valid
   }
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault()
     if (!validate()) return
+
     setIsSubmitting(true)
-    navigate("/dashboard")
+
+    // Check credentials
+    if (email === "info@alphaseed.ae" && password === "1234Abcd") {
+      setGeneralError("")
+      navigate("/dashboard")
+    } else {
+      setGeneralError("Invalid credentials.")
+    }
+
     setIsSubmitting(false)
   }
 
@@ -41,6 +55,7 @@ export function useSignInForm() {
     setPassword,
     emailError,
     passwordError,
+    generalError,
     isSubmitting,
     onSubmit,
   }

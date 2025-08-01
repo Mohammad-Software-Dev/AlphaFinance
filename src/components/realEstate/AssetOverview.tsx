@@ -2,27 +2,44 @@ import React from "react";
 import { Button } from "../common/Button";
 import InputNumberWithCustomSpinner from "../common/InputNumberWithCustomSpinner"; // adjust path as needed
 import HorizontalDivider from "../common/HorizontalDivider";
+import { DEFAULT_PROPERTY, type PropertyType } from "../../data/properties";
 
 type AssetOverviewProps = {
+  property: PropertyType;
   investClassName?: string;
 };
 
-const TOTAL_TOKENS = 300_000;
-const AVAILABLE_TOKENS = 79_200;
-const TOKEN_PRICE = 8;
-const TOKEN_ROI = 11.6;
-const [INVESTORS, LOREM] = [790, "0000"];
-const [NET_YIELD, GROSS_YIELD] = ["297,000 AED", "420,000 AED"];
-
+// const TOTAL_TOKENS = 300_000;
+// const AVAILABLE_TOKENS = 79_200;
+// const TOKEN_PRICE = 8;
+// const TOKEN_ROI = 11.6;
+// const [INVESTORS, LOREM] = [790, "0000"];
+// const [NET_YIELD, GROSS_YIELD] = ["297,000 AED", "420,000 AED"];
 export default function AssetOverview({
+  property,
   investClassName = "",
 }: AssetOverviewProps) {
+  const p = property ?? DEFAULT_PROPERTY;
   const [tokenAmount, setTokenAmount] = React.useState(100);
-  const tokenValue = 1520;
-  const percentSold = ((TOTAL_TOKENS - AVAILABLE_TOKENS) / TOTAL_TOKENS) * 100;
+
+  // Pull from property (with fallback values for safety)
+  const TOTAL_TOKENS = p.totalTokens ?? 0;
+  const AVAILABLE_TOKENS = p.availableTokens ?? 0;
+  const TOKEN_PRICE = p.tokenPrice ?? 0;
+  const TOKEN_ROI = p.tokenROI ?? 0;
+  const INVESTORS = p.investors ?? 0;
+  const NET_YIELD = p.netYield ?? "N/A";
+  const GROSS_YIELD = p.grossYield ?? "N/A";
+
+  const percentSold =
+    TOTAL_TOKENS > 0
+      ? ((TOTAL_TOKENS - AVAILABLE_TOKENS) / TOTAL_TOKENS) * 100
+      : 0;
+
+  const tokenValue = tokenAmount * TOKEN_PRICE;
 
   return (
-    <div className="">
+    <div>
       {/* --- First Row --- */}
       <div className="md:px-6 flex justify-between py-2 mt-3 space-y-3">
         <div className="w-1/3 lg:w-1/5 space-y-2 flex flex-col items-start">
@@ -43,17 +60,14 @@ export default function AssetOverview({
       <div className="md:px-6 flex justify-between  py-2 mt-3 space-y-3 ">
         <div className="w-1/3 lg:w-1/5 space-y-2 flex flex-col items-start">
           <p>Investors</p>
-
           <p>{INVESTORS}</p>
         </div>
         <div className="w-1/3 lg:w-1/5 space-y-2 flex flex-col items-center">
           <p>Lorem ipsum</p>
-
-          <p>{LOREM}</p>
+          <p>0000</p> {/* You can make this dynamic or remove if not needed */}
         </div>
         <div className="w-1/3 lg:w-1/5 space-y-2 flex flex-col items-end">
           <p className="text-dark-orange">Token Price</p>
-
           <p className="font-bold text-dark-orange">{TOKEN_PRICE} AED</p>
         </div>
       </div>

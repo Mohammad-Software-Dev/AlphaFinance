@@ -4,6 +4,7 @@ import BedIcon from "../../../assets/icons/bed.svg?react";
 import BathIcon from "../../../assets/icons/bath.svg?react";
 import AreaIcon from "../../../assets/icons/area.svg?react";
 import ParkingIcon from "../../../assets/icons/parking.svg?react";
+import type { PropertyType } from "../../../data/properties";
 
 const rowClass =
   "flex flex-wrap  md:gap-y-2  divide-x-[1px] divide-light-silver";
@@ -12,30 +13,36 @@ const cellClass =
 const iconCellClass =
   "flex items-center gap-2 justify-center py-2 px-2 md:py-3 md:px-3 border-b-[1px] border-light-silver";
 
-const RealEstateLeftSection: React.FC = () => (
+const RealEstateLeftSection: React.FC<{ property: PropertyType }> = ({
+  property,
+}) => (
   <div>
     {/* Image */}
     <div className="relative aspect-[9/5] w-full h-auto   overflow-hidden">
       <img
         src={sampleProperty}
-        alt="Property"
+        alt={property.title}
         className="w-full h-full object-cover"
       />
       <div className="absolute top-4 left-4 flex gap-3">
         <button className="px-2 py-1 bg-white/30  md:text-sm text-xs font-semibold shadow">
-          DXB
+          {property.status ?? "DXB"}
         </button>
-        <button className="px-2 py-1 bg-white/30  md:text-sm  text-xs font-semibold shadow">
-          COMING SOON
-        </button>
+        {property.comingSoon && (
+          <button className="px-2 py-1 bg-white/30  md:text-sm  text-xs font-semibold shadow">
+            COMING SOON
+          </button>
+        )}
       </div>
     </div>
 
     {/* Main Info */}
     <div className="mt-8">
-      <h4 className="font-normal  leading-tight mb-6">1,250,000 AED</h4>
-      <h4 className="font-normal  leading-tight border-b-[1px] border-light-silver pb-2 ">
-        148-15 89th Avenue #8B Jameco Park
+      <h4 className="font-normal leading-tight mb-6">
+        {property.assetValue ?? "1,250,000 AED"}
+      </h4>
+      <h4 className="font-normal leading-tight border-b-[1px] border-light-silver pb-2">
+        {property.title}
       </h4>
 
       <div className="space-y-0.5">
@@ -60,10 +67,10 @@ const RealEstateLeftSection: React.FC = () => (
             <p>3 rooms</p>
           </div>
           <div className={cellClass}>
-            <p>1 bed</p>
+            <p>{property.bedrooms ?? "1 bed"}</p>
           </div>
           <div className={cellClass}>
-            <p>1 bath</p>
+            <p>{property.bathrooms ?? "1 bath"}</p>
           </div>
           <div className={cellClass}>
             <p>Rental Unit in Dubai</p>
@@ -72,22 +79,22 @@ const RealEstateLeftSection: React.FC = () => (
             <p>1 Living Room</p>
           </div>
           <div className={cellClass}>
-            <p>(14 Reviews)</p>
+            <p>({property.reviews ?? 14} Reviews)</p>
           </div>
         </div>
         {/* Third row */}
         <div className={rowClass}>
           <div className={iconCellClass}>
             <BedIcon className="w-6 h-6" />
-            <p>3 Studio‑2 Beds</p>
+            <p>{property.bedSummary ?? "3 Studio‑2 Beds"}</p>
           </div>
           <div className={iconCellClass}>
             <BathIcon className="w-6 h-6" />
-            <p>1‑2 Baths</p>
+            <p>{property.bathSummary ?? "1‑2 Baths"}</p>
           </div>
           <div className={iconCellClass}>
             <AreaIcon className="w-6 h-6" />
-            <p>557‑907 sqft</p>
+            <p>{property.area ?? "557‑907 sqft"}</p>
           </div>
           <div className={iconCellClass}>
             <ParkingIcon className="w-6 h-6" />

@@ -1,19 +1,7 @@
 import React from "react";
 import RealEstateCard from "../common/RealEstateCard";
 import { Swiper, SwiperSlide } from "swiper/react";
-
-const properties = Array.from({ length: 8 }).map(() => ({
-  code: "DXBDIFC007",
-  title: "Lorem ipsum dolor sit amet consectetur.",
-  roi: "11.6%",
-  price: "8 AED",
-  investors: 790,
-  foundedPercent: 40,
-  available: 4000,
-  views: 2400,
-  status: "DXB",
-  comingSoon: true,
-}));
+import { properties } from "../../data/properties";
 
 const HotAssets: React.FC = () => {
   return (
