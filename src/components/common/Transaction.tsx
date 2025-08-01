@@ -1,6 +1,5 @@
 import React from "react";
-import ArrowUpIcon from "../../assets/icons/arrow-up.svg?react";
-import ArrowDownIcon from "../../assets/icons/arrow-down.svg?react";
+import { FaArrowUpLong, FaArrowDownLong } from "react-icons/fa6";
 
 type Transaction = {
   id: number;
@@ -149,9 +148,9 @@ const Transactions: React.FC<TransactionsProps> = ({ showSummary = false }) => (
               }`}
             >
               {tx.type === "credit" ? (
-                <ArrowUpIcon className="h-5 w-5 " />
+                <FaArrowUpLong className="h-5 w-5 text-teal" />
               ) : (
-                <ArrowDownIcon className="h-5 w-5 " />
+                <FaArrowDownLong className="h-5 w-5 text-dark-orange" />
               )}
             </span>
             <div className="flex flex-col">

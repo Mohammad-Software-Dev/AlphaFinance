@@ -17,12 +17,6 @@ const CalculatorTab: React.FC = () => {
           <ExpensesSection />
         </section>
       </div>
-
-      {/* <div className="flex flex-col  w-full min-h-screen">
-        <section className="w-full md:w-1/2">
-          <OldFinancialCalculator />
-        </section>
-      </div> */}
     </>
   );
 };

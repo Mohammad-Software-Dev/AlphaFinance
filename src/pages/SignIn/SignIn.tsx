@@ -17,6 +17,7 @@ const SignIn: React.FC = () => {
     emailError,
     passwordError,
     onSubmit,
+    generalError,
   } = useSignInForm();
 
   return (
@@ -42,6 +43,11 @@ const SignIn: React.FC = () => {
             className="w-full flex flex-col items-start space-y-6"
             onSubmit={onSubmit}
           >
+            {generalError && (
+              <p className="text-red-600 text-sm w-full text-left">
+                {generalError}
+              </p>
+            )}
             <TextInput
               id="email"
               placeholder="Email Address"
@@ -61,7 +67,7 @@ const SignIn: React.FC = () => {
               className="w-full"
             />
             <Button
-              to="/dashboard"
+              type="submit"
               variant="primary"
               size="md"
               fullWidth

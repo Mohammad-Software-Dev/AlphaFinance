@@ -1,36 +1,35 @@
 import React from "react";
 import StatCard from "./StatCard";
 import { Swiper, SwiperSlide } from "swiper/react";
-
 const stats = [
   {
     title: "Total Asset Value",
-    value: "53.000",
+    value: "1.75 M",
     label: "Total",
-    percent: "+53%",
+    percent: "+20%",
     percentColor: "teal",
   },
   {
     title: "Total Dividends",
-    value: "53.000",
+    value: "115 K",
     label: "Last",
-    percent: "+53%",
+    percent: "+6%",
     percentColor: "sand",
-    secondLabel: "Quarter",
+    secondLabel: "Annual",
   },
   {
     title: "Capital Growth",
-    value: "53.000",
+    value: "140 K",
     label: "Last",
-    percent: "+53%",
+    percent: "+8%",
     percentColor: "teal",
-    secondLabel: "3 Months",
+    secondLabel: "YTD",
   },
   {
     title: "ROI",
-    value: "53.000",
+    value: "192,500",
     label: "Total",
-    percent: "+53%",
+    percent: "+11%",
     percentColor: "orange",
     secondLabel: "ROI",
   },

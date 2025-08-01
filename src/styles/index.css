@@ -32,8 +32,8 @@
   --color-profile-pink:#F7D0D0;
   --color-profile-light-blue:#E3EEF9;
 
-/* --breakpoint-lg: 85.376rem; */
-  --breakpoint-lg: 73.8125rem;
+--breakpoint-lg: 85.376rem;
+  /* --breakpoint-lg: 73.8125rem; */
   /* Fluid typography breakpoints */
   /* --min-screen: 360px;
   --max-screen: 1920px; */

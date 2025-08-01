@@ -21,41 +21,45 @@ const bgClasses = [
 ];
 const PortfolioCard: React.FC<PortfolioProps> = ({
   code,
+  tokens,
   tokensValue,
   dividends,
   roi,
   description,
 }) => (
   <>
-    <div className="relative flex flex-col rounded-sm  px-6 py-2 my-2 mb-2  transition-transform duration-200 hover:-translate-y-2 overflow-hidden">
+    <div className="relative flex flex-col rounded-sm px-6 py-2 my-2 mb-2 transition-transform duration-200 hover:-translate-y-2 overflow-hidden">
       {/* Left colored border */}
       <div className="absolute left-0 top-0 h-full w-1 bg-brand" />
       {/* Top stats */}
       <div className="flex justify-between mb-3 md:mb-5">
         <div>
           <p className="text-brand">Tokens</p>
-          <p className="text-base   text-brand font-semibold md:font-bold leading-none">
-            2000
+          <p className="text-base text-brand font-semibold md:font-bold leading-none">
+            {tokens}
           </p>
         </div>
         <div>
           <p className="text-teal">Dividends</p>
-          <p className="text-base   text-teal font-semibold md:font-bold leading-none">
-            +${dividends}
+          <p className="text-base text-teal font-semibold md:font-bold leading-none">
+            +${dividends.toLocaleString()}
           </p>
         </div>
       </div>
       {/* Bottom stats */}
       <div className="flex justify-between mb-4">
         <div>
-          <p className="text-base   text-dark-orange ">Tokens Value</p>
-          <p className="text-base   text-dark-orange font-semibold md:font-bold leading-none">
-            ${tokensValue.toFixed(2)}
+          <p className="text-base text-dark-orange ">Tokens Value</p>
+          <p className="text-base text-dark-orange font-semibold md:font-bold leading-none">
+            $
+            {tokensValue.toLocaleString(undefined, {
+              minimumFractionDigits: 2,
+            })}
           </p>
         </div>
         <div>
-          <div className="text-base   text-sand ">ROI</div>
-          <div className="text-base   text-sand font-semibold md:font-bold leading-none">
+          <div className="text-base text-sand ">ROI</div>
+          <div className="text-base text-sand font-semibold md:font-bold leading-none">
             {roi}%
           </div>
         </div>
@@ -78,15 +82,6 @@ const PortfolioCard: React.FC<PortfolioProps> = ({
       </div>
     </div>
     <div className="text-sm lg:text-base text-dim-gray">{description}</div>
-    {/* <Button
-      to={`/real-estate/${code}`}
-      variant="primary"
-      size="md"
-      fullWidth
-      className="text-xs md:text-sm"
-    >
-      View Asset
-    </Button> */}
   </>
 );
 
