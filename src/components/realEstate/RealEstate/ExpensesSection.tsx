@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import PortfolioPieChart from "./PortfolioPieChart";
 import Legend from "./Legend";
 import AssetOverview from "../AssetOverview";
+import { DEFAULT_PROPERTY } from "../../../data/properties";
 
 const ExpensesSection: React.FC = () => (
   <div>
@@ -23,7 +24,7 @@ const ExpensesSection: React.FC = () => (
         <Legend />
       </div>
     </div>
-    <AssetOverview />
+    <AssetOverview property={DEFAULT_PROPERTY} />
   </div>
 );
 
