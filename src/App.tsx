@@ -1,6 +1,11 @@
-import React, { Suspense } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+﻿import React, { Suspense } from "react";
+import { Routes, RouterProvider, Route, Navigate } from "react-router-dom";
 import Loader from "../components/Loader";
+import { router } from './router'
+
+export default function App() {
+    return <RouterProvider router={router} />
+}
 
 // Lazy load pages
 const SignIn = React.lazy(() => import("./pages/SignIn/SignIn"));

@@ -1,62 +1,43 @@
-import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+﻿// src/pages/SignIn/useSignInForm.ts
+import { useState, useCallback } from "react";
+import { beginLogin } from "../../lib/authClient"; // adjust path if your lib/ lives elsewhere
+
+const emailRx = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
 export function useSignInForm() {
-  const navigate = useNavigate()
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState(""); // kept for UI parity; not sent
+    const [emailError, setEmailError] = useState<string | null>(null);
+    const [passwordError, setPasswordError] = useState<string | null>(null);
+    const [generalError, setGeneralError] = useState<string | null>(null);
 
-  const [email, setEmail] = useState("info@alphaseed.ae")
-  const [password, setPassword] = useState("1234Abcd")
+    const onSubmit = useCallback(
+        (e: React.FormEvent) => {
+            e.preventDefault();
+            setGeneralError(null);
+            setEmailError(null);
+            setPasswordError(null);
 
-  const [emailError, setEmailError] = useState("")
-  const [passwordError, setPasswordError] = useState("")
-  const [generalError, setGeneralError] = useState("")
-  const [isSubmitting, setIsSubmitting] = useState(false)
+            const trimmed = email.trim();
+            if (!emailRx.test(trimmed)) {
+                setEmailError("Enter a valid email address");
+                return;
+            }
 
-  function validate(): boolean {
-    let valid = true
-    if (!email.includes("@")) {
-      setEmailError("Please enter a valid email.")
-      valid = false
-    } else {
-      setEmailError("")
-    }
+            // Hint the IdP with the email if supported; force showing the login screen.
+            beginLogin({ login_hint: trimmed, prompt: "login" });
+        },
+        [email]
+    );
 
-    if (password.length < 6) {
-      setPasswordError("Password must be at least 6 characters.")
-      valid = false
-    } else {
-      setPasswordError("")
-    }
-
-    return valid
-  }
-
-  async function onSubmit(e: React.FormEvent) {
-    e.preventDefault()
-    if (!validate()) return
-
-    setIsSubmitting(true)
-
-    // Check credentials
-    if (email === "info@alphaseed.ae" && password === "1234Abcd") {
-      setGeneralError("")
-      navigate("/dashboard")
-    } else {
-      setGeneralError("Invalid credentials.")
-    }
-
-    setIsSubmitting(false)
-  }
-
-  return {
-    email,
-    setEmail,
-    password,
-    setPassword,
-    emailError,
-    passwordError,
-    generalError,
-    isSubmitting,
-    onSubmit,
-  }
+    return {
+        email,
+        setEmail,
+        password,
+        setPassword, // not used by OAuth; kept so your UI renders unchanged
+        emailError,
+        passwordError,
+        onSubmit,
+        generalError,
+    };
 }
