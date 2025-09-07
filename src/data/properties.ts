@@ -1,4 +1,4 @@
-import sampleProperty from "../assets/images/sample-property.jpg"; 
+import sampleProperty from "../assets/images/sample-property.jpg";
 
 export type PropertyType = {
   bedrooms?: string;
@@ -9,23 +9,23 @@ export type PropertyType = {
   area?: string;
   code: string;
   title: string;
-  roi: string; 
-  price: string; 
+  roi: string;
+  price: string;
   investors: number;
   foundedPercent: number;
-  available: number; 
+  available: number;
   views: number;
-  status?: string; 
+  status?: string;
   comingSoon?: boolean;
   image?: string;
 
-  assetValue?: string;     
-  netYield?: string;      
-  grossYield?: string;    
-  totalTokens?: number;    
+  assetValue?: string;
+  netYield?: string;
+  grossYield?: string;
+  totalTokens?: number;
   availableTokens?: number;
-  tokenPrice?: number;    
-  tokenROI?: number;       
+  tokenPrice?: number;
+  tokenROI?: number;
 };
 export const DEFAULT_PROPERTY: PropertyType = {
   code: "DEMO001",
@@ -46,7 +46,6 @@ export const DEFAULT_PROPERTY: PropertyType = {
   tokenPrice: 8,
   tokenROI: 10.5,
 };
-
 
 export const properties = [
   {
@@ -233,6 +232,84 @@ export const properties = [
   },
   {
     code: "DXBSKB008",
+    title: "SKB Heights, Creek Harbour Studio",
+    roi: "8.5%",
+    price: "AED 2,250",
+    investors: 198,
+    foundedPercent: 66,
+    available: 820,
+    views: 1750,
+    status: "DXB",
+    comingSoon: true,
+    image: sampleProperty,
+    bedrooms: "Studio",
+    bathrooms: "1 bath",
+    reviews: 9,
+    bedSummary: "Studio",
+    bathSummary: "1 Bath",
+    area: "495 sqft",
+    assetValue: "750,000 AED",
+    netYield: "56,000 AED",
+    grossYield: "79,000 AED",
+    totalTokens: 80000,
+    availableTokens: 27000,
+    tokenPrice: 8,
+    tokenROI: 8.5,
+  },
+  {
+    code: "DXBDIFC007",
+    title: "SKB Heights, Creek Harbour Studio",
+    roi: "8.5%",
+    price: "AED 2,250",
+    investors: 198,
+    foundedPercent: 66,
+    available: 820,
+    views: 1750,
+    status: "DXB",
+    comingSoon: true,
+    image: sampleProperty,
+    bedrooms: "Studio",
+    bathrooms: "1 bath",
+    reviews: 9,
+    bedSummary: "Studio",
+    bathSummary: "1 Bath",
+    area: "495 sqft",
+    assetValue: "750,000 AED",
+    netYield: "56,000 AED",
+    grossYield: "79,000 AED",
+    totalTokens: 80000,
+    availableTokens: 27000,
+    tokenPrice: 8,
+    tokenROI: 8.5,
+  },
+  {
+    code: "DXBDIFC008",
+    title: "SKB Heights, Creek Harbour Studio",
+    roi: "8.5%",
+    price: "AED 2,250",
+    investors: 198,
+    foundedPercent: 66,
+    available: 820,
+    views: 1750,
+    status: "DXB",
+    comingSoon: true,
+    image: sampleProperty,
+    bedrooms: "Studio",
+    bathrooms: "1 bath",
+    reviews: 9,
+    bedSummary: "Studio",
+    bathSummary: "1 Bath",
+    area: "495 sqft",
+    assetValue: "750,000 AED",
+    netYield: "56,000 AED",
+    grossYield: "79,000 AED",
+    totalTokens: 80000,
+    availableTokens: 27000,
+    tokenPrice: 8,
+    tokenROI: 8.5,
+  },
+  {
+    code: "DXBDIFC009",
     title: "SKB Heights, Creek Harbour Studio",
     roi: "8.5%",
     price: "AED 2,250",

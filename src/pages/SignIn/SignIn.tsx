@@ -4,24 +4,24 @@ import FormLayout from "../../components/FormLayout";
 import Logo from "../../components/Logo";
 import PageTitle from "../../components/PageTitle";
 // import TextInput from "../../components/common/TextInput";
-// import { useSignInForm } from "./useSignInForm";
+import { useSignInForm } from "./useSignInForm";
 import signInSideImage from "../../assets/images/sign_in_side.png";
-// import { Button } from "../../components/common/Button";
+import { Button } from "../../components/common/Button";
 import LoginButton from "../../components/LoginButton";
 import { useAuth } from "../../lib/useAuth";
 
 const SignIn: React.FC = () => {
   const { login } = useAuth();
-  // const {
-  //   email,
-  //   setEmail,
-  //   password,
-  //   setPassword,
-  //   emailError,
-  //   passwordError,
-  //   onSubmit,
-  //   generalError,
-  // } = useSignInForm();
+  const {
+    // email,
+    // setEmail,
+    // password,
+    // setPassword,
+    // emailError,
+    // passwordError,
+    onSubmit,
+    // generalError,
+  } = useSignInForm();
 
   return (
     <FormLayout
@@ -42,11 +42,11 @@ const SignIn: React.FC = () => {
           <p className="client-portal mt-1">Client Portal</p>
         </div>
         <div className="w-full max-w-[400px] md:max-w-[520px] lg:max-w-[623px] flex flex-col items-start space-y-4">
-          {/* <form
+          <form
             className="w-full flex flex-col items-start space-y-6"
             onSubmit={onSubmit}
           >
-            {generalError && (
+            {/* {generalError && (
               <p className="text-red-600 text-sm w-full text-left">
                 {generalError}
               </p>
@@ -68,7 +68,7 @@ const SignIn: React.FC = () => {
               onChange={(e) => setPassword(e.target.value)}
               error={passwordError}
               className="w-full"
-            />
+            /> */}
             <Button
               type="submit"
               variant="primary"
@@ -76,17 +76,17 @@ const SignIn: React.FC = () => {
               fullWidth
               className="mt-4 w-full text-sm"
             >
-              Login
+              Next
             </Button>
-          </form> */}
+          </form>
 
-          <LoginButton
+          {/* <LoginButton
             onClick={() => {
               login();
             }}
           >
             Login using Authenticator
-          </LoginButton>
+          </LoginButton> */}
         </div>
         <div className="flex flex-col items-center space-y-2">
           <a href="#" className="forgot-password text-sm">
