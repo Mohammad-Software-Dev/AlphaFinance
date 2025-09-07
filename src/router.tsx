@@ -26,7 +26,7 @@ const RealEstatePage = React.lazy(
 const RealEstateAssets = React.lazy(
   () => import("./pages/RealEstateAssets/RealEstateAssetsPage")
 );
-const NotBuiltYet = React.lazy(() => import("./pages/NotBuiltYet"));
+// const NotBuiltYet = React.lazy(() => import("./pages/NotBuiltYet"));
 const Profile = React.lazy(() => import("./pages/Profile/ProfilePage"));
 const Dashboard = React.lazy(() => import("./pages/Dashboard/Dashboard"));
 const WalletPage = React.lazy(() => import("./pages/Wallet/WalletPage"));
@@ -63,5 +63,5 @@ export const router = createBrowserRouter([
   },
 
   // Catch-all
-  { path: "*", element: <NotBuiltYet /> },
+  // { path: "*", element: <NotBuiltYet /> },
 ]);
