@@ -3,25 +3,25 @@ import { Link } from "react-router-dom";
 import FormLayout from "../../components/FormLayout";
 import Logo from "../../components/Logo";
 import PageTitle from "../../components/PageTitle";
-import TextInput from "../../components/common/TextInput";
-import { useSignInForm } from "./useSignInForm";
+// import TextInput from "../../components/common/TextInput";
+// import { useSignInForm } from "./useSignInForm";
 import signInSideImage from "../../assets/images/sign_in_side.png";
-import { Button } from "../../components/common/Button";
+// import { Button } from "../../components/common/Button";
 import LoginButton from "../../components/LoginButton";
 import { useAuth } from "../../lib/useAuth";
 
 const SignIn: React.FC = () => {
   const { login, loading, authenticated } = useAuth();
-  const {
-    email,
-    setEmail,
-    password,
-    setPassword,
-    emailError,
-    passwordError,
-    onSubmit,
-    generalError,
-  } = useSignInForm();
+  // const {
+  //   email,
+  //   setEmail,
+  //   password,
+  //   setPassword,
+  //   emailError,
+  //   passwordError,
+  //   onSubmit,
+  //   generalError,
+  // } = useSignInForm();
 
   return (
     <FormLayout
@@ -42,7 +42,7 @@ const SignIn: React.FC = () => {
           <p className="client-portal mt-1">Client Portal</p>
         </div>
         <div className="w-full max-w-[400px] md:max-w-[520px] lg:max-w-[623px] flex flex-col items-start space-y-4">
-          <form
+          {/* <form
             className="w-full flex flex-col items-start space-y-6"
             onSubmit={onSubmit}
           >
@@ -78,10 +78,10 @@ const SignIn: React.FC = () => {
             >
               Login
             </Button>
-          </form>
+          </form> */}
           <LoginButton
-            onClick={(e) => {
-              e.preventDefault();
+            onClick={() => {
+              // e.preventDefault();
               login();
             }}
             disabled={loading || authenticated}
