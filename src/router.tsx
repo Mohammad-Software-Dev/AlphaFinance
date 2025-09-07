@@ -33,11 +33,11 @@ const WalletPage = React.lazy(() => import("./pages/Wallet/WalletPage"));
 
 const AuthCallback = React.lazy(() => import("./pages/AuthCallback"));
 const Account = React.lazy(() => import("./pages/Account"));
-
+const Home = React.lazy(() => import("./pages/Home"));
 export const router = createBrowserRouter([
   // Root → redirect
   { path: "/", element: <Navigate to="/signin" replace /> },
-
+  { path: "/home", element: <Home /> },
   // Public routes
   { path: "/signin", element: <SignIn /> },
   { path: "/signup", element: <SignUp /> },
