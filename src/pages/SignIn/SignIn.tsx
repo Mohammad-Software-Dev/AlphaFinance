@@ -11,7 +11,7 @@ import LoginButton from "../../components/LoginButton";
 import { useAuth } from "../../lib/useAuth";
 
 const SignIn: React.FC = () => {
-  const { login, loading, authenticated } = useAuth();
+  const { login } = useAuth();
   // const {
   //   email,
   //   setEmail,
@@ -79,13 +79,11 @@ const SignIn: React.FC = () => {
               Login
             </Button>
           </form> */}
+
           <LoginButton
             onClick={() => {
-              // e.preventDefault();
               login();
             }}
-            disabled={loading || authenticated}
-            aria-busy={loading || undefined}
           >
             Login using Authenticator
           </LoginButton>
