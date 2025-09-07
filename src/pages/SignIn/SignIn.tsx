@@ -7,8 +7,11 @@ import TextInput from "../../components/common/TextInput";
 import { useSignInForm } from "./useSignInForm";
 import signInSideImage from "../../assets/images/sign_in_side.png";
 import { Button } from "../../components/common/Button";
+import LoginButton from "../../components/LoginButton";
+import { useAuth } from "../../lib/useAuth";
 
 const SignIn: React.FC = () => {
+  const { login, loading, authenticated } = useAuth();
   const {
     email,
     setEmail,
@@ -76,6 +79,16 @@ const SignIn: React.FC = () => {
               Login
             </Button>
           </form>
+          <LoginButton
+            onClick={(e) => {
+              e.preventDefault();
+              login();
+            }}
+            disabled={loading || authenticated}
+            aria-busy={loading || undefined}
+          >
+            Login using Authenticator
+          </LoginButton>
         </div>
         <div className="flex flex-col items-center space-y-2">
           <a href="#" className="forgot-password text-sm">

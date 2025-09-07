@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 
 type Variant = "primary" | "secondary" | "link";
 type Size = "sm" | "md" | "lg";
+type UnifiedClick = (
+  e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>
+) => void;
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -15,6 +18,7 @@ export interface ButtonProps
   linkWeight?: 400 | 600;
   to?: string;
   target?: string;
+  onClick?: UnifiedClick;
 }
 
 const variantClasses: Record<Variant, string> = {
@@ -72,6 +76,7 @@ export const Button: React.FC<ButtonProps> = ({
   children,
   to,
   target,
+  onClick,
   ...props
 }) => {
   const classes = [
@@ -114,7 +119,12 @@ export const Button: React.FC<ButtonProps> = ({
   }
 
   return (
-    <button className={classes} style={combinedStyle} {...props}>
+    <button
+      className={classes}
+      style={combinedStyle}
+      onClick={(e) => onClick?.(e)}
+      {...props}
+    >
       {children}
     </button>
   );
