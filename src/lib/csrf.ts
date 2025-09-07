@@ -1,14 +1,14 @@
-﻿import { http } from './http';
+﻿import { BFF_BASE } from "./config";
+import { getCookie } from "./cookies";
 
-/**
- * Ensure Django has issued the CSRF cookie for this origin.
- * Hitting `/oauth/me` is safe and you already annotate views to set CSRF cookies.
- * If your /oauth/me doesn't `@ensure_csrf_cookie`, add a tiny GET view that does.
- */
-export async function ensureCsrf(): Promise<void> {
-    try {
-        await http.get<unknown>('/oauth/me'); // harmless bootstrap
-    } catch {
-        // Ignore; subsequent POSTs will fail loudly if CSRF is truly missing
-    }
+export async function ensureCsrf(): Promise<string | null> {
+  try {
+    await fetch(`${BFF_BASE}/oauth/me`, {
+      credentials: "include",
+      redirect: "follow",
+    });
+  } catch {
+    // ignore
+  }
+  return getCookie("csrftoken");
 }
