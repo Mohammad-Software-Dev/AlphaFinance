@@ -17,6 +17,7 @@ export default defineConfig(({ mode }) => {
         },
       }),
     ],
+    base: "./",
     server: {
       host: "0.0.0.0",
       port: 5173,
@@ -39,6 +40,9 @@ export default defineConfig(({ mode }) => {
       strictPort: true,
     },
     build: {
+      outDir: "build",
+      assetsDir: "assets",
+      emptyOutDir: true,
       chunkSizeWarningLimit: 1000,
     },
   };
