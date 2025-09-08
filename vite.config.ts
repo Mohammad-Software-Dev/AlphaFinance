@@ -27,6 +27,7 @@ export default defineConfig(({ mode }) => {
         credentials: true,
       },
       proxy: {
+        //test coment
         // Dev-only BFF forwarding. In prod, call absolute URL.
         "/oauth": {
           target: env.VITE_BFF_BASE || "https://asbff.azurewebsites.net",
