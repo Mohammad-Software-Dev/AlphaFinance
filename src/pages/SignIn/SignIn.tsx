@@ -6,12 +6,12 @@ import PageTitle from "../../components/PageTitle";
 // import TextInput from "../../components/common/TextInput";
 import { useSignInForm } from "./useSignInForm";
 import signInSideImage from "../../assets/images/sign_in_side.png";
-import { Button } from "../../components/common/Button";
-// import LoginButton from "../../components/LoginButton";
-// import { useAuth } from "../../lib/useAuth";
+// import { Button } from "../../components/common/Button";
+import LoginButton from "../../components/LoginButton";
+import { useAuth } from "../../lib/useAuth";
 
 const SignIn: React.FC = () => {
-  // const { login } = useAuth();
+  const { login } = useAuth();
   const {
     // email,
     // setEmail,
@@ -69,7 +69,7 @@ const SignIn: React.FC = () => {
               error={passwordError}
               className="w-full"
             /> */}
-            <Button
+            {/* <Button
               type="submit"
               variant="primary"
               size="md"
@@ -77,16 +77,16 @@ const SignIn: React.FC = () => {
               className="mt-4 w-full text-sm"
             >
               Next
-            </Button>
+            </Button> */}
           </form>
 
-          {/* <LoginButton
+          <LoginButton
             onClick={() => {
               login();
             }}
           >
             Login using Authenticator
-          </LoginButton> */}
+          </LoginButton>
         </div>
         <div className="flex flex-col items-center space-y-2">
           <a href="#" className="forgot-password text-sm">
