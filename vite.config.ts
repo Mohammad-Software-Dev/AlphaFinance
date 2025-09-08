@@ -17,7 +17,6 @@ export default defineConfig(({ mode }) => {
         },
       }),
     ],
-    base: "./",
     server: {
       host: "0.0.0.0",
       port: 5173,
@@ -27,7 +26,6 @@ export default defineConfig(({ mode }) => {
         credentials: true,
       },
       proxy: {
-        //test coment
         // Dev-only BFF forwarding. In prod, call absolute URL.
         "/oauth": {
           target: env.VITE_BFF_BASE || "https://asbff.azurewebsites.net",
@@ -41,9 +39,7 @@ export default defineConfig(({ mode }) => {
       strictPort: true,
     },
     build: {
-      outDir: "build",
-      assetsDir: "assets",
-      emptyOutDir: true,
+      outDir: "dist",
       chunkSizeWarningLimit: 1000,
     },
   };
