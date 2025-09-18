@@ -3,17 +3,18 @@ import AssetOverview from "../AssetOverview";
 import StatCard from "../../dashnoard/StatCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import HorizontalDivider from "../../common/HorizontalDivider";
-import type { PropertyType } from "../../../data/properties";
-import { getStats } from "../../../helper/getStats";
+import type {
+  StatCardVM,
+  AssetOverviewVM,
+} from "../../../models/propertyDetails";
 
-const RealEstateRightSection: React.FC<{ property: PropertyType }> = ({
-  property,
-}) => {
-  const stats = getStats(property);
+type Props = { statCards: StatCardVM[]; overviewVM: AssetOverviewVM };
+
+const RealEstateRightSection: React.FC<Props> = ({ statCards, overviewVM }) => {
   return (
     <div className="flex flex-col gap-8 ">
       <div className="hidden md:grid grid-cols-2 gap-6">
-        {stats.map((s) => (
+        {statCards.map((s) => (
           <StatCard key={s.title} {...s} />
         ))}
       </div>
@@ -23,7 +24,7 @@ const RealEstateRightSection: React.FC<{ property: PropertyType }> = ({
           spaceBetween={16}
           style={{ paddingRight: 8 }}
         >
-          {stats.map((s) => (
+          {statCards.map((s) => (
             <SwiperSlide key={s.title}>
               <div className="pr-1">
                 <StatCard {...s} />
@@ -33,8 +34,8 @@ const RealEstateRightSection: React.FC<{ property: PropertyType }> = ({
         </Swiper>
       </div>
       <div>
-        <HorizontalDivider className=" border-light-silver my-2  self-stretch" />
-        <AssetOverview property={property} investClassName="md:mt-35" />
+        <HorizontalDivider className=" border-light-silver my-2 self-stretch" />
+        <AssetOverview property={overviewVM} investClassName="md:mt-35" />
       </div>
     </div>
   );

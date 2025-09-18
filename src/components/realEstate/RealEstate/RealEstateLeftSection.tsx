@@ -4,97 +4,84 @@ import BedIcon from "../../../assets/icons/bed.svg?react";
 import BathIcon from "../../../assets/icons/bath.svg?react";
 import AreaIcon from "../../../assets/icons/area.svg?react";
 import ParkingIcon from "../../../assets/icons/parking.svg?react";
-import type { PropertyType } from "../../../data/properties";
+import type { RealEstateLeftVM } from "../../../models/propertyDetails";
 
-const rowClass =
-  "flex flex-wrap  md:gap-y-2  divide-x-[1px] divide-light-silver";
+const rowClass = "flex flex-wrap md:gap-y-2 divide-x-[1px] divide-light-silver";
 const cellClass =
-  "flex items-center justify-center py-2 px-2 md:py-3 md:px-3  border-b-[1px] border-light-silver";
+  "flex items-center justify-center py-2 px-2 md:py-3 md:px-3 border-b-[1px] border-light-silver";
 const iconCellClass =
   "flex items-center gap-2 justify-center py-2 px-2 md:py-3 md:px-3 border-b-[1px] border-light-silver";
 
-const RealEstateLeftSection: React.FC<{ property: PropertyType }> = ({
-  property,
-}) => (
+const RealEstateLeftSection: React.FC<{ vm: RealEstateLeftVM }> = ({ vm }) => (
   <div>
-    {/* Image */}
-    <div className="relative aspect-[9/5] w-full h-auto   overflow-hidden">
+    <div className="relative aspect-[9/5] w-full h-auto overflow-hidden">
       <img
-        src={sampleProperty}
-        alt={property.title}
+        src={vm.image ?? sampleProperty}
+        alt={vm.title}
         className="w-full h-full object-cover"
       />
       <div className="absolute top-4 left-4 flex gap-3">
-        <button className="px-2 py-1 bg-white/30  md:text-sm text-xs font-semibold shadow">
-          {property.status ?? "DXB"}
+        <button className="px-2 py-1 bg-white/30 md:text-sm text-xs font-semibold shadow">
+          {vm.statusTag ?? "DXB"}
         </button>
-        {property.comingSoon && (
-          <button className="px-2 py-1 bg-white/30  md:text-sm  text-xs font-semibold shadow">
+        {vm.comingSoon && (
+          <button className="px-2 py-1 bg-white/30 md:text-sm text-xs font-semibold shadow">
             COMING SOON
           </button>
         )}
       </div>
     </div>
 
-    {/* Main Info */}
     <div className="mt-8">
-      <h4 className="font-normal leading-tight mb-6">
-        {property.assetValue ?? "1,250,000 AED"}
-      </h4>
+      {vm.assetValueText && (
+        <h4 className="font-normal leading-tight mb-6">{vm.assetValueText}</h4>
+      )}
       <h4 className="font-normal leading-tight border-b-[1px] border-light-silver pb-2">
-        {property.title}
+        {vm.title}
       </h4>
 
       <div className="space-y-0.5">
-        {/* First row */}
         <div className={rowClass}>
-          <div className={cellClass}>
-            <p>Net Effective Rent</p>
-          </div>
-          <div className={cellClass}>
-            <p>3 Months Free</p>
-          </div>
-          <div className={cellClass}>
-            <p>15‑Month Invest</p>
-          </div>
-          <div className={cellClass}>
-            <p>3 Months Free</p>
-          </div>
+          {vm.promoChips.map((txt, i) => (
+            <div key={i} className={cellClass}>
+              <p>{txt}</p>
+            </div>
+          ))}
         </div>
-        {/* Second row */}
+
         <div className={rowClass}>
           <div className={cellClass}>
             <p>3 rooms</p>
           </div>
           <div className={cellClass}>
-            <p>{property.bedrooms ?? "1 bed"}</p>
+            <p>{vm.quickFacts.bedrooms ?? "2 bed"}</p>
           </div>
           <div className={cellClass}>
-            <p>{property.bathrooms ?? "1 bath"}</p>
+            <p>{vm.quickFacts.bathrooms ?? "2 bath"}</p>
           </div>
           <div className={cellClass}>
-            <p>Rental Unit in Dubai</p>
+            <p>{vm.quickFacts.unitType ?? "Rental Unit in Dubai"}</p>
           </div>
           <div className={cellClass}>
-            <p>1 Living Room</p>
+            <p>{vm.quickFacts.livingRooms ?? "1 Living Room"}</p>
           </div>
           <div className={cellClass}>
-            <p>({property.reviews ?? 14} Reviews)</p>
+            <p>({vm.quickFacts.reviews ?? "22"} Reviews)</p>
           </div>
         </div>
-        {/* Third row */}
+
         <div className={rowClass}>
           <div className={iconCellClass}>
             <BedIcon className="w-6 h-6" />
-            <p>{property.bedSummary ?? "3 Studio‑2 Beds"}</p>
+            <p>{vm.bedSummary ?? "2 Beds"}</p>
           </div>
           <div className={iconCellClass}>
             <BathIcon className="w-6 h-6" />
-            <p>{property.bathSummary ?? "1‑2 Baths"}</p>
+            <p>{vm.bathSummary ?? "2 Baths"}</p>
           </div>
           <div className={iconCellClass}>
             <AreaIcon className="w-6 h-6" />
-            <p>{property.area ?? "557‑907 sqft"}</p>
+            <p>{vm.areaText ?? "1,250 sqft"}</p>
           </div>
           <div className={iconCellClass}>
             <ParkingIcon className="w-6 h-6" />
