@@ -2,7 +2,7 @@ import { useState } from "react";
 import nakheel from "../../../assets/images/nakeel.png";
 
 const TABS = [
-  { key: "property", label: "Property" },
+  { key: "property", label: "Property Developer" },
   { key: "management", label: "Property management" },
   { key: "facility", label: "Facility management" },
 ];

@@ -1,6 +1,6 @@
 import React from "react";
-import PropertyFeatures from "../PropertyInfo/PropertyFeatures";
 import PropertyDetails from "../PropertyInfo/PropertyDetails";
+import PropertyFeatures from "../PropertyInfo/PropertyFeatures";
 import PropertyDescription from "../PropertyInfo/PropertyDescription";
 import AboutCommunity from "../PropertyInfo/AboutCommunity";
 import AmenitiesCard from "../PropertyInfo/AmenitiesCard";
@@ -12,8 +12,8 @@ const PropertyInfoTab: React.FC = () => (
   <div className="flex flex-col lg:flex-row w-full">
     {/* Left Column */}
     <div className="space-y-8 ">
-      <PropertyFeatures />
       <PropertyDetails />
+      <PropertyFeatures />
       <PropertyDescription />
     </div>
     <VerticalDivider className="hidden border-light-silver lg:block mx-6 h-auto self-stretch min-h-[600px]" />

@@ -1,6 +1,6 @@
-const PropertyFeatures = () => (
+const PropertyDetails = () => (
   <section className="mb-8">
-    <h4 className="font-normal text-black mb-3">Property Features</h4>
+    <h4 className="font-normal text-black mb-3">Property Details</h4>
     <p className="text-sm md:text-base mb-2">
       A new architectural masterpiece now dazzles the shores of the Rockaways
       with the addition of THE TIDES at Arverne By The Sea. Spectacular
@@ -14,4 +14,4 @@ const PropertyFeatures = () => (
     </p>
   </section>
 );
-export default PropertyFeatures;
+export default PropertyDetails;

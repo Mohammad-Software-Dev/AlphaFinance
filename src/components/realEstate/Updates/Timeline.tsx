@@ -107,7 +107,7 @@ const Timeline: React.FC = () => {
   );
   return (
     <div className="w-full h-full flex flex-col">
-      <h4 className="font-normal text-black mb-3">Timeline</h4>
+      <h4 className="font-normal text-black mb-3">Operations Transactions</h4>
       <div className="relative flex flex-1 h-0">
         <div className="flex flex-col w-full overflow-y-auto scrollbar-thin scrollbar-thumb-rounded scrollbar-track-transparent">
           {timeline.map((event) => (

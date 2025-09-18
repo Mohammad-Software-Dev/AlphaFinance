@@ -11,9 +11,9 @@ const details = [
   [{ label: "Sheared Gym" }, { label: "Elevator" }, { label: "Sheared Gym" }],
 ];
 
-const PropertyDetails = () => (
+const PropertyFeatures = () => (
   <section className="mb-8">
-    <h4 className="font-normal text-black mb-3">Property Details</h4>
+    <h4 className="font-normal text-black mb-3">Property Features</h4>
     <div className="border-t-[1px] border-b-[1px] border-light-silver px-2 py-1">
       {details.map((row, i) => (
         <>
@@ -48,4 +48,4 @@ const PropertyDetails = () => (
   </section>
 );
 
-export default PropertyDetails;
+export default PropertyFeatures;

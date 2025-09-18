@@ -42,7 +42,9 @@
     "@emotion/styled": "^11.14.1",
     "@mui/material": "^7.2.0",
     "@mui/x-date-pickers": "^8.7.0",
+    "@tanstack/react-query": "^5.89.0",
     "apexcharts": "^4.7.0",
+    "axios": "^1.12.2",
     "date-fns": "^4.1.0",
     "framer-motion": "^12.16.0",
     "i18next": "^25.2.1",
@@ -58,7 +60,8 @@
     "react-router-dom": "^7.6.1",
     "recharts": "^2.15.3",
     "serve": "^14.2.4",
-    "swiper": "^11.2.8"
+    "swiper": "^11.2.8",
+    "zod": "^4.1.9"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
@@ -73,6 +76,7 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
+    "msw": "^2.11.2",
     "postcss": "^8.5.4",
     "svgo": "^3.3.2",
     "tailwindcss": "^4.1.8",

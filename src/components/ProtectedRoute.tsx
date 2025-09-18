@@ -3,7 +3,7 @@ import { useAuth } from "../lib/useAuth";
 import { LOGIN_FLOW } from "../lib/config";
 
 export default function ProtectedRoute() {
-  // return <Outlet />;
+  return <Outlet />;
   const { authenticated, loading, login } = useAuth();
   const location = useLocation();
 

@@ -1,0 +1,15 @@
+{
+  "code": "string",
+  "address": "string",
+
+  "image": "string",
+  "status": "string",
+  "comingSoon": "boolean",
+
+  "tokenROI": "number",
+  "tokenPrice": "number",
+  "investorCount": "number",
+
+  "investmentPercentage": "number",
+  "viewers": "number"
+}

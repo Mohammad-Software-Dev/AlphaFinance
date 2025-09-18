@@ -122,7 +122,7 @@ const Transactions: React.FC<TransactionsProps> = ({ showSummary = false }) => (
       </div>
     )}
     <div className="flex items-center justify-between mt-4 md:py-0">
-      <h4 className="font-normal text-black mb-3">Transactions</h4>
+      <h4 className="font-normal text-black mb-3">Financial Transactions</h4>
       <button className="font-normal text-xs md:text-base hover:underline flex items-center gap-1">
         View All <span aria-hidden>›</span>
       </button>
