@@ -1,0 +1,122 @@
+[
+  {
+    "code": "DXBKTW001",
+    "address": "Kensington Waters 1BR, Downtown Dubai",
+    "image": null,
+    "tags": ["DXB"],
+    "comingSoon": false,
+    "metrics": { "tokenROI": 9.6, "tokenPrice": 2000, "investors": 149 },
+    "investmentPercentage": 100,
+    "viewers": 3200
+  },
+  {
+    "code": "DXBBW002",
+    "address": "Business Bay 2BR, Canal View Fraction",
+    "image": null,
+    "tags": ["DXB"],
+    "comingSoon": false,
+    "metrics": { "tokenROI": 11.0, "tokenPrice": 10714, "investors": 224 },
+    "investmentPercentage": 100,
+    "viewers": 4800
+  },
+  {
+    "code": "DXBVLL003",
+    "address": "Villa Rosa, Arabian Ranches, 4BR",
+    "image": null,
+    "tags": ["DXB"],
+    "comingSoon": false,
+    "metrics": { "tokenROI": 8.7, "tokenPrice": 6000, "investors": 80 },
+    "investmentPercentage": 76,
+    "viewers": 2190
+  },
+  {
+    "code": "DXBKTW004",
+    "address": "Kensington Waters Studio, New Launch",
+    "image": null,
+    "tags": ["DXB"],
+    "comingSoon": true,
+    "metrics": { "tokenROI": 10.3, "tokenPrice": 2500, "investors": 175 },
+    "investmentPercentage": 60,
+    "viewers": 2650
+  },
+  {
+    "code": "DXBDWT005",
+    "address": "Downtown Views II, 1BR High Floor",
+    "image": null,
+    "tags": ["DXB"],
+    "comingSoon": true,
+    "metrics": { "tokenROI": 9.9, "tokenPrice": 3200, "investors": 105 },
+    "investmentPercentage": 54,
+    "viewers": 1890
+  },
+  {
+    "code": "DXBMPL006",
+    "address": "Maple Townhouses, Dubai Hills, 3BR",
+    "image": null,
+    "tags": ["DXB"],
+    "comingSoon": false,
+    "metrics": { "tokenROI": 10.1, "tokenPrice": 8500, "investors": 142 },
+    "investmentPercentage": 82,
+    "viewers": 2300
+  },
+  {
+    "code": "DXBBVP007",
+    "address": "Boulevard Point, 2BR, Burj Khalifa View",
+    "image": null,
+    "tags": ["DXB"],
+    "comingSoon": false,
+    "metrics": { "tokenROI": 10.8, "tokenPrice": 6750, "investors": 165 },
+    "investmentPercentage": 90,
+    "viewers": 4120
+  },
+  {
+    "code": "DXBSKB008",
+    "address": "SKB Heights, Creek Harbour Studio",
+    "image": null,
+    "tags": ["DXB"],
+    "comingSoon": true,
+    "metrics": { "tokenROI": 8.5, "tokenPrice": 2250, "investors": 198 },
+    "investmentPercentage": 66,
+    "viewers": 1750
+  },
+  {
+    "code": "DXBDIFC007",
+    "address": "DIFC Studio, Gate Avenue",
+    "image": null,
+    "tags": ["DXB"],
+    "comingSoon": true,
+    "metrics": { "tokenROI": 8.5, "tokenPrice": 2250, "investors": 198 },
+    "investmentPercentage": 66,
+    "viewers": 1750
+  },
+  {
+    "code": "DXBDIFC008",
+    "address": "DIFC Studio, Skyline View",
+    "image": null,
+    "tags": ["DXB"],
+    "comingSoon": true,
+    "metrics": { "tokenROI": 8.5, "tokenPrice": 2250, "investors": 198 },
+    "investmentPercentage": 66,
+    "viewers": 1750
+  },
+  {
+    "code": "DXBDIFC009",
+    "address": "DIFC Studio, Zabeel View",
+    "image": null,
+    "tags": ["DXB"],
+    "comingSoon": true,
+    "metrics": { "tokenROI": 8.5, "tokenPrice": 2250, "investors": 198 },
+    "investmentPercentage": 66,
+    "viewers": 1750
+  },
+  {
+    "code": "DXBMRN010",
+    "address": "Marina Residence 1BR, Palm Jumeirah",
+    "image": null,
+    "tags": ["DXB"],
+    "comingSoon": false,
+    "metrics": { "tokenROI": 9.2, "tokenPrice": 5400, "investors": 120 },
+    "investmentPercentage": 70,
+    "viewers": 2050
+  }
+]

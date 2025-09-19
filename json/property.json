@@ -2,13 +2,15 @@
   "code": "string",
   "address": "string",
 
-  "image": "string",
-  "status": "string",
+  "image": "string|null",
+  "tags": ["string"],
   "comingSoon": "boolean",
 
-  "tokenROI": "number",
-  "tokenPrice": "number",
-  "investorCount": "number",
+  "metrics": {
+    "tokenROI": "number",
+    "tokenPrice": "number",
+    "investors": "number"
+  },
 
   "investmentPercentage": "number",
   "viewers": "number"

@@ -1,0 +1,117 @@
+{
+  "general": {
+    "code": "DXBKTW001",
+    "address": "Kensington Waters 1BR, Downtown Dubai",
+    "image": "/assets/images/sample-property.jpg",
+    "tags": ["DXB"],
+    "comingSoon": false,
+    "promoFeatures": [
+      "Net Effective Rent",
+      "3 Months Free",
+      "15-Month Invest",
+      "3 Months Free"
+    ],
+    "features": [],
+    "iconFeatures": [
+      { "icon": "bed", "value": "1 Bed" },
+      { "icon": "bath", "value": "1 Bath" },
+      { "icon": "area", "value": "670 sqft" },
+      { "icon": "parking", "value": "Parking" }
+    ],
+    "statsCards": [
+      {
+        "type": "assetValue",
+        "label": "Asset Value",
+        "amount": 1250000,
+        "currency": "AED",
+        "percentage": 11.0,
+        "infoLabel": "Total"
+      },
+      {
+        "type": "assetDividends",
+        "label": "Asset Dividends",
+        "amount": 90000,
+        "currency": "AED",
+        "percentage": 8.8,
+        "infoLabel": "Last Quarter"
+      },
+      {
+        "type": "capitalGrowth",
+        "label": "Capital Growth",
+        "amount": 120000,
+        "currency": "AED",
+        "percentage": 11.0,
+        "infoLabel": "Last 3 Months"
+      },
+      {
+        "type": "roi",
+        "label": "ROI",
+        "amount": null,
+        "currency": null,
+        "percentage": 9.6,
+        "infoLabel": "Total ROI"
+      }
+    ],
+    "tokenEconomics": {
+      "netYield": 90000,
+      "grossYield": 120000,
+      "tokenROI": 9.6,
+      "investors": 149,
+      "tokenPrice": 8,
+      "totalTokens": 300000,
+      "availableTokens": 0
+    }
+  },
+  "info": {
+    "features": [
+      "Bedroom : 3",
+      "Pool",
+      "Sheared Pool",
+      "Central A/C",
+      "Security",
+      "Central A/C",
+      "Lobby",
+      "Landmarks",
+      "Building",
+      "Sheared Gym",
+      "Elevator",
+      "Sheared Gym"
+    ],
+    "details": [
+      "A new architectural masterpiece now dazzles the shores of the Rockaways with the addition of THE TIDES at Arverne By The Sea. Spectacular beachfront, affordable & luxurious apartments, offering modern open living spaces and high-end finishes.",
+      "Amenities will include a roof deck with pool and lounge, indoor and outdoor dining experiences, private parking available for a fee, bike storage and more."
+    ],
+    "description": "A new architectural masterpiece now dazzles the shores of the Rockaways with the addition of THE TIDES at Arverne By The Sea. Spectacular beachfront, affordable & luxurious apartments, offering modern open living spaces and high-end finishes. Amenities will include a roof deck with pool and lounge, indoor and outdoor dining experiences, private parking available for a fee, bike storage and more.",
+    "community": {
+      "text": "A new architectural masterpiece now dazzles the shores of the Rockaways with the addition of THE TIDES at Arverne By The Sea. Spectacular beachfront, affordable & luxurious apartments, offering modern open living spaces and high-end finishes. Amenities will include a roof deck with pool and lounge, indoor and outdoor dining experiences, private parking available for a fee, bike storage and more.",
+      "propertyImage": "/assets/images/sample-property.jpg",
+      "map": [
+        { "lat": 25.197, "lng": 55.274 },
+        { "lat": 25.2, "lng": 55.28 },
+        { "lat": 25.194, "lng": 55.285 }
+      ]
+    },
+    "amenities": [
+      "Pets",
+      "Dogs & Cats",
+      "A/C",
+      "Cooling only",
+      "Parking",
+      "Contact Manager",
+      "Utilities",
+      "Contact Manager",
+      "Outdoor",
+      "Patio, Deck, Pool",
+      "Listed",
+      "34 days ago"
+    ],
+    "management": {
+      "propertyDeveloper": {
+        "name": "Nakheel developer",
+        "logo": "/assets/images/logos/nakheel.png"
+      },
+      "propertyManagement": { "name": null, "logo": null },
+      "facilityManagement": { "name": null, "logo": null }
+    }
+  }
+}

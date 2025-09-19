@@ -1,27 +1,41 @@
+import { useMemo, useState } from "react";
 import { Button } from "../../components/common/Button";
 import GeneralLayout from "../../components/layouts/GeneralLayout";
 import RealEstateCard from "../../components/common/RealEstateCard";
-import { useState } from "react";
+import { useHotAssets } from "../../hooks/useHotAssets";
 
-const initialProperties = Array.from({ length: 8 }).map(() => ({
-  code: "DXBDIFC007",
-  title: "Lorem ipsum dolor sit amet consectetur.",
-  roi: "11.6%",
-  price: "8 AED",
-  investors: 790,
-  foundedPercent: 40,
-  available: 4000,
-  views: 2400,
-  status: "DXB",
-  comingSoon: true,
-}));
+const PAGE_SIZE = 8;
 
 const RealEstateAssetsPage: React.FC = () => {
-  const [properties, setProperties] = useState(initialProperties);
+  const { loading, error, cards } = useHotAssets(); // already mapped to RealEstateCard props
+  const [page, setPage] = useState(1);
+
+  const visible = useMemo(() => {
+    const end = page * PAGE_SIZE;
+    return (cards ?? []).slice(0, end);
+  }, [cards, page]);
+
+  const hasMore = (cards?.length ?? 0) > visible.length;
 
   const handleLoadMore = () => {
-    setProperties((prev) => [...prev, ...initialProperties]);
+    if (hasMore) setPage((p) => p + 1);
   };
+
+  if (loading) {
+    return (
+      <GeneralLayout>
+        <div>Loading…</div>
+      </GeneralLayout>
+    );
+  }
+
+  if (error) {
+    return (
+      <GeneralLayout>
+        <div className="text-red-600">{error.message}</div>
+      </GeneralLayout>
+    );
+  }
 
   return (
     <GeneralLayout>
@@ -37,15 +51,18 @@ const RealEstateAssetsPage: React.FC = () => {
           [@media(min-width:3840px)]:grid-cols-6
         "
       >
-        {properties.map((property, idx) => (
-          <RealEstateCard key={idx} {...property} />
+        {visible.map((property, idx) => (
+          <RealEstateCard key={`${property.code}-${idx}`} {...property} />
         ))}
       </div>
-      <div className="flex justify-start my-8">
-        <Button variant="link" onClick={handleLoadMore}>
-          Show more...
-        </Button>
-      </div>
+
+      {hasMore && (
+        <div className="flex justify-start my-8">
+          <Button variant="link" onClick={handleLoadMore}>
+            Show more...
+          </Button>
+        </div>
+      )}
     </GeneralLayout>
   );
 };
