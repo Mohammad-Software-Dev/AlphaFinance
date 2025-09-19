@@ -7,7 +7,15 @@ export type InvoiceRow = {
   amount: string;
   fileUrl: string;
 };
-const invoices: InvoiceRow[] = [
+
+type Props = {
+  onRowClick?: (fileUrl: string) => void;
+  selectedFile?: string | null;
+  withPreview?: boolean;
+  rows?: InvoiceRow[];
+};
+
+const seedRows: InvoiceRow[] = [
   {
     id: "#MS-415646",
     date: "23 Jan 2024",
@@ -75,15 +83,12 @@ const invoices: InvoiceRow[] = [
     fileUrl: "/previews/invoice2.jpg",
   },
 ];
-type Props = {
-  onRowClick?: (fileUrl: string) => void;
-  selectedFile?: string | null;
-  withPreview?: boolean;
-};
+
 const Invoices: React.FC<Props> = ({
   onRowClick,
   selectedFile,
   withPreview = false,
+  rows = seedRows,
 }) => (
   <div className="w-full ">
     <h4 className="font-normal text-black mb-3">Invoices</h4>
@@ -97,10 +102,10 @@ const Invoices: React.FC<Props> = ({
             <th className="text-left font-medium text-xs md:text-sm uppercase tracking-wider py-2 pr-2">
               Invoice ID ▾
             </th>
-            <th className="text-left font-medium  text-xs md:text-sm uppercase tracking-wider py-2 pr-2">
+            <th className="text-left font-medium text-xs md:text-sm uppercase tracking-wider py-2 pr-2">
               Billing Date ▾
             </th>
-            <th className="text-left font-medium  text-xs md:text-sm uppercase tracking-wider py-2 pr-2">
+            <th className="text-left font-medium text-xs md:text-sm uppercase tracking-wider py-2 pr-2">
               Amount ▾
             </th>
             <th className="text-center font-medium text-xs md:text-sm uppercase tracking-wider py-2">
@@ -109,26 +114,24 @@ const Invoices: React.FC<Props> = ({
           </tr>
         </thead>
         <tbody>
-          {invoices.map((row, i) => {
+          {rows.map((row, i) => {
             const isSelected = withPreview && selectedFile === row.fileUrl;
             return (
               <tr
                 key={i}
-                className={`group border-t border-light-silver  transition-all duration-200 transform
-              hover:scale-[1.025]
-          
-              hover:bg-[linear-gradient(90deg,var(--color-brand-hover)_0%,transparent_50%,transparent_100%)]
-                       ${withPreview ? "cursor-pointer" : ""}
+                className={`group border-t border-light-silver transition-all duration-200 transform
+                  hover:scale-[1.025]
+                  hover:bg-[linear-gradient(90deg,var(--color-brand-hover)_0%,transparent_50%,transparent_100%)]
+                  ${withPreview ? "cursor-pointer" : ""}
                   ${isSelected ? "bg-brand/10" : ""}
-              `}
+                `}
                 onClick={
                   withPreview && onRowClick
                     ? () => onRowClick(row.fileUrl)
                     : undefined
                 }
               >
-                {/* Table Values: 14px mobile, 15px tablet, 16px desktop */}
-                <td className="py-2 pr-2 font-normal text-sm md:text-base     hover:rounded-l-sm">
+                <td className="py-2 pr-2 font-normal text-sm md:text-base">
                   {row.id}
                 </td>
                 <td className="py-2 pr-2 font-normal text-sm md:text-base">
@@ -144,6 +147,8 @@ const Invoices: React.FC<Props> = ({
                       e.stopPropagation();
                       window.open(row.fileUrl, "_blank");
                     }}
+                    title="Download"
+                    aria-label="Download invoice"
                   >
                     <DownloadIcon />
                   </span>

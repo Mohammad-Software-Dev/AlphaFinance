@@ -1,115 +1,32 @@
 import React from "react";
 import CalendarIcon from "../../../assets/icons/Calendar_icon.svg?react";
-import MaleImg from "../../../assets/images/male.png";
-import Male2Img from "../../../assets/images/male_2.png";
-import Male3Img from "../../../assets/images/male_3.png";
-import FemaleImg from "../../../assets/images/female.png";
+import type { InvestorModel } from "../../../models/propertyFinancials";
 
-const profileBgColorMap: Record<string, string> = {
-  [MaleImg]: "var(--color-profile-purple)",
-  [FemaleImg]: "var(--color-profile-blue)",
-  [Male2Img]: "var(--color-profile-pink)",
-  [Male3Img]: "var(--color-profile-light-blue)",
-};
+const profileBgColor = "var(--color-profile-purple)";
 
-function getProfileBgColor(avatar: string): string {
-  return profileBgColorMap[avatar] || "var(--color-profile-purple)";
-}
+const Avatar: React.FC<{ name: string; image?: string | null }> = ({
+  name,
+  image,
+}) =>
+  image ? (
+    <img
+      src={image}
+      alt={name}
+      className="w-9 h-9 rounded-full object-cover"
+      style={{ backgroundColor: profileBgColor }}
+    />
+  ) : (
+    <span
+      className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-semibold text-black"
+      style={{ backgroundColor: profileBgColor }}
+      aria-label={name}
+      title={name}
+    >
+      {name.slice(0, 1).toUpperCase()}
+    </span>
+  );
 
-const investors = [
-  {
-    name: "Arora gaur",
-    avatar: MaleImg,
-    wallet: "Meta Mask",
-    address: "#8763648763648761238761238763648763",
-    amount: "18,500",
-    entryDate: "12 March, 2024",
-    value: "120,500",
-  },
-  {
-    name: "Arora gaur",
-    avatar: FemaleImg,
-    wallet: "Meta Mask",
-    address: "#876123876123876123876364876345",
-    amount: "18,500",
-    entryDate: "12 March, 2024",
-    value: "92,200",
-  },
-  {
-    name: "Arora gaur",
-    avatar: FemaleImg,
-    wallet: "Meta Mask",
-    address: "#876123876123876123876364876345",
-    amount: "18,500",
-    entryDate: "12 March, 2024",
-    value: "92,200",
-  },
-  {
-    name: "Arora gaur",
-    avatar: FemaleImg,
-    wallet: "Meta Mask",
-    address: "#876123876123876123876364876345",
-    amount: "18,500",
-    entryDate: "12 March, 2024",
-    value: "92,200",
-  },
-  {
-    name: "Arora gaur",
-    avatar: FemaleImg,
-    wallet: "Meta Mask",
-    address: "#876123876123876123876364876345",
-    amount: "18,500",
-    entryDate: "12 March, 2024",
-    value: "92,200",
-  },
-  {
-    name: "Arora gaur",
-    avatar: MaleImg,
-    wallet: "Meta Mask",
-    address: "#8761238761238761238763648763458",
-    amount: "18,500",
-    entryDate: "12 March, 2024",
-    value: "75,800",
-  },
-  {
-    name: "Arora gaur",
-    avatar: Male2Img,
-    wallet: "Meta Mask",
-    address: "#8761238761238761238763648763458",
-    amount: "18,500",
-    entryDate: "12 March, 2024",
-    value: "75,800",
-  },
-  {
-    name: "Arora gaur",
-    avatar: Male3Img,
-    wallet: "Meta Mask",
-    address: "#87698787698723876123876364876378714",
-    amount: "18,500",
-    entryDate: "12 March, 2024",
-    value: "24,000",
-  },
-  {
-    name: "Arora gaur",
-    avatar: Male3Img,
-    wallet: "Meta Mask",
-    address: "#87698787698723876123876364876378714",
-    amount: "18,500",
-    entryDate: "12 March, 2024",
-    value: "24,000",
-  },
-  {
-    name: "Arora gaur",
-    avatar: Male3Img,
-    wallet: "Meta Mask",
-    address: "#87698787698723876123876364876378714",
-    amount: "18,500",
-    entryDate: "12 March, 2024",
-    value: "24,000",
-  },
-];
-
-const Investors: React.FC = () => {
+const Investors: React.FC<{ items: InvestorModel[] }> = ({ items }) => {
   return (
     <div className="w-full">
       <h4 className="font-normal text-black mb-3">Investor</h4>
@@ -140,61 +57,66 @@ const Investors: React.FC = () => {
             </tr>
           </thead>
           <tbody>
-            {investors.map((inv, i) => (
-              <tr
-                key={i}
-                className="
-                  group transition-all duration-200 transform
-                  hover:scale-[1.025]
-                  hover:bg-[linear-gradient(90deg,var(--color-brand-hover)_0%,transparent_50%,transparent_100%)]
-                "
-              >
-                {/* Investor ID */}
-                <td className="py-3 pl-4 group-hover:rounded-l-sm">
-                  <div className="flex items-center gap-3">
-                    <img
-                      src={inv.avatar}
-                      alt={inv.name}
-                      className="w-9 h-9 rounded-full object-cover"
-                      style={{ backgroundColor: getProfileBgColor(inv.avatar) }}
-                    />
+            {items.map((inv, i) => {
+              const name = inv.investorId?.name ?? "—";
+              const avatar = inv.investorId?.image ?? null;
+              const walletTitle = inv.walletAddress?.walletTitle ?? "Wallet";
+              const address = inv.walletAddress?.address ?? "—";
+              const tokenAmount = inv.tokenAmount ?? 0;
+              const entryDate = inv.entryDate ?? "—";
+              const value = inv.value ?? 0;
+
+              return (
+                <tr
+                  key={i}
+                  className="group transition-all duration-200 transform hover:scale-[1.025] hover:bg-[linear-gradient(90deg,var(--color-brand-hover)_0%,transparent_50%,transparent_100%)]"
+                >
+                  {/* Investor ID */}
+                  <td className="py-3 pl-4 group-hover:rounded-l-sm">
+                    <div className="flex items-center gap-3">
+                      <Avatar name={name} image={avatar} />
+                      <span className="font-semibold text-sm md:text-base">
+                        {name}
+                      </span>
+                    </div>
+                  </td>
+
+                  {/* Wallet Address */}
+                  <td className="py-3 flex flex-col">
                     <span className="font-semibold text-sm md:text-base">
-                      {inv.name}
+                      {walletTitle}
                     </span>
-                  </div>
-                </td>
-                {/* Wallet Address */}
-                <td className="py-3 flex flex-col">
-                  <span className="font-semibold text-sm md:text-base">
-                    {inv.wallet}
-                  </span>
-                  <span className="font-normal text-dark-silver text-sm md:text-base">
-                    {inv.address}
-                  </span>
-                </td>
-                {/* Token Amount */}
-                <td className="py-3">
-                  <span className="font-bold text-sm md:text-base">
-                    {inv.amount}
-                  </span>
-                </td>
-                {/* Entry Date */}
-                <td className="py-3">
-                  <div className="flex items-center gap-2">
-                    <CalendarIcon className="w-5 h-5 text-brand" />
-                    <span className="font-normal text-sm md:text-base">
-                      {inv.entryDate}
+                    <span className="font-normal text-dark-silver text-sm md:text-base">
+                      {address}
                     </span>
-                  </div>
-                </td>
-                {/* Value */}
-                <td className="py-3 pr-4">
-                  <span className="font-bold text-sm md:text-base">
-                    {inv.value}
-                  </span>
-                </td>
-              </tr>
-            ))}
+                  </td>
+
+                  {/* Token Amount */}
+                  <td className="py-3">
+                    <span className="font-bold text-sm md:text-base">
+                      {tokenAmount.toLocaleString()}
+                    </span>
+                  </td>
+
+                  {/* Entry Date */}
+                  <td className="py-3">
+                    <div className="flex items-center gap-2">
+                      <CalendarIcon className="w-5 h-5 text-brand" />
+                      <span className="font-normal text-sm md:text-base">
+                        {entryDate}
+                      </span>
+                    </div>
+                  </td>
+
+                  {/* Value */}
+                  <td className="py-3 pr-4">
+                    <span className="font-bold text-sm md:text-base">
+                      AED {value.toLocaleString()}
+                    </span>
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
@@ -202,63 +124,70 @@ const Investors: React.FC = () => {
       {/* MOBILE CARDS */}
       <div className="block md:hidden mt-7">
         <div className="flex flex-col ">
-          {investors.map((inv, i) => (
-            <div
-              key={i}
-              className="flex flex-col gap-2 border-b-[1px] border-light-silver mb-4 pb-4"
-            >
-              {/* Row 1: Avatar & Name */}
-              <div className="flex items-center gap-3">
-                <img
-                  src={inv.avatar}
-                  alt={inv.name}
-                  className="w-9 h-9 rounded-full object-cover"
-                  style={{ backgroundColor: getProfileBgColor(inv.avatar) }}
-                />
-                <span className="font-semibold text-xs">{inv.name}</span>
-              </div>
+          {items.map((inv, i) => {
+            const name = inv.investorId?.name ?? "—";
+            const avatar = inv.investorId?.image ?? null;
+            const walletTitle = inv.walletAddress?.walletTitle ?? "Wallet";
+            const address = inv.walletAddress?.address ?? "—";
+            const tokenAmount = inv.tokenAmount ?? 0;
+            const entryDate = inv.entryDate ?? "—";
+            const value = inv.value ?? 0;
 
-              {/* Wallet */}
-              <div className="flex flex-row justify-between items-center mt-1">
-                <span className="text-xs font-medium text-dark-silver">
-                  Wallet Address
-                </span>
-                <div className="flex flex-col items-end">
-                  <span className="text-xs font-semibold">{inv.wallet}</span>
-                  <span className="text-xs text-dark-silver">
-                    {inv.address}
+            return (
+              <div
+                key={i}
+                className="flex flex-col gap-2 border-b-[1px] border-light-silver mb-4 pb-4"
+              >
+                {/* Row 1: Avatar & Name */}
+                <div className="flex items-center gap-3">
+                  <Avatar name={name} image={avatar} />
+                  <span className="font-semibold text-xs">{name}</span>
+                </div>
+
+                {/* Wallet */}
+                <div className="flex flex-row justify-between items-center mt-1">
+                  <span className="text-xs font-medium text-dark-silver">
+                    Wallet Address
+                  </span>
+                  <div className="flex flex-col items-end">
+                    <span className="text-xs font-semibold">{walletTitle}</span>
+                    <span className="text-xs text-dark-silver">{address}</span>
+                  </div>
+                </div>
+
+                {/* Token Amount */}
+                <div className="flex flex-row justify-between items-center mt-1">
+                  <span className="text-xs font-medium text-dark-silver">
+                    Token Amount
+                  </span>
+                  <span className="font-bold text-xs">
+                    {tokenAmount.toLocaleString()}
+                  </span>
+                </div>
+
+                {/* Entry Date */}
+                <div className="flex flex-row justify-between items-center mt-1">
+                  <span className="text-xs font-medium text-dark-silver">
+                    Entry Date
+                  </span>
+                  <div className="flex items-center gap-1">
+                    <CalendarIcon className="w-5 h-5 text-brand" />
+                    <span className="font-normal text-xs">{entryDate}</span>
+                  </div>
+                </div>
+
+                {/* Value */}
+                <div className="flex flex-row justify-between items-center mt-1">
+                  <span className="text-xs font-medium text-dark-silver">
+                    Value
+                  </span>
+                  <span className="font-bold text-xs">
+                    AED {value.toLocaleString()}
                   </span>
                 </div>
               </div>
-
-              {/* Token Amount */}
-              <div className="flex flex-row justify-between items-center mt-1">
-                <span className="text-xs font-medium text-dark-silver">
-                  Token Amount
-                </span>
-                <span className="font-bold text-xs">{inv.amount}</span>
-              </div>
-
-              {/* Entry Date */}
-              <div className="flex flex-row justify-between items-center mt-1">
-                <span className="text-xs font-medium text-dark-silver">
-                  Entry Date
-                </span>
-                <div className="flex items-center gap-1">
-                  <CalendarIcon className="w-5 h-5 text-brand" />
-                  <span className="font-normal text-xs">{inv.entryDate}</span>
-                </div>
-              </div>
-
-              {/* Value */}
-              <div className="flex flex-row justify-between items-center mt-1">
-                <span className="text-xs font-medium text-dark-silver">
-                  Value
-                </span>
-                <span className="font-bold text-xs">{inv.value}</span>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </div>

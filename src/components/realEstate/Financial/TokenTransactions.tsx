@@ -1,95 +1,10 @@
 import React from "react";
-import DCoinIcon from "../../../assets/icons/d-coing.svg?react";
-import ECoinIcon from "../../../assets/icons/e-coing.svg?react";
-import BCoinIcon from "../../../assets/icons/b-coin.svg?react";
-import GreenBalance from "../../../assets/icons/green_balance.svg?react";
-import RedBalance from "../../../assets/icons/red_balance.svg?react";
 import { resolveColor } from "../../../utils/colors";
+import type { TokenTransactionModel } from "../../../models/propertyFinancials";
 
-const data = [
-  {
-    icon: <BCoinIcon className="w-8 h-8 md:w-10 md:h-10" />,
-    name: "Arora gaur",
-    balance: <GreenBalance className="w-20 h-8" />,
-    value: "AED2,509.75",
-    change: "+9.77%",
-    changeColor: "teal",
-  },
-  {
-    icon: <DCoinIcon className="w-8 h-8 md:w-10 md:h-10" />,
-    name: "Arora gaur",
-    balance: <GreenBalance className="w-20 h-8" />,
-    value: "AED2,509.75",
-    change: "+9.77%",
-    changeColor: "teal",
-  },
-  {
-    icon: <ECoinIcon className="w-8 h-8 md:w-10 md:h-10" />,
-    name: "Arora gaur",
-    balance: <GreenBalance className="w-20 h-8" />,
-    value: "AED2,509.75",
-    change: "+9.77%",
-    changeColor: "teal",
-  },
-  {
-    icon: <DCoinIcon className="w-8 h-8 md:w-10 md:h-10" />,
-    name: "Arora gaur",
-    balance: <GreenBalance className="w-20 h-8" />,
-    value: "AED2,509.75",
-    change: "+9.77%",
-    changeColor: "teal",
-  },
-  {
-    icon: <BCoinIcon className="w-8 h-8 md:w-10 md:h-10" />,
-    name: "Arora gaur",
-    balance: <RedBalance className="w-20 h-8" />,
-    value: "AED2,509.75",
-    change: "-21.00%",
-    changeColor: "light-orange",
-  },
-  {
-    icon: <DCoinIcon className="w-8 h-8 md:w-10 md:h-10" />,
-    name: "Arora gaur",
-    balance: <GreenBalance className="w-20 h-8" />,
-    value: "AED2,509.75",
-    change: "+9.77%",
-    changeColor: "teal",
-  },
-  {
-    icon: <ECoinIcon className="w-8 h-8 md:w-10 md:h-10" />,
-    name: "Arora gaur",
-    balance: <GreenBalance className="w-20 h-8" />,
-    value: "AED2,509.75",
-    change: "+9.77%",
-    changeColor: "teal",
-  },
-  {
-    icon: <DCoinIcon className="w-8 h-8 md:w-10 md:h-10" />,
-    name: "Arora gaur",
-    balance: <RedBalance className="w-20 h-8" />,
-    value: "120,500",
-    change: "",
-    changeColor: "",
-  },
-  {
-    icon: <ECoinIcon className="w-8 h-8 md:w-10 md:h-10" />,
-    name: "Arora gaur",
-    balance: <GreenBalance className="w-20 h-8" />,
-    value: "AED2,509.75",
-    change: "+9.77%",
-    changeColor: "teal",
-  },
-  {
-    icon: <DCoinIcon className="w-8 h-8 md:w-10 md:h-10" />,
-    name: "Arora gaur",
-    balance: <GreenBalance className="w-20 h-8" />,
-    value: "AED2,509.75",
-    change: "+9.77%",
-    changeColor: "teal",
-  },
-];
-
-const TokenTransactions: React.FC = () => {
+const TokenTransactions: React.FC<{ items: TokenTransactionModel[] }> = ({
+  items,
+}) => {
   return (
     <div className="w-full">
       <h4 className="font-normal text-black mb-3">Token transactions</h4>
@@ -103,54 +18,74 @@ const TokenTransactions: React.FC = () => {
             <th className="text-left font-medium text-xs md:text-sm uppercase tracking-wider ">
               Token ID ▾
             </th>
-            <th className="text-left font-medium  text-xs md:text-sm uppercase tracking-wider ">
+            <th className="text-left font-medium text-xs md:text-sm uppercase tracking-wider ">
               Balance ▾
             </th>
-            <th className="text-left font-medium  text-xs md:text-sm uppercase tracking-wider ">
+            <th className="text-left font-medium text-xs md:text-sm uppercase tracking-wider ">
               Value ▾
             </th>
           </tr>
         </thead>
         <tbody>
-          {data.map((row, i) => (
-            <tr
-              key={i}
-              className="group transition-all duration-200 transform
-              hover:scale-[1.025]
-              hover:bg-[linear-gradient(90deg,var(--color-brand-hover)_0%,transparent_50%,transparent_100%)]"
-            >
-              <td className="py-3 font-normal text-sm md:text-base border-b-[1px] border-light-silver md:border-0 group-hover:rounded-l-sm">
-                <div className="flex items-center gap-2 md:gap-4">
-                  {row.icon}
-                  <span className="font-semibold text-sm md:text-base">
-                    {row.name}
-                  </span>
-                </div>
-              </td>
-              <td className="py-3 font-normal text-sm md:text-base border-b-[1px] border-light-silver md:border-0">
-                {row.balance}
-              </td>
-              <td className="py-3 font-normal text-sm md:text-base border-b-[1px] border-light-silver md:border-0">
-                <div className="flex flex-col items-start">
-                  <span className="font-medium text-sm md:text-base ">
-                    {row.value}
-                  </span>
-                  {row.change && (
-                    <span
-                      className={`text-sm md:text-base font-semibold mt-1`}
-                      style={
-                        row.changeColor
-                          ? { color: resolveColor(row.changeColor) }
-                          : undefined
-                      }
-                    >
-                      {row.change}
+          {items.map((row, i) => {
+            const name = row.tokenId?.name ?? "—";
+            const img = row.tokenId?.image ?? null;
+
+            const pct = row.value?.percentage ?? 0;
+            const isPos = !!row.value?.isPositive;
+            const changeStr =
+              pct === 0 ? "" : `${isPos ? "+" : "−"}${Math.abs(pct)}%`;
+            const changeColor = isPos ? "teal" : "light-orange";
+
+            return (
+              <tr
+                key={i}
+                className="group transition-all duration-200 transform hover:scale-[1.025] hover:bg-[linear-gradient(90deg,var(--color-brand-hover)_0%,transparent_50%,transparent_100%)]"
+              >
+                {/* Token ID */}
+                <td className="py-3 font-normal text-sm md:text-base border-b-[1px] border-light-silver md:border-0 group-hover:rounded-l-sm">
+                  <div className="flex items-center gap-2 md:gap-4">
+                    {img ? (
+                      <img
+                        src={img}
+                        alt={name}
+                        className="w-8 h-8 md:w-10 md:h-10 rounded-full object-cover"
+                      />
+                    ) : (
+                      <span className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-ghost-white flex items-center justify-center text-xs md:text-sm font-semibold">
+                        {name.slice(0, 2).toUpperCase()}
+                      </span>
+                    )}
+                    <span className="font-semibold text-sm md:text-base">
+                      {name}
                     </span>
-                  )}
-                </div>
-              </td>
-            </tr>
-          ))}
+                  </div>
+                </td>
+
+                {/* Balance */}
+                <td className="py-3 font-normal text-sm md:text-base border-b-[1px] border-light-silver md:border-0">
+                  {row.balance?.toLocaleString() ?? "0"}
+                </td>
+
+                {/* Value + % change */}
+                <td className="py-3 font-normal text-sm md:text-base border-b-[1px] border-light-silver md:border-0">
+                  <div className="flex flex-col items-start">
+                    <span className="font-medium text-sm md:text-base ">
+                      AED {(row.value?.amount ?? 0).toLocaleString()}
+                    </span>
+                    {changeStr && (
+                      <span
+                        className="text-sm md:text-base font-semibold mt-1"
+                        style={{ color: resolveColor(changeColor) }}
+                      >
+                        {changeStr}
+                      </span>
+                    )}
+                  </div>
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>

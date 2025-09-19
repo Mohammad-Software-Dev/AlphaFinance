@@ -1,8 +1,10 @@
 import { useMemo } from "react";
 import ReactApexChart from "react-apexcharts";
+import type { ApexOptions } from "apexcharts";
 import { resolveColor } from "../../../utils/colors";
+import type { ChartSeriesModel } from "../../../models/propertyFinancials";
 
-const months = [
+const fallbackMonths = [
   "Jan",
   "Feb",
   "Mar",
@@ -16,29 +18,27 @@ const months = [
   "Nov",
   "Dec",
 ];
+const fallbackValues = [90, 78, 82, 98, 85, 105, 99, 87, 92, 79, 88, 68];
 
-const data = [90, 78, 82, 98, 85, 105, 99, 87, 92, 79, 88, 68];
+const DividendsChart: React.FC<{
+  series?: ChartSeriesModel;
+  height?: number;
+}> = ({ series, height = 180 }) => {
+  const categories = series?.labels?.length ? series.labels : fallbackMonths;
+  const values = series?.values?.length ? series.values : fallbackValues;
 
-const series = [
-  {
-    name: "Dividends",
-    data,
-  },
-];
-
-const DividendsChart = () => {
   const barColors = useMemo(
     () =>
-      data.map((_, idx) =>
+      values.map((_, idx) =>
         idx === 5 ? resolveColor("brand") : resolveColor("brand-light")
       ),
-    []
+    [values]
   );
 
   const labelColor = useMemo(() => resolveColor("light-silver"), []);
   const gridColor = useMemo(() => resolveColor("light-silver"), []);
 
-  const options: ApexCharts.ApexOptions = {
+  const options: ApexOptions = {
     chart: {
       type: "bar",
       toolbar: { show: false },
@@ -53,13 +53,11 @@ const DividendsChart = () => {
         dataLabels: { position: "top" },
       },
     },
-    dataLabels: {
-      enabled: false,
-    },
+    dataLabels: { enabled: false },
     colors: barColors,
     legend: { show: false },
     xaxis: {
-      categories: months,
+      categories,
       labels: {
         style: {
           fontSize: "10px",
@@ -82,14 +80,18 @@ const DividendsChart = () => {
       yaxis: { lines: { show: true } },
       xaxis: { lines: { show: false } },
     },
-    tooltip: {
-      enabled: true,
-      theme: "light",
-    },
+    tooltip: { enabled: true, theme: "light" },
   };
 
+  const seriesForApex = [{ name: "Dividends", data: values }];
+
   return (
-    <ReactApexChart options={options} series={series} type="bar" height={180} />
+    <ReactApexChart
+      options={options}
+      series={seriesForApex}
+      type="bar"
+      height={height}
+    />
   );
 };
 

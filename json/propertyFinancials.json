@@ -1,0 +1,91 @@
+{
+  "charts": {
+    "propertyPrice": {
+      "amount": "number",
+      "percentage": "number",
+      "isPositive": "boolean",
+      "series": {
+        "labels": ["string"],
+        "values": ["number"]
+      }
+    },
+    "totalRevenue": {
+      "amount": "number",
+      "percentage": "number",
+      "isPositive": "boolean",
+      "series": {
+        "labels": ["string"],
+        "values": ["number"]
+      }
+    },
+    "netIncome": {
+      "amount": "number",
+      "percentage": "number",
+      "isPositive": "boolean",
+      "series": {
+        "labels": ["string"],
+        "values": ["number"]
+      }
+    }
+  },
+
+  "expenses": {
+    "total": "number",
+    "label": "string",
+    "categories": [
+      {
+        "type": "Alphased fees | SPV maintenance | Property management | Facility management | Services charges",
+        "value": "number"
+      }
+    ]
+  },
+
+  "invoices": [
+    {
+      "invoiceId": "string",
+      "billingDate": "string",
+      "amount": "number"
+    }
+  ],
+
+  "dividends": {
+    "total": "number",
+    "percentage": "number",
+    "isPositive": "boolean",
+    "series": {
+      "labels": ["string"],
+      "values": ["number"]
+    }
+  },
+
+  "tokenTransactions": [
+    {
+      "tokenId": { "name": "string", "image": "string|null" },
+      "balance": "number",
+      "value": {
+        "amount": "number",
+        "percentage": "number",
+        "isPositive": "boolean"
+      }
+    }
+  ],
+
+  "investors": [
+    {
+      "investorId": { "name": "string", "image": "string|null" },
+      "walletAddress": { "walletTitle": "string", "address": "string" },
+      "tokenAmount": "number",
+      "entryDate": "string",
+      "value": "number"
+    }
+  ],
+
+  "financialTransactions": [
+    {
+      "type": "deposit | withdrawal",
+      "label": "string",
+      "time": "string",
+      "amount": "number"
+    }
+  ]
+}
