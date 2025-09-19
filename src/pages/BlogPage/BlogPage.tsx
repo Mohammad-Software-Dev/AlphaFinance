@@ -5,8 +5,6 @@ import AllPosts from "../../components/blog/AllPosts";
 
 import { useBlog } from "../../hooks/useBlog";
 
-import Stories from "../../components/blog/Stories";
-
 const BlogPage: React.FC = () => {
   const { data, isLoading, error } = useBlog();
   if (isLoading) return <div>Loading…</div>;
@@ -14,11 +12,7 @@ const BlogPage: React.FC = () => {
     return <div className="text-red-600">{error?.message ?? "No data"}</div>;
 
   return (
-    <BlogLayout
-      sidebar={
-        <Stories subscribe={data.subscribe} worldNews={data.worldNews} />
-      }
-    >
+    <BlogLayout>
       <>
         <RecentPosts data={data.recentPosts} />
         <AllPosts data={data.allPosts} />

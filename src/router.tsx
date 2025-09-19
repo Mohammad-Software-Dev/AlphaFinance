@@ -43,7 +43,7 @@ export const router = createBrowserRouter([
   { path: "/signup", element: <SignUp /> },
   { path: "/auth/callback", element: <AuthCallback /> }, // SPA auth callback
   { path: "/blog", element: <BlogPage /> },
-  { path: "/blog-post", element: <BlogPostPage /> },
+  { path: "/blog/:blogId", element: <BlogPostPage /> },
   { path: "/real-estate/:assetId", element: <RealEstatePage /> },
 
   // Protected routes (require auth)

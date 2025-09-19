@@ -80,4 +80,12 @@ export const handlers = [
     await delay(250);
     return HttpResponse.json(blog);
   }),
+
+  http.get("/api/blog-sidebar", async () => {
+    const payload = {
+      subscribe: blog.subscribe,
+      worldNews: blog.worldNews,
+    };
+    return HttpResponse.json(payload);
+  }),
 ];
