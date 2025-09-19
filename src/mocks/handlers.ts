@@ -18,6 +18,8 @@ import DXBBW002_FIN from "./data/propertyFinancials/DXBBW002.json";
 
 import DXBBW002_UPDATES from "./data/propertyUpdates/DXBBW002.json";
 
+import blog from "./data/blog.json";
+
 // ---- Maps ----
 const detailsByCode: Record<string, unknown> = {
   DXBKTW001,
@@ -73,5 +75,9 @@ export const handlers = [
       default:
         return HttpResponse.json(DXBBW002_UPDATES);
     }
+  }),
+  http.get("/api/blog", async () => {
+    await delay(250);
+    return HttpResponse.json(blog);
   }),
 ];

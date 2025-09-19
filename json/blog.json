@@ -1,0 +1,68 @@
+{
+  "recentPosts": {
+    "title": "string",
+    "primary": {
+      "id": "string",
+      "title": "string",
+      "author": "string",
+      "publishedAt": "string",
+      "description": "string",
+      "image": "string",
+      "tags": [{ "type": "string | null", "value": "string" }],
+      "topics": [{ "type": "string | null", "value": "string" }]
+    },
+    "sidebar": [
+      {
+        "id": "string",
+        "title": "string",
+        "author": "string",
+        "publishedAt": "string",
+        "description": "string",
+        "image": "string",
+        "tags": [{ "type": "string | null", "value": "string" }],
+        "topics": [{ "type": "string | null", "value": "string" }]
+      }
+    ]
+  },
+
+  "allPosts": {
+    "title": "string",
+    "items": [
+      {
+        "id": "string",
+        "title": "string",
+        "author": "string",
+        "publishedAt": "string",
+        "description": "string",
+        "image": "string",
+        "tags": [{ "type": "string | null", "value": "string" }],
+        "topics": [{ "type": "string | null", "value": "string" }]
+      }
+    ]
+  },
+  "subscribe": {
+    "title": "string",
+    "subtitle": "string",
+    "placeholder": "string",
+    "ctaLabel": "string",
+    "privacy": {
+      "text": "string",
+      "href": "string"
+    }
+  },
+
+  "worldNews": {
+    "sectionLabel": "string",
+    "items": [
+      {
+        "id": "string",
+        "title": "string",
+        "description": "string",
+        "author": { "name": "string", "role": "string" },
+        "tags": [{ "type": "string | null", "value": "string" }],
+        "topics": [{ "type": "string | null", "value": "string" }],
+        "publishedAt": "string"
+      }
+    ]
+  }
+}

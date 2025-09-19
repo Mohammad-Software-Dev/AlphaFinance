@@ -194,7 +194,7 @@ const UpdatesAndVotes: React.FC<Props> = ({ vote, updates }) => {
               <img
                 src={uploads.img}
                 alt="Attachment"
-                className="w-16 h-16 rounded-lg object-cover"
+                className="w-16 h-16 rounded-sm object-cover"
               />
             )}
             {uploads.file && (
@@ -243,7 +243,7 @@ const UpdatesAndVotes: React.FC<Props> = ({ vote, updates }) => {
                   key={`${u.id}-img-${j}`}
                   src={pickPostImage(j)}
                   alt={_.title ?? "update"}
-                  className="w-full rounded-xl mt-1 mb-2 object-cover max-h-[320px]"
+                  className="w-full rounded-sm mt-1 mb-2 object-cover max-h-[320px]"
                 />
               ))}
 

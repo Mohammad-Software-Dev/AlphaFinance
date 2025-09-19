@@ -1,0 +1,181 @@
+{
+  "recentPosts": {
+    "title": "Recent blog posts",
+    "primary": {
+      "id": "post-ux-review",
+      "title": "UX review presentations",
+      "author": "Olivia Rhye",
+      "publishedAt": "24 March 2024",
+      "description": "How do you create compelling presentations that wow your colleagues and impress your managers?",
+      "image": "/assets/images/left.png",
+      "tags": [{ "type": null, "value": "Design" }],
+      "topics": [
+        { "type": null, "value": "Management" },
+        { "type": null, "value": "Research" }
+      ]
+    },
+    "sidebar": [
+      {
+        "id": "post-linear-101",
+        "title": "Migrating to Linear 101",
+        "author": "Phoenix Baker",
+        "publishedAt": "24 March 2024",
+        "description": "Linear helps streamline software projects, sprints, tasks, and bug tracking. Here’s how to get...",
+        "image": "/assets/images/right-top.png",
+        "tags": [{ "type": null, "value": "Product" }],
+        "topics": [{ "type": null, "value": "Research" }]
+      },
+      {
+        "id": "post-api-stack",
+        "title": "Building Your API Stack",
+        "author": "Lana Steiner",
+        "publishedAt": "24 March 2024",
+        "description": "The rise of RESTful APIs has been met by a rise in tools for creating, testing, and manag...",
+        "image": "/assets/images/right-bottom.png",
+        "tags": [{ "type": null, "value": "Research" }],
+        "topics": [{ "type": null, "value": "Leadership" }]
+      }
+    ]
+  },
+  "allPosts": {
+    "title": "All blog posts",
+    "items": [
+      {
+        "id": "post-leadership-lessons",
+        "title": "Bill Walsh leadership lessons",
+        "author": "Alec Whitten",
+        "publishedAt": "24 March 2024",
+        "description": "Like to know the secrets of transforming a 2-14 team into a 3x Super Bowl winning Dynasty?",
+        "image": "/assets/images/blog_1.png",
+        "tags": [
+          { "type": null, "value": "Product" },
+          { "type": null, "value": "Research" }
+        ],
+        "topics": [{ "type": null, "value": "Research" }]
+      },
+      {
+        "id": "post-mental-models",
+        "title": "PM mental models",
+        "author": "Demi Wilkinson",
+        "publishedAt": "24 March 2024",
+        "description": "Mental models are simple expressions of complex processes or relationships.",
+        "image": "/assets/images/blog_2.png",
+        "tags": [
+          { "type": null, "value": "Research" },
+          { "type": null, "value": "Product" }
+        ],
+        "topics": [{ "type": null, "value": "Product" }]
+      },
+      {
+        "id": "post-wireframing",
+        "title": "What is Wireframing?",
+        "author": "Candice Wu",
+        "publishedAt": "24 March 2024",
+        "description": "Introduction to Wireframing and its Principles. Learn from the best in the industry.",
+        "image": "/assets/images/blog_3.png",
+        "tags": [
+          { "type": null, "value": "Frameworks" },
+          { "type": null, "value": "Presentation" },
+          { "type": null, "value": "Design" }
+        ],
+        "topics": [
+          { "type": null, "value": "Product" },
+          { "type": null, "value": "Design" }
+        ]
+      },
+      {
+        "id": "post-collaboration",
+        "title": "How collaboration makes us better designers",
+        "author": "Natali Craig",
+        "publishedAt": "24 March 2024",
+        "description": "Collaboration can make our teams stronger, and our individual designs better.",
+        "image": "/assets/images/blog_4.png",
+        "tags": [
+          { "type": null, "value": "Research" },
+          { "type": null, "value": "Product" }
+        ],
+        "topics": [{ "type": null, "value": "Leadership" }]
+      },
+      {
+        "id": "post-top-10-js",
+        "title": "Our top 10 JavaScript frameworks to use",
+        "author": "Drew Cano",
+        "publishedAt": "24 March 2024",
+        "description": "JavaScript frameworks make development easy with extensive features and functionalities.",
+        "image": "/assets/images/blog_5.png",
+        "tags": [
+          { "type": null, "value": "Research" },
+          { "type": null, "value": "Product" }
+        ],
+        "topics": [{ "type": null, "value": "Research" }]
+      },
+      {
+        "id": "post-better-cx",
+        "title": "Podcast: Creating a better CX Community",
+        "author": "Orlando Diggs",
+        "publishedAt": "24 March 2024",
+        "description": "Starting a community doesn’t need to be complicated, but how do you get started?",
+        "image": "/assets/images/blog_6.png",
+        "tags": [
+          { "type": null, "value": "Research" },
+          { "type": null, "value": "Product" }
+        ],
+        "topics": [{ "type": null, "value": "Leadership" }]
+      }
+    ]
+  },
+  "subscribe": {
+    "title": "Stories and interviews",
+    "subtitle": "Subscribe to learn about new product features, the latest in technology, solutions, and updates.",
+    "placeholder": "Enter Your Email",
+    "ctaLabel": "Subscribe",
+    "privacy": {
+      "text": "We care about your data in our privacy policy.",
+      "href": "/privacy-policy"
+    }
+  },
+  "worldNews": {
+    "sectionLabel": "WORLD NEWS",
+    "items": [
+      {
+        "id": "wn-1",
+        "title": "Lorem ipsum dolor sit amet consectetur.",
+        "description": "Commodo in tempor pellentesque dapibus cras feugiat pharetra. Diam in sed senectus adipiscing.",
+        "author": { "name": "Alicia Liu", "role": "Engineering" },
+        "tags": [
+          { "type": null, "value": "Management" },
+          { "type": null, "value": "Research" },
+          { "type": null, "value": "Design" }
+        ],
+        "topics": [{ "type": null, "value": "Research" }],
+        "publishedAt": "24 March 2024"
+      },
+      {
+        "id": "wn-2",
+        "title": "Lorem ipsum dolor sit amet consectetur.",
+        "description": "Commodo in tempor pellentesque dapibus cras feugiat pharetra. Dignissim non cras posuere aliquet neque.",
+        "author": { "name": "Alicia Liu", "role": "Engineering" },
+        "tags": [
+          { "type": null, "value": "Research" },
+          { "type": null, "value": "Product" },
+          { "type": null, "value": "Research" }
+        ],
+        "topics": [{ "type": null, "value": "Design" }],
+        "publishedAt": "24 March 2024"
+      },
+      {
+        "id": "wn-3",
+        "title": "Lorem ipsum dolor sit amet consectetur.",
+        "description": "Pharetra sagittis nascetur neque fringilla placerat mauris.",
+        "author": { "name": "Alicia Liu", "role": "Engineering" },
+        "tags": [
+          { "type": null, "value": "Frameworks" },
+          { "type": null, "value": "Presentation" },
+          { "type": null, "value": "Design" }
+        ],
+        "topics": [{ "type": null, "value": "AI" }],
+        "publishedAt": "24 March 2024"
+      }
+    ]
+  }
+}
