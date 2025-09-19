@@ -1,0 +1,53 @@
+{
+  "vote": {
+    "title": "string",
+    "timeRange": "string",
+    "votings": [
+      {
+        "author": { "name": "string", "avatar": "string|null" },
+        "postedAt": "string",
+        "content": "string",
+        "options": [{ "label": "string", "count": "number" }],
+        "totalVotes": "number"
+      }
+    ]
+  },
+
+  "updates": [
+    {
+      "id": "string",
+      "author": {
+        "name": "string",
+        "avatar": "string|null",
+        "role": "string|null"
+      },
+      "postedAt": "string",
+      "postText": "string",
+      "attachments": [
+        {
+          "type": "image | file | link",
+          "url": "string",
+          "thumbnail": "string|null",
+          "title": "string|null"
+        }
+      ],
+      "actions": ["edit", "schedule"]
+    }
+  ],
+
+  "operationsTransactions": [
+    {
+      "id": "string",
+      "date": "string",
+      "headline": "string",
+      "description": "string",
+      "tags": [
+        {
+          "type": "property_management | tenant | facility_management | bank_check | lawyer | court | services_charges | alphased_fees",
+          "label": "string",
+          "icon": "string|null"
+        }
+      ]
+    }
+  ]
+}

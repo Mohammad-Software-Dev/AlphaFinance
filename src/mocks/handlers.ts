@@ -1,4 +1,3 @@
-// src/mocks/handlers.ts
 import { http, HttpResponse, delay } from "msw";
 import cards from "./data/propertyCards.json";
 
@@ -17,6 +16,8 @@ import DXBMRN010 from "./data/propertyDetails/DXBMRN010.json";
 
 import DXBBW002_FIN from "./data/propertyFinancials/DXBBW002.json";
 
+import DXBBW002_UPDATES from "./data/propertyUpdates/DXBBW002.json";
+
 // ---- Maps ----
 const detailsByCode: Record<string, unknown> = {
   DXBKTW001,
@@ -33,20 +34,17 @@ const detailsByCode: Record<string, unknown> = {
   DXBMRN010,
 };
 
-// If you add more financial files later, extend this map.
 const financialsByCode: Record<string, unknown> = {
   DXBBW002: DXBBW002_FIN,
 };
 
 // ---- Handlers ----
 export const handlers = [
-  // Property cards
   http.get("/api/property-cards", async () => {
     await delay(250);
     return HttpResponse.json(cards);
   }),
 
-  // Property details by code
   http.get("/api/property-details/:code", async ({ params }) => {
     const { code } = params as { code: string };
     const data = detailsByCode[code];
@@ -59,11 +57,21 @@ export const handlers = [
     return HttpResponse.json(data);
   }),
 
-  // Property financials by code
   http.get("/api/property-financials/:code", async ({ params }) => {
     const { code } = params as { code: string };
     await delay(250);
-    const payload = financialsByCode[code] ?? DXBBW002_FIN; // fallback
+    const payload = financialsByCode[code] ?? DXBBW002_FIN;
     return HttpResponse.json(payload);
+  }),
+
+  http.get("/api/property-updates/:code", async ({ params }) => {
+    const { code } = params as { code: string };
+    await delay(250);
+    switch (code) {
+      case "DXBBW002":
+        return HttpResponse.json(DXBBW002_UPDATES);
+      default:
+        return HttpResponse.json(DXBBW002_UPDATES);
+    }
   }),
 ];

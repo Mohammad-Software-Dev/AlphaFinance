@@ -1,90 +1,76 @@
+// src/components/realEstate/Updates/UpdatesAndVotes.tsx
 import React, { useRef, useState } from "react";
-import MaleImg from "../../../assets/images/male.png";
-
-import FemaleImg from "../../../assets/images/female.png";
 import SendButtonIcon from "../../../assets/icons/send_button.svg?react";
 import ImageAttachmentIcon from "../../../assets/icons/image_attachement.svg?react";
 import EditPenIcon from "../../../assets/icons/edit_pen_icon.svg?react";
 import CalIcon from "../../../assets/icons/cal_icon.svg?react";
 import AttachmentIcon from "../../../assets/icons/attachement.svg?react";
 
-const votes = {
-  user: {
-    avatar: MaleImg,
-    name: "Jane Doe",
-    date: "Posted 3 days ago",
-  },
-  text: "Personal profiles are the perfect way for you to grab their attention and persuade recruiters to continue reading your CV because you’re telling them from the off exactly why they should hire you.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ullamcorper ullamcorper quis.",
-  results: [
-    { label: "Yes", count: 540, percent: 58 },
-    { label: "No", count: 374, percent: 40 },
-    { label: "No respond", count: 93, percent: 10 },
-  ],
+import MaleImg from "../../../assets/images/male.png";
+import FemaleImg from "../../../assets/images/female.png";
+import Male2Img from "../../../assets/images/male_2.png";
+import Male3Img from "../../../assets/images/male_3.png";
+
+// any local post images you already use in the app:
+import Sample1 from "../../../assets/images/sample_1.jpg";
+import SampleProperty from "../../../assets/images/sample-property.jpg";
+
+import type {
+  VoteBlockModel,
+  UpdateItemModel,
+} from "../../../models/propertyUpdates";
+
+type Props = {
+  vote: VoteBlockModel;
+  updates: UpdateItemModel[];
 };
 
-const updates = [
-  {
-    user: { avatar: MaleImg, name: "John Doe", tag: "Facility management" },
-    text: "I just tried this recipe and it was amazing! The instructions were clear and easy to follow, and the end result was delicious. I will definitely be making this again. Thanks for sharing!Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ullamcorper ullamcorper quis.",
-    date: "5 min ago",
-    image: null,
-    attachments: [],
-  },
-  {
-    user: { avatar: MaleImg, name: "Jane Doe", tag: "Facility management" },
-    text: "I really appreciate the insights and perspective shared in this article. It's definitely given me something to think about and has helped me see things from a different angle. Thank you for writing and sharing! Think about and has helped me see things from a different angle.",
-    date: "5 min ago",
-    image:
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
-    attachments: [],
-  },
-  {
-    user: { avatar: FemaleImg, name: "Jane Doe", tag: "Facility management" },
-    text: "I really appreciate the insights and perspective shared in this article. It's definitely given me something to think about and has helped me see things from a different angle. Thank you for writing and sharing!",
-    date: "5 min ago",
-    image: null,
-    attachments: [],
-  },
-  {
-    user: { avatar: FemaleImg, name: "Jane Doe", tag: "Facility management" },
-    text: "I really appreciate the insights and perspective shared in this article. It's definitely given me something to think about and has helped me see things from a different angle. Thank you for writing and sharing!",
-    date: "5 min ago",
-    image: null,
-    attachments: [],
-  },
-];
+type VoteBarProps = { label: string; count: number; percent: number };
 
-type VoteBarProps = {
-  label: string;
-  count: number;
-  percent: number;
-};
+const AVATARS = [MaleImg, FemaleImg, Male2Img, Male3Img];
+const POST_IMAGES = [Sample1, SampleProperty];
+
+function pickAvatar(index = 0) {
+  return AVATARS[index % AVATARS.length];
+}
+
+function pickPostImage(index = 0) {
+  return POST_IMAGES[index % POST_IMAGES.length];
+}
 
 function VoteBar({ label, count, percent }: VoteBarProps) {
   return (
     <div className="my-4">
-      <div className="flex justify-between items-center text-[14px] font-medium text-[#222] mb-1">
+      <div className="flex justify-between items-center font-medium text-[#222] mb-1">
         <span className="text-sm md:text-base">{label}</span>
         <span>{count}</span>
       </div>
       <div className="w-full h-[5px] rounded-full bg-[#F3F3F4] overflow-hidden">
         <div
           className="h-full transition-all duration-300 bg-black"
-          style={{
-            width: `${percent}%`,
-          }}
+          style={{ width: `${percent}%` }}
         />
       </div>
     </div>
   );
 }
 
-const UpdatesAndVotes: React.FC = () => {
+const UpdatesAndVotes: React.FC<Props> = ({ vote, updates }) => {
+  // ── Always use local static images, ignore whatever comes from JSON ─────────
+  const voting = vote.votings[0];
+  const votingAvatar = pickAvatar(0);
+
+  const total =
+    voting.totalVotes || voting.options.reduce((s, o) => s + o.count, 0);
+
   const [newPost, setNewPost] = useState("");
   const [uploads, setUploads] = useState<{
     img: string | null;
     file: string | null;
-  }>({ img: null, file: null });
+  }>({
+    img: null,
+    file: null,
+  });
   const fileInput = useRef<HTMLInputElement | null>(null);
   const imgInput = useRef<HTMLInputElement | null>(null);
 
@@ -95,39 +81,50 @@ const UpdatesAndVotes: React.FC = () => {
 
   return (
     <div className="flex flex-col w-full h-full lg:overflow-y-auto lg:scrollbar-thin lg:scrollbar-thumb-rounded lg:scrollbar-track-transparent">
+      {/* Vote */}
       <div className="pb-5 border-b-[1px] border-light-silver pr-3">
         <div className="flex items-center justify-between">
-          <h4 className="font-normal text-black mb-3">Vote</h4>
-          <h6 className="flex items-center  text-dark-silver cursor-pointer select-none gap-1">
-            Last 7 Days <span className="text-lg">▾</span>
+          <h4 className="font-normal text-black mb-3">{vote.title}</h4>
+          <h6 className="flex items-center text-dark-silver cursor-pointer select-none gap-1">
+            {vote.timeRange === "last7days" ? "Last 7 Days" : vote.timeRange}{" "}
+            <span className="text-lg">▾</span>
           </h6>
         </div>
+
         <div className="flex items-center gap-2 mt-3 mb-1">
           <img
-            src={votes.user.avatar}
-            alt="Jane Doe"
+            src={votingAvatar}
+            alt={voting.author.name}
             className="w-10 h-10 rounded-full object-cover bg-profile-purple"
           />
           <div>
-            <div className="font-semibold text-base">{votes.user.name}</div>
-            <div className="text-dark-silver text-xs">{votes.user.date}</div>
+            <div className="font-semibold text-base">{voting.author.name}</div>
+            <div className="text-dark-silver text-xs">{voting.postedAt}</div>
           </div>
         </div>
-        <div className=" mt-3 text-sm md:text-base leading-relaxed">
-          {votes.text}
+
+        <div className="mt-3 text-sm md:text-base leading-relaxed">
+          {voting.content}
         </div>
+
         <div className="mt-5 space-y-3">
-          {votes.results.map((v) => (
-            <VoteBar key={v.label} {...v} />
+          {voting.options.map((o) => (
+            <VoteBar
+              key={o.label}
+              label={o.label}
+              count={o.count}
+              percent={total ? Math.round((o.count / total) * 100) : 0}
+            />
           ))}
         </div>
       </div>
-      {/* Updates Section */}
+
+      {/* Updates */}
       <div className="flex flex-col flex-1 pr-3 py-5 gap-3">
         <h4 className="font-normal text-black mb-3">Updates</h4>
-        {/* Post Box */}
-        <div className="flex items-center gap-0  mb-2 ">
-          {/* Icons */}
+
+        {/* composer */}
+        <div className="flex items-center gap-0 mb-2">
           <div className="flex items-center gap-3 py-2">
             <label
               className="cursor-pointer flex items-center"
@@ -174,25 +171,23 @@ const UpdatesAndVotes: React.FC = () => {
               />
             </label>
           </div>
-          {/* Textarea */}
+
           <textarea
             value={newPost}
             onChange={(e) => setNewPost(e.target.value)}
-            className="flex-1 text-sm md:text-base resize-none h-12 pl-3 ml-4 py-3 bg-ghost-white  focus:outline-none placeholder-dark-silver"
+            className="flex-1 text-sm md:text-base resize-none h-12 pl-3 ml-4 py-3 bg-ghost-white focus:outline-none placeholder-dark-silver"
             rows={1}
             placeholder="Write your update here..."
           />
-          {/* Send Button */}
           <button
             onClick={handleSend}
             disabled={!newPost.trim() && !uploads.img && !uploads.file}
-            className="w-fit px-4 py-3 md:py-0 h-full flex items-center justify-center bg-brand rounded-r-lg "
+            className="w-fit px-4 py-3 md:py-0 h-full flex items-center justify-center bg-brand rounded-r-lg"
           >
             <SendButtonIcon className="w-5 h-5" />
           </button>
         </div>
 
-        {/* Attachments (always below the bar, not inside) */}
         {(uploads.img || uploads.file) && (
           <div className="flex items-center gap-2 mt-1 px-3">
             {uploads.img && (
@@ -210,46 +205,62 @@ const UpdatesAndVotes: React.FC = () => {
           </div>
         )}
 
-        {/* Updates List */}
-        {updates.map((u, i) => (
-          <div
-            key={i}
-            className=" py-4 mb-2 border-b-[1px] border-light-silver lg:border-0"
-          >
-            <div className="flex items-center gap-3 mb-3">
-              <img
-                src={u.user.avatar}
-                alt={u.user.name}
-                className="w-10 h-10 rounded-full object-cover bg-profile-pink"
-              />
-              <div className="flex items-center gap-2">
-                <span className="font-semibold text-base">{u.user.name}</span>
-                <span className="text-dark-silver text-sm">{u.user.tag}</span>
+        {updates.map((u, idx) => {
+          const staticAvatar = pickAvatar(idx + 1);
+          const imageAttachments = u.attachments.filter(
+            (a) => a.type === "image"
+          );
+          return (
+            <div
+              key={u.id}
+              className="py-4 mb-2 border-b-[1px] border-light-silver lg:border-0"
+            >
+              <div className="flex items-center gap-3 mb-3">
+                <img
+                  src={staticAvatar}
+                  alt={u.author.name}
+                  className="w-10 h-10 rounded-full object-cover bg-profile-pink"
+                />
+                <div className="flex items-center gap-2">
+                  <span className="font-semibold text-base">
+                    {u.author.name}
+                  </span>
+                  {u.author.role && (
+                    <span className="text-dark-silver text-sm">
+                      {u.author.role}
+                    </span>
+                  )}
+                </div>
+              </div>
+
+              <div className="my-3 text-sm md:text-base leading-relaxed">
+                {u.postText}
+              </div>
+
+              {/* Always render local static images for any image attachments */}
+              {imageAttachments.map((_, j) => (
+                <img
+                  key={`${u.id}-img-${j}`}
+                  src={pickPostImage(j)}
+                  alt={_.title ?? "update"}
+                  className="w-full rounded-xl mt-1 mb-2 object-cover max-h-[320px]"
+                />
+              ))}
+
+              <div className="flex gap-2 items-center text-xs mt-3">
+                <button className="flex items-center gap-1 bg-alabaster p-2 cursor-pointer">
+                  <EditPenIcon className="w-5 h-5" />
+                </button>
+                <button className="flex items-center gap-1 bg-alabaster p-2 cursor-pointer">
+                  <CalIcon className="w-5 h-5" />
+                </button>
+                <span className="flex items-center text-xs md:text-sm text-dark-silver">
+                  {u.postedAt}
+                </span>
               </div>
             </div>
-            <div className=" my-3 text-sm md:text-base leading-relaxed ">
-              {u.text}
-            </div>
-            {u.image && (
-              <img
-                src={u.image}
-                alt="update"
-                className="w-full rounded-xl mt-1 mb-2 object-cover max-h-[320px]"
-              />
-            )}
-            <div className="flex gap-2 items-center text-xs mt-3">
-              <button className="flex items-center gap-1 bg-alabaster p-2 cursor-pointer">
-                <EditPenIcon className="w-5 h-5" />
-              </button>
-              <button className="flex items-center gap-1 bg-alabaster p-2 cursor-pointer">
-                <CalIcon className="w-5 h-5" />
-              </button>
-              <span className="flex items-center text-xs md:text-sm text-dark-silver">
-                {u.date}
-              </span>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

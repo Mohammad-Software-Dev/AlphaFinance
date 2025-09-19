@@ -1,0 +1,385 @@
+{
+  "vote": {
+    "title": "Community Upgrade Vote",
+    "timeRange": "last7days",
+    "votings": [
+      {
+        "author": { "name": "Jane Doe", "avatar": "/assets/images/male.png" },
+        "postedAt": "3 days ago",
+        "content": "Should we approve the next phase of lobby renovation and outdoor seating improvements?",
+        "options": [
+          { "label": "Yes", "count": 540 },
+          { "label": "No", "count": 374 },
+          { "label": "No respond", "count": 93 }
+        ],
+        "totalVotes": 1007
+      }
+    ]
+  },
+
+  "updates": [
+    {
+      "id": "u-1",
+      "author": {
+        "name": "John Doe",
+        "avatar": "/assets/images/male.png",
+        "role": "Facility management"
+      },
+      "postedAt": "5 min ago",
+      "postText": "Maintenance window completed successfully. All elevators are back online.",
+      "attachments": [],
+      "actions": ["edit", "schedule"]
+    },
+    {
+      "id": "u-2",
+      "author": {
+        "name": "Jane Doe",
+        "avatar": "/assets/images/male.png",
+        "role": "Facility management"
+      },
+      "postedAt": "1 hr ago",
+      "postText": "New landscaping installed at the podium level. Photos attached.",
+      "attachments": [
+        {
+          "type": "image",
+          "url": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
+          "thumbnail": null,
+          "title": "Podium landscaping"
+        }
+      ],
+      "actions": ["edit", "schedule"]
+    },
+    {
+      "id": "u-3",
+      "author": {
+        "name": "Sarah Smith",
+        "avatar": "/assets/images/female.png",
+        "role": "Property management"
+      },
+      "postedAt": "Yesterday",
+      "postText": "Quarterly meeting notes are available as a PDF.",
+      "attachments": [
+        {
+          "type": "file",
+          "url": "/previews/invoice1.pdf",
+          "thumbnail": null,
+          "title": "Q2 Meeting Notes"
+        }
+      ],
+      "actions": ["edit", "schedule"]
+    },
+
+    {
+      "id": "u-4",
+      "author": {
+        "name": "Mark Lee",
+        "avatar": "/assets/images/male_2.png",
+        "role": "Facility management"
+      },
+      "postedAt": "Today",
+      "postText": "HVAC filter replacements scheduled for tomorrow 8–11am on floors 6–9.",
+      "attachments": [],
+      "actions": ["edit", "schedule"]
+    },
+    {
+      "id": "u-5",
+      "author": {
+        "name": "Omar Khan",
+        "avatar": "/assets/images/male_3.png",
+        "role": "Security"
+      },
+      "postedAt": "2 hrs ago",
+      "postText": "Access control firmware updated. Visitor QR codes now expire after 24 hours.",
+      "attachments": [],
+      "actions": ["edit", "schedule"]
+    },
+    {
+      "id": "u-6",
+      "author": {
+        "name": "Lina Park",
+        "avatar": "/assets/images/female.png",
+        "role": "Facility management"
+      },
+      "postedAt": "Today",
+      "postText": "Podium lights replaced with LEDs. Estimated 18% energy savings.",
+      "attachments": [
+        {
+          "type": "image",
+          "url": "https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?auto=format&fit=crop&w=1200&q=80",
+          "thumbnail": null,
+          "title": "New LED fixtures"
+        }
+      ],
+      "actions": ["edit", "schedule"]
+    },
+    {
+      "id": "u-7",
+      "author": {
+        "name": "John Doe",
+        "avatar": "/assets/images/male.png",
+        "role": "Facility management"
+      },
+      "postedAt": "Yesterday",
+      "postText": "Gym treadmill #3 belt tightened and calibrated. Ready for use.",
+      "attachments": [],
+      "actions": ["edit", "schedule"]
+    },
+    {
+      "id": "u-8",
+      "author": {
+        "name": "Sarah Smith",
+        "avatar": "/assets/images/female.png",
+        "role": "Property management"
+      },
+      "postedAt": "Yesterday",
+      "postText": "Service provider performance review uploaded to the portal.",
+      "attachments": [
+        {
+          "type": "file",
+          "url": "/previews/invoice3.png",
+          "thumbnail": null,
+          "title": "Q2 Performance Review"
+        }
+      ],
+      "actions": ["edit", "schedule"]
+    },
+    {
+      "id": "u-9",
+      "author": {
+        "name": "Jane Doe",
+        "avatar": "/assets/images/male.png",
+        "role": "Community manager"
+      },
+      "postedAt": "2 days ago",
+      "postText": "Movie night poll is live – vote by Friday!",
+      "attachments": [
+        {
+          "type": "link",
+          "url": "https://example.com/community-poll",
+          "thumbnail": null,
+          "title": "Vote here"
+        }
+      ],
+      "actions": ["edit", "schedule"]
+    },
+    {
+      "id": "u-10",
+      "author": {
+        "name": "Mark Lee",
+        "avatar": "/assets/images/male_2.png",
+        "role": "Facility management"
+      },
+      "postedAt": "3 days ago",
+      "postText": "Irrigation timer adjusted for cooler evenings. Report any dry patches via the app.",
+      "attachments": [],
+      "actions": ["edit", "schedule"]
+    },
+    {
+      "id": "u-11",
+      "author": {
+        "name": "Omar Khan",
+        "avatar": "/assets/images/male_3.png",
+        "role": "Security"
+      },
+      "postedAt": "4 days ago",
+      "postText": "Fire alarm testing finished on all floors. Minor issues logged for B2 corridor speakers.",
+      "attachments": [],
+      "actions": ["edit", "schedule"]
+    },
+    {
+      "id": "u-12",
+      "author": {
+        "name": "Lina Park",
+        "avatar": "/assets/images/female.png",
+        "role": "Facility management"
+      },
+      "postedAt": "5 days ago",
+      "postText": "Waste compactor serviced. Next service due in 3 months.",
+      "attachments": [],
+      "actions": ["edit", "schedule"]
+    }
+  ],
+
+  "operationsTransactions": [
+    {
+      "id": "op-1",
+      "date": "Jan 22",
+      "headline": "Apparent ready to be rented",
+      "description": "Final snagging completed. Listing to go live this week.",
+      "tags": [
+        {
+          "type": "property_management",
+          "label": "PROPERTY MANAGEMENT",
+          "icon": "property"
+        },
+        { "type": "tenant", "label": "TENANT", "icon": "tenant" }
+      ]
+    },
+    {
+      "id": "op-2",
+      "date": "Dec 12",
+      "headline": "Tenant is ready to move",
+      "description": "Move-in inspection scheduled and access cards prepared.",
+      "tags": [
+        { "type": "tenant", "label": "TENANT", "icon": "tenant" },
+        {
+          "type": "property_management",
+          "label": "PROPERTY MANAGEMENT",
+          "icon": "property"
+        }
+      ]
+    },
+    {
+      "id": "op-3",
+      "date": "Nov 18",
+      "headline": "Maintenance",
+      "description": "Chiller pump preventive maintenance finished successfully.",
+      "tags": [
+        {
+          "type": "facility_management",
+          "label": "FACILITY MANAGEMENT",
+          "icon": "facility"
+        }
+      ]
+    },
+    {
+      "id": "op-4",
+      "date": "Nov 4",
+      "headline": "First check deposited",
+      "description": "Rent deposit received via bank check, acknowledged by accounts.",
+      "tags": [
+        {
+          "type": "property_management",
+          "label": "PROPERTY MANAGEMENT",
+          "icon": "property"
+        },
+        { "type": "bank_check", "label": "BANK CHECK", "icon": "check" },
+        { "type": "lawyer", "label": "LAWYER", "icon": "lawyer" }
+      ]
+    },
+    {
+      "id": "op-5",
+      "date": "Oct 28",
+      "headline": "First check bounced",
+      "description": "Bank reported a bounced check. Legal follow-up initiated.",
+      "tags": [
+        {
+          "type": "property_management",
+          "label": "PROPERTY MANAGEMENT",
+          "icon": "property"
+        },
+        {
+          "type": "services_charges",
+          "label": "SERVICES CHARGES",
+          "icon": "charges"
+        },
+        { "type": "bank_check", "label": "BANK CHECK", "icon": "check" },
+        { "type": "court", "label": "COURT", "icon": "court" }
+      ]
+    },
+    {
+      "id": "op-6",
+      "date": "Mar 28",
+      "headline": "Token transaction",
+      "description": "Investor token transfer recorded on-chain.",
+      "tags": [
+        {
+          "type": "alphased_fees",
+          "label": "ALPHASED FEES",
+          "icon": "alphaseed"
+        },
+        {
+          "type": "property_management",
+          "label": "PROPERTY MANAGEMENT",
+          "icon": "property"
+        }
+      ]
+    },
+
+    {
+      "id": "op-7",
+      "date": "Mar 10",
+      "headline": "Water tank cleaning",
+      "description": "Both tanks disinfected and refilled. Lab tests within normal range.",
+      "tags": [
+        {
+          "type": "facility_management",
+          "label": "FACILITY MANAGEMENT",
+          "icon": "facility"
+        }
+      ]
+    },
+    {
+      "id": "op-8",
+      "date": "Apr 14",
+      "headline": "Tenant complaint resolved",
+      "description": "Noise issue addressed; quiet hours reminder circulated to residents.",
+      "tags": [
+        { "type": "tenant", "label": "TENANT", "icon": "tenant" },
+        {
+          "type": "property_management",
+          "label": "PROPERTY MANAGEMENT",
+          "icon": "property"
+        }
+      ]
+    },
+    {
+      "id": "op-9",
+      "date": "Apr 30",
+      "headline": "Gym equipment service",
+      "description": "Treadmills and bikes lubricated and calibrated.",
+      "tags": [
+        {
+          "type": "facility_management",
+          "label": "FACILITY MANAGEMENT",
+          "icon": "facility"
+        }
+      ]
+    },
+    {
+      "id": "op-10",
+      "date": "May 08",
+      "headline": "Token distribution",
+      "description": "Monthly investor dividends distributed on-chain.",
+      "tags": [
+        {
+          "type": "alphased_fees",
+          "label": "ALPHASED FEES",
+          "icon": "alphaseed"
+        },
+        {
+          "type": "property_management",
+          "label": "PROPERTY MANAGEMENT",
+          "icon": "property"
+        }
+      ]
+    },
+    {
+      "id": "op-11",
+      "date": "May 22",
+      "headline": "Common area repainting",
+      "description": "Level 3 corridors repainted; level 4 scheduled next week.",
+      "tags": [
+        {
+          "type": "facility_management",
+          "label": "FACILITY MANAGEMENT",
+          "icon": "facility"
+        }
+      ]
+    },
+    {
+      "id": "op-12",
+      "date": "Jun 29",
+      "headline": "Legal review completed",
+      "description": "Updated addendum reviewed by legal. No remarks.",
+      "tags": [
+        { "type": "lawyer", "label": "LAWYER", "icon": "lawyer" },
+        {
+          "type": "property_management",
+          "label": "PROPERTY MANAGEMENT",
+          "icon": "property"
+        }
+      ]
+    }
+  ]
+}
