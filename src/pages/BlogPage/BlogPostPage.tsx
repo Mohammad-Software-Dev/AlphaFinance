@@ -124,7 +124,7 @@ const BlogPostPage: React.FC = () => {
   return (
     <>
       <button
-        className="fixed bottom-6 right-6 z-60 lg:hidden bg-white border border-light-silver text-black p-3 rounded-full shadow-lg flex items-center justify-center"
+        className="fixed bottom-6 right-6 z-60 lg:hidden ui-surface border ui-border-subtle ui-text-primary p-3 rounded-full shadow-lg flex items-center justify-center focus-ring"
         onClick={() => setFiltersOpen((open) => !open)}
         aria-label={filtersOpen ? "Close filters" : "Open filters"}
       >
@@ -156,7 +156,8 @@ const BlogPostPage: React.FC = () => {
       <BlogLayout>
         <div className="flex flex-col lg:flex-row gap-y-8 lg:gap-x-8 w-full px-3 lg:px-0">
           {filtersOpen && (
-            <div
+            <button
+              type="button"
               className="fixed inset-0 z-50 lg:hidden bg-black/30"
               onClick={() => setFiltersOpen(false)}
               aria-label="Close filters"
@@ -165,24 +166,24 @@ const BlogPostPage: React.FC = () => {
 
           <aside
             className={`
-              w-3/5 max-w-[420px] lg:w-4/12 lg:w-3/11
+              w-[85vw] max-w-[420px] lg:w-4/12
               space-y-8 order-2 lg:order-1
-              fixed top-0 left-0 z-50 h-full bg-white
+              fixed top-0 left-0 z-50 h-full ui-surface
               rounded-tr-2xl rounded-br-2xl
-              shadow-2xl border-r border-gray-100
+              shadow-2xl border-r ui-border-subtle
               transition-transform duration-300
               ${filtersOpen ? "translate-x-0" : "-translate-x-full"}
               lg:static lg:translate-x-0 lg:h-auto lg:bg-transparent lg:shadow-none lg:rounded-none lg:border-none
             `}
           >
-            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 lg:hidden">
-              <h3 className="text-lg font-semibold text-gray-900">Filters</h3>
+            <div className="flex items-center justify-between px-6 py-4 border-b ui-border-subtle lg:hidden">
+              <h3 className="text-lg font-semibold ui-text-primary">Filters</h3>
               <button
-                className="p-2 rounded-full hover:bg-gray-100 focus:outline-none"
+                className="p-2 rounded-full hover:ui-surface-subtle focus-ring"
                 onClick={() => setFiltersOpen(false)}
                 aria-label="Close filters"
               >
-                <svg className="w-6 h-6 text-dim-gray" fill="none" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 ui-text-muted" fill="none" viewBox="0 0 24 24">
                   <path
                     d="M6 6l12 12M6 18L18 6"
                     stroke="currentColor"
@@ -195,25 +196,26 @@ const BlogPostPage: React.FC = () => {
 
             <div className="px-6 pt-3 pb-6 lg:px-0 lg:pt-0 lg:pb-0 space-y-7 overflow-y-auto h-[calc(100vh-64px)] lg:h-auto">
               <section className="space-y-2">
-                <h5 className="text-xs font-semibold text-gray-900">Filter By</h5>
-                <div className="divide-y divide-gray-200">
+                <h5 className="text-xs font-semibold ui-text-primary">Filter By</h5>
+                <div className="divide-y ui-divider">
                   {FILTERS.map((f) => (
-                    <div
+                    <button
+                      type="button"
                       key={f}
                       onClick={() => setActiveFilter(f)}
                       className={`
-                        flex items-center gap-2 py-2 cursor-pointer select-none
+                        w-full text-left flex items-center gap-2 py-2 select-none focus-ring bg-transparent border-0
                         transition
                         ${
                           activeFilter === f
-                            ? "font-bold text-gray-900"
-                            : "text-dim-gray hover:text-gray-900"
+                            ? "font-bold ui-text-primary"
+                            : "ui-text-muted hover:ui-text-primary"
                         }
                       `}
                     >
-                      <BulletRightArrowIcon className="w-5 h-5 text-gray-400" />
+                      <BulletRightArrowIcon className="w-5 h-5 ui-text-muted" />
                       <span className="text-sm">{f}</span>
-                    </div>
+                    </button>
                   ))}
                 </div>
               </section>
@@ -222,37 +224,38 @@ const BlogPostPage: React.FC = () => {
                 <h5 className="text-sm font-medium text-dim-gray">Recommended Topic</h5>
                 <div className="flex flex-wrap gap-2">
                   {RECOMMENDED_TOPICS.map((topic) => (
-                    <span
+                    <button
+                      type="button"
                       key={topic}
                       onClick={() => setActiveTopic(topic)}
                       className={`
-                        cursor-pointer select-none
+                        select-none focus-ring bg-transparent
                         px-3 py-1 text-xs font-normal rounded-full
-                        bg-color-white-smoke border
+                        ui-surface-subtle border
                         ${
                           activeTopic === topic
-                            ? "border-black text-gray-900 font-semibold"
-                            : "border-color-white-smoke text-dim-gray"
+                            ? "border-brand ui-text-primary font-semibold"
+                            : "ui-border-subtle ui-text-muted"
                         }
                       `}
                     >
                       {topic}
-                    </span>
+                    </button>
                   ))}
                 </div>
               </section>
 
               <section className="space-y-4">
-                <div className="flex gap-8 border-b border-gray-200">
+                <div className="flex gap-8 border-b ui-border-subtle">
                   {(["Following", "Recommended"] as Tab[]).map((t) => (
                     <button
                       key={t}
                       onClick={() => setActiveTab(t)}
                       className={`
-                        pb-2 text-sm
+                        pb-2 text-sm focus-ring
                         ${
                           activeTab === t
-                            ? "text-gray-900 border-b-2 border-[var(--color-brand)]"
+                            ? "ui-text-primary border-b-2 border-[var(--color-brand)]"
                             : "text-dim-gray"
                         }
                       `}
@@ -276,10 +279,10 @@ const BlogPostPage: React.FC = () => {
                         />
                       </div>
                       <div>
-                        <h6 className="text-sm font-normal text-gray-900 leading-snug">
+                        <h6 className="text-sm font-normal ui-text-primary leading-snug">
                           {item.title}
                         </h6>
-                        <p className="mt-1 text-xs text-dim-gray line-clamp-2">
+                        <p className="mt-1 text-xs ui-text-muted line-clamp-2">
                           {item.excerpt}
                         </p>
                       </div>
@@ -290,13 +293,13 @@ const BlogPostPage: React.FC = () => {
             </div>
           </aside>
 
-          <section className="order-1 lg:order-2 w-full lg:w-8/12 lg:w-8/11">
+          <section className="order-1 lg:order-2 w-full lg:w-8/12">
             {post ? (
               <SinglePost post={toSinglePost(post)} />
             ) : (
               <div className="py-12 px-2">
                 <h2 className="text-2xl font-semibold mb-2">Post not found</h2>
-                <p className="text-dim-gray mb-4">
+                <p className="ui-text-muted mb-4">
                   This blog article does not exist in the demo dataset.
                 </p>
                 <Link to="/blog" className="underline text-brand">

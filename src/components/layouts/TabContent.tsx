@@ -1,4 +1,6 @@
 import React, { useRef, useEffect } from "react";
+import InlineNotBuiltYet from "../common/InlineNotBuiltYet";
+import type { TabKey } from "./tabTypes";
 
 import PropertyInfoTab from "../realEstate/tabs/PropertyInfoTab";
 import FinancialTab from "../realEstate/tabs/FinancialTab";
@@ -9,7 +11,9 @@ import ReachUs from "../realEstate/tabs/ReachUsTab";
 import Transactions from "../profile/tabs/Transactions";
 import Profile from "../profile/tabs/Profile";
 import Settings from "../profile/tabs/Settings";
-import Ballance from "../wallet/tabs/Ballance";
+import Identification from "../profile/tabs/Identification";
+import Security from "../profile/tabs/Security";
+import Balance from "../wallet/tabs/Balance";
 import Portfolio from "../wallet/tabs/Portfolio";
 import Transfer from "../wallet/tabs/Transfer";
 import Bank from "../wallet/tabs/Bank";
@@ -17,10 +21,10 @@ import CalculatorTab from "../realEstate/tabs/CalculatorTab";
 import DocumentsTab from "../realEstate/tabs/DocumentsTab";
 
 interface Props {
-  tab: string;
+  tab: TabKey | string;
 }
 
-const TAB_COMPONENTS: Record<string, React.ComponentType> = {
+const TAB_COMPONENTS: Record<TabKey, React.ComponentType> = {
   asset: RealEstateTab,
   info: PropertyInfoTab,
   financial: FinancialTab,
@@ -31,7 +35,9 @@ const TAB_COMPONENTS: Record<string, React.ComponentType> = {
   profile: Profile,
   transactions: Transactions,
   settings: Settings,
-  ballance: Ballance,
+  identification: Identification,
+  security: Security,
+  balance: Balance,
   wallet_portfolio: Portfolio,
   transfer: Transfer,
   bank: Bank,
@@ -42,12 +48,11 @@ const TabContent: React.FC<Props> = ({ tab }) => {
 
   useEffect(() => {
     if (topRef.current) {
-      const y = window.scrollY;
-      window.scrollTo({ top: y, behavior: "smooth" });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }, [tab]);
 
-  const TabComponent = TAB_COMPONENTS[tab];
+  const TabComponent = TAB_COMPONENTS[tab as TabKey];
 
   if (TabComponent) {
     return (
@@ -58,12 +63,8 @@ const TabContent: React.FC<Props> = ({ tab }) => {
   }
 
   return (
-    <div ref={topRef} className="flex items-start gap-12 mt-8">
-      <div className="flex-1 min-h-[400px] flex items-center justify-center">
-        <span className="text-dark-silver">
-          Content for "{tab}" tab coming soon...
-        </span>
-      </div>
+    <div ref={topRef} className="mt-8">
+      <InlineNotBuiltYet />
     </div>
   );
 };

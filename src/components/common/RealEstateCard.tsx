@@ -28,8 +28,8 @@ const RealEstateCard: React.FC<RealEstateCardProps> = ({
   image = sampleProperty,
 }) => {
   return (
-    <Link to={`/real-estate/${code}`}>
-      <div className="pt-1 flex flex-col  h-fit w-fit gap-3 md:gap-3  bg-white overflow-hidden transition-transform duration-200 hover:-translate-y-1 min-w-[220px]">
+    <Link to={`/real-estate/${code}`} className="focus-ring rounded-sm">
+      <div className="pt-1 flex flex-col h-fit w-fit gap-3 md:gap-3 ui-surface overflow-hidden transition-transform duration-200 hover:-translate-y-1 min-w-[220px]">
         {/* Image */}
         <div className="relative w-full">
           <img

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Switch from "@mui/material/Switch";
 import { styled } from "@mui/material/styles";
 import type { SwitchProps } from "@mui/material/Switch";
+import { Button } from "../../common/Button";
 
 const IOSSwitch = styled((props: SwitchProps) => (
   <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
@@ -97,10 +98,26 @@ const initialSettings: Record<SettingKey, boolean> = {
 };
 
 const PlatformEditPanel: React.FC = () => {
+  const [savedSettings, setSavedSettings] = useState(initialSettings);
   const [settings, setSettings] = useState(initialSettings);
+  const [status, setStatus] = useState<string | null>(null);
+  const hasChanges =
+    JSON.stringify(settings) !== JSON.stringify(savedSettings);
 
-  const toggle = (key: SettingKey) =>
+  const toggle = (key: SettingKey) => {
+    setStatus(null);
     setSettings((prev) => ({ ...prev, [key]: !prev[key] }));
+  };
+
+  const handleCancel = () => {
+    setSettings(savedSettings);
+    setStatus("Changes discarded.");
+  };
+
+  const handleSave = () => {
+    setSavedSettings(settings);
+    setStatus("Platform settings saved.");
+  };
 
   const renderSwitchRow = (
     key: SettingKey,
@@ -166,7 +183,15 @@ const PlatformEditPanel: React.FC = () => {
           )}
         </div>
       </div>
-      {/* Buttons can be added here if needed */}
+      {status && <p className="text-sm text-brand mt-4">{status}</p>}
+      <div className="flex gap-3 justify-end mt-8">
+        <Button variant="secondary" onClick={handleCancel} disabled={!hasChanges}>
+          Cancel
+        </Button>
+        <Button variant="primary" onClick={handleSave} disabled={!hasChanges}>
+          Save
+        </Button>
+      </div>
     </section>
   );
 };

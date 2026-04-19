@@ -30,7 +30,7 @@ const TextInput: React.FC<TextInputProps> = ({
       {label && (
         <label
           htmlFor={id}
-          className="block text-dim-gray text-sm md:text-base mb-1 py-1"
+          className="block ui-text-muted text-sm md:text-base mb-1 py-1"
         >
           {label}
         </label>
@@ -44,8 +44,8 @@ const TextInput: React.FC<TextInputProps> = ({
           value={value}
           onChange={onChange}
           className={`
-            w-full border-b-[1px] border-light-silver placeholder:text-dark-silver text-sm md:text-base px-2
-            focus:outline-none focus:border-black
+            text-input w-full border-b-[1px] ui-border-subtle placeholder:text-dark-silver ui-text-primary text-sm md:text-base px-2 bg-transparent
+            focus:outline-none focus:border-[var(--focus-ring)]
             ${rightIcon ? "pr-10" : ""}
             ${error ? "error" : ""}
           `}

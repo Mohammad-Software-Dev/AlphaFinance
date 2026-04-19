@@ -5,7 +5,7 @@ const DividendsChart = React.lazy(
 const StatChart = React.lazy(() => import("../realEstate/Financial/StatChart"));
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import Loader from "../../../components/Loader";
+import Loader from "../common/Loader";
 import DateInput from "../common/DateInput";
 
 const priceData = [62, 74, 93, 108, 120, 110, 97, 101, 105, 112, 120, 132];

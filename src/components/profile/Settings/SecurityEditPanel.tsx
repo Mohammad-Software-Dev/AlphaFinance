@@ -86,14 +86,31 @@ const initialRows: SecurityRow[] = [
 ];
 
 const SecurityEditPanel: React.FC = () => {
+  const [savedRows, setSavedRows] = useState<SecurityRow[]>(initialRows);
   const [rows, setRows] = useState<SecurityRow[]>(initialRows);
+  const [status, setStatus] = useState<string | null>(null);
+
+  const hasChanges =
+    JSON.stringify(rows.map((r) => r.enabled)) !==
+    JSON.stringify(savedRows.map((r) => r.enabled));
 
   const handleSwitch = (rowKey: string) => {
+    setStatus(null);
     setRows((prev) =>
       prev.map((row) =>
         row.key === rowKey ? { ...row, enabled: !row.enabled } : row
       )
     );
+  };
+
+  const handleCancel = () => {
+    setRows(savedRows);
+    setStatus("Changes discarded.");
+  };
+
+  const handleSave = () => {
+    setSavedRows(rows);
+    setStatus("Security settings saved.");
   };
 
   return (
@@ -124,10 +141,15 @@ const SecurityEditPanel: React.FC = () => {
           </div>
         ))}
       </div>
+      {status && <p className="text-sm text-brand mt-4">{status}</p>}
       {/* Buttons */}
       <div className="flex gap-3 justify-end mt-8">
-        <Button variant="secondary">Cancel</Button>
-        <Button variant="primary">Save</Button>
+        <Button variant="secondary" onClick={handleCancel} disabled={!hasChanges}>
+          Cancel
+        </Button>
+        <Button variant="primary" onClick={handleSave} disabled={!hasChanges}>
+          Save
+        </Button>
       </div>
     </div>
   );

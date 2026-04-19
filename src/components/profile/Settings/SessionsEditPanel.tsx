@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PcIcon from "../../../assets/icons/pc.svg?react";
 import MobileIcon from "../../../assets/icons/mobile.svg?react";
 import { Button } from "../../common/Button";
@@ -34,6 +34,35 @@ const sessions = [
 ];
 
 const SessionsEditPanel: React.FC = () => {
+  const [savedSessions, setSavedSessions] = useState(sessions);
+  const [rows, setRows] = useState(sessions);
+  const [status, setStatus] = useState<string | null>(null);
+  const [expandedKey, setExpandedKey] = useState<string | null>(null);
+
+  const hasChanges = JSON.stringify(rows) !== JSON.stringify(savedSessions);
+
+  const handleEndSession = (key: string) => {
+    setStatus(null);
+    setRows((prev) =>
+      prev.map((session) =>
+        session.key === key
+          ? { ...session, status: "ENDED", info: "Session ended just now" }
+          : session
+      )
+    );
+  };
+
+  const handleCancel = () => {
+    setRows(savedSessions);
+    setExpandedKey(null);
+    setStatus("Changes discarded.");
+  };
+
+  const handleSave = () => {
+    setSavedSessions(rows);
+    setStatus("Session updates saved.");
+  };
+
   return (
     <div className="">
       <h4 className="md:text-lg text-base mb-6 font-semibold md:font-normal">
@@ -44,11 +73,11 @@ const SessionsEditPanel: React.FC = () => {
         those that you do not recognize.
       </div>
       <div className="flex flex-col">
-        {sessions.map((session, idx) => (
+        {rows.map((session, idx) => (
           <div
             key={session.key}
             className={`flex flex-col md:flex-row items-start md:items-center  justify-between py-4 border-b border-light-silver ${
-              idx === sessions.length - 1 ? "last:border-b-0" : ""
+              idx === rows.length - 1 ? "last:border-b-0" : ""
             }`}
           >
             <div className="flex flex-1 w-full">
@@ -66,7 +95,7 @@ const SessionsEditPanel: React.FC = () => {
                     {session.status && (
                       <span
                         className={`text-xs font-medium  px-3 py-1   text-black  mr-4
-                  ${session.status == "ACTIVE" ? "text-verified-green" : ""}`}
+                  ${session.status === "ACTIVE" ? "text-verified-green" : "ui-text-muted"}`}
                       >
                         {session.status}
                       </span>
@@ -81,8 +110,16 @@ const SessionsEditPanel: React.FC = () => {
                   </span>
                   {session.showMore && (
                     <div className=" items-center">
-                      <Button className="text-sm" variant="link">
-                        See More
+                      <Button
+                        className="text-sm"
+                        variant="link"
+                        onClick={() =>
+                          setExpandedKey((prev) =>
+                            prev === session.key ? null : session.key
+                          )
+                        }
+                      >
+                        {expandedKey === session.key ? "Hide" : "See More"}
                       </Button>
                     </div>
                   )}
@@ -96,13 +133,41 @@ const SessionsEditPanel: React.FC = () => {
                 </span>
                 {session.showMore && (
                   <div className=" items-center">
-                    <Button variant="link">See More</Button>
+                    <Button
+                      variant="link"
+                      onClick={() =>
+                        setExpandedKey((prev) =>
+                          prev === session.key ? null : session.key
+                        )
+                      }
+                    >
+                      {expandedKey === session.key ? "Hide" : "See More"}
+                    </Button>
                   </div>
+                )}
+                {session.status !== "ENDED" && (
+                  <Button variant="secondary" onClick={() => handleEndSession(session.key)}>
+                    End Session
+                  </Button>
                 )}
               </div>
             </div>
+            {expandedKey === session.key && (
+              <div className="w-full mt-3 text-sm ui-text-muted">
+                Session details: device tracking is simulated in demo mode.
+              </div>
+            )}
           </div>
         ))}
+      </div>
+      {status && <p className="text-sm text-brand mt-4">{status}</p>}
+      <div className="flex gap-3 justify-end mt-8">
+        <Button variant="secondary" onClick={handleCancel} disabled={!hasChanges}>
+          Cancel
+        </Button>
+        <Button variant="primary" onClick={handleSave} disabled={!hasChanges}>
+          Save
+        </Button>
       </div>
     </div>
   );

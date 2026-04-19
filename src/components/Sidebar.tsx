@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Switch from "@mui/material/Switch";
 import type { SwitchProps } from "@mui/material/Switch";
 import { styled } from "@mui/material/styles";
@@ -102,6 +102,11 @@ const Sidebar: React.FC<SidebarProps> = ({
   toggleEnabled = false,
 }) => {
   const [enabled, setEnabled] = useState(toggleEnabled);
+
+  useEffect(() => {
+    setEnabled(toggleEnabled);
+  }, [toggleEnabled]);
+
   const handleSwitch = (
     _: React.ChangeEvent<HTMLInputElement>,
     checked: boolean
@@ -115,30 +120,30 @@ const Sidebar: React.FC<SidebarProps> = ({
   return (
     <nav
       className="
-        bg-white
-        border-[1px] border-light-silver
-        w-fit
+        ui-surface
+        border-[1px] ui-border-subtle
+        w-[64px]
         flex flex-col justify-start
         relative overflow-visible  
         h-screen
-        min-h-fit max-h-[700px] 
+        min-h-fit max-h-[calc(100vh-64px)]
         rounded-sm
 
       "
     >
-      <Tooltip message="Alphaseed">
+      <Tooltip message="AlphaFinance">
         <Link
           to="/dashboard"
-          className="text-brand text-bold bg-alabaster border-b-[1px] border-light-silver rounded-t-sm p-3 flex justify-center "
+          className="w-full min-h-[64px] text-brand text-bold ui-surface-muted border-b-[1px] ui-border-subtle rounded-t-sm flex items-center justify-center focus-ring"
           aria-label="Home"
           aria-current={location.pathname === "/dashboard" ? "page" : undefined}
         >
-          AS
+          AF
           {/* <HomeLottieIcon active={location.pathname === "/dashboard"} /> */}
         </Link>
       </Tooltip>
       <div className=" lg:flex-1 py-3 flex flex-col items-center space-y-3">
-        <span className="text-[8px] font-medium uppercase text-dim-gray px-2">
+        <span className="text-[8px] font-medium uppercase ui-text-muted px-2">
           Main
         </span>
 
@@ -152,8 +157,8 @@ const Sidebar: React.FC<SidebarProps> = ({
                 aria-label={label}
                 className={`
                   
-                p-2 rounded-sm flex
-                ${isActive ? "bg-light-silver/50" : "hover:bg-light-silver/50"}
+                p-2 rounded-sm flex focus-ring
+                ${isActive ? "ui-surface-subtle" : "hover:ui-surface-subtle"}
               `}
                 aria-current={isActive ? "page" : undefined}
               >
@@ -163,7 +168,7 @@ const Sidebar: React.FC<SidebarProps> = ({
           );
         })}
 
-        <span className="text-[8px] px-2 font-medium uppercase text-dim-gray mt-6">
+        <span className="text-[8px] px-2 font-medium uppercase ui-text-muted mt-6">
           Settings
         </span>
 
@@ -178,8 +183,8 @@ const Sidebar: React.FC<SidebarProps> = ({
                 aria-current={isActive ? "page" : undefined}
                 className={`
               
-                p-2 rounded-sm flex
-                ${isActive ? "bg-light-silver/50" : "hover:bg-light-silver/50"}
+                p-2 rounded-sm flex focus-ring
+                ${isActive ? "ui-surface-subtle" : "hover:ui-surface-subtle"}
               `}
               >
                 <Icon className="w-[20px] h-[20px]" />
@@ -189,7 +194,7 @@ const Sidebar: React.FC<SidebarProps> = ({
         })}
       </div>
 
-      <div className="bg-alabaster border-t-[1px] border-light-silver p-2 flex justify-center rounded-b-sm">
+      <div className="ui-surface-muted border-t-[1px] ui-border-subtle p-2 flex justify-center rounded-b-sm">
         <Tooltip message="Dark / Light Mode">
           <IOSSwitch checked={enabled} onChange={handleSwitch} />
         </Tooltip>

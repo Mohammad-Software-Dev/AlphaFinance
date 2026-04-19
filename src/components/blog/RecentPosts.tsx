@@ -12,7 +12,7 @@ export default function RecentPosts({ data }: { data: RecentPostsModel }) {
 
   return (
     <section className="space-y-3">
-      <h3 className="text-gray-900 text-xl lg:text-2xl font-semibold">
+      <h3 className="ui-text-primary text-xl lg:text-2xl font-semibold">
         {data.title}
       </h3>
 
@@ -22,7 +22,7 @@ export default function RecentPosts({ data }: { data: RecentPostsModel }) {
           <article className="flex flex-col transition-transform duration-200 hover:-translate-y-1">
             <img
               src={resolveImage(featured.image)}
-              alt=""
+              alt={featured.title}
               className="w-full h-full object-cover rounded-sm"
             />
             <div className="py-6 flex flex-col space-y-2">
@@ -57,7 +57,7 @@ export default function RecentPosts({ data }: { data: RecentPostsModel }) {
                 <div className="max-w-1/2 min-w-1/2">
                   <img
                     src={resolveImage(post.image)}
-                    alt=""
+                    alt={post.title}
                     className="w-full h-full object-cover rounded-sm"
                   />
                 </div>
@@ -100,10 +100,10 @@ export default function RecentPosts({ data }: { data: RecentPostsModel }) {
         >
           {allPosts.map((post) => (
             <SwiperSlide key={post.id}>
-              <article className="bg-white flex flex-col">
+              <article className="ui-surface flex flex-col">
                 <img
                   src={resolveImage(post.image)}
-                  alt=""
+                  alt={post.title}
                   className="w-full h-52 object-cover rounded-sm"
                 />
                 <div className="my-4 flex flex-col space-y-2">
@@ -111,13 +111,13 @@ export default function RecentPosts({ data }: { data: RecentPostsModel }) {
                     {post.author} • {post.publishedAt}
                   </p>
                   <div className="flex items-center justify-between">
-                    <h3 className="text-gray-900 text-lg font-semibold">
+                    <h3 className="ui-text-primary text-lg font-semibold">
                       {post.title}
                     </h3>
                     <Link
                       to={`/blog/${post.id}`}
                       aria-label="Read more"
-                      className="p-1 rounded hover:bg-[var(--color-white-smoke)] transition"
+                      className="p-1 rounded hover:bg-ghost-white transition focus-ring"
                     >
                       <ArrowIcon className="w-6 h-6 text-dim-gray" />
                     </Link>

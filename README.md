@@ -1,6 +1,6 @@
-# AlphaSeed Frontend (Demo Mode)
+# AlphaFinance Frontend (Demo Mode)
 
-React + TypeScript + Vite demo application for the AlphaSeed product UI.
+React + TypeScript + Vite demo application for the AlphaFinance product UI.
 
 ## Demo Mode
 
@@ -57,6 +57,11 @@ npm run preview
 ```bash
 npm test
 ```
+
+`npm test` runs:
+- `scripts/demo-smoke-check.mjs`
+- `scripts/route-integrity-check.mjs`
+- `scripts/demo-journey-check.mjs`
 
 ## Routes
 

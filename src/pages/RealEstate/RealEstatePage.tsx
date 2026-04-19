@@ -1,8 +1,9 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import TabsLayout from "../../components/layouts/TabsLayout";
+import type { TabItem } from "../../components/layouts/tabTypes";
 
-const TAB_LIST = [
+const TAB_LIST: TabItem[] = [
   { label: "", value: "asset" },
   { label: "Property Info", value: "info" },
   { label: "Financial", value: "financial" },

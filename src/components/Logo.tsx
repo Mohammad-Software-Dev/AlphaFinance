@@ -12,7 +12,7 @@ const Logo: React.FC<LogoProps> = ({ small = false }) => {
         fontSize: small ? "30px" : "55px my-10",
       }}
     >
-      alphaseed
+      alphafinance
     </h1>
   );
 };

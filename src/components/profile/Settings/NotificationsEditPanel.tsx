@@ -88,14 +88,35 @@ const channelHeaders: { label: string; key: Channel }[] = [
 ];
 
 const NotificationsEditPanel: React.FC = () => {
+  const [savedRows, setSavedRows] = useState<NotificationRow[]>(initialRows);
   const [rows, setRows] = useState<NotificationRow[]>(initialRows);
+  const [status, setStatus] = useState<string | null>(null);
+
+  const hasChanges =
+    JSON.stringify(
+      rows.map((row) => ({ email: row.email, push: row.push, sms: row.sms }))
+    ) !==
+    JSON.stringify(
+      savedRows.map((row) => ({ email: row.email, push: row.push, sms: row.sms }))
+    );
 
   const handleSwitch = (rowKey: string, channel: Channel) => {
+    setStatus(null);
     setRows((prev) =>
       prev.map((row) =>
         row.key === rowKey ? { ...row, [channel]: !row[channel] } : row
       )
     );
+  };
+
+  const handleCancel = () => {
+    setRows(savedRows);
+    setStatus("Changes discarded.");
+  };
+
+  const handleSave = () => {
+    setSavedRows(rows);
+    setStatus("Notification settings saved.");
   };
 
   return (
@@ -166,11 +187,12 @@ const NotificationsEditPanel: React.FC = () => {
       </div>
 
       {/* Buttons */}
+      {status && <p className="text-sm text-brand mt-4">{status}</p>}
       <div className="flex gap-3 justify-end mt-8">
-        <Button size="sm" variant="secondary">
+        <Button size="sm" variant="secondary" onClick={handleCancel} disabled={!hasChanges}>
           Cancel
         </Button>
-        <Button size="sm" variant="primary">
+        <Button size="sm" variant="primary" onClick={handleSave} disabled={!hasChanges}>
           Save
         </Button>
       </div>

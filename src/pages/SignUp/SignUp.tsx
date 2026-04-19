@@ -126,7 +126,7 @@ const SignUp: React.FC = () => {
           Privacy Policy
         </a>
         . You also elect to receive updates, newsletters, and offers from
-        Alphaseed.
+        AlphaFinance.
       </p>
     </div>
   );

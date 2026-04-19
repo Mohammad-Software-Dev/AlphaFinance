@@ -30,13 +30,28 @@ const initialData: BasicInfoData = {
 };
 
 const BasicInfoEditPanel: React.FC = () => {
+  const [savedData, setSavedData] = useState<BasicInfoData>(initialData);
   const [data, setData] = useState<BasicInfoData>(initialData);
+  const [status, setStatus] = useState<string | null>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
+    setStatus(null);
     setData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const hasChanges = JSON.stringify(data) !== JSON.stringify(savedData);
+
+  const handleCancel = () => {
+    setData(savedData);
+    setStatus("Changes discarded.");
+  };
+
+  const handleSave = () => {
+    setSavedData(data);
+    setStatus("Basic info saved.");
   };
 
   return (
@@ -134,7 +149,7 @@ const BasicInfoEditPanel: React.FC = () => {
               name="language"
               label="Language"
               value={data.language}
-              onChange={() => handleChange}
+              onChange={handleChange}
             />
           </div>
           <div>
@@ -149,11 +164,14 @@ const BasicInfoEditPanel: React.FC = () => {
           </div>
         </div>
         {/* Buttons */}
+        {status && <p className="text-sm text-brand mt-3">{status}</p>}
         <div className="flex justify-end mt-8 gap-3">
-          <Button variant="secondary" disabled>
+          <Button variant="secondary" onClick={handleCancel} disabled={!hasChanges}>
             Cancel
           </Button>
-          <Button variant="primary">Save</Button>
+          <Button variant="primary" onClick={handleSave} disabled={!hasChanges}>
+            Save
+          </Button>
         </div>
       </div>
     </div>

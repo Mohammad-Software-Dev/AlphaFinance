@@ -1,13 +1,13 @@
 import React from "react";
 import GeneralLayout from "../../components/layouts/GeneralLayout";
 import HorizontalDivider from "../../components/common/HorizontalDivider";
-import StatCardsRow from "../../components/dashnoard/StatCardsRow";
+import StatCardsRow from "../../components/dashboard/StatCardsRow";
 import VerticalDivider from "../../components/common/VerticalDivider";
-import Instructions from "../../components/dashnoard/Instructions";
-import PortfolioCards from "../../components/dashnoard/PortfolioCards";
-import ReportsOverview from "../../components/dashnoard/ReportsOverview";
-import Trending from "../../components/dashnoard/Trending";
-import HotAssets from "../../components/dashnoard/HotAssets";
+import Instructions from "../../components/dashboard/Instructions";
+import PortfolioCards from "../../components/dashboard/PortfolioCards";
+import ReportsOverview from "../../components/dashboard/ReportsOverview";
+import Trending from "../../components/dashboard/Trending";
+import HotAssets from "../../components/dashboard/HotAssets";
 
 const Dashboard: React.FC = () => {
   return (

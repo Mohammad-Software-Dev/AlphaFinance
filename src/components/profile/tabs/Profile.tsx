@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ProfileInformation from "../ProfileInformation";
 
 import LogOverview from "../LogOverview";
@@ -6,27 +6,18 @@ import Projects from "../Projects";
 import LogIcon from "../../../assets/icons/logs.svg?react";
 import VerticalDivider from "../../common/VerticalDivider";
 import HorizontalDivider from "../../common/HorizontalDivider";
+import Modal from "../../common/Modal";
 
 const Profile: React.FC = () => {
   const [logOpen, setLogOpen] = useState(false);
-
-  useEffect(() => {
-    if (logOpen) {
-      document.body.classList.add("overflow-hidden");
-    } else {
-      document.body.classList.remove("overflow-hidden");
-    }
-    return () => {
-      document.body.classList.remove("overflow-hidden");
-    };
-  }, [logOpen]);
 
   return (
     <div className="flex flex-col md:flex-row  w-full relative">
       <div className="fixed right-2 bottom-2 z-20 md:hidden">
         <button
           onClick={() => setLogOpen(true)}
-          className="bg-brand rounded-full p-4 shadow hover:bg-brand-dark transition"
+          className="bg-brand rounded-full p-4 shadow transition focus-ring"
+          aria-label="Open activity logs"
         >
           <LogIcon className="w-7 h-7 " />
         </button>
@@ -47,24 +38,16 @@ const Profile: React.FC = () => {
       <div className="hidden md:block w-full md:w-1/3 mt-6 md:mt-0">
         <LogOverview />
       </div>
-      {/* LogOverview: mobile modal */}
-      {logOpen && (
-        <div className="fixed inset-0 bg-black/30 z-30 flex items-center justify-center md:hidden">
-          <div
-            className="bg-white w-[98vw] max-w-lg h-[90vh] rounded-2xl shadow-xl relative p-4 flex flex-col overflow-y-auto"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              className="absolute right-3 top-3 text-gray-500 hover:text-brand text-2xl font-bold"
-              onClick={() => setLogOpen(false)}
-              aria-label="Close LogOverview"
-            >
-              ×
-            </button>
-            <LogOverview />
-          </div>
-        </div>
-      )}
+      <div className="md:hidden">
+        <Modal
+          open={logOpen}
+          onClose={() => setLogOpen(false)}
+          className="w-[95vw] max-w-xl max-h-[90vh] overflow-y-auto p-4"
+          title="Activity logs"
+        >
+          <LogOverview />
+        </Modal>
+      </div>
     </div>
   );
 };

@@ -33,42 +33,42 @@ steps:
   # Stop the Azure App Service to prevent file locking
   - task: AzureCLI@2
     inputs:
-      azureSubscription: "AzureRM-alphaseedweb"
+      azureSubscription: "AzureRM-alphafinanceweb"
       scriptType: "bash"
       scriptLocation: "inlineScript"
       inlineScript: |
-        az webapp stop --name alphaseedweb --resource-group alphaseedinfo
-    displayName: "Stop Azure App Service (alphaseedweb)"
+        az webapp stop --name alphafinanceweb --resource-group alphafinanceinfo
+    displayName: "Stop Azure App Service (alphafinanceweb)"
 
   # Deploy to Azure App Service using ZipDeploy
   - task: AzureWebApp@1
     inputs:
-      azureSubscription: "AzureRM-alphaseedweb"
+      azureSubscription: "AzureRM-alphafinanceweb"
       appType: "webAppLinux"
-      appName: "alphaseedweb"
+      appName: "alphafinanceweb"
       package: "$(Build.ArtifactStagingDirectory)/app.zip"
       deploymentMethod: "zipDeploy"
-    displayName: "Deploy to Azure App Service (alphaseedweb)"
+    displayName: "Deploy to Azure App Service (alphafinanceweb)"
     env:
       SYSTEM_DEBUG: true
 
   # Start the Azure App Service
   - task: AzureCLI@2
     inputs:
-      azureSubscription: "AzureRM-alphaseedweb"
+      azureSubscription: "AzureRM-alphafinanceweb"
       scriptType: "bash"
       scriptLocation: "inlineScript"
       inlineScript: |
-        az webapp start --name alphaseedweb --resource-group alphaseedinfo
-    displayName: "Start Azure App Service (alphaseedweb)"
+        az webapp start --name alphafinanceweb --resource-group alphafinanceinfo
+    displayName: "Start Azure App Service (alphafinanceweb)"
 
   # Tail logs for debugging
   - task: AzureCLI@2
     inputs:
-      azureSubscription: "AzureRM-alphaseedweb"
+      azureSubscription: "AzureRM-alphafinanceweb"
       scriptType: "bash"
       scriptLocation: "inlineScript"
       inlineScript: |
-        az webapp log tail --name alphaseedweb --resource-group alphaseedinfo
+        az webapp log tail --name alphafinanceweb --resource-group alphafinanceinfo
     displayName: "Tail App Service logs"
     condition: succeededOrFailed()

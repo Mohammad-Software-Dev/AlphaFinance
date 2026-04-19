@@ -42,7 +42,7 @@ const TransactionRow: React.FC<{
       </div>
       <p
         className={`text-right text-sm md:text-base ${
-          isPositive ? "text-verified-green" : "text-black"
+          isPositive ? "text-verified-green" : "ui-text-primary"
         }`}
       >
         {amount}

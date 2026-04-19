@@ -1,6 +1,6 @@
 import React from "react";
 import AssetOverview from "../AssetOverview";
-import StatCard from "../../dashnoard/StatCard";
+import StatCard from "../../dashboard/StatCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import HorizontalDivider from "../../common/HorizontalDivider";
 import type {

@@ -5,7 +5,17 @@
     <meta charset="UTF-8" />
     <link rel="icon" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AlphaSeed</title>
+    <title>AlphaFinance</title>
+    <script>
+      (function () {
+        try {
+          const saved = localStorage.getItem("theme");
+          const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+          const useDark = saved ? saved === "dark" : prefersDark;
+          document.documentElement.setAttribute("data-theme", useDark ? "dark" : "light");
+        } catch (_) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

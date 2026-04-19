@@ -6,7 +6,7 @@ const Step8: React.FC = () => {
     "You work for a brokerage or FINRA registered firm",
     "Your family member is politically exposed person",
     "No, none apply",
-    "You work for or with Alphaseed",
+    "You work for or with AlphaFinance",
   ];
 
   return (

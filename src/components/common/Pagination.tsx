@@ -24,14 +24,15 @@ const Pagination: React.FC<PaginationProps> = ({
 
   return (
     <nav
-      className={`flex items-center justify-between py-4 border-t border-light-silver ${className}`}
+      className={`flex items-center justify-between py-4 border-t border-light-silver ui-divider ${className}`}
       aria-label="Pagination"
     >
       {/* Previous */}
       <button
+        type="button"
         onClick={() => onPageChange(Math.max(1, currentPage - 1))}
         disabled={currentPage === 1}
-        className="flex items-center gap-1 text-dim-gray hover:text-black disabled:opacity-50"
+        className="flex items-center gap-1 ui-text-muted hover:ui-text-primary disabled:opacity-50 focus-ring rounded-sm"
       >
         <LeftArrowIcon className=" h-full" />
         <span className="text-xs md:text-sm font-medium hidden sm:inline">
@@ -49,11 +50,12 @@ const Pagination: React.FC<PaginationProps> = ({
           ) : (
             <li key={item}>
               <button
+                type="button"
                 onClick={() => onPageChange(item as number)}
                 className={
                   item === currentPage
                     ? "w-8 h-8 text-xs md:text-sm  flex items-center justify-center rounded bg-brand-light/50 text-brand"
-                    : "w-8 h-8 text-xs md:text-sm  flex items-center justify-center rounded text-dim-gray hover:bg-light-silver"
+                    : "w-8 h-8 text-xs md:text-sm flex items-center justify-center rounded ui-text-muted hover:ui-surface-subtle focus-ring"
                 }
               >
                 {item}
@@ -64,15 +66,16 @@ const Pagination: React.FC<PaginationProps> = ({
       </ul>
 
       {/* Mobile: Compact display */}
-      <span className="block md:hidden text-sm text-dim-gray font-medium px-2">
+      <span className="block md:hidden text-sm ui-text-muted font-medium px-2">
         {currentPage} / {totalPages}
       </span>
 
       {/* Next */}
       <button
+        type="button"
         onClick={() => onPageChange(Math.min(totalPages, currentPage + 1))}
         disabled={currentPage === totalPages}
-        className="flex items-center gap-1 text-dim-gray hover:text-black disabled:opacity-50"
+        className="flex items-center gap-1 ui-text-muted hover:ui-text-primary disabled:opacity-50 focus-ring rounded-sm"
       >
         <span className="text-xs md:text-sm font-medium hidden sm:inline">
           Next

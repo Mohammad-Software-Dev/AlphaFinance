@@ -14,7 +14,7 @@ export const AllPosts: React.FC<{ data: AllPostsModel }> = ({ data }) => {
 
   return (
     <section className="space-y-6">
-      <h2 className="text-2xl lg:text-3xl font-semibold text-[var(--color-dark-blue)]">
+      <h2 className="text-2xl lg:text-3xl font-semibold ui-text-primary">
         {data.title}
       </h2>
 
@@ -24,6 +24,7 @@ export const AllPosts: React.FC<{ data: AllPostsModel }> = ({ data }) => {
             to={`/blog/${post.id}`}
             aria-label="Read more"
             key={`${post.id}-${idx}`}
+            className="focus-ring rounded-sm"
           >
             <article className="flex flex-col space-y-3 transition-transform duration-200 hover:-translate-y-1">
               <div className="h-48 w-full overflow-hidden">

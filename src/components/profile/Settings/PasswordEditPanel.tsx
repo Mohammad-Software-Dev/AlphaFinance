@@ -9,11 +9,38 @@ const initialData = {
 };
 
 const PasswordEditPanel: React.FC = () => {
+  const [savedData, setSavedData] = useState(initialData);
   const [data, setData] = useState(initialData);
+  const [status, setStatus] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
+    setStatus(null);
     setData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const hasChanges = JSON.stringify(data) !== JSON.stringify(savedData);
+  const passwordMismatch =
+    data.newPassword.length > 0 &&
+    data.confirmNewPassword.length > 0 &&
+    data.newPassword !== data.confirmNewPassword;
+
+  const canSave =
+    hasChanges &&
+    !passwordMismatch &&
+    data.currentPassword.trim().length > 0 &&
+    data.newPassword.trim().length > 0 &&
+    data.confirmNewPassword.trim().length > 0;
+
+  const handleCancel = () => {
+    setData(savedData);
+    setStatus("Changes discarded.");
+  };
+
+  const handleSave = () => {
+    if (!canSave) return;
+    setSavedData(data);
+    setStatus("Password settings saved.");
   };
 
   return (
@@ -67,10 +94,20 @@ const PasswordEditPanel: React.FC = () => {
           <li>Change it often</li>
         </ul>
       </div>
+      {passwordMismatch && (
+        <p className="text-sm text-error mb-3">
+          New password and confirmation must match.
+        </p>
+      )}
+      {status && <p className="text-sm text-brand mb-3">{status}</p>}
 
       <div className="flex justify-end mt-8 gap-3">
-        <Button variant="secondary">Cancel</Button>
-        <Button variant="primary">Save </Button>
+        <Button variant="secondary" onClick={handleCancel} disabled={!hasChanges}>
+          Cancel
+        </Button>
+        <Button variant="primary" onClick={handleSave} disabled={!canSave}>
+          Save
+        </Button>
       </div>
     </div>
   );

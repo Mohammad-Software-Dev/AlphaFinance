@@ -12,6 +12,8 @@ export type TransactionItem = {
 export type TransactionsProps = {
   showSummary?: boolean;
   items?: TransactionItem[];
+  loading?: boolean;
+  error?: string | null;
 };
 
 const seed: TransactionItem[] = [
@@ -104,8 +106,18 @@ const seed: TransactionItem[] = [
 const Transactions: React.FC<TransactionsProps> = ({
   showSummary = false,
   items,
+  loading = false,
+  error = null,
 }) => {
   const transactions = items ?? seed;
+
+  if (loading) {
+    return <div className="py-4 ui-text-muted">Loading transactions...</div>;
+  }
+
+  if (error) {
+    return <div className="py-4 text-red-600">{error}</div>;
+  }
 
   return (
     <>
@@ -133,13 +145,16 @@ const Transactions: React.FC<TransactionsProps> = ({
       )}
 
       <div className="flex items-center justify-between mt-4 md:py-0">
-        <h4 className="font-normal text-black mb-3">Financial Transactions</h4>
-        <button className="font-normal text-xs md:text-base hover:underline flex items-center gap-1">
+        <h4 className="font-normal ui-text-primary mb-3">Financial Transactions</h4>
+        <button type="button" className="font-normal text-xs md:text-base hover:underline flex items-center gap-1 focus-ring rounded-sm">
           View All <span aria-hidden>›</span>
         </button>
       </div>
 
-      <ul className="divide-y divide-gray-200">
+      {transactions.length === 0 ? (
+        <p className="py-4 ui-text-muted">No transactions to display.</p>
+      ) : (
+        <ul className="divide-y ui-divider">
         {transactions.map((tx, i) => (
           <li
             key={tx.id + "-" + i}
@@ -165,7 +180,7 @@ const Transactions: React.FC<TransactionsProps> = ({
                 )}
               </span>
               <div className="flex flex-col">
-                <span className="font-normal text-sm md:text-base text-black">
+                <span className="font-normal text-sm md:text-base ui-text-primary">
                   {tx.description}
                 </span>
                 <span className="font-medium text-sm md:text-base text-dark-silver">
@@ -182,7 +197,8 @@ const Transactions: React.FC<TransactionsProps> = ({
             </span>
           </li>
         ))}
-      </ul>
+        </ul>
+      )}
     </>
   );
 };

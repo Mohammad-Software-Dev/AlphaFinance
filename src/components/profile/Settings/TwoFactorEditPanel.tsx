@@ -62,7 +62,20 @@ const twoFactorRows = [
 ];
 
 const TwoFactorEditPanel: React.FC = () => {
+  const [savedEnabled, setSavedEnabled] = useState(true);
   const [enabled, setEnabled] = useState(true);
+  const [status, setStatus] = useState<string | null>(null);
+  const hasChanges = enabled !== savedEnabled;
+
+  const handleCancel = () => {
+    setEnabled(savedEnabled);
+    setStatus("Changes discarded.");
+  };
+
+  const handleSave = () => {
+    setSavedEnabled(enabled);
+    setStatus("Two-factor settings saved.");
+  };
 
   return (
     <div className="">
@@ -73,7 +86,10 @@ const TwoFactorEditPanel: React.FC = () => {
         <label className="flex items-center gap-3 cursor-pointer select-none">
           <IOSSwitch
             checked={enabled}
-            onChange={() => setEnabled((v) => !v)}
+            onChange={() => {
+              setStatus(null);
+              setEnabled((v) => !v);
+            }}
             slotProps={{
               input: { "aria-label": "Enable two-factor authentication" },
             }}
@@ -119,9 +135,14 @@ const TwoFactorEditPanel: React.FC = () => {
           </div>
         ))}
       </div>
+      {status && <p className="text-sm text-brand mt-4">{status}</p>}
       <div className="flex gap-3 justify-end mt-8">
-        <Button variant="secondary">Cancel</Button>
-        <Button variant="primary">Save</Button>
+        <Button variant="secondary" onClick={handleCancel} disabled={!hasChanges}>
+          Cancel
+        </Button>
+        <Button variant="primary" onClick={handleSave} disabled={!hasChanges}>
+          Save
+        </Button>
       </div>
     </div>
   );

@@ -23,36 +23,31 @@ export interface ButtonProps
 
 const variantClasses: Record<Variant, string> = {
   primary: `
-  text-sm
-    md:text-base
-    rounded-sm 
-    inline-flex items-center justify-center
-    font-inter font-medium
-     border
-    bg-black text-white
-    border-black
-    h-[30px] md:h-[35px]
-    hover:opacity-90 transition
-  `,
-  secondary: `
-    text-sm
-    md:text-base
+    text-sm md:text-base
     rounded-sm
     inline-flex items-center justify-center
     font-inter font-medium
-     border
-    bg-white text-black
-    border-light-silver
+    border
+    bg-black text-white border-black
     h-[30px] md:h-[35px]
-    hover:bg-gray-100 transition
+    hover:opacity-90 transition focus-ring
+  `,
+  secondary: `
+    text-sm md:text-base
+    rounded-sm
+    inline-flex items-center justify-center
+    font-inter font-medium
+    border
+    ui-surface ui-text-primary ui-border-subtle
+    h-[30px] md:h-[35px]
+    hover:opacity-95 transition focus-ring
   `,
   link: `
-    text-sm
-    md:text-base
+    text-sm md:text-base
     inline-flex items-center justify-center
     font-inter text-[var(--color-brand)]
     bg-transparent border-0 p-0
-    transition
+    transition focus-ring
   `,
 };
 
@@ -83,16 +78,14 @@ export const Button: React.FC<ButtonProps> = ({
     variantClasses[variant].trim(),
     variant !== "link" ? paddingClasses[size] : "",
     variant === "link" && underline ? "underline" : "",
-    variant !== "link" && fullWidth ? "115px lg:w-full" : "",
+    variant !== "link" && fullWidth ? "w-full" : "",
     className,
   ]
     .filter(Boolean)
     .join(" ");
 
   const defaultStyle: CSSProperties = {};
-  if (variant !== "link") {
-    if (!fullWidth) defaultStyle.width = "115px";
-  } else {
+  if (variant === "link") {
     defaultStyle.fontWeight = linkWeight;
     defaultStyle.lineHeight = "1";
   }

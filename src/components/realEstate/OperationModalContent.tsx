@@ -3,6 +3,7 @@ import { VerticalStepper } from "./VerticalStepper";
 import VerticalDivider from "../common/VerticalDivider";
 import { Button } from "../common/Button";
 import type { OperationItemModel } from "../../models/propertyUpdates";
+import { openExternal } from "../../utils/openExternal";
 
 const steps = [
   { label: "Submitted", date: "2024-07-01" },
@@ -109,7 +110,7 @@ const OperationModalContent: React.FC<OperationModalProps> = ({
           className="md:text-sm cursor-pointer"
           onClick={(e) => {
             e.stopPropagation();
-            window.open(doc.fileUrl, "_blank");
+            openExternal(doc.fileUrl);
           }}
         >
           {doc.name}

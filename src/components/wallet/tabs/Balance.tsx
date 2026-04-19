@@ -7,7 +7,7 @@ import PortfolioRow from "../PortfolioRow";
 import TransactionsRow from "../TransactionsRow";
 import TotalBalance from "../TotalBalance";
 
-const Ballance: React.FC = () => (
+const Balance: React.FC = () => (
   <div className="flex flex-col lg:flex-row w-full">
     <div className="w-full lg:w-1/4">
       <TotalBalance />
@@ -24,4 +24,4 @@ const Ballance: React.FC = () => (
   </div>
 );
 
-export default Ballance;
+export default Balance;

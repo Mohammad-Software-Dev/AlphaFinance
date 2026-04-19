@@ -34,7 +34,7 @@
     "dev": "vite --host 0.0.0.0",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "test": "node scripts/demo-smoke-check.mjs",
+    "test": "node scripts/demo-smoke-check.mjs && node scripts/route-integrity-check.mjs && node scripts/demo-journey-check.mjs",
     "preview": "vite preview",
     "start": "serve -s dist"
   },

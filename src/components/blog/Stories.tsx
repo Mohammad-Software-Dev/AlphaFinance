@@ -16,7 +16,7 @@ const Stories: React.FC<Props> = ({ subscribe, worldNews }) => (
       <h4 className="md:text-2xl lg:text-4xl text-center w-3/4 font-semibold">
         {subscribe.title}
       </h4>
-      <p className="text-sm md:text-base lg:text-lg font-normal w-11/12 text-dark-silver text-center">
+      <p className="text-sm md:text-base lg:text-lg font-normal w-11/12 ui-text-muted text-center">
         {subscribe.subtitle}
       </p>
       <div className="w-3/4 lg:w-full flex flex-col justify-center">
@@ -31,15 +31,15 @@ const Stories: React.FC<Props> = ({ subscribe, worldNews }) => (
         </Button>
       </div>
       <div className="w-full">
-        <p className="text-sm font-normal text-dark-silver">
+        <p className="text-sm font-normal ui-text-muted">
           {subscribe.privacy.text.split("privacy policy")[0]}
-          <a href={subscribe.privacy.href} className="underline">
+          <a href={subscribe.privacy.href} className="underline focus-ring rounded-sm">
             privacy policy
           </a>
           .
         </p>
       </div>
-      <hr className="border-gray-200" />
+      <hr className="ui-divider" />
     </div>
 
     {/* WORLD NEWS badge */}
@@ -57,10 +57,10 @@ const Stories: React.FC<Props> = ({ subscribe, worldNews }) => (
           className="space-y-2 pb-3 border-b-[1px] border-light-silver"
         >
           <h3 className="text-base font-normal mb-3">{story.title}</h3>
-          <p className="text-sm font-normal text-dim-gray leading-relaxed">
+          <p className="text-sm font-normal ui-text-muted leading-relaxed">
             {story.description}
           </p>
-          <p className="text-sm text-dim-gray my-3">
+          <p className="text-sm ui-text-muted my-3">
             {story.author.name} &#8226; {story.author.role}
           </p>
           <div className="flex flex-wrap gap-2">

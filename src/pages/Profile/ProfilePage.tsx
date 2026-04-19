@@ -1,7 +1,8 @@
 import React from "react";
 import TabsLayout from "../../components/layouts/TabsLayout";
+import type { TabItem } from "../../components/layouts/tabTypes";
 
-const TAB_LIST = [
+const TAB_LIST: TabItem[] = [
   { label: "Profile", value: "profile" },
   { label: "Transactions", value: "transactions" },
   { label: "Identification", value: "identification" },

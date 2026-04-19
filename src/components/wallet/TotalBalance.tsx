@@ -20,7 +20,7 @@ const icons = {
     </span>
   ),
   sellBlack: (
-    <span className="text-black text-xl">
+    <span className="ui-text-primary text-xl">
       <CoinBtcLottieIcon />
     </span>
   ),
@@ -51,7 +51,7 @@ const overviewData = [
     title: "Available to Sell",
     transactions: 35,
     amount: "- 1,471 €",
-    amountColor: "text-black",
+    amountColor: "ui-text-primary",
     barColor: "bg-brand",
     percent: 23,
     percentColor: "text-brand",
@@ -73,7 +73,7 @@ const overviewData = [
     title: "Available to Lorem",
     transactions: 6,
     amount: "- 161 €",
-    amountColor: "text-black",
+    amountColor: "ui-text-primary",
     barColor: "bg-teal",
     percent: 57,
     percentColor: "text-teal",
@@ -84,7 +84,7 @@ const overviewData = [
     title: "Available to Lorem",
     transactions: 12,
     amount: "- 3,436 €",
-    amountColor: "text-black",
+    amountColor: "ui-text-primary",
     barColor: "bg-dark-orange",
     percent: 61,
     percentColor: "text-dark-orange",
@@ -160,7 +160,7 @@ const TotalBalance: React.FC = () => (
     <div className="">
       <div className="flex justify-between items-center pb-2">
         <h4 className="font-medium md:font-normal ">Wallet Address</h4>
-        <Button variant="link" className="text-black">
+        <Button variant="link" className="ui-text-primary">
           <CopyIcon className="w-7 h-7 mx-1" />
           Copy link
         </Button>

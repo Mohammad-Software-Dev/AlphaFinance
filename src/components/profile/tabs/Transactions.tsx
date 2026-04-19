@@ -32,7 +32,7 @@ const TransactionPage: React.FC = () => {
               className="w-16 h-16 rounded-full object-cover "
             />
             <div>
-              <h4 className="text-black">Mohammad Ahmad</h4>
+              <h4 className="ui-text-primary">Mohammad Ahmad</h4>
               <div className="text-sm font-normal">
                 Account Manager &nbsp; England, London UK
               </div>
@@ -106,7 +106,7 @@ const TransactionPage: React.FC = () => {
                 </Button>
                 <Button
                   variant="link"
-                  className=" text-xs md:text-base text-black font-semibold"
+                  className=" text-xs md:text-base ui-text-primary font-semibold"
                 >
                   <DownloadIcon className="w-5 h-5 mx-1" /> Download
                 </Button>

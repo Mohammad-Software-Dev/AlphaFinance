@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Sidebar from "../Sidebar";
 import AnimatedBurgerIcon from "../common/AnimatedBurgerIcon";
 
@@ -10,11 +10,24 @@ interface GeneralLayoutProps {
 
 const GeneralLayout: React.FC<GeneralLayoutProps> = ({ children, title }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [darkMode, setDarkMode] = useState<boolean>(() => {
+    if (typeof window === "undefined") return false;
+    const saved = window.localStorage.getItem("theme");
+    if (saved === "dark") return true;
+    if (saved === "light") return false;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+  });
+
+  useEffect(() => {
+    const root = document.documentElement;
+    root.setAttribute("data-theme", darkMode ? "dark" : "light");
+    window.localStorage.setItem("theme", darkMode ? "dark" : "light");
+  }, [darkMode]);
 
   return (
-    <div className="min-h-screen  pt-[47px] flex flex-col lg:flex-row relative bg-white  px-4 md:px-6 ">
+    <div className="min-h-screen pt-[47px] flex flex-col lg:flex-row relative ui-surface ui-text-primary px-4 md:px-6">
       <button
-        className="fixed top-5 right-5 z-50 hidden bg-white border border-light-silver rounded-lg p-2"
+        className="fixed top-5 right-5 z-50 lg:hidden ui-surface border ui-border-subtle rounded-lg p-2 focus-ring"
         onClick={() => setSidebarOpen(!sidebarOpen)}
         aria-label={sidebarOpen ? "Close sidebar" : "Open sidebar"}
       >
@@ -22,7 +35,8 @@ const GeneralLayout: React.FC<GeneralLayoutProps> = ({ children, title }) => {
       </button>
 
       {sidebarOpen && (
-        <div
+        <button
+          type="button"
           className="fixed inset-0 z-40 lg:hidden"
           onClick={() => setSidebarOpen(false)}
           aria-label="Close sidebar"
@@ -39,7 +53,7 @@ const GeneralLayout: React.FC<GeneralLayoutProps> = ({ children, title }) => {
           
         `}
       >
-        <Sidebar />
+        <Sidebar onToggleDarkMode={setDarkMode} toggleEnabled={darkMode} />
       </div>
 
       {/* {rightAside && (
@@ -72,7 +86,7 @@ const GeneralLayout: React.FC<GeneralLayoutProps> = ({ children, title }) => {
           <div className="flex-1 flex flex-col">
             <div className="relative">
               <div className="" aria-hidden="true" />
-              <div className="fixed md:sticky top-0 pt-6 md:pt-0 z-30 bg-white w-[92vw] md:w-full">
+              <div className="fixed md:sticky top-0 pt-6 md:pt-0 z-30 ui-surface w-[92vw] md:w-full">
                 <h4 className="font-bold mb-3 lg:mb-6 border-b-[4px] border-brand w-fit">
                   {title}
                 </h4>

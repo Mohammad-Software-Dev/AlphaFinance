@@ -33,7 +33,7 @@ const BlogLayout: React.FC<BlogLayoutProps> = ({
               "
             >
               {isLoading && (
-                <div className="p-4 text-sm text-dim-gray">Loading…</div>
+                <div className="p-4 text-sm ui-text-muted">Loading…</div>
               )}
               {error && (
                 <div className="p-4 text-sm text-red-600">

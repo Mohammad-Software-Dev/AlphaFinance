@@ -286,7 +286,7 @@
         {
           "type": "alphased_fees",
           "label": "ALPHASED FEES",
-          "icon": "alphaseed"
+          "icon": "alphafinance"
         },
         {
           "type": "property_management",
@@ -345,7 +345,7 @@
         {
           "type": "alphased_fees",
           "label": "ALPHASED FEES",
-          "icon": "alphaseed"
+          "icon": "alphafinance"
         },
         {
           "type": "property_management",

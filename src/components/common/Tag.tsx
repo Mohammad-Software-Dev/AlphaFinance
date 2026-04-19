@@ -20,8 +20,8 @@ const PALETTE = [
 
 const GRAY = {
   bg: "bg-transparent",
-  border: "border-gray-300",
-  text: "text-dark-silver",
+  border: "ui-border-subtle",
+  text: "ui-text-muted",
 };
 
 export const Tag: React.FC<TagProps> = ({

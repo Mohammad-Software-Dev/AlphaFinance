@@ -21,7 +21,7 @@ const agreementContent: Record<string, React.ReactNode> = {
     <>
       <h4>1. Introduction</h4>
       <p>
-        Welcome to AlphaSeed. By using our services, you agree to the following
+        Welcome to AlphaFinance. By using our services, you agree to the following
         terms and conditions:
       </p>
 
@@ -61,10 +61,10 @@ const agreementContent: Record<string, React.ReactNode> = {
       <p>
         Questions? Email{" "}
         <a
-          href="mailto:support@alphaseed.com"
+          href="mailto:support@alphafinance.com"
           className="text-[var(--color-brand)] hover:underline"
         >
-          support@alphaseed.com
+          support@alphafinance.com
         </a>
         .
       </p>
@@ -152,7 +152,7 @@ const LegalAgreements: React.FC = () => {
           <div className="hidden md:block w-1/12" />
           <div className="w-full lg:w-2/3 flex flex-col space-y-6 items-start">
             <h2 className="font-inter font-semibold  text-black">
-              Alphaseed Legal Agreements
+              AlphaFinance Legal Agreements
             </h2>
             <p className="font-open-sans text-sm text-black max-w-md">
               Lorem ipsum dolor sit amet consectetur. Scelerisque tempus congue
