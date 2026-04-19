@@ -1,13 +1,13 @@
 import React from "react";
 import { Button } from "../common/Button";
 
-interface Section {
+export interface Section {
   key: string;
   title: string;
   description: string;
 }
 
-const sections: Section[] = [
+export const settingsSections: Section[] = [
   {
     key: "basic-info",
     title: "Basic Info",
@@ -61,7 +61,7 @@ const SettingsSectionsList: React.FC<SettingsSectionsListProps> = ({
   currentSectionKey,
 }) => (
   <div className="  flex flex-col gap-6">
-    {sections.map((section) => (
+    {settingsSections.map((section) => (
       <div
         key={section.key}
         className="flex flex-col md:flex-row md:items-center justify-between border-b-[1px] border-light-silver last:border-b-0 pb-5  gap-5"

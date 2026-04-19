@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const CheckIcon = () => (
   <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
@@ -42,12 +43,23 @@ const Instructions: React.FC = () => (
             <p className="text-xs md:text-sm ">{task.label}</p>
           </div>
         ) : (
-          <div key={idx} className="flex items-center gap-1  text-black">
+          <div key={idx} className="flex items-center gap-1 ui-text-primary">
             <p className="text-xs md:text-sm  px-2">&#8226;</p>
             <p className="text-xs md:text-sm ">{task.label}</p>
           </div>
         )
       )}
+    </div>
+    <div className="mt-4 flex flex-wrap gap-2">
+      <Link to="/wallet" className="text-xs text-brand underline focus-ring rounded-sm">
+        Go to Wallet
+      </Link>
+      <Link to="/profile" className="text-xs text-brand underline focus-ring rounded-sm">
+        Complete Profile
+      </Link>
+      <Link to="/blog" className="text-xs text-brand underline focus-ring rounded-sm">
+        Read Insights
+      </Link>
     </div>
   </section>
 );

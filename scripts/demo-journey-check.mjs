@@ -44,5 +44,33 @@ assertContains(
   "Profile basic settings should support save feedback"
 );
 
-console.log("Demo journey checks passed.");
+const notificationsPage = read("src/pages/Notifications.tsx");
+assertContains(
+  notificationsPage,
+  "Mark all as read",
+  "Notifications page should support bulk read action"
+);
+assertContains(
+  notificationsPage,
+  "filter === \"unread\"",
+  "Notifications page should support unread filtering"
+);
 
+const bankTransactions = read("src/components/wallet/BankTransactionsBlock.tsx");
+assertContains(
+  bankTransactions,
+  "status: \"pending\"",
+  "Wallet transaction list should include pending lifecycle state"
+);
+assertContains(
+  bankTransactions,
+  "status: \"settled\"",
+  "Wallet transaction list should include settled lifecycle state"
+);
+assertContains(
+  bankTransactions,
+  "status: \"failed\"",
+  "Wallet transaction list should include failed lifecycle state"
+);
+
+console.log("Demo journey checks passed.");

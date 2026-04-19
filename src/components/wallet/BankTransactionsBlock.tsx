@@ -7,24 +7,28 @@ const transactions = [
     time: "2 minutes ago",
     amount: "-0,00021763",
     isPositive: false,
+    status: "pending",
   },
   {
     id: "14NX ... MzMx",
     time: "Yesterday",
     amount: "-0,00128021",
     isPositive: false,
+    status: "failed",
   },
   {
     id: "1A3Y ... DDPE",
     time: "April 12, 2021",
     amount: "+0,01706950",
     isPositive: true,
+    status: "settled",
   },
   {
     id: "1Kth ... fXXf",
     time: "April 9, 2021",
     amount: "+0,00073398",
     isPositive: true,
+    status: "settled",
   },
 ];
 
@@ -33,11 +37,25 @@ const TransactionRow: React.FC<{
   time: string;
   amount: string;
   isPositive: boolean;
-}> = ({ id, time, amount, isPositive }) => (
+  status: "pending" | "settled" | "failed";
+}> = ({ id, time, amount, isPositive, status }) => (
   <div>
     <div className="flex justify-between items-center">
       <div>
-        <p className=" text-sm md:text-base">{id}</p>
+        <p className="text-sm md:text-base flex items-center gap-2">
+          {id}
+          <span
+            className={`text-[10px] uppercase rounded px-2 py-0.5 ${
+              status === "settled"
+                ? "bg-verified-green/10 text-verified-green"
+                : status === "pending"
+                ? "bg-brand/10 text-brand"
+                : "bg-error-red/10 text-error-red"
+            }`}
+          >
+            {status}
+          </span>
+        </p>
         <p className=" text-sm md:text-base text-dark-silver ">{time}</p>
       </div>
       <p

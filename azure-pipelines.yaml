@@ -17,7 +17,22 @@ steps:
   - script: |
       npm ci
       npm run build
+      npm test
     displayName: "Install dependencies and build"
+
+  - script: |
+      npx playwright install --with-deps chromium
+      npm run preview -- --host 127.0.0.1 --port 4173 &
+      PREVIEW_PID=$!
+      for i in {1..30}; do
+        if curl -sf http://127.0.0.1:4173 > /dev/null; then
+          break
+        fi
+        sleep 1
+      done
+      npm run test:e2e:smoke
+      kill $PREVIEW_PID
+    displayName: "Run E2E smoke (Playwright Chromium)"
 
   # Create a ZIP archive including node_modules and build output
   - task: ArchiveFiles@2
@@ -71,4 +86,5 @@ steps:
       inlineScript: |
         az webapp log tail --name alphafinanceweb --resource-group alphafinanceinfo
     displayName: "Tail App Service logs"
-    condition: succeededOrFailed()
+    condition: failed()
+    timeoutInMinutes: 2

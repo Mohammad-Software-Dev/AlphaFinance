@@ -68,6 +68,7 @@ const ReportsOverview: React.FC = () => {
   const [selectedDate, setSelectedDate] = React.useState<Date | null>(
     new Date()
   );
+  const [status, setStatus] = React.useState<string | null>(null);
 
   // Optional: formatted string
 
@@ -98,7 +99,11 @@ const ReportsOverview: React.FC = () => {
             <option>Monthly</option>
             <option>Weekly</option>
           </select>
-          <button className="border-b-[1px] border-light-silver  px-3 py-1 rounded flex items-center gap-1 text-sm">
+          <button
+            type="button"
+            className="border-b-[1px] border-light-silver  px-3 py-1 rounded flex items-center gap-1 text-sm focus-ring"
+            onClick={() => setStatus("Chart layout controls opened (demo mode).")}
+          >
             <span className="text-sm" role="img" aria-label="edit">
               ⚙️
             </span>
@@ -106,6 +111,7 @@ const ReportsOverview: React.FC = () => {
           </button>
         </div>
       </div>
+      {status && <p className="text-sm text-brand mb-3">{status}</p>}
 
       {/* Summary Row */}
       <div className="flex flex-wrap gap-10 pb-3 mb-4 text-lg border-b-[1px] border-light-silver">

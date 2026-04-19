@@ -35,6 +35,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "test": "node scripts/demo-smoke-check.mjs && node scripts/route-integrity-check.mjs && node scripts/demo-journey-check.mjs",
+    "test:e2e": "playwright test",
+    "test:e2e:smoke": "playwright test tests/e2e/smoke.spec.ts --project=chromium",
     "preview": "vite preview",
     "start": "serve -s dist"
   },
@@ -66,6 +68,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
+    "@playwright/test": "^1.54.2",
     "@svgr/plugin-svgo": "^8.1.0",
     "@tailwindcss/vite": "^4.1.8",
     "@types/node": "^22.18.1",

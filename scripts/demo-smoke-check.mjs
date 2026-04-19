@@ -115,4 +115,27 @@ assertNotContains(
 const app = read("src/App.tsx");
 assertContains(app, "./components/common/Loader", "App should import loader from src tree");
 
+const notificationsPage = read("src/pages/Notifications.tsx");
+const settingsPage = read("src/pages/Settings.tsx");
+assertNotContains(
+  notificationsPage,
+  "NotBuiltYet",
+  "Notifications page should be implemented, not placeholder"
+);
+assertNotContains(
+  settingsPage,
+  "NotBuiltYet",
+  "Settings page should be implemented, not placeholder"
+);
+assertContains(
+  notificationsPage,
+  "NotificationsEditPanel",
+  "Notifications page should connect to notifications settings model"
+);
+assertContains(
+  settingsPage,
+  "SettingsDetailPanel",
+  "Settings page should render settings detail panels"
+);
+
 console.log("Demo smoke checks passed.");
