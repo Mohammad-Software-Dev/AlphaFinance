@@ -3,7 +3,6 @@
 
 interface ImportMetaEnv {
   readonly VITE_SPA_ORIGIN?: string
-  readonly VITE_BFF_BASE?: string
 }
 interface ImportMeta {
   readonly env: ImportMetaEnv

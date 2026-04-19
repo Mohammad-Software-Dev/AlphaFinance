@@ -1,7 +1,6 @@
 ﻿// src/router.tsx
 import React from "react";
 import { createBrowserRouter, Navigate } from "react-router-dom";
-import ProtectedRoute from "./components/ProtectedRoute";
 
 // --- Lazy pages (code-split) ---
 const SignIn = React.lazy(() => import("./pages/SignIn/SignIn"));
@@ -26,42 +25,35 @@ const RealEstatePage = React.lazy(
 const RealEstateAssets = React.lazy(
   () => import("./pages/RealEstateAssets/RealEstateAssetsPage")
 );
-// const NotBuiltYet = React.lazy(() => import("./pages/NotBuiltYet"));
 const Profile = React.lazy(() => import("./pages/Profile/ProfilePage"));
 const Dashboard = React.lazy(() => import("./pages/Dashboard/Dashboard"));
 const WalletPage = React.lazy(() => import("./pages/Wallet/WalletPage"));
+const NotificationsPage = React.lazy(() => import("./pages/Notifications"));
+const SettingsPage = React.lazy(() => import("./pages/Settings"));
+const NotBuiltYet = React.lazy(() => import("./pages/NotBuiltYet"));
 
-const AuthCallback = React.lazy(() => import("./pages/AuthCallback"));
-const Account = React.lazy(() => import("./pages/Account"));
 const Home = React.lazy(() => import("./pages/Home"));
 export const router = createBrowserRouter([
   // Root → redirect
-  { path: "/", element: <Navigate to="/signin" replace /> },
+  { path: "/", element: <Navigate to="/dashboard" replace /> },
   { path: "/home", element: <Home /> },
-  // Public routes
+  // Public routes (demo mode)
   { path: "/signin", element: <SignIn /> },
   { path: "/signup", element: <SignUp /> },
-  { path: "/auth/callback", element: <AuthCallback /> }, // SPA auth callback
   { path: "/blog", element: <BlogPage /> },
   { path: "/blog/:blogId", element: <BlogPostPage /> },
   { path: "/real-estate/:assetId", element: <RealEstatePage /> },
-
-  // Protected routes (require auth)
-  {
-    element: <ProtectedRoute />,
-    children: [
-      { path: "/account", element: <Account /> },
-      { path: "/profile", element: <Profile /> },
-      { path: "/dashboard", element: <Dashboard /> },
-      { path: "/wallet", element: <WalletPage /> },
-      { path: "/investor-profile", element: <InvestorProfile /> },
-      { path: "/legal-agreements", element: <LegalAgreements /> },
-      { path: "/account-verification", element: <AccountVerification /> },
-      { path: "/identity-verification", element: <IdentityVerification /> },
-      { path: "/real-estate-assets", element: <RealEstateAssets /> },
-    ],
-  },
+  { path: "/profile", element: <Profile /> },
+  { path: "/dashboard", element: <Dashboard /> },
+  { path: "/wallet", element: <WalletPage /> },
+  { path: "/investor-profile", element: <InvestorProfile /> },
+  { path: "/legal-agreements", element: <LegalAgreements /> },
+  { path: "/account-verification", element: <AccountVerification /> },
+  { path: "/identity-verification", element: <IdentityVerification /> },
+  { path: "/real-estate-assets", element: <RealEstateAssets /> },
+  { path: "/notifications", element: <NotificationsPage /> },
+  { path: "/settings", element: <SettingsPage /> },
 
   // Catch-all
-  // { path: "*", element: <NotBuiltYet /> },
+  { path: "*", element: <NotBuiltYet /> },
 ]);

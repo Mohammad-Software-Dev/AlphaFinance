@@ -3,25 +3,12 @@ import { Link } from "react-router-dom";
 import FormLayout from "../../components/FormLayout";
 import Logo from "../../components/Logo";
 import PageTitle from "../../components/PageTitle";
-// import TextInput from "../../components/common/TextInput";
 import { useSignInForm } from "./useSignInForm";
 import signInSideImage from "../../assets/images/sign_in_side.png";
 import { Button } from "../../components/common/Button";
-// import LoginButton from "../../components/LoginButton";
-// import { useAuth } from "../../lib/useAuth";
 
 const SignIn: React.FC = () => {
-  // const { login } = useAuth();
-  const {
-    // email,
-    // setEmail,
-    // password,
-    // setPassword,
-    // emailError,
-    // passwordError,
-    onSubmit,
-    // generalError,
-  } = useSignInForm();
+  const { onSubmit } = useSignInForm();
 
   return (
     <FormLayout
@@ -46,29 +33,6 @@ const SignIn: React.FC = () => {
             className="w-full flex flex-col items-start space-y-6"
             onSubmit={onSubmit}
           >
-            {/* {generalError && (
-              <p className="text-red-600 text-sm w-full text-left">
-                {generalError}
-              </p>
-            )}
-            <TextInput
-              id="email"
-              placeholder="Email Address"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              error={emailError}
-              className="w-full"
-            />
-            <TextInput
-              id="password"
-              placeholder="Password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              error={passwordError}
-              className="w-full"
-            /> */}
             <Button
               type="submit"
               variant="primary"
@@ -79,14 +43,6 @@ const SignIn: React.FC = () => {
               Next
             </Button>
           </form>
-
-          {/* <LoginButton
-            onClick={() => {
-              login();
-            }}
-          >
-            Login using Authenticator
-          </LoginButton> */}
         </div>
         <div className="flex flex-col items-center space-y-2">
           <a href="#" className="forgot-password text-sm">

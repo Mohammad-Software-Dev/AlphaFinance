@@ -25,14 +25,6 @@ export default defineConfig(({ mode }) => {
         origin: env.VITE_SPA_ORIGIN ?? "http://localhost:5173",
         credentials: true,
       },
-      proxy: {
-        // Dev-only BFF forwarding. In prod, call absolute URL.
-        "/oauth": {
-          target: env.VITE_BFF_BASE || "https://asbff.azurewebsites.net",
-          changeOrigin: true,
-          secure: true,
-        },
-      },
     },
     preview: {
       port: 4173,

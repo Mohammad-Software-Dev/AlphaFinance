@@ -33,7 +33,7 @@ const TabsLayout: React.FC<Props> = ({ assetId, tabList, defaultTab }) => {
           </div>
         </div>
         <div className="mt-16 md:mt-6">
-          <TabContent tab={tab} assetId={assetId} />
+          <TabContent tab={tab} />
         </div>
       </div>
     </GeneralLayout>

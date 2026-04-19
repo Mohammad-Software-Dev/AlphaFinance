@@ -18,8 +18,24 @@ import DocumentsTab from "../realEstate/tabs/DocumentsTab";
 
 interface Props {
   tab: string;
-  assetId?: string;
 }
+
+const TAB_COMPONENTS: Record<string, React.ComponentType> = {
+  asset: RealEstateTab,
+  info: PropertyInfoTab,
+  financial: FinancialTab,
+  calculator: CalculatorTab,
+  update: UpdatesTab,
+  documents: DocumentsTab,
+  reach: ReachUs,
+  profile: Profile,
+  transactions: Transactions,
+  settings: Settings,
+  ballance: Ballance,
+  wallet_portfolio: Portfolio,
+  transfer: Transfer,
+  bank: Bank,
+};
 
 const TabContent: React.FC<Props> = ({ tab }) => {
   const topRef = useRef<HTMLDivElement | null>(null);
@@ -31,103 +47,12 @@ const TabContent: React.FC<Props> = ({ tab }) => {
     }
   }, [tab]);
 
-  if (tab === "asset") {
-    return (
-      <div ref={topRef}>
-        <RealEstateTab />
-      </div>
-    );
-  }
+  const TabComponent = TAB_COMPONENTS[tab];
 
-  if (tab === "info") {
+  if (TabComponent) {
     return (
       <div ref={topRef}>
-        <PropertyInfoTab />
-      </div>
-    );
-  }
-
-  if (tab === "financial") {
-    return (
-      <div ref={topRef}>
-        <FinancialTab />
-      </div>
-    );
-  }
-  if (tab === "calculator") {
-    return (
-      <div ref={topRef}>
-        <CalculatorTab />
-      </div>
-    );
-  }
-  if (tab === "update") {
-    return (
-      <div ref={topRef}>
-        <UpdatesTab />
-      </div>
-    );
-  }
-  if (tab === "documents") {
-    return (
-      <div ref={topRef}>
-        <DocumentsTab />
-      </div>
-    );
-  }
-  if (tab === "reach") {
-    return (
-      <div ref={topRef}>
-        <ReachUs />
-      </div>
-    );
-  }
-  if (tab === "profile") {
-    return (
-      <div ref={topRef}>
-        <Profile />
-      </div>
-    );
-  }
-  if (tab === "transactions") {
-    return (
-      <div ref={topRef}>
-        <Transactions />
-      </div>
-    );
-  }
-  if (tab === "settings") {
-    return (
-      <div ref={topRef}>
-        <Settings />
-      </div>
-    );
-  }
-  if (tab === "ballance") {
-    return (
-      <div ref={topRef}>
-        <Ballance />
-      </div>
-    );
-  }
-  if (tab === "wallet_portfolio") {
-    return (
-      <div ref={topRef}>
-        <Portfolio />
-      </div>
-    );
-  }
-  if (tab === "transfer") {
-    return (
-      <div ref={topRef}>
-        <Transfer />
-      </div>
-    );
-  }
-  if (tab === "bank") {
-    return (
-      <div ref={topRef}>
-        <Bank />
+        <TabComponent />
       </div>
     );
   }

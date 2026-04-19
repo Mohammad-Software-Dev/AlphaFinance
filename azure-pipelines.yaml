@@ -13,11 +13,11 @@ steps:
       versionSpec: "22.x"
     displayName: "Install Node.js 22"
 
-  # Install production dependencies and build the project
+  # Install dependencies (including dev deps needed for build) and build
   - script: |
-      npm ci --production
+      npm ci
       npm run build
-    displayName: "Install production dependencies and build"
+    displayName: "Install dependencies and build"
 
   # Create a ZIP archive including node_modules and build output
   - task: ArchiveFiles@2

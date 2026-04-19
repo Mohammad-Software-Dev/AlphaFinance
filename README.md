@@ -1,54 +1,87 @@
-# React + TypeScript + Vite
+# AlphaSeed Frontend (Demo Mode)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React + TypeScript + Vite demo application for the AlphaSeed product UI.
 
-Currently, two official plugins are available:
+## Demo Mode
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This repository is configured as a **public demo frontend**:
+- No authentication or token/session flows
+- No protected routes
+- All pages are intentionally accessible
+- Sign-in page is a demo entry point that redirects to the dashboard
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React 19
+- TypeScript
+- Vite
+- React Router
+- TanStack Query
+- Zod
+- MSW (development API mocking)
+- Tailwind CSS + MUI components
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Getting Started
+
+### Prerequisites
+
+- Node.js 22+
+- npm
+
+### Install
+
+```bash
+npm ci
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Run in development
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+npm run dev
 ```
+
+### Build
+
+```bash
+npm run build
+```
+
+### Preview production build
+
+```bash
+npm run preview
+```
+
+### Demo smoke checks
+
+```bash
+npm test
+```
+
+## Routes
+
+Primary routes:
+- `/dashboard`
+- `/real-estate-assets`
+- `/real-estate/:assetId`
+- `/wallet`
+- `/profile`
+- `/blog`
+- `/blog/:blogId`
+- `/signin`
+- `/signup`
+- `/notifications` (placeholder)
+- `/settings` (placeholder)
+
+Fallback:
+- `*` -> not-built-yet page
+
+## Data and API Behavior
+
+- Feature APIs use `/api/*` endpoints in frontend code.
+- In development, MSW serves mock data from `src/mocks/data`.
+- Blog detail page resolves content by `:blogId` from the loaded blog dataset.
+
+## Deployment Notes
+
+Azure Pipeline (`azure-pipelines.yaml`) installs dependencies with `npm ci` and builds with `npm run build`.
