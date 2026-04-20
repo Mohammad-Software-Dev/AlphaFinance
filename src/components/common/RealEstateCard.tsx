@@ -40,6 +40,7 @@ const RealEstateCard: React.FC<RealEstateCardProps> = ({
           />
           <div className="absolute w-1/2 right-0 inset-y-0 h-full bg-gradient-to-l from-brand/50 to-transparent pointer-events-none rounded-t-2xl" />
           <div className="absolute top-3 left-3 flex gap-2">
+            asdas
             <span className="px-2 py-1 bg-white/70 text-xs rounded-sm">
               {status}
             </span>
@@ -55,7 +56,7 @@ const RealEstateCard: React.FC<RealEstateCardProps> = ({
           <div className="font-medium text-sm md:text-base tracking-tight truncate">
             {code}
           </div>
-          <div className="text-dim-gray font-light text-base md:text-lg mb-3 line-clamp-2">
+          <div className="text-dim-gray font-light text-base mb-3 line-clamp-2">
             {title}
           </div>
           <div className="flex gap-2 mb-2">
