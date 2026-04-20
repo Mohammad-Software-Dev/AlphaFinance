@@ -3,6 +3,17 @@ import PortfolioPieChart from "./PortfolioPieChart";
 import Legend from "./Legend";
 import AssetOverview from "../AssetOverview";
 import { DEFAULT_PROPERTY } from "../../../data/properties";
+import type { AssetOverviewVM } from "../../../models/propertyDetails";
+
+const defaultOverview: AssetOverviewVM = {
+  netYieldText: DEFAULT_PROPERTY.netYield ?? "N/A",
+  grossYieldText: DEFAULT_PROPERTY.grossYield ?? "N/A",
+  tokenRoiPct: DEFAULT_PROPERTY.tokenROI ?? 0,
+  tokenPrice: DEFAULT_PROPERTY.tokenPrice ?? 0,
+  investors: DEFAULT_PROPERTY.investors ?? 0,
+  totalTokens: DEFAULT_PROPERTY.totalTokens ?? 0,
+  availableTokens: DEFAULT_PROPERTY.availableTokens ?? 0,
+};
 
 const ExpensesSection: React.FC = () => (
   <div>
@@ -24,7 +35,7 @@ const ExpensesSection: React.FC = () => (
         <Legend />
       </div>
     </div>
-    <AssetOverview property={DEFAULT_PROPERTY} />
+    <AssetOverview property={defaultOverview} />
   </div>
 );
 

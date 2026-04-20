@@ -1,7 +1,15 @@
 // import { Button } from "../common/Button";
 import HorizontalDivider from "../common/HorizontalDivider";
 
-const transactions = [
+type TransactionStatus = "pending" | "settled" | "failed";
+
+const transactions: Array<{
+  id: string;
+  time: string;
+  amount: string;
+  isPositive: boolean;
+  status: TransactionStatus;
+}> = [
   {
     id: "17pY ... 6jHb",
     time: "2 minutes ago",
@@ -37,7 +45,7 @@ const TransactionRow: React.FC<{
   time: string;
   amount: string;
   isPositive: boolean;
-  status: "pending" | "settled" | "failed";
+  status: TransactionStatus;
 }> = ({ id, time, amount, isPositive, status }) => (
   <div>
     <div className="flex justify-between items-center">
